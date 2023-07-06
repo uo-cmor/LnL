@@ -11,6 +11,7 @@ website:
   navbar:
     title: "Centre for Musculoskeletal Outcomes Research<br><i>University of Otago</i>"
     logo: images/cmor-logo.jpg
+    logo-href: https://uo-cmor.github.io
     background: "white"
 
   sidebar:
