@@ -24,78 +24,78 @@
     "objectID": "presentations/Intro-to-R.html#what-is-r-what-is-rstudio",
     "href": "presentations/Intro-to-R.html#what-is-r-what-is-rstudio",
     "title": "Introduction to R",
-    "section": "",
-    "text": "R is a programming language designed to undertake statistical analysis\nRStudio is an Integrated Development Environment (IDE) for R\n\nAn IDE is a piece of software including a text editor and other tools to make programming (in this case programming in R, specifically) easier\nYou don’t need to use RStudio to use R, but it makes it a lot easier\nTo use RStudio, you also need R installed and working"
+    "section": "What is R? What is RStudio?",
+    "text": "What is R? What is RStudio?\n\nR is a programming language designed to undertake statistical analysis\nRStudio is an Integrated Development Environment (IDE) for R\n\nAn IDE is a piece of software including a text editor and other tools to make programming (in this case programming in R, specifically) easier\nYou don’t need to use RStudio to use R, but it makes it a lot easier\nTo use RStudio, you also need R installed and working"
   },
   {
     "objectID": "presentations/Intro-to-R.html#why-learn-r",
     "href": "presentations/Intro-to-R.html#why-learn-r",
     "title": "Introduction to R",
-    "section": "",
-    "text": "Powerful and extensible\n\nPretty much any statistical analysis you want to do can be done in R\nThere are a huge number of freely-available user-written packages that provide all sorts of additional functionality\n\nReproducibility\n\nBy writing R scripts (code) for your analyses, they can be easily checked/replicated/ updated/adapted, by yourself and others\n\nHigh-quality graphics\n\nR has a lot of plotting functions to help you produce publication-quality figures"
+    "section": "Why learn R?",
+    "text": "Why learn R?\n\nPowerful and extensible\n\nPretty much any statistical analysis you want to do can be done in R\nThere are a huge number of freely-available user-written packages that provide all sorts of additional functionality\n\nReproducibility\n\nBy writing R scripts (code) for your analyses, they can be easily checked/replicated/ updated/adapted, by yourself and others\n\nHigh-quality graphics\n\nR has a lot of plotting functions to help you produce publication-quality figures"
   },
   {
     "objectID": "presentations/Intro-to-R.html#getting-set-up",
     "href": "presentations/Intro-to-R.html#getting-set-up",
     "title": "Introduction to R",
-    "section": "",
-    "text": "Install R\n\nhttps://cloud.R-project.org/\nChoose the appropriate version for your operating system and follow the instructions\n\nInstall RStudio\n\nhttps://posit.co/download/rstudio-desktop/\nditto"
+    "section": "Getting set up",
+    "text": "Getting set up\n\nInstall R\n\nhttps://cloud.R-project.org/\nChoose the appropriate version for your operating system and follow the instructions\n\nInstall RStudio\n\nhttps://posit.co/download/rstudio-desktop/\nditto"
   },
   {
     "objectID": "presentations/Intro-to-R.html#getting-to-know-rstudio",
     "href": "presentations/Intro-to-R.html#getting-to-know-rstudio",
     "title": "Introduction to R",
-    "section": "",
-    "text": "Source\n\n\n\n\n\n\n\nConsole\n\n\n\n\n\n\n\nEnvironment/History\n\n\n\n\n\n\n\nFiles/Plots/Packages/Help/Viewer"
+    "section": "Getting to know RStudio",
+    "text": "Getting to know RStudio\n\n\n\n\n\n\n\n\nSource\n\n\n\n\n\n\n\nConsole\n\n\n\n\n\n\n\nEnvironment/History\n\n\n\n\n\n\n\nFiles/Plots/Packages/Help/Viewer"
   },
   {
     "objectID": "presentations/Intro-to-R.html#starting-with-r",
     "href": "presentations/Intro-to-R.html#starting-with-r",
     "title": "Introduction to R",
-    "section": "",
-    "text": ". . .\n\nWe can type math in the console, and get an answer:\n\n\n3+5\n\n[1] 8\n\n\n. . .\n\nBut to do anything useful, we need to assign the result to a name:\n\n\nx &lt;- 3 + 5\nx\n\n[1] 8"
+    "section": "Starting with R",
+    "text": "Starting with R\n\n\nWe can type math in the console, and get an answer:\n\n\n3+5\n\n[1] 8\n\n\n\n\n\nBut to do anything useful, we need to assign the result to a name:\n\n\nx &lt;- 3 + 5\nx\n\n[1] 8"
   },
   {
     "objectID": "presentations/Intro-to-R.html#starting-with-r-1",
     "href": "presentations/Intro-to-R.html#starting-with-r-1",
     "title": "Introduction to R",
-    "section": "",
-    "text": ". . .\n\nThen we can do things with them:\n\n\ny &lt;- 2 * x\ny\n\n[1] 16\n\n\n\n. . .\n\n\nBut note that once the value is assigned to y, changing x will not update y:\n\n\nx &lt;- 25\ny\n\n[1] 16"
+    "section": "Starting with R",
+    "text": "Starting with R\n\n\nThen we can do things with them:\n\n\ny &lt;- 2 * x\ny\n\n[1] 16\n\n\n\n\n\n\n\nBut note that once the value is assigned to y, changing x will not update y:\n\n\nx &lt;- 25\ny\n\n[1] 16"
   },
   {
     "objectID": "presentations/Intro-to-R.html#functions",
     "href": "presentations/Intro-to-R.html#functions",
     "title": "Introduction to R",
-    "section": "",
-    "text": "Functions allow us to run commands other than simple arithmetic\n\n\nsqrt(x)\n\n[1] 5\n\n\n\nFunctions consist of a set of input arguments, code that does something with those inputs, and a return value\n\n. . .\n\nTo get help on a function, look up the documentation\n\n?sqrt"
+    "section": "Functions",
+    "text": "Functions\n\nFunctions allow us to run commands other than simple arithmetic\n\n\nsqrt(x)\n\n[1] 5\n\n\n\nFunctions consist of a set of input arguments, code that does something with those inputs, and a return value\n\n\n\nTo get help on a function, look up the documentation\n\n?sqrt"
   },
   {
     "objectID": "presentations/Intro-to-R.html#functions-1",
     "href": "presentations/Intro-to-R.html#functions-1",
     "title": "Introduction to R",
-    "section": "",
-    "text": "You can (and should!) also write your own functions\n\n\ntimes2 &lt;- function(a) {\n    return(a * 2)\n}\ntimes2(x)\n\n[1] 50\n\n\n. . .\n\nSeparating your code out into discrete functions makes it\n\nshorter\neasier to follow\nless error prone"
+    "section": "Functions",
+    "text": "Functions\n\nYou can (and should!) also write your own functions\n\n\ntimes2 &lt;- function(a) {\n    return(a * 2)\n}\ntimes2(x)\n\n[1] 50\n\n\n\n\nSeparating your code out into discrete functions makes it\n\nshorter\neasier to follow\nless error prone"
   },
   {
     "objectID": "presentations/Intro-to-R.html#data-types",
     "href": "presentations/Intro-to-R.html#data-types",
     "title": "Introduction to R",
-    "section": "",
-    "text": "So far we have only seen single numeric values\nData in R can take many forms\n\nThe most basic data structure is the vector\n\n\n\nz &lt;- c(3, 7, 10, 6)\nz\n\n[1]  3  7 10  6\n\n\n. . .\n\nVectors can also contain characters\n\n\nc(\"apple\", \"banana\")\n\n[1] \"apple\"  \"banana\"\n\n\n\nThe quotes are essential:\notherwise R will look for the names ‘apple’ and ‘banana’ (if these names exist, it will use the values they refer to instead of the character strings; if they don’t, it will give an error)"
+    "section": "Data types",
+    "text": "Data types\n\nSo far we have only seen single numeric values\nData in R can take many forms\n\nThe most basic data structure is the vector\n\n\n\nz &lt;- c(3, 7, 10, 6)\nz\n\n[1]  3  7 10  6\n\n\n\n\nVectors can also contain characters\n\n\nc(\"apple\", \"banana\")\n\n[1] \"apple\"  \"banana\"\n\n\n\nThe quotes are essential:\notherwise R will look for the names ‘apple’ and ‘banana’ (if these names exist, it will use the values they refer to instead of the character strings; if they don’t, it will give an error)"
   },
   {
     "objectID": "presentations/Intro-to-R.html#data-types-1",
     "href": "presentations/Intro-to-R.html#data-types-1",
     "title": "Introduction to R",
-    "section": "",
-    "text": "The basic data types are numeric, character, logical (TRUE and FALSE values only), and integer\n\nAlso complex and raw, but we don’t need to worry about those\n\nIn addition to vectors, more complex data structures include:\n\nlists: similar to vectors, but the elements can be anything (including other lists), and don’t need to all be the same\nmatrices and arrays: like vectors, but with multiple dimensions\ndata frames: more on these later"
+    "section": "Data types",
+    "text": "Data types\n\nThe basic data types are numeric, character, logical (TRUE and FALSE values only), and integer\n\nAlso complex and raw, but we don’t need to worry about those\n\nIn addition to vectors, more complex data structures include:\n\nlists: similar to vectors, but the elements can be anything (including other lists), and don’t need to all be the same\nmatrices and arrays: like vectors, but with multiple dimensions\ndata frames: more on these later"
   },
   {
     "objectID": "presentations/Intro-to-R.html#subsetting",
     "href": "presentations/Intro-to-R.html#subsetting",
     "title": "Introduction to R",
-    "section": "",
-    "text": "We can extract values from within a vector (or other data structure) with square brackets\n\n\na &lt;- c(4, 2, 5, 12)\na[c(4, 2)]\n\n[1] 12  2\n\n\n\na[c(TRUE, FALSE, TRUE, FALSE)]\n\n[1] 4 5\n\n\n\nWe can use this in conjunction with a logical operator to do conditional subsetting\n\n\na[a &gt; 4]\n\n[1]  5 12"
+    "section": "Subsetting",
+    "text": "Subsetting\n\nWe can extract values from within a vector (or other data structure) with square brackets\n\n\na &lt;- c(4, 2, 5, 12)\na[c(4, 2)]\n\n[1] 12  2\n\n\n\na[c(TRUE, FALSE, TRUE, FALSE)]\n\n[1] 4 5\n\n\n\nWe can use this in conjunction with a logical operator to do conditional subsetting\n\n\na[a &gt; 4]\n\n[1]  5 12"
   },
   {
     "objectID": "presentations/Intro-to-R.html#data-frames",
@@ -144,7 +144,7 @@
     "href": "presentations/Intro-to-R.html#manipulating-data-frames-with-dplyr-3",
     "title": "Introduction to R",
     "section": "Manipulating data frames with dplyr",
-    "text": "Manipulating data frames with dplyr\n\nsummarise() to calculate summary statistics\n\n\nsummarise(gapminder, mean_gdpPercap = mean(gdpPercap))\n\n# A tibble: 1 × 1\n  mean_gdpPercap\n           &lt;dbl&gt;\n1          7215.\n\n\n. . .\n\nThis is most useful in conjunction with group_by()\n\n\nsummarise(group_by(gapminder, continent),\n                    mean_gdpPercap = mean(gdpPercap))\n\n# A tibble: 5 × 2\n  continent mean_gdpPercap\n  &lt;chr&gt;              &lt;dbl&gt;\n1 Africa             2194.\n2 Americas           7136.\n3 Asia               7902.\n4 Europe            14469.\n5 Oceania           18622."
+    "text": "Manipulating data frames with dplyr\n\nsummarise() to calculate summary statistics\n\n\nsummarise(gapminder, mean_gdpPercap = mean(gdpPercap))\n\n# A tibble: 1 × 1\n  mean_gdpPercap\n           &lt;dbl&gt;\n1          7215.\n\n\n\n\nThis is most useful in conjunction with group_by()\n\n\nsummarise(group_by(gapminder, continent),\n                    mean_gdpPercap = mean(gdpPercap))\n\n# A tibble: 5 × 2\n  continent mean_gdpPercap\n  &lt;chr&gt;              &lt;dbl&gt;\n1 Africa             2194.\n2 Americas           7136.\n3 Asia               7902.\n4 Europe            14469.\n5 Oceania           18622."
   },
   {
     "objectID": "presentations/Intro-to-R.html#manipulating-data-frames-with-dplyr-4",
@@ -200,7 +200,7 @@
     "href": "presentations/Intro-to-R.html#everything-in-r-is-an-object",
     "title": "Introduction to R",
     "section": "Everything in R is an object",
-    "text": "Everything in R is an object\n. . .\n\nThis includes your fitted regression models\n\n. . .\n\nWorkflow:\n\nImport/tidy/manipulate raw data\nRun regression or other models\nUse the created model objects\n\nprint to console\nsave to file\nextract coefficient estimates\nplot results\nexport to excel/word\netc."
+    "text": "Everything in R is an object\n\n\nThis includes your fitted regression models\n\n\n\n\nWorkflow:\n\nImport/tidy/manipulate raw data\nRun regression or other models\nUse the created model objects\n\nprint to console\nsave to file\nextract coefficient estimates\nplot results\nexport to excel/word\netc."
   },
   {
     "objectID": "presentations/Intro-to-R.html#fitted-model-objects",
@@ -256,14 +256,14 @@
     "href": "presentations/Intro-to-R.html#first-example-linear-regression-4",
     "title": "Introduction to R",
     "section": "First example – linear regression",
-    "text": "First example – linear regression\n\nIf we want to work with the results or combine/compare them with other models, tidy() from the broom package will put them into a nice tidy tibble\n\n\nlibrary(broom)\ntidy(linear_regression_model)\n\n# A tibble: 6 × 5\n  term               estimate std.error statistic   p.value\n  &lt;chr&gt;                 &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;\n1 (Intercept)       47.9      0.340         141.  0        \n2 gdpPercap          0.000445 0.0000235      18.9 8.55e- 73\n3 continentAmericas 13.6      0.601          22.6 2.82e- 99\n4 continentAsia      8.66     0.555          15.6 2.72e- 51\n5 continentEurope   17.6      0.626          28.1 7.60e-143\n6 continentOceania  18.1      1.79           10.2 1.50e- 23\n\n\n. . .\n\nAnd glance() gives us several overall model statistics\n\n\nglance(linear_regression_model)\n\n# A tibble: 1 × 12\n  r.squared adj.r.squared sigma statistic   p.value    df logLik    AIC    BIC deviance\n      &lt;dbl&gt;         &lt;dbl&gt; &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt; &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;    &lt;dbl&gt;\n1     0.579         0.578  8.39      468. 4.26e-316     5 -6039. 12093. 12131.  119528.\n# ℹ 2 more variables: df.residual &lt;int&gt;, nobs &lt;int&gt;"
+    "text": "First example – linear regression\n\nIf we want to work with the results or combine/compare them with other models, tidy() from the broom package will put them into a nice tidy tibble\n\n\nlibrary(broom)\ntidy(linear_regression_model)\n\n# A tibble: 6 × 5\n  term               estimate std.error statistic   p.value\n  &lt;chr&gt;                 &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;\n1 (Intercept)       47.9      0.340         141.  0        \n2 gdpPercap          0.000445 0.0000235      18.9 8.55e- 73\n3 continentAmericas 13.6      0.601          22.6 2.82e- 99\n4 continentAsia      8.66     0.555          15.6 2.72e- 51\n5 continentEurope   17.6      0.626          28.1 7.60e-143\n6 continentOceania  18.1      1.79           10.2 1.50e- 23\n\n\n\n\nAnd glance() gives us several overall model statistics\n\n\nglance(linear_regression_model)\n\n# A tibble: 1 × 12\n  r.squared adj.r.squared sigma statistic   p.value    df logLik    AIC    BIC deviance\n      &lt;dbl&gt;         &lt;dbl&gt; &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt; &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;    &lt;dbl&gt;\n1     0.579         0.578  8.39      468. 4.26e-316     5 -6039. 12093. 12131.  119528.\n# ℹ 2 more variables: df.residual &lt;int&gt;, nobs &lt;int&gt;"
   },
   {
     "objectID": "presentations/Intro-to-R.html#first-example-linear-regression-5",
     "href": "presentations/Intro-to-R.html#first-example-linear-regression-5",
     "title": "Introduction to R",
     "section": "First example – linear regression",
-    "text": "First example – linear regression\n\nThe lmtest and car packages provide tools for inference & hypothesis testing\nVarious clustered and heteroskedasticity-robust standard errors are provided by sandwich\n\nThese work well together (and with tidy() from broom)\n\n\n. . .\n\nlibrary(lmtest)\nlibrary(sandwich)\nlinear_regression_model %&gt;% \n  coeftest(vcov. = vcovCL, cluster = ~country) %&gt;% \n    tidy()\n\n# A tibble: 6 × 5\n  term               estimate std.error statistic  p.value\n  &lt;chr&gt;                 &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;    &lt;dbl&gt;\n1 (Intercept)       47.9       0.904        53.0  0       \n2 gdpPercap          0.000445  0.000159      2.81 5.05e- 3\n3 continentAmericas 13.6       1.56          8.69 8.32e-18\n4 continentAsia      8.66      1.55          5.57 2.98e- 8\n5 continentEurope   17.6       2.18          8.06 1.44e-15\n6 continentOceania  18.1       2.77          6.55 7.36e-11"
+    "text": "First example – linear regression\n\nThe lmtest and car packages provide tools for inference & hypothesis testing\nVarious clustered and heteroskedasticity-robust standard errors are provided by sandwich\n\nThese work well together (and with tidy() from broom)\n\n\n\n\nlibrary(lmtest)\nlibrary(sandwich)\nlinear_regression_model %&gt;% \n  coeftest(vcov. = vcovCL, cluster = ~country) %&gt;% \n    tidy()\n\n# A tibble: 6 × 5\n  term               estimate std.error statistic  p.value\n  &lt;chr&gt;                 &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;    &lt;dbl&gt;\n1 (Intercept)       47.9       0.904        53.0  0       \n2 gdpPercap          0.000445  0.000159      2.81 5.05e- 3\n3 continentAmericas 13.6       1.56          8.69 8.32e-18\n4 continentAsia      8.66      1.55          5.57 2.98e- 8\n5 continentEurope   17.6       2.18          8.06 1.44e-15\n6 continentOceania  18.1       2.77          6.55 7.36e-11"
   },
   {
     "objectID": "presentations/Intro-to-R.html#generalised-linear-regression",
@@ -284,14 +284,14 @@
     "href": "presentations/Intro-to-R.html#generalised-linear-regression-2",
     "title": "Introduction to R",
     "section": "Generalised linear regression",
-    "text": "Generalised linear regression\n\nAnd use tidy() and glance() from the broom package to produce nice tidy tibbles\n\n. . .\n\ntidy(gen_linear_regression_model, conf.int = TRUE, exponentiate = TRUE)\n\n# A tibble: 6 × 7\n  term              estimate   std.error statistic   p.value conf.low conf.high\n  &lt;chr&gt;                &lt;dbl&gt;       &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;    &lt;dbl&gt;     &lt;dbl&gt;\n1 (Intercept)          48.2  0.00652         594.  0            47.6      48.8 \n2 gdpPercap             1.00 0.000000347      17.7 1.42e- 64     1.00      1.00\n3 continentAmericas     1.28 0.0105           23.6 6.86e-107     1.26      1.31\n4 continentAsia         1.18 0.0101           16.6 3.57e- 57     1.16      1.21\n5 continentEurope       1.36 0.0105           29.3 2.32e-153     1.33      1.39\n6 continentOceania      1.37 0.0282           11.3 1.57e- 28     1.30      1.45\n\n\n. . .\n\n\nglance(gen_linear_regression_model)\n\n# A tibble: 1 × 8\n  null.deviance df.null logLik   AIC   BIC deviance df.residual  nobs\n          &lt;dbl&gt;   &lt;int&gt;  &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;    &lt;dbl&gt;       &lt;int&gt; &lt;int&gt;\n1         4946.    1703     NA    NA    NA    2229.        1698  1704"
+    "text": "Generalised linear regression\n\nAnd use tidy() and glance() from the broom package to produce nice tidy tibbles\n\n\n\ntidy(gen_linear_regression_model, conf.int = TRUE, exponentiate = TRUE)\n\n# A tibble: 6 × 7\n  term              estimate   std.error statistic   p.value conf.low conf.high\n  &lt;chr&gt;                &lt;dbl&gt;       &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;    &lt;dbl&gt;     &lt;dbl&gt;\n1 (Intercept)          48.2  0.00652         594.  0            47.6      48.8 \n2 gdpPercap             1.00 0.000000347      17.7 1.42e- 64     1.00      1.00\n3 continentAmericas     1.28 0.0105           23.6 6.86e-107     1.26      1.31\n4 continentAsia         1.18 0.0101           16.6 3.57e- 57     1.16      1.21\n5 continentEurope       1.36 0.0105           29.3 2.32e-153     1.33      1.39\n6 continentOceania      1.37 0.0282           11.3 1.57e- 28     1.30      1.45\n\n\n\n\n\n\nglance(gen_linear_regression_model)\n\n# A tibble: 1 × 8\n  null.deviance df.null logLik   AIC   BIC deviance df.residual  nobs\n          &lt;dbl&gt;   &lt;int&gt;  &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;    &lt;dbl&gt;       &lt;int&gt; &lt;int&gt;\n1         4946.    1703     NA    NA    NA    2229.        1698  1704"
   },
   {
     "objectID": "presentations/Intro-to-R.html#what-else",
     "href": "presentations/Intro-to-R.html#what-else",
     "title": "Introduction to R",
     "section": "What else?",
-    "text": "What else?\n\nThere are many (many!) other packages that estimate different regression models or provide tools for diagnostic testing, post-hoc analysis, or visualisation of regression models\nFor example, the Econometrics Task View on cran.r-project.org\n\n. . .\n\nSome that might be of particular relevance to (some of) you:\n\nmediation: parametric and non-parametric mediation analysis\neRm and ltm: Rasch models\nmetafor: meta-analysis\nrstan, rstanarm, and brms: Bayesian analysis (using Stan)\nplm, fixest, lme4, and nlme: panel and multi-level/mixed effect models"
+    "text": "What else?\n\nThere are many (many!) other packages that estimate different regression models or provide tools for diagnostic testing, post-hoc analysis, or visualisation of regression models\nFor example, the Econometrics Task View on cran.r-project.org\n\n\n\nSome that might be of particular relevance to (some of) you:\n\nmediation: parametric and non-parametric mediation analysis\neRm and ltm: Rasch models\nmetafor: meta-analysis\nrstan, rstanarm, and brms: Bayesian analysis (using Stan)\nplm, fixest, lme4, and nlme: panel and multi-level/mixed effect models"
   },
   {
     "objectID": "presentations/Intro-to-R.html#data-visualisation-with-ggplot2",
@@ -431,7 +431,7 @@
     "href": "presentations/Intro-to-R.html#key-principles-design-for-collaboration",
     "title": "Introduction to R",
     "section": "Key principles – Design for collaboration",
-    "text": "Key principles – Design for collaboration\n. . .\n\nAn analysis directory like this makes it very difficult for anyone (including yourself later) to follow the steps required to reproduce your results"
+    "text": "Key principles – Design for collaboration\n\n\nAn analysis directory like this makes it very difficult for anyone (including yourself later) to follow the steps required to reproduce your results"
   },
   {
     "objectID": "presentations/Intro-to-R.html#key-principles-design-for-collaboration-1",
@@ -584,64 +584,64 @@
     "objectID": "presentations/osf.html#what-is-open-science",
     "href": "presentations/osf.html#what-is-open-science",
     "title": "Open Science at CMOR",
-    "section": "",
-    "text": "Open science is a set of principles and practices that aim to make scientific research from all fields accessible to everyone for the benefits of scientists and society as a whole.\n\n— UNESCO Recommendation on Open Science"
+    "section": "What is Open Science?",
+    "text": "What is Open Science?\n\n\nOpen science is a set of principles and practices that aim to make scientific research from all fields accessible to everyone for the benefits of scientists and society as a whole.\n\n— UNESCO Recommendation on Open Science"
   },
   {
     "objectID": "presentations/osf.html#closed-science",
     "href": "presentations/osf.html#closed-science",
     "title": "Open Science at CMOR",
-    "section": "",
-    "text": "Research published only in paywalled journals that not everyone can access\nData that supports scientific results being unavailable\nSoftware, code, protocols, etc. being unknown, undocumented, or inaccessible\nScience not being accessible to communities that would benefit from it"
+    "section": "“Closed” Science",
+    "text": "“Closed” Science\n\n\nResearch published only in paywalled journals that not everyone can access\nData that supports scientific results being unavailable\nSoftware, code, protocols, etc. being unknown, undocumented, or inaccessible\nScience not being accessible to communities that would benefit from it"
   },
   {
     "objectID": "presentations/osf.html#principles-of-open-science",
     "href": "presentations/osf.html#principles-of-open-science",
     "title": "Open Science at CMOR",
-    "section": "",
-    "text": "Transparency, scrutiny, critique, and responsibility\nEquality of opportunities\nResponsibility, respect, and accountability\nCollaboration, participation, and inclusion\nFlexibility\nSustainability"
+    "section": "Principles of Open Science",
+    "text": "Principles of Open Science\n\n\nTransparency, scrutiny, critique, and responsibility\nEquality of opportunities\nResponsibility, respect, and accountability\nCollaboration, participation, and inclusion\nFlexibility\nSustainability"
   },
   {
     "objectID": "presentations/osf.html#principles-of-open-science-1",
     "href": "presentations/osf.html#principles-of-open-science-1",
     "title": "Open Science at CMOR",
-    "section": "",
-    "text": "Today we’ll mostly focus on the first principle\n\nTransparency, or what we might call ‘open scientific knowledge’\n\n\n\n. . .\n\nAre our publications, data, metadata, protocols, educational resources, software, source code freely available to all?\n\n\n. . .\n(This is one end of a continuum of ‘openness’ – depending on the context, nature of the data, etc., it may not be desirable to make all of these completely open in all circumstances)"
+    "section": "Principles of Open Science",
+    "text": "Principles of Open Science\n\nToday we’ll mostly focus on the first principle\n\nTransparency, or what we might call ‘open scientific knowledge’\n\n\n\n\n\nAre our publications, data, metadata, protocols, educational resources, software, source code freely available to all?\n\n\n\n\n(This is one end of a continuum of ‘openness’ – depending on the context, nature of the data, etc., it may not be desirable to make all of these completely open in all circumstances)"
   },
   {
     "objectID": "presentations/osf.html#the-research-workflow",
     "href": "presentations/osf.html#the-research-workflow",
     "title": "Open Science at CMOR",
-    "section": "",
-    "text": "We design a study to answer a research question\n\n\n. . .\n\nWe collect some data\n\n\n. . .\n\nWe analyse the data and write a paper\n\n\n. . .\n\nThe paper gets published"
+    "section": "The Research Workflow",
+    "text": "The Research Workflow\n\n\nWe design a study to answer a research question\n\n\n\n\nWe collect some data\n\n\n\n\n\nWe analyse the data and write a paper\n\n\n\n\n\nThe paper gets published"
   },
   {
     "objectID": "presentations/osf.html#the-research-workflow-1",
     "href": "presentations/osf.html#the-research-workflow-1",
     "title": "Open Science at CMOR",
-    "section": "",
-    "text": "Usually, only\n\n\n4. The paper gets published\n\nresults in any accessible output\n. . .\n\n(And often then it is behind a journal paywall and not accessible to all)\n. . .\n\n\n1., 2., and 3. are often a black box, accessible only to the researcher themselves"
+    "section": "The Research Workflow",
+    "text": "The Research Workflow\n\n\nUsually, only\n\n\n4. The paper gets published\n\nresults in any accessible output\n\n\n(And often then it is behind a journal paywall and not accessible to all)\n\n\n\n\n1., 2., and 3. are often a black box, accessible only to the researcher themselves"
   },
   {
     "objectID": "presentations/osf.html#components-of-open-scientific-knowledge",
     "href": "presentations/osf.html#components-of-open-scientific-knowledge",
     "title": "Open Science at CMOR",
-    "section": "",
-    "text": "Open protocols/documentation\nOpen research data\nOpen software/source code\nOpen access publication"
+    "section": "Components of Open Scientific Knowledge",
+    "text": "Components of Open Scientific Knowledge\n\n\nOpen protocols/documentation\nOpen research data\nOpen software/source code\nOpen access publication"
   },
   {
     "objectID": "presentations/osf.html#open-protocolsdocumentation",
     "href": "presentations/osf.html#open-protocolsdocumentation",
     "title": "Open Science at CMOR",
-    "section": "",
-    "text": "RCTs and systematic reviews now generally require registration and pre-specified protocols, e.g.\n\nClinicalTrials.gov for clinical trials in the US\nANZCTR in Australia/NZ\nPROSPERO for systematic reviews\n\n\n\n\nUsually not required for other study types, but still a good idea"
+    "section": "Open protocols/documentation",
+    "text": "Open protocols/documentation\n\n\nRCTs and systematic reviews now generally require registration and pre-specified protocols, e.g.\n\nClinicalTrials.gov for clinical trials in the US\nANZCTR in Australia/NZ\nPROSPERO for systematic reviews\n\n\n\n\nUsually not required for other study types, but still a good idea"
   },
   {
     "objectID": "presentations/osf.html#open-research-data",
     "href": "presentations/osf.html#open-research-data",
     "title": "Open Science at CMOR",
-    "section": "",
-    "text": "Open data allows other researchers to:\n\ncheck the correctness of your analysis\ncombine your data with other sources (e.g. IPD meta-analysis)\nuse your data to answer questions you hadn’t even thought of…\n\nFor health data, it is very important to consider the appropriateness of data sharing:\n\nis additional data preprocessing needed to ensure participant anonymity?\nshould there be restrictions on who can access data and for what purpose?\n\nIf data is being shared, it needs to be documented clearly"
+    "section": "Open research data",
+    "text": "Open research data\n\n\nOpen data allows other researchers to:\n\ncheck the correctness of your analysis\ncombine your data with other sources (e.g. IPD meta-analysis)\nuse your data to answer questions you hadn’t even thought of…\n\nFor health data, it is very important to consider the appropriateness of data sharing:\n\nis additional data preprocessing needed to ensure participant anonymity?\nshould there be restrictions on who can access data and for what purpose?\n\nIf data is being shared, it needs to be documented clearly"
   },
   {
     "objectID": "presentations/osf.html#open-softwaresource-code",
@@ -690,7 +690,7 @@
     "href": "presentations/osf.html#resources",
     "title": "Open Science at CMOR",
     "section": "Resources",
-    "text": "Resources\n\nUNESCO Recommendation on Open Science\nhttps://www.unesco.org/en/open-science\nPassport for Open Science (Ministry of Higher Education and Research, France)\nhttps://www.ouvrirlascience.fr/passport-for-open-science-a-practical-guide-for-phd-students/\nThe Open Science Training Handbook (FOSTER Open Science)\nhttps://open-science-training-handbook.github.io/Open-Science-Training-Handbook_EN/\nOtago’s Read & Publish agreements\nhttps://otago.libguides.com/research_publishing_impact/read-and-publish\nSherpa Services\nhttps://beta.sherpa.ac.uk/\nOSF\nhttps://osf.io (CMOR: https://osf.io/stw9e/)"
+    "text": "Resources\n\nUNESCO Recommendation on Open Science\nhttps://www.unesco.org/en/open-science\nPassport for Open Science (Ministry of Higher Education and Research, France)\nhttps://www.ouvrirlascience.fr/passport-for-open-science-a-practical-guide-for-phd-students/\nThe Open Science Training Handbook (FOSTER Open Science)\nhttps://open-science-training-handbook.github.io/Open-Science-Training-Handbook_EN/\nOtago’s Read & Publish agreements\nhttps://otago.libguides.com/research_publishing_impact/read-and-publish\nSherpa Services\nhttps://beta.sherpa.ac.uk/\nOSF\nhttps://osf.io (CMOR: https://osf.io/stw9e/)\n\n\n\nReturn to CMOR Lunch’n’Learn presentations"
   },
   {
     "objectID": "presentations/meta-analysis.html",
@@ -703,8 +703,8 @@
     "objectID": "presentations/meta-analysis.html#systematic-reviews-and-meta-analyses",
     "href": "presentations/meta-analysis.html#systematic-reviews-and-meta-analyses",
     "title": "Introduction to Meta-Analysis",
-    "section": "",
-    "text": "From Cochrane:\n\nA systematic review is a study that\n“attempts to identify, appraise, and synthesize all the empirical evidence that meets pre-specified eligibility criteria to answer a specific research question”\nMeta-analysis is the statistical combination of results from two or more separate studies\n\nMeta-analysis is often one part of a systematic review"
+    "section": "Systematic reviews and meta-analyses",
+    "text": "Systematic reviews and meta-analyses\n\nFrom Cochrane:\n\nA systematic review is a study that\n“attempts to identify, appraise, and synthesize all the empirical evidence that meets pre-specified eligibility criteria to answer a specific research question”\nMeta-analysis is the statistical combination of results from two or more separate studies\n\nMeta-analysis is often one part of a systematic review"
   },
   {
     "objectID": "presentations/meta-analysis.html#potential-advantages-of-meta-analyses",
@@ -795,6 +795,6 @@
     "href": "presentations/meta-analysis.html#references",
     "title": "Introduction to Meta-Analysis",
     "section": "References",
-    "text": "References\n\nCochrane Handbook for Systematic Reviews of Interventions\nhttps://training.cochrane.org/handbook/current\n\nDetails of the statistical methods: https://documentation.cochrane.org/revman-kb/files/210600101/210600103/1/1654774257333/Statistical_methods_in_revman.pdf\n\nEgger M, Smith GD, Altman DG. Systematic Reviews in Health Care: Meta-Analysis in Context, 2nd Ed. London, UK: BMJ Publishing Group. 2001.\nhttps://doi.org/10.1002/9780470693926\nJin Z-C, Zhou X-H, He J. Statistical methods for dealing with publication bias in meta-analysis. Statistics in Medicine 2015;34(2):343-360\nhttps://doi.org/10.1002/sim.6342\nmetafor R package https://wviechtb.github.io/metafor/"
+    "text": "References\n\nCochrane Handbook for Systematic Reviews of Interventions\nhttps://training.cochrane.org/handbook/current\n\nDetails of the statistical methods: https://documentation.cochrane.org/revman-kb/files/210600101/210600103/1/1654774257333/Statistical_methods_in_revman.pdf\n\nEgger M, Smith GD, Altman DG. Systematic Reviews in Health Care: Meta-Analysis in Context, 2nd Ed. London, UK: BMJ Publishing Group. 2001.\nhttps://doi.org/10.1002/9780470693926\nJin Z-C, Zhou X-H, He J. Statistical methods for dealing with publication bias in meta-analysis. Statistics in Medicine 2015;34(2):343-360\nhttps://doi.org/10.1002/sim.6342\nmetafor R package https://wviechtb.github.io/metafor/\n\n\n\nReturn to CMOR Lunch’n’Learn presentations"
   }
 ]
