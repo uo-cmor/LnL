@@ -1,0 +1,800 @@
+[
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "CMOR Lunch’n’Learn",
+    "section": "",
+    "text": "We run a series of workshops and seminars in research methods, career development, etc. for graduate students and early career researchers at CMOR. A selection of presentations from these workshops is available below."
+  },
+  {
+    "objectID": "index.html#slide-decks",
+    "href": "index.html#slide-decks",
+    "title": "CMOR Lunch’n’Learn",
+    "section": "Slide decks",
+    "text": "Slide decks\n\nIntroduction to R\nOpen science (and the Open Science Framework)\nIntroduction to meta-analysis"
+  },
+  {
+    "objectID": "presentations/Intro-to-R.html",
+    "href": "presentations/Intro-to-R.html",
+    "title": "Introduction to R",
+    "section": "",
+    "text": "R is a programming language designed to undertake statistical analysis\nRStudio is an Integrated Development Environment (IDE) for R\n\nAn IDE is a piece of software including a text editor and other tools to make programming (in this case programming in R, specifically) easier\nYou don’t need to use RStudio to use R, but it makes it a lot easier\nTo use RStudio, you also need R installed and working\n\n\n\n\n\n\nPowerful and extensible\n\nPretty much any statistical analysis you want to do can be done in R\nThere are a huge number of freely-available user-written packages that provide all sorts of additional functionality\n\nReproducibility\n\nBy writing R scripts (code) for your analyses, they can be easily checked/replicated/ updated/adapted, by yourself and others\n\nHigh-quality graphics\n\nR has a lot of plotting functions to help you produce publication-quality figures\n\n\n\n\n\n\nInstall R\n\nhttps://cloud.R-project.org/\nChoose the appropriate version for your operating system and follow the instructions\n\nInstall RStudio\n\nhttps://posit.co/download/rstudio-desktop/\nditto\n\n\n\n\n\n\n\n\n\n\n\n\n\nSource\n\n\n\n\n\n\n\nConsole\n\n\n\n\n\n\n\nEnvironment/History\n\n\n\n\n\n\n\nFiles/Plots/Packages/Help/Viewer\n\n\n\n\n\n. . .\n\nWe can type math in the console, and get an answer:\n\n\n3+5\n\n[1] 8\n\n\n. . .\n\nBut to do anything useful, we need to assign the result to a name:\n\n\nx &lt;- 3 + 5\nx\n\n[1] 8\n\n\n\n\n\n\n. . .\n\nThen we can do things with them:\n\n\ny &lt;- 2 * x\ny\n\n[1] 16\n\n\n\n. . .\n\n\nBut note that once the value is assigned to y, changing x will not update y:\n\n\nx &lt;- 25\ny\n\n[1] 16\n\n\n\n\n\n\nFunctions allow us to run commands other than simple arithmetic\n\n\nsqrt(x)\n\n[1] 5\n\n\n\nFunctions consist of a set of input arguments, code that does something with those inputs, and a return value\n\n. . .\n\nTo get help on a function, look up the documentation\n\n?sqrt\n\n\n\n\n\nYou can (and should!) also write your own functions\n\n\ntimes2 &lt;- function(a) {\n    return(a * 2)\n}\ntimes2(x)\n\n[1] 50\n\n\n. . .\n\nSeparating your code out into discrete functions makes it\n\nshorter\neasier to follow\nless error prone\n\n\n\n\n\n\nSo far we have only seen single numeric values\nData in R can take many forms\n\nThe most basic data structure is the vector\n\n\n\nz &lt;- c(3, 7, 10, 6)\nz\n\n[1]  3  7 10  6\n\n\n. . .\n\nVectors can also contain characters\n\n\nc(\"apple\", \"banana\")\n\n[1] \"apple\"  \"banana\"\n\n\n\nThe quotes are essential:\notherwise R will look for the names ‘apple’ and ‘banana’ (if these names exist, it will use the values they refer to instead of the character strings; if they don’t, it will give an error)\n\n\n\n\n\nThe basic data types are numeric, character, logical (TRUE and FALSE values only), and integer\n\nAlso complex and raw, but we don’t need to worry about those\n\nIn addition to vectors, more complex data structures include:\n\nlists: similar to vectors, but the elements can be anything (including other lists), and don’t need to all be the same\nmatrices and arrays: like vectors, but with multiple dimensions\ndata frames: more on these later\n\n\n\n\n\n\nWe can extract values from within a vector (or other data structure) with square brackets\n\n\na &lt;- c(4, 2, 5, 12)\na[c(4, 2)]\n\n[1] 12  2\n\n\n\na[c(TRUE, FALSE, TRUE, FALSE)]\n\n[1] 4 5\n\n\n\nWe can use this in conjunction with a logical operator to do conditional subsetting\n\n\na[a &gt; 4]\n\n[1]  5 12"
+  },
+  {
+    "objectID": "presentations/Intro-to-R.html#what-is-r-what-is-rstudio",
+    "href": "presentations/Intro-to-R.html#what-is-r-what-is-rstudio",
+    "title": "Introduction to R",
+    "section": "",
+    "text": "R is a programming language designed to undertake statistical analysis\nRStudio is an Integrated Development Environment (IDE) for R\n\nAn IDE is a piece of software including a text editor and other tools to make programming (in this case programming in R, specifically) easier\nYou don’t need to use RStudio to use R, but it makes it a lot easier\nTo use RStudio, you also need R installed and working"
+  },
+  {
+    "objectID": "presentations/Intro-to-R.html#why-learn-r",
+    "href": "presentations/Intro-to-R.html#why-learn-r",
+    "title": "Introduction to R",
+    "section": "",
+    "text": "Powerful and extensible\n\nPretty much any statistical analysis you want to do can be done in R\nThere are a huge number of freely-available user-written packages that provide all sorts of additional functionality\n\nReproducibility\n\nBy writing R scripts (code) for your analyses, they can be easily checked/replicated/ updated/adapted, by yourself and others\n\nHigh-quality graphics\n\nR has a lot of plotting functions to help you produce publication-quality figures"
+  },
+  {
+    "objectID": "presentations/Intro-to-R.html#getting-set-up",
+    "href": "presentations/Intro-to-R.html#getting-set-up",
+    "title": "Introduction to R",
+    "section": "",
+    "text": "Install R\n\nhttps://cloud.R-project.org/\nChoose the appropriate version for your operating system and follow the instructions\n\nInstall RStudio\n\nhttps://posit.co/download/rstudio-desktop/\nditto"
+  },
+  {
+    "objectID": "presentations/Intro-to-R.html#getting-to-know-rstudio",
+    "href": "presentations/Intro-to-R.html#getting-to-know-rstudio",
+    "title": "Introduction to R",
+    "section": "",
+    "text": "Source\n\n\n\n\n\n\n\nConsole\n\n\n\n\n\n\n\nEnvironment/History\n\n\n\n\n\n\n\nFiles/Plots/Packages/Help/Viewer"
+  },
+  {
+    "objectID": "presentations/Intro-to-R.html#starting-with-r",
+    "href": "presentations/Intro-to-R.html#starting-with-r",
+    "title": "Introduction to R",
+    "section": "",
+    "text": ". . .\n\nWe can type math in the console, and get an answer:\n\n\n3+5\n\n[1] 8\n\n\n. . .\n\nBut to do anything useful, we need to assign the result to a name:\n\n\nx &lt;- 3 + 5\nx\n\n[1] 8"
+  },
+  {
+    "objectID": "presentations/Intro-to-R.html#starting-with-r-1",
+    "href": "presentations/Intro-to-R.html#starting-with-r-1",
+    "title": "Introduction to R",
+    "section": "",
+    "text": ". . .\n\nThen we can do things with them:\n\n\ny &lt;- 2 * x\ny\n\n[1] 16\n\n\n\n. . .\n\n\nBut note that once the value is assigned to y, changing x will not update y:\n\n\nx &lt;- 25\ny\n\n[1] 16"
+  },
+  {
+    "objectID": "presentations/Intro-to-R.html#functions",
+    "href": "presentations/Intro-to-R.html#functions",
+    "title": "Introduction to R",
+    "section": "",
+    "text": "Functions allow us to run commands other than simple arithmetic\n\n\nsqrt(x)\n\n[1] 5\n\n\n\nFunctions consist of a set of input arguments, code that does something with those inputs, and a return value\n\n. . .\n\nTo get help on a function, look up the documentation\n\n?sqrt"
+  },
+  {
+    "objectID": "presentations/Intro-to-R.html#functions-1",
+    "href": "presentations/Intro-to-R.html#functions-1",
+    "title": "Introduction to R",
+    "section": "",
+    "text": "You can (and should!) also write your own functions\n\n\ntimes2 &lt;- function(a) {\n    return(a * 2)\n}\ntimes2(x)\n\n[1] 50\n\n\n. . .\n\nSeparating your code out into discrete functions makes it\n\nshorter\neasier to follow\nless error prone"
+  },
+  {
+    "objectID": "presentations/Intro-to-R.html#data-types",
+    "href": "presentations/Intro-to-R.html#data-types",
+    "title": "Introduction to R",
+    "section": "",
+    "text": "So far we have only seen single numeric values\nData in R can take many forms\n\nThe most basic data structure is the vector\n\n\n\nz &lt;- c(3, 7, 10, 6)\nz\n\n[1]  3  7 10  6\n\n\n. . .\n\nVectors can also contain characters\n\n\nc(\"apple\", \"banana\")\n\n[1] \"apple\"  \"banana\"\n\n\n\nThe quotes are essential:\notherwise R will look for the names ‘apple’ and ‘banana’ (if these names exist, it will use the values they refer to instead of the character strings; if they don’t, it will give an error)"
+  },
+  {
+    "objectID": "presentations/Intro-to-R.html#data-types-1",
+    "href": "presentations/Intro-to-R.html#data-types-1",
+    "title": "Introduction to R",
+    "section": "",
+    "text": "The basic data types are numeric, character, logical (TRUE and FALSE values only), and integer\n\nAlso complex and raw, but we don’t need to worry about those\n\nIn addition to vectors, more complex data structures include:\n\nlists: similar to vectors, but the elements can be anything (including other lists), and don’t need to all be the same\nmatrices and arrays: like vectors, but with multiple dimensions\ndata frames: more on these later"
+  },
+  {
+    "objectID": "presentations/Intro-to-R.html#subsetting",
+    "href": "presentations/Intro-to-R.html#subsetting",
+    "title": "Introduction to R",
+    "section": "",
+    "text": "We can extract values from within a vector (or other data structure) with square brackets\n\n\na &lt;- c(4, 2, 5, 12)\na[c(4, 2)]\n\n[1] 12  2\n\n\n\na[c(TRUE, FALSE, TRUE, FALSE)]\n\n[1] 4 5\n\n\n\nWe can use this in conjunction with a logical operator to do conditional subsetting\n\n\na[a &gt; 4]\n\n[1]  5 12"
+  },
+  {
+    "objectID": "presentations/Intro-to-R.html#data-frames",
+    "href": "presentations/Intro-to-R.html#data-frames",
+    "title": "Introduction to R",
+    "section": "Data frames",
+    "text": "Data frames\n\nA data frame is a tabular data structure (like a spreadsheet)\n\nEach column is a variable\nEach row is an observation\n\nEach column (variable) is a vector, so must contain a single data type\n\nBut different columns can have different types\n\nWe can read data from Excel or CSV spreadsheets, data files from Stata etc, previously saved R data frames, and much else…"
+  },
+  {
+    "objectID": "presentations/Intro-to-R.html#the-tidyverse",
+    "href": "presentations/Intro-to-R.html#the-tidyverse",
+    "title": "Introduction to R",
+    "section": "The tidyverse",
+    "text": "The tidyverse\n\nThe ‘tidyverse’ is a collection of packages created by the company that makes RStudio\nIt contains a lot of functions designed to make working with data frames easier\n\ntibble: a replacement for base data frames\nreadr: read tabular data like csv files (also readxl for Excel files, haven for SPSS/Stata/SAS, and others for different file types)\ndplyr: data manipulation\ntidyr: reshaping and tidying data\nggplot2: creating plots\npurrr: functional programming\nstringr: working with character strings\nforcats: working with factor variables"
+  },
+  {
+    "objectID": "presentations/Intro-to-R.html#data-frames-1",
+    "href": "presentations/Intro-to-R.html#data-frames-1",
+    "title": "Introduction to R",
+    "section": "Data frames",
+    "text": "Data frames\n\nReading in a data frame with read_csv():\n\n\nlibrary(tidyverse)\ngapminder &lt;- read_csv(\"raw_data/gapminder_data.csv\")\ngapminder\n\n# A tibble: 1,704 × 6\n   country      year      pop continent lifeExp gdpPercap\n   &lt;chr&gt;       &lt;dbl&gt;    &lt;dbl&gt; &lt;chr&gt;       &lt;dbl&gt;     &lt;dbl&gt;\n 1 Afghanistan  1952  8425333 Asia         28.8      779.\n 2 Afghanistan  1957  9240934 Asia         30.3      821.\n 3 Afghanistan  1962 10267083 Asia         32.0      853.\n 4 Afghanistan  1967 11537966 Asia         34.0      836.\n 5 Afghanistan  1972 13079460 Asia         36.1      740.\n 6 Afghanistan  1977 14880372 Asia         38.4      786.\n 7 Afghanistan  1982 12881816 Asia         39.9      978.\n 8 Afghanistan  1987 13867957 Asia         40.8      852.\n 9 Afghanistan  1992 16317921 Asia         41.7      649.\n10 Afghanistan  1997 22227415 Asia         41.8      635.\n# ℹ 1,694 more rows"
+  },
+  {
+    "objectID": "presentations/Intro-to-R.html#manipulating-data-frames-with-dplyr",
+    "href": "presentations/Intro-to-R.html#manipulating-data-frames-with-dplyr",
+    "title": "Introduction to R",
+    "section": "Manipulating data frames with dplyr",
+    "text": "Manipulating data frames with dplyr\n\nselect() only a subset of variables\n\n\nselect(gapminder, year, country, gdpPercap)\n\n# A tibble: 1,704 × 3\n    year country     gdpPercap\n   &lt;dbl&gt; &lt;chr&gt;           &lt;dbl&gt;\n 1  1952 Afghanistan      779.\n 2  1957 Afghanistan      821.\n 3  1962 Afghanistan      853.\n 4  1967 Afghanistan      836.\n 5  1972 Afghanistan      740.\n 6  1977 Afghanistan      786.\n 7  1982 Afghanistan      978.\n 8  1987 Afghanistan      852.\n 9  1992 Afghanistan      649.\n10  1997 Afghanistan      635.\n# ℹ 1,694 more rows"
+  },
+  {
+    "objectID": "presentations/Intro-to-R.html#manipulating-data-frames-with-dplyr-1",
+    "href": "presentations/Intro-to-R.html#manipulating-data-frames-with-dplyr-1",
+    "title": "Introduction to R",
+    "section": "Manipulating data frames with dplyr",
+    "text": "Manipulating data frames with dplyr\n\nfilter() only a subset of observations\n\n\nfilter(gapminder, continent == \"Europe\", year == 2007)\n\n# A tibble: 30 × 6\n   country                 year      pop continent lifeExp gdpPercap\n   &lt;chr&gt;                  &lt;dbl&gt;    &lt;dbl&gt; &lt;chr&gt;       &lt;dbl&gt;     &lt;dbl&gt;\n 1 Albania                 2007  3600523 Europe       76.4     5937.\n 2 Austria                 2007  8199783 Europe       79.8    36126.\n 3 Belgium                 2007 10392226 Europe       79.4    33693.\n 4 Bosnia and Herzegovina  2007  4552198 Europe       74.9     7446.\n 5 Bulgaria                2007  7322858 Europe       73.0    10681.\n 6 Croatia                 2007  4493312 Europe       75.7    14619.\n 7 Czech Republic          2007 10228744 Europe       76.5    22833.\n 8 Denmark                 2007  5468120 Europe       78.3    35278.\n 9 Finland                 2007  5238460 Europe       79.3    33207.\n10 France                  2007 61083916 Europe       80.7    30470.\n# ℹ 20 more rows"
+  },
+  {
+    "objectID": "presentations/Intro-to-R.html#manipulating-data-frames-with-dplyr-2",
+    "href": "presentations/Intro-to-R.html#manipulating-data-frames-with-dplyr-2",
+    "title": "Introduction to R",
+    "section": "Manipulating data frames with dplyr",
+    "text": "Manipulating data frames with dplyr\n\nmutate() to create new variables\n\n\nmutate(gapminder, gdp_billion = gdpPercap * pop / 10^9)\n\n# A tibble: 1,704 × 7\n   country      year      pop continent lifeExp gdpPercap gdp_billion\n   &lt;chr&gt;       &lt;dbl&gt;    &lt;dbl&gt; &lt;chr&gt;       &lt;dbl&gt;     &lt;dbl&gt;       &lt;dbl&gt;\n 1 Afghanistan  1952  8425333 Asia         28.8      779.        6.57\n 2 Afghanistan  1957  9240934 Asia         30.3      821.        7.59\n 3 Afghanistan  1962 10267083 Asia         32.0      853.        8.76\n 4 Afghanistan  1967 11537966 Asia         34.0      836.        9.65\n 5 Afghanistan  1972 13079460 Asia         36.1      740.        9.68\n 6 Afghanistan  1977 14880372 Asia         38.4      786.       11.7 \n 7 Afghanistan  1982 12881816 Asia         39.9      978.       12.6 \n 8 Afghanistan  1987 13867957 Asia         40.8      852.       11.8 \n 9 Afghanistan  1992 16317921 Asia         41.7      649.       10.6 \n10 Afghanistan  1997 22227415 Asia         41.8      635.       14.1 \n# ℹ 1,694 more rows"
+  },
+  {
+    "objectID": "presentations/Intro-to-R.html#manipulating-data-frames-with-dplyr-3",
+    "href": "presentations/Intro-to-R.html#manipulating-data-frames-with-dplyr-3",
+    "title": "Introduction to R",
+    "section": "Manipulating data frames with dplyr",
+    "text": "Manipulating data frames with dplyr\n\nsummarise() to calculate summary statistics\n\n\nsummarise(gapminder, mean_gdpPercap = mean(gdpPercap))\n\n# A tibble: 1 × 1\n  mean_gdpPercap\n           &lt;dbl&gt;\n1          7215.\n\n\n. . .\n\nThis is most useful in conjunction with group_by()\n\n\nsummarise(group_by(gapminder, continent),\n                    mean_gdpPercap = mean(gdpPercap))\n\n# A tibble: 5 × 2\n  continent mean_gdpPercap\n  &lt;chr&gt;              &lt;dbl&gt;\n1 Africa             2194.\n2 Americas           7136.\n3 Asia               7902.\n4 Europe            14469.\n5 Oceania           18622."
+  },
+  {
+    "objectID": "presentations/Intro-to-R.html#manipulating-data-frames-with-dplyr-4",
+    "href": "presentations/Intro-to-R.html#manipulating-data-frames-with-dplyr-4",
+    "title": "Introduction to R",
+    "section": "Manipulating data frames with dplyr",
+    "text": "Manipulating data frames with dplyr\n\nThe power of dplyr is in combining several commands using ‘pipes’\nThe previous command could be written:\n\n\ngapminder %&gt;% \n    group_by(continent) %&gt;% \n    summarise(mean_gdpPercap = mean(gdpPercap))\n\n# A tibble: 5 × 2\n  continent mean_gdpPercap\n  &lt;chr&gt;              &lt;dbl&gt;\n1 Africa             2194.\n2 Americas           7136.\n3 Asia               7902.\n4 Europe            14469.\n5 Oceania           18622."
+  },
+  {
+    "objectID": "presentations/Intro-to-R.html#reshaping-data-frames",
+    "href": "presentations/Intro-to-R.html#reshaping-data-frames",
+    "title": "Introduction to R",
+    "section": "Reshaping data frames",
+    "text": "Reshaping data frames\n\nPreviously we said that data frames have variables in columns and observations in rows\nThere may be different ways to interpret this in any given dataset\n\nOur dataset has country-by-year as the observation, and population, life expectancy, and GDP per capita as variables\nSometimes it might make sense to have one row per country (observation), and multiple variables representing years\nThese are known as ‘long’ and ‘wide’ format, respectively"
+  },
+  {
+    "objectID": "presentations/Intro-to-R.html#reshaping-data-frames-1",
+    "href": "presentations/Intro-to-R.html#reshaping-data-frames-1",
+    "title": "Introduction to R",
+    "section": "Reshaping data frames",
+    "text": "Reshaping data frames\n\nThe tidyr package helps us transform our data from one shape to the other\n\npivot_wider() takes a long dataset and makes it wider\npivot_longer() takes a wide dataset and makes it longer\n\nRecall our original dataset\n\n\ngapminder\n\n# A tibble: 1,704 × 6\n   country      year      pop continent lifeExp gdpPercap\n   &lt;chr&gt;       &lt;dbl&gt;    &lt;dbl&gt; &lt;chr&gt;       &lt;dbl&gt;     &lt;dbl&gt;\n 1 Afghanistan  1952  8425333 Asia         28.8      779.\n 2 Afghanistan  1957  9240934 Asia         30.3      821.\n 3 Afghanistan  1962 10267083 Asia         32.0      853.\n 4 Afghanistan  1967 11537966 Asia         34.0      836.\n 5 Afghanistan  1972 13079460 Asia         36.1      740.\n 6 Afghanistan  1977 14880372 Asia         38.4      786.\n 7 Afghanistan  1982 12881816 Asia         39.9      978.\n 8 Afghanistan  1987 13867957 Asia         40.8      852.\n 9 Afghanistan  1992 16317921 Asia         41.7      649.\n10 Afghanistan  1997 22227415 Asia         41.8      635.\n# ℹ 1,694 more rows"
+  },
+  {
+    "objectID": "presentations/Intro-to-R.html#reshaping-data-frames-2",
+    "href": "presentations/Intro-to-R.html#reshaping-data-frames-2",
+    "title": "Introduction to R",
+    "section": "Reshaping data frames",
+    "text": "Reshaping data frames\n\nWe can reshape this to be wider (one row per country)\n\n\ngapminder_wide &lt;- gapminder %&gt;% \n  pivot_wider(id_cols = c(country, continent),\n              names_from = year, values_from = c(pop, lifeExp, gdpPercap))\ngapminder_wide\n\n# A tibble: 142 × 38\n   country     continent pop_1952 pop_1957 pop_1962 pop_1967 pop_1972 pop_1977\n   &lt;chr&gt;       &lt;chr&gt;        &lt;dbl&gt;    &lt;dbl&gt;    &lt;dbl&gt;    &lt;dbl&gt;    &lt;dbl&gt;    &lt;dbl&gt;\n 1 Afghanistan Asia       8425333  9240934 10267083 11537966 13079460 14880372\n 2 Albania     Europe     1282697  1476505  1728137  1984060  2263554  2509048\n 3 Algeria     Africa     9279525 10270856 11000948 12760499 14760787 17152804\n 4 Angola      Africa     4232095  4561361  4826015  5247469  5894858  6162675\n 5 Argentina   Americas  17876956 19610538 21283783 22934225 24779799 26983828\n 6 Australia   Oceania    8691212  9712569 10794968 11872264 13177000 14074100\n 7 Austria     Europe     6927772  6965860  7129864  7376998  7544201  7568430\n 8 Bahrain     Asia        120447   138655   171863   202182   230800   297410\n 9 Bangladesh  Asia      46886859 51365468 56839289 62821884 70759295 80428306\n10 Belgium     Europe     8730405  8989111  9218400  9556500  9709100  9821800\n# ℹ 132 more rows\n# ℹ 30 more variables: pop_1982 &lt;dbl&gt;, pop_1987 &lt;dbl&gt;, pop_1992 &lt;dbl&gt;,\n#   pop_1997 &lt;dbl&gt;, pop_2002 &lt;dbl&gt;, pop_2007 &lt;dbl&gt;, lifeExp_1952 &lt;dbl&gt;,\n#   lifeExp_1957 &lt;dbl&gt;, lifeExp_1962 &lt;dbl&gt;, lifeExp_1967 &lt;dbl&gt;,\n#   lifeExp_1972 &lt;dbl&gt;, lifeExp_1977 &lt;dbl&gt;, lifeExp_1982 &lt;dbl&gt;,\n#   lifeExp_1987 &lt;dbl&gt;, lifeExp_1992 &lt;dbl&gt;, lifeExp_1997 &lt;dbl&gt;,\n#   lifeExp_2002 &lt;dbl&gt;, lifeExp_2007 &lt;dbl&gt;, gdpPercap_1952 &lt;dbl&gt;, …"
+  },
+  {
+    "objectID": "presentations/Intro-to-R.html#reshaping-data-frames-3",
+    "href": "presentations/Intro-to-R.html#reshaping-data-frames-3",
+    "title": "Introduction to R",
+    "section": "Reshaping data frames",
+    "text": "Reshaping data frames\n\nOften raw data will come in a wide format, and we want to reshape it longer for data analysis\n\n\ngapminder_wide %&gt;% \n  pivot_longer(pop_1952:gdpPercap_2007,\n               names_to = c(\".value\", \"year\"), names_sep = \"_\")\n\n# A tibble: 1,704 × 6\n   country     continent year       pop lifeExp gdpPercap\n   &lt;chr&gt;       &lt;chr&gt;     &lt;chr&gt;    &lt;dbl&gt;   &lt;dbl&gt;     &lt;dbl&gt;\n 1 Afghanistan Asia      1952   8425333    28.8      779.\n 2 Afghanistan Asia      1957   9240934    30.3      821.\n 3 Afghanistan Asia      1962  10267083    32.0      853.\n 4 Afghanistan Asia      1967  11537966    34.0      836.\n 5 Afghanistan Asia      1972  13079460    36.1      740.\n 6 Afghanistan Asia      1977  14880372    38.4      786.\n 7 Afghanistan Asia      1982  12881816    39.9      978.\n 8 Afghanistan Asia      1987  13867957    40.8      852.\n 9 Afghanistan Asia      1992  16317921    41.7      649.\n10 Afghanistan Asia      1997  22227415    41.8      635.\n# ℹ 1,694 more rows"
+  },
+  {
+    "objectID": "presentations/Intro-to-R.html#other-tidyverse-packages",
+    "href": "presentations/Intro-to-R.html#other-tidyverse-packages",
+    "title": "Introduction to R",
+    "section": "Other tidyverse packages",
+    "text": "Other tidyverse packages\n\nWe’ll come back to data visualisation with ggplot2 in a later session\npurrr provides tools for functional programming\n\nIf we have several similar datasets, or subgroups within our dataset, we don’t want to write out/copy-and-paste our code separately for each one\nWith purrr, we can use map() (and similar) to apply a function to multiple inputs and extract all of the outputs\n\nstringr and forcats are worth looking at if you need to work with string or factor variables – we won’t cover them here"
+  },
+  {
+    "objectID": "presentations/Intro-to-R.html#resources",
+    "href": "presentations/Intro-to-R.html#resources",
+    "title": "Introduction to R",
+    "section": "Resources",
+    "text": "Resources\n\nThis material was adapted from the Data Carpentries’ ‘R for Social Scientists’ course (https://preview.carpentries.org/r-socialsci/index.html)\nHands-On Programming with R (https://rstudio-education.github.io/hopr)\n\nAn introduction to programming in R (for non-programmers!)\n\nR for Data Science (https://r4ds.hadley.nz)\n\nAn excellent practical introduction to using the tidyverse\n\nAdvanced R (https://adv-r.hadley.nz) and R Packages (https://r-pkgs.org)\n\nMore advanced – good next steps once you’re a bit more comfortable using R"
+  },
+  {
+    "objectID": "presentations/Intro-to-R.html#everything-in-r-is-an-object",
+    "href": "presentations/Intro-to-R.html#everything-in-r-is-an-object",
+    "title": "Introduction to R",
+    "section": "Everything in R is an object",
+    "text": "Everything in R is an object\n. . .\n\nThis includes your fitted regression models\n\n. . .\n\nWorkflow:\n\nImport/tidy/manipulate raw data\nRun regression or other models\nUse the created model objects\n\nprint to console\nsave to file\nextract coefficient estimates\nplot results\nexport to excel/word\netc."
+  },
+  {
+    "objectID": "presentations/Intro-to-R.html#fitted-model-objects",
+    "href": "presentations/Intro-to-R.html#fitted-model-objects",
+    "title": "Introduction to R",
+    "section": "Fitted model objects",
+    "text": "Fitted model objects\n\nR has evolved over time to fit a variety of different needs and use cases\nThis gives it great flexibility and ability to meet the needs of different users\nBut, the diversity of interfaces, data structures, implementation, and fitted model objects can be a challenge\n\nThere is often more than one way to fit a given model\nWhat you’ve learned about one model implemented in a given package may not translate well to working with other functions/packages\n\nWe’ll cover some tools to help bridge that gap"
+  },
+  {
+    "objectID": "presentations/Intro-to-R.html#fitted-model-objects-1",
+    "href": "presentations/Intro-to-R.html#fitted-model-objects-1",
+    "title": "Introduction to R",
+    "section": "Fitted model objects",
+    "text": "Fitted model objects\n\nA few common (but not universal) features:\nModels are described by a formula: e.g. y ~ x + z\nData are provided in a data frame (or, equivalently, tibble)\ncoef(), vcov(), summary() can be used to extract the coefficient estimates, variance covariance matrix, and to print a summary of the fitted model"
+  },
+  {
+    "objectID": "presentations/Intro-to-R.html#the-broom-package",
+    "href": "presentations/Intro-to-R.html#the-broom-package",
+    "title": "Introduction to R",
+    "section": "The broom package",
+    "text": "The broom package\n\nbroom provides several functions to convert fitted model objects to tidy tibbles\nFunctions:\n\ntidy(): construct a tibble that summarises the statistical findings (coefficients, p-values, etc.)\naugment(): add new columns to the original data (predictions/fitted values, etc.)\nglance(): construct a one-row summary of the model (goodness-of-fit, etc.)\n\nThe package works with several model fitting functions from base R and commonly-used packages\n\nSome other packages may also implement their own methods to work with these functions"
+  },
+  {
+    "objectID": "presentations/Intro-to-R.html#first-example-linear-regression",
+    "href": "presentations/Intro-to-R.html#first-example-linear-regression",
+    "title": "Introduction to R",
+    "section": "First example – linear regression",
+    "text": "First example – linear regression\n\nLinear regression models can be fitted with the lm() function (in the stats package, part of base R)\nWe’ll start by loading the gapminder dataset from the previous session:\n\n\nlibrary(tidyverse)\ngapminder &lt;- read_csv(\"raw_data/gapminder_data.csv\")"
+  },
+  {
+    "objectID": "presentations/Intro-to-R.html#first-example-linear-regression-1",
+    "href": "presentations/Intro-to-R.html#first-example-linear-regression-1",
+    "title": "Introduction to R",
+    "section": "First example – linear regression",
+    "text": "First example – linear regression\n\n\n\nUse ?lm to find the documentation\n\n\n\n\nlinear_regression_model &lt;- lm(lifeExp ~ gdpPercap + continent, gapminder)\nlinear_regression_model\n\n\nCall:\nlm(formula = lifeExp ~ gdpPercap + continent, data = gapminder)\n\nCoefficients:\n      (Intercept)          gdpPercap  continentAmericas  \n        4.789e+01          4.453e-04          1.359e+01  \n    continentAsia    continentEurope   continentOceania  \n        8.658e+00          1.757e+01          1.815e+01"
+  },
+  {
+    "objectID": "presentations/Intro-to-R.html#first-example-linear-regression-2",
+    "href": "presentations/Intro-to-R.html#first-example-linear-regression-2",
+    "title": "Introduction to R",
+    "section": "First example – linear regression",
+    "text": "First example – linear regression\n\nlinear_regression_model is now a fitted model object\nIf we want, we can look at how this object is actually stored:\n\n\nstr(linear_regression_model)\n\nList of 13\n $ coefficients : Named num [1:6] 4.79e+01 4.45e-04 1.36e+01 8.66 1.76e+01 ...\n  ..- attr(*, \"names\")= chr [1:6] \"(Intercept)\" \"gdpPercap\" \"continentAmericas\" \"continentAsia\" ...\n $ residuals    : Named num [1:1704] -28.1 -26.6 -24.9 -22.9 -20.8 ...\n  ..- attr(*, \"names\")= chr [1:1704] \"1\" \"2\" \"3\" \"4\" ...\n $ effects      : Named num [1:1704] -2455.1 311.1 100.1 -27.9 -223.1 ...\n  ..- attr(*, \"names\")= chr [1:1704] \"(Intercept)\" \"gdpPercap\" \"continentAmericas\" \"continentAsia\" ...\n $ rank         : int 6\n $ fitted.values: Named num [1:1704] 56.9 56.9 56.9 56.9 56.9 ...\n  ..- attr(*, \"names\")= chr [1:1704] \"1\" \"2\" \"3\" \"4\" ...\n $ assign       : int [1:6] 0 1 2 2 2 2\n $ qr           :List of 5\n  ..$ qr   : num [1:1704, 1:6] -41.2795 0.0242 0.0242 0.0242 0.0242 ...\n  .. ..- attr(*, \"dimnames\")=List of 2\n  .. .. ..$ : chr [1:1704] \"1\" \"2\" \"3\" \"4\" ...\n  .. .. ..$ : chr [1:6] \"(Intercept)\" \"gdpPercap\" \"continentAmericas\" \"continentAsia\" ...\n  .. ..- attr(*, \"assign\")= int [1:6] 0 1 2 2 2 2\n  .. ..- attr(*, \"contrasts\")=List of 1\n  .. .. ..$ continent: chr \"contr.treatment\"\n  ..$ qraux: num [1:6] 1.02 1.02 1.01 1.04 1.01 ...\n  ..$ pivot: int [1:6] 1 2 3 4 5 6\n  ..$ tol  : num 1e-07\n  ..$ rank : int 6\n  ..- attr(*, \"class\")= chr \"qr\"\n $ df.residual  : int 1698\n $ contrasts    :List of 1\n  ..$ continent: chr \"contr.treatment\"\n $ xlevels      :List of 1\n  ..$ continent: chr [1:5] \"Africa\" \"Americas\" \"Asia\" \"Europe\" ...\n $ call         : language lm(formula = lifeExp ~ gdpPercap + continent, data = gapminder)\n $ terms        :Classes 'terms', 'formula'  language lifeExp ~ gdpPercap + continent\n  .. ..- attr(*, \"variables\")= language list(lifeExp, gdpPercap, continent)\n  .. ..- attr(*, \"factors\")= int [1:3, 1:2] 0 1 0 0 0 1\n  .. .. ..- attr(*, \"dimnames\")=List of 2\n  .. .. .. ..$ : chr [1:3] \"lifeExp\" \"gdpPercap\" \"continent\"\n  .. .. .. ..$ : chr [1:2] \"gdpPercap\" \"continent\"\n  .. ..- attr(*, \"term.labels\")= chr [1:2] \"gdpPercap\" \"continent\"\n  .. ..- attr(*, \"order\")= int [1:2] 1 1\n  .. ..- attr(*, \"intercept\")= int 1\n  .. ..- attr(*, \"response\")= int 1\n  .. ..- attr(*, \".Environment\")=&lt;environment: R_GlobalEnv&gt; \n  .. ..- attr(*, \"predvars\")= language list(lifeExp, gdpPercap, continent)\n  .. ..- attr(*, \"dataClasses\")= Named chr [1:3] \"numeric\" \"numeric\" \"character\"\n  .. .. ..- attr(*, \"names\")= chr [1:3] \"lifeExp\" \"gdpPercap\" \"continent\"\n $ model        :'data.frame':  1704 obs. of  3 variables:\n  ..$ lifeExp  : num [1:1704] 28.8 30.3 32 34 36.1 ...\n  ..$ gdpPercap: num [1:1704] 779 821 853 836 740 ...\n  ..$ continent: chr [1:1704] \"Asia\" \"Asia\" \"Asia\" \"Asia\" ...\n  ..- attr(*, \"terms\")=Classes 'terms', 'formula'  language lifeExp ~ gdpPercap + continent\n  .. .. ..- attr(*, \"variables\")= language list(lifeExp, gdpPercap, continent)\n  .. .. ..- attr(*, \"factors\")= int [1:3, 1:2] 0 1 0 0 0 1\n  .. .. .. ..- attr(*, \"dimnames\")=List of 2\n  .. .. .. .. ..$ : chr [1:3] \"lifeExp\" \"gdpPercap\" \"continent\"\n  .. .. .. .. ..$ : chr [1:2] \"gdpPercap\" \"continent\"\n  .. .. ..- attr(*, \"term.labels\")= chr [1:2] \"gdpPercap\" \"continent\"\n  .. .. ..- attr(*, \"order\")= int [1:2] 1 1\n  .. .. ..- attr(*, \"intercept\")= int 1\n  .. .. ..- attr(*, \"response\")= int 1\n  .. .. ..- attr(*, \".Environment\")=&lt;environment: R_GlobalEnv&gt; \n  .. .. ..- attr(*, \"predvars\")= language list(lifeExp, gdpPercap, continent)\n  .. .. ..- attr(*, \"dataClasses\")= Named chr [1:3] \"numeric\" \"numeric\" \"character\"\n  .. .. .. ..- attr(*, \"names\")= chr [1:3] \"lifeExp\" \"gdpPercap\" \"continent\"\n - attr(*, \"class\")= chr \"lm\""
+  },
+  {
+    "objectID": "presentations/Intro-to-R.html#first-example-linear-regression-3",
+    "href": "presentations/Intro-to-R.html#first-example-linear-regression-3",
+    "title": "Introduction to R",
+    "section": "First example – linear regression",
+    "text": "First example – linear regression\n\nMore usefully, we can print a summary of the model\n\n\nsummary(linear_regression_model)\n\n\nCall:\nlm(formula = lifeExp ~ gdpPercap + continent, data = gapminder)\n\nResiduals:\n    Min      1Q  Median      3Q     Max \n-49.241  -4.479   0.347   5.105  25.138 \n\nCoefficients:\n                   Estimate Std. Error t value Pr(&gt;|t|)    \n(Intercept)       4.789e+01  3.398e-01  140.93   &lt;2e-16 ***\ngdpPercap         4.453e-04  2.350e-05   18.95   &lt;2e-16 ***\ncontinentAmericas 1.359e+01  6.008e-01   22.62   &lt;2e-16 ***\ncontinentAsia     8.658e+00  5.555e-01   15.59   &lt;2e-16 ***\ncontinentEurope   1.757e+01  6.257e-01   28.08   &lt;2e-16 ***\ncontinentOceania  1.815e+01  1.787e+00   10.15   &lt;2e-16 ***\n---\nSignif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1\n\nResidual standard error: 8.39 on 1698 degrees of freedom\nMultiple R-squared:  0.5793,    Adjusted R-squared:  0.5781 \nF-statistic: 467.7 on 5 and 1698 DF,  p-value: &lt; 2.2e-16"
+  },
+  {
+    "objectID": "presentations/Intro-to-R.html#first-example-linear-regression-4",
+    "href": "presentations/Intro-to-R.html#first-example-linear-regression-4",
+    "title": "Introduction to R",
+    "section": "First example – linear regression",
+    "text": "First example – linear regression\n\nIf we want to work with the results or combine/compare them with other models, tidy() from the broom package will put them into a nice tidy tibble\n\n\nlibrary(broom)\ntidy(linear_regression_model)\n\n# A tibble: 6 × 5\n  term               estimate std.error statistic   p.value\n  &lt;chr&gt;                 &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;\n1 (Intercept)       47.9      0.340         141.  0        \n2 gdpPercap          0.000445 0.0000235      18.9 8.55e- 73\n3 continentAmericas 13.6      0.601          22.6 2.82e- 99\n4 continentAsia      8.66     0.555          15.6 2.72e- 51\n5 continentEurope   17.6      0.626          28.1 7.60e-143\n6 continentOceania  18.1      1.79           10.2 1.50e- 23\n\n\n. . .\n\nAnd glance() gives us several overall model statistics\n\n\nglance(linear_regression_model)\n\n# A tibble: 1 × 12\n  r.squared adj.r.squared sigma statistic   p.value    df logLik    AIC    BIC deviance\n      &lt;dbl&gt;         &lt;dbl&gt; &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt; &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;    &lt;dbl&gt;\n1     0.579         0.578  8.39      468. 4.26e-316     5 -6039. 12093. 12131.  119528.\n# ℹ 2 more variables: df.residual &lt;int&gt;, nobs &lt;int&gt;"
+  },
+  {
+    "objectID": "presentations/Intro-to-R.html#first-example-linear-regression-5",
+    "href": "presentations/Intro-to-R.html#first-example-linear-regression-5",
+    "title": "Introduction to R",
+    "section": "First example – linear regression",
+    "text": "First example – linear regression\n\nThe lmtest and car packages provide tools for inference & hypothesis testing\nVarious clustered and heteroskedasticity-robust standard errors are provided by sandwich\n\nThese work well together (and with tidy() from broom)\n\n\n. . .\n\nlibrary(lmtest)\nlibrary(sandwich)\nlinear_regression_model %&gt;% \n  coeftest(vcov. = vcovCL, cluster = ~country) %&gt;% \n    tidy()\n\n# A tibble: 6 × 5\n  term               estimate std.error statistic  p.value\n  &lt;chr&gt;                 &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;    &lt;dbl&gt;\n1 (Intercept)       47.9       0.904        53.0  0       \n2 gdpPercap          0.000445  0.000159      2.81 5.05e- 3\n3 continentAmericas 13.6       1.56          8.69 8.32e-18\n4 continentAsia      8.66      1.55          5.57 2.98e- 8\n5 continentEurope   17.6       2.18          8.06 1.44e-15\n6 continentOceania  18.1       2.77          6.55 7.36e-11"
+  },
+  {
+    "objectID": "presentations/Intro-to-R.html#generalised-linear-regression",
+    "href": "presentations/Intro-to-R.html#generalised-linear-regression",
+    "title": "Introduction to R",
+    "section": "Generalised linear regression",
+    "text": "Generalised linear regression\n\nCan be fitted with the glm() function\n(also in the stats package)\n\n\n\n?glm\n\n\n\n\n\ngen_linear_regression_model &lt;- glm(lifeExp ~ gdpPercap + continent,\n                                   family = \"quasipoisson\", gapminder)\ngen_linear_regression_model\n\n\nCall:  glm(formula = lifeExp ~ gdpPercap + continent, family = \"quasipoisson\", \n    data = gapminder)\n\nCoefficients:\n      (Intercept)          gdpPercap  continentAmericas  \n        3.875e+00          6.156e-06          2.490e-01  \n    continentAsia    continentEurope   continentOceania  \n        1.671e-01          3.092e-01          3.177e-01  \n\nDegrees of Freedom: 1703 Total (i.e. Null);  1698 Residual\nNull Deviance:      4946 \nResidual Deviance: 2229     AIC: NA"
+  },
+  {
+    "objectID": "presentations/Intro-to-R.html#generalised-linear-regression-1",
+    "href": "presentations/Intro-to-R.html#generalised-linear-regression-1",
+    "title": "Introduction to R",
+    "section": "Generalised linear regression",
+    "text": "Generalised linear regression\n\nAgain, we can print a summary of the model\n\n\nsummary(gen_linear_regression_model)\n\n\nCall:\nglm(formula = lifeExp ~ gdpPercap + continent, family = \"quasipoisson\", \n    data = gapminder)\n\nCoefficients:\n                   Estimate Std. Error t value Pr(&gt;|t|)    \n(Intercept)       3.875e+00  6.524e-03  594.03   &lt;2e-16 ***\ngdpPercap         6.156e-06  3.475e-07   17.72   &lt;2e-16 ***\ncontinentAmericas 2.490e-01  1.054e-02   23.62   &lt;2e-16 ***\ncontinentAsia     1.671e-01  1.009e-02   16.55   &lt;2e-16 ***\ncontinentEurope   3.092e-01  1.054e-02   29.33   &lt;2e-16 ***\ncontinentOceania  3.177e-01  2.815e-02   11.29   &lt;2e-16 ***\n---\nSignif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1\n\n(Dispersion parameter for quasipoisson family taken to be 1.279258)\n\n    Null deviance: 4945.6  on 1703  degrees of freedom\nResidual deviance: 2229.4  on 1698  degrees of freedom\nAIC: NA\n\nNumber of Fisher Scoring iterations: 4"
+  },
+  {
+    "objectID": "presentations/Intro-to-R.html#generalised-linear-regression-2",
+    "href": "presentations/Intro-to-R.html#generalised-linear-regression-2",
+    "title": "Introduction to R",
+    "section": "Generalised linear regression",
+    "text": "Generalised linear regression\n\nAnd use tidy() and glance() from the broom package to produce nice tidy tibbles\n\n. . .\n\ntidy(gen_linear_regression_model, conf.int = TRUE, exponentiate = TRUE)\n\n# A tibble: 6 × 7\n  term              estimate   std.error statistic   p.value conf.low conf.high\n  &lt;chr&gt;                &lt;dbl&gt;       &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;    &lt;dbl&gt;     &lt;dbl&gt;\n1 (Intercept)          48.2  0.00652         594.  0            47.6      48.8 \n2 gdpPercap             1.00 0.000000347      17.7 1.42e- 64     1.00      1.00\n3 continentAmericas     1.28 0.0105           23.6 6.86e-107     1.26      1.31\n4 continentAsia         1.18 0.0101           16.6 3.57e- 57     1.16      1.21\n5 continentEurope       1.36 0.0105           29.3 2.32e-153     1.33      1.39\n6 continentOceania      1.37 0.0282           11.3 1.57e- 28     1.30      1.45\n\n\n. . .\n\n\nglance(gen_linear_regression_model)\n\n# A tibble: 1 × 8\n  null.deviance df.null logLik   AIC   BIC deviance df.residual  nobs\n          &lt;dbl&gt;   &lt;int&gt;  &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;    &lt;dbl&gt;       &lt;int&gt; &lt;int&gt;\n1         4946.    1703     NA    NA    NA    2229.        1698  1704"
+  },
+  {
+    "objectID": "presentations/Intro-to-R.html#what-else",
+    "href": "presentations/Intro-to-R.html#what-else",
+    "title": "Introduction to R",
+    "section": "What else?",
+    "text": "What else?\n\nThere are many (many!) other packages that estimate different regression models or provide tools for diagnostic testing, post-hoc analysis, or visualisation of regression models\nFor example, the Econometrics Task View on cran.r-project.org\n\n. . .\n\nSome that might be of particular relevance to (some of) you:\n\nmediation: parametric and non-parametric mediation analysis\neRm and ltm: Rasch models\nmetafor: meta-analysis\nrstan, rstanarm, and brms: Bayesian analysis (using Stan)\nplm, fixest, lme4, and nlme: panel and multi-level/mixed effect models"
+  },
+  {
+    "objectID": "presentations/Intro-to-R.html#data-visualisation-with-ggplot2",
+    "href": "presentations/Intro-to-R.html#data-visualisation-with-ggplot2",
+    "title": "Introduction to R",
+    "section": "Data visualisation with ggplot2",
+    "text": "Data visualisation with ggplot2\n\nThere are a lot of tools available to create plots in R\n\nggplot2 is the most well-developed and widely used\n\nWe generally want data in long format for plotting\n\nOne column for each variable\nOne row for each observation\n\nWe’ll use the gapminder dataset from the previous session\n\n\nlibrary(tidyverse)\ngapminder &lt;- read_csv(\"raw_data/gapminder_data.csv\")"
+  },
+  {
+    "objectID": "presentations/Intro-to-R.html#the-grammar-of-graphics",
+    "href": "presentations/Intro-to-R.html#the-grammar-of-graphics",
+    "title": "Introduction to R",
+    "section": "The grammar of graphics",
+    "text": "The grammar of graphics\n\ndataset – self-explanatory\ngeom – the geometric object used to represent the data\nmappings – which features of the geom represent which variables in the data\nstats – transformations of the data before plotting\nposition – to avoid overplotting data points\ncoordinate system – how the x and y axes are plotted\nfaceting scheme – split the plot by subgroups"
+  },
+  {
+    "objectID": "presentations/Intro-to-R.html#data-visualisation-with-ggplot2-1",
+    "href": "presentations/Intro-to-R.html#data-visualisation-with-ggplot2-1",
+    "title": "Introduction to R",
+    "section": "Data visualisation with ggplot2",
+    "text": "Data visualisation with ggplot2\n\nThat’s the theory\nIn practice, the easiest way is to build the plot up step-by-step (trial-and-error)\n\nstart with the basic ggplot object\n\n\nggplot(data = gapminder)\n\n\n\n\n\nyou can specify (some of) the mappings at this stage\n\nggplot(data = gapminder, mapping = aes(x = gdpPercap, y = lifeExp))"
+  },
+  {
+    "objectID": "presentations/Intro-to-R.html#reproducible-research",
+    "href": "presentations/Intro-to-R.html#reproducible-research",
+    "title": "Introduction to R",
+    "section": "Reproducible research",
+    "text": "Reproducible research\n\nWhat is ‘reproducibility’?\n\nFocus here is on computational reproducibility – can your results be replicated by someone (or yourself!) with access to your data, code, etc.\n\nWhy might research not be reproducible?\n\nRaw data are not available or have been changed\nIntermediate steps taken to extract, clean, reshape, merge, or analyse data are not adequately recorded or described\nSoftware tools have changed or are no longer available since the analysis was conducted\nErrors in manually transcribing results from analysis software to final report (manuscript, etc.)"
+  },
+  {
+    "objectID": "presentations/Intro-to-R.html#reproducible-research-1",
+    "href": "presentations/Intro-to-R.html#reproducible-research-1",
+    "title": "Introduction to R",
+    "section": "Reproducible research",
+    "text": "Reproducible research\n\n\nComputers are now essential in all branches of science, but most researchers are never taught the equivalent of basic lab skills for research computing. As a result, data can get lost, analyses can take much longer than necessary, and researchers are limited in how effectively they can work with software and data. Computing workflows need to follow the same practices as lab projects and notebooks, with organized data, documented steps, and the project structured for reproducibility, but researchers new to computing often don’t know where to start.\n\n— Wilson G, Bryan J, Cranston K, et al. Good enough practices in scientific computing. PLoS Comput Biol 2017;13:e1005510"
+  },
+  {
+    "objectID": "presentations/Intro-to-R.html#reproducible-research-2",
+    "href": "presentations/Intro-to-R.html#reproducible-research-2",
+    "title": "Introduction to R",
+    "section": "Reproducible research",
+    "text": "Reproducible research\n\nEnsuring reproducibility (for others) can also have great benefits for you as the analyst/author\n\nWhen you come back to an analysis later, you know exactly what you did, why you did it, and how to replicate it if needed\nIf data changes, errors are identified, or new analyses need to be conducted, your analysis and results can easily be updated\nThe code and methods used in one project/analysis can be re-used in other work\nKeeping to a simple, standardised workflow for all projects allows you to switch easily & quickly between projects\n\nAnd prevents you having to make a whole bunch of new decisions every time you start something new"
+  },
+  {
+    "objectID": "presentations/Intro-to-R.html#key-principles",
+    "href": "presentations/Intro-to-R.html#key-principles",
+    "title": "Introduction to R",
+    "section": "Key principles",
+    "text": "Key principles\n\nRaw data stays raw\nSource is real\nDesign for collaboration\n\n(including with your future self)\n\nConsider version control\nAutomation?"
+  },
+  {
+    "objectID": "presentations/Intro-to-R.html#key-principles-raw-data",
+    "href": "presentations/Intro-to-R.html#key-principles-raw-data",
+    "title": "Introduction to R",
+    "section": "Key principles – Raw data",
+    "text": "Key principles – Raw data\n\nRaw data stays raw\n\nMake raw data files read-only"
+  },
+  {
+    "objectID": "presentations/Intro-to-R.html#key-principles-raw-data-1",
+    "href": "presentations/Intro-to-R.html#key-principles-raw-data-1",
+    "title": "Introduction to R",
+    "section": "Key principles – Raw data",
+    "text": "Key principles – Raw data"
+  },
+  {
+    "objectID": "presentations/Intro-to-R.html#key-principles-raw-data-2",
+    "href": "presentations/Intro-to-R.html#key-principles-raw-data-2",
+    "title": "Introduction to R",
+    "section": "Key principles – Raw data",
+    "text": "Key principles – Raw data\n\nRaw data stays raw\n\nMake raw data files read-only\nCan be relaxed (temporarily) if needed, but avoids accidental changes\nMost (probably all) changes to data should be scripted (in R, Stata, etc.) rather than made directly in raw data files"
+  },
+  {
+    "objectID": "presentations/Intro-to-R.html#key-principles-1",
+    "href": "presentations/Intro-to-R.html#key-principles-1",
+    "title": "Introduction to R",
+    "section": "Key principles",
+    "text": "Key principles\n\nRaw data stays raw\nSource is real\nDesign for collaboration\n\n(including with your future self)\n\nConsider version control\nAutomation?"
+  },
+  {
+    "objectID": "presentations/Intro-to-R.html#key-principles-2",
+    "href": "presentations/Intro-to-R.html#key-principles-2",
+    "title": "Introduction to R",
+    "section": "Key principles",
+    "text": "Key principles\n\nRaw data stays raw\nSource is real\nDesign for collaboration\n\n(including with your future self)\n\nConsider version control\nAutomation?"
+  },
+  {
+    "objectID": "presentations/Intro-to-R.html#key-principles-source-files",
+    "href": "presentations/Intro-to-R.html#key-principles-source-files",
+    "title": "Introduction to R",
+    "section": "Key principles – Source files",
+    "text": "Key principles – Source files\n\nSource is real…\n\n…workspace is replaceable\n\nAny individual R session is disposable and can be replaced/recreated at any time, if you have raw data and appropriate source code\nThinking in this way forces you to follow good reproducibility practices in your analysis workflow"
+  },
+  {
+    "objectID": "presentations/Intro-to-R.html#key-principles-source-files-1",
+    "href": "presentations/Intro-to-R.html#key-principles-source-files-1",
+    "title": "Introduction to R",
+    "section": "Key principles – Source files",
+    "text": "Key principles – Source files\n\nWhat does ‘Source is real’ mean?\n\nData import, cleaning, reshaping, wrangling, and analysis should all be conducted via script files\n\nor at least documented in thorough, step-by-step detail\n\nAll source code should be saved (regularly!) so all of these steps can be reproduced at any time\nImportant (or time-consuming) intermediate objects (cleaned datasets, figures, etc) should be explicitly saved, individually, to files (by script, not the mouse, if possible)"
+  },
+  {
+    "objectID": "presentations/Intro-to-R.html#key-principles-source-files-2",
+    "href": "presentations/Intro-to-R.html#key-principles-source-files-2",
+    "title": "Introduction to R",
+    "section": "Key principles – Source files",
+    "text": "Key principles – Source files\n\nStart R with a blank slate, and restart often"
+  },
+  {
+    "objectID": "presentations/Intro-to-R.html#key-principles-source-files-3",
+    "href": "presentations/Intro-to-R.html#key-principles-source-files-3",
+    "title": "Introduction to R",
+    "section": "Key principles – Source files",
+    "text": "Key principles – Source files"
+  },
+  {
+    "objectID": "presentations/Intro-to-R.html#key-principles-source-files-4",
+    "href": "presentations/Intro-to-R.html#key-principles-source-files-4",
+    "title": "Introduction to R",
+    "section": "Key principles – Source files",
+    "text": "Key principles – Source files\n\nStart R with a blank slate, and restart often\n\nWhen you are running code interactively to try things out, you will be adding objects to the workspace, loading packages, etc\nIf you inadvertently rely on these objects, packages, etc in your source files, you may not be able to reproduce your results in a new session later\nIf you have saved source code and intermediate objects to file as you go, it is quick and easy to restart R (Ctrl+Shift+F10, in RStudio) regularly to check whether everything still works as expected\n\nIt is much better to find this out after a few minutes than after a whole day’s work!"
+  },
+  {
+    "objectID": "presentations/Intro-to-R.html#key-principles-3",
+    "href": "presentations/Intro-to-R.html#key-principles-3",
+    "title": "Introduction to R",
+    "section": "Key principles",
+    "text": "Key principles\n\nRaw data stays raw\nSource is real\nDesign for collaboration\n\n(including with your future self)\n\nConsider version control\nAutomation?"
+  },
+  {
+    "objectID": "presentations/Intro-to-R.html#key-principles-4",
+    "href": "presentations/Intro-to-R.html#key-principles-4",
+    "title": "Introduction to R",
+    "section": "Key principles",
+    "text": "Key principles\n\nRaw data stays raw\nSource is real\nDesign for collaboration\n\n(including with your future self)\n\nConsider version control\nAutomation?"
+  },
+  {
+    "objectID": "presentations/Intro-to-R.html#key-principles-design-for-collaboration",
+    "href": "presentations/Intro-to-R.html#key-principles-design-for-collaboration",
+    "title": "Introduction to R",
+    "section": "Key principles – Design for collaboration",
+    "text": "Key principles – Design for collaboration\n. . .\n\nAn analysis directory like this makes it very difficult for anyone (including yourself later) to follow the steps required to reproduce your results"
+  },
+  {
+    "objectID": "presentations/Intro-to-R.html#key-principles-design-for-collaboration-1",
+    "href": "presentations/Intro-to-R.html#key-principles-design-for-collaboration-1",
+    "title": "Introduction to R",
+    "section": "Key principles – Design for collaboration",
+    "text": "Key principles – Design for collaboration\n\n\n\nMuch better to follow a logical structure (and the same across all of your projects)\n\nSet out high-level structure, e.g.\n\nread raw data\ntidy data for analysis\nrun analyses on tidy data\ncollate report/results of analyses\n\nPut raw data in its own directory (and read-only)\nConsider other structures/subfolders as appropriate for your project"
+  },
+  {
+    "objectID": "presentations/Intro-to-R.html#key-principles-design-for-collaboration-2",
+    "href": "presentations/Intro-to-R.html#key-principles-design-for-collaboration-2",
+    "title": "Introduction to R",
+    "section": "Key principles – Design for collaboration",
+    "text": "Key principles – Design for collaboration\n\nBreak up complicated or repeated analysis steps into discrete functions\nGive functions and variables meaningful names\nUse comments liberally"
+  },
+  {
+    "objectID": "presentations/Intro-to-R.html#key-principles-5",
+    "href": "presentations/Intro-to-R.html#key-principles-5",
+    "title": "Introduction to R",
+    "section": "Key principles",
+    "text": "Key principles\n\nRaw data stays raw\nSource is real\nDesign for collaboration\n\n(including with your future self)\n\nConsider version control\nAutomation?"
+  },
+  {
+    "objectID": "presentations/Intro-to-R.html#key-principles-6",
+    "href": "presentations/Intro-to-R.html#key-principles-6",
+    "title": "Introduction to R",
+    "section": "Key principles",
+    "text": "Key principles\n\nRaw data stays raw\nSource is real\nDesign for collaboration\n\n(including with your future self)\n\nConsider version control\nAutomation?"
+  },
+  {
+    "objectID": "presentations/Intro-to-R.html#key-principles-version-control",
+    "href": "presentations/Intro-to-R.html#key-principles-version-control",
+    "title": "Introduction to R",
+    "section": "Key principles – Version control",
+    "text": "Key principles – Version control\n\nKeeping track of changes to data and code (and being able to revert to a previous version if things go wrong) is critical for reproducible research\nThis is particularly true when collaborating with others\nThe best way to do this is with a version control system such as Git"
+  },
+  {
+    "objectID": "presentations/Intro-to-R.html#key-principles-version-control-1",
+    "href": "presentations/Intro-to-R.html#key-principles-version-control-1",
+    "title": "Introduction to R",
+    "section": "Key principles – Version control",
+    "text": "Key principles – Version control\n\nWe won’t go into this in detail today, but a quick Getting Started guide:\n\nRegister a GitHub account (https://github.com)\nInstall Git (https://git-scm.com) and complete basic setup\nGet a Git client (GUI)\n\nGitKraken is a good choice (https://gitkraken.com)\nGitHub offers a free client, GitHub Desktop (https://desktop.github.com/)\nRStudio has a basic Git client built-in, which is fine for much day-to-day use\n\n\nSee https://happygitwithr.com/ for more detailed instructions"
+  },
+  {
+    "objectID": "presentations/Intro-to-R.html#key-principles-version-control-2",
+    "href": "presentations/Intro-to-R.html#key-principles-version-control-2",
+    "title": "Introduction to R",
+    "section": "Key principles – Version control",
+    "text": "Key principles – Version control\n\nUsing Git (& GitHub) in your projects\n\nA couple of ways to get this set up. Probably the easiest is:\nCreate a project repository (repo) on GitHub\nImport (‘clone’) the repo as a new RStudio project\nMake changes as usual in RStudio (or any other program)\n‘Commit’ (take a snapshot of the current state of the project) often to your local repo\nLess often (maybe once/day) ‘push’ (sync) the local repo to GitHub\n\nWhat to put under version control\n\nSource code\nRaw data (unless its very large)\n\n\n\nWhat not to put under version control\n\nMost intermediate objects\nMiscellaneous supporting documents (pdf files, etc.)\nFinal output in the form of word documents, etc."
+  },
+  {
+    "objectID": "presentations/Intro-to-R.html#key-principles-7",
+    "href": "presentations/Intro-to-R.html#key-principles-7",
+    "title": "Introduction to R",
+    "section": "Key principles",
+    "text": "Key principles\n\nRaw data stays raw\nSource is real\nDesign for collaboration\n\n(including with your future self)\n\nConsider version control\nAutomation?"
+  },
+  {
+    "objectID": "presentations/Intro-to-R.html#key-principles-8",
+    "href": "presentations/Intro-to-R.html#key-principles-8",
+    "title": "Introduction to R",
+    "section": "Key principles",
+    "text": "Key principles\n\nRaw data stays raw\nSource is real\nDesign for collaboration\n\n(including with your future self)\n\nConsider version control\nAutomation?"
+  },
+  {
+    "objectID": "presentations/Intro-to-R.html#key-principles-automation",
+    "href": "presentations/Intro-to-R.html#key-principles-automation",
+    "title": "Introduction to R",
+    "section": "Key principles – Automation",
+    "text": "Key principles – Automation\n\nJust as we treat source code as the ‘true’, reproducible record of each step of the analysis, we can record (and automate) how the sequence of individual steps fits together to produce our final results\n\n\n\n\n\n\n\n\nCan be as simple as something like:\nsource(\"code/00-download-data.R\")\nsource(\"code/01-tabulate-frequencies.R\")\nsource(\"code/02-create-histogram.R\")\nsource(\"code/03-render-report.R\")\nShows in what order to run the scripts, and allows us to resume from the middle (if, for example, you have only changed the file 02-create-histogram.R, there is no need to redo the first two steps, but we do need to rerun the create-histogram and render-report steps\n\nEach script should load the required inputs and save the resulting output to file"
+  },
+  {
+    "objectID": "presentations/Intro-to-R.html#key-principles-automation-1",
+    "href": "presentations/Intro-to-R.html#key-principles-automation-1",
+    "title": "Introduction to R",
+    "section": "Key principles – Automation",
+    "text": "Key principles – Automation\n\nFor more complicated (or long-running) analyses, we may want to explicitly specify dependencies and let the computer figure out how to get everything up-to-date\nTwo good tools for doing this:\n\nmake\ntargets\n\nAdvantages of an automated pipeline like this:\n\nWhen you modify one stage of the pipeline, you can re-run your analyses to get up-to-date final results, with a single click/command\nOnly the things that need to be updated will be re-run, saving time (important if some of your analyses take a long time to run)"
+  },
+  {
+    "objectID": "presentations/Intro-to-R.html#key-principles-automation-2",
+    "href": "presentations/Intro-to-R.html#key-principles-automation-2",
+    "title": "Introduction to R",
+    "section": "Key principles – Automation",
+    "text": "Key principles – Automation\n\nMake is a system tool, designed for use in software development, to specify targets, commands, and dependencies between files and selectively re-run commands when dependencies change\nA Makefile is a plain text file specifying a list of these targets (intermediate/output files in the analysis workflow), commands (to create the targets), and dependencies (input files needed for each command)\n\nwords.txt: /usr/share/dict/words\n    cp /usr/share/dict/words words.txt\n\nhistogram.tsv: histogram.r words.txt\n    Rscript $&lt;\n\nhistogram.png: histogram.tsv\n    Rscript -e 'library(ggplot2); qplot(Length, Freq, data=read.delim(\"$&lt;\")); ggsave(\"$@\")'\n\nreport.html: report.rmd histogram.tsv histogram.png\n    Rscript -e 'rmarkdown::render(\"$&lt;\")'"
+  },
+  {
+    "objectID": "presentations/Intro-to-R.html#key-principles-automation-3",
+    "href": "presentations/Intro-to-R.html#key-principles-automation-3",
+    "title": "Introduction to R",
+    "section": "Key principles – Automation",
+    "text": "Key principles – Automation\n\ntargets is an R package designed to do something very similar, but specifically designed for R projects\n\nplan &lt;- list(\n  tar_file(words, download_words()),\n  tar_target(frequency_table, summarise_word_lengths(words)),\n  tar_target(histogram, create_histogram(frequency_table)),\n  tar_file(report, render_report(\"reports/report.rmd\", frequency_table, histogram))\n)\n\nAbstract workflow steps behind function calls (with meaningful names) as much as possible\n\nThe plan should be a clear, high-level overview of the analysis steps required"
+  },
+  {
+    "objectID": "presentations/Intro-to-R.html#summary",
+    "href": "presentations/Intro-to-R.html#summary",
+    "title": "Introduction to R",
+    "section": "Summary",
+    "text": "Summary\n\nTreat raw data as read-only\nSave source, not the workspace\nDesign for collaboration\n\nFollow a logical project structure\nSimplify code with human-readable abstractions (functions etc)\n\nConsider version control\nConsider automating your analyses"
+  },
+  {
+    "objectID": "presentations/Intro-to-R.html#summary-1",
+    "href": "presentations/Intro-to-R.html#summary-1",
+    "title": "Introduction to R",
+    "section": "Summary",
+    "text": "Summary\n\nTreat raw data as read-only \nSave source, not the workspace \nDesign for collaboration\n\nFollow a logical project structure \nSimplify code with human-readable abstractions (functions etc) \n\nConsider version control\nConsider automating your analyses\n\n\n(if you are already writingscript files for your analyses)\n\n\n(will get betterwith practice)\n\n\n(start with a simple high-level overview of the steps in the analysis,even if you don’t want to do a full automated pipeline)"
+  },
+  {
+    "objectID": "presentations/Intro-to-R.html#resources-1",
+    "href": "presentations/Intro-to-R.html#resources-1",
+    "title": "Introduction to R",
+    "section": "Resources",
+    "text": "Resources\n\nWilson G, Aruliah DA, Brown CT, Chue Hong NP, Davis M, et al. (2014) Best Practices for Scientific Computing. PLoS Biol 12(1):e1001745. https://doi.org/10.1371/journal.pbio.1001745\nWilson G, Bryan J, Cranston K, Kitzes J, Nederbragt L, Teal TK (2017) Good enough practices in scientific computing. PloS Comput Biol 13(6):e1005510. https://doi.org/10.1371/journal.pcbi.1005510\nBryan J, Hester J. What they forgot to teach you about R. https://rstats.wtf (especially Section I: A holistic workflow)\nBryan J. STAT545 (based on the UBC course of the same name). https://stat545.com\nBryan J. Happy Git and GitHub for the useR. https://happygitwithr.com\nFor targets:\n\nMcBain M. Benefits of a function-based diet (The {drake} post). https://milesmcbain.xyz/the-drake-post/\n\nRefers to the drake package, which was a predecessor package of targets. The same concepts all apply\n\nLandau W. The {targets} R package user manual. https://books.ropensci.org/targets/"
+  },
+  {
+    "objectID": "presentations/Intro-to-R.html#data-workflow",
+    "href": "presentations/Intro-to-R.html#data-workflow",
+    "title": "Introduction to R",
+    "section": "Data workflow",
+    "text": "Data workflow\n\n\n\nplan &lt;- list(\n  tar_file(words, download_words()),\n  tar_target(frequency_table, summarise_word_lengths(words)),\n  tar_target(histogram, create_histogram(frequency_table)),\n  tar_file(report, render_report(\"reports/report.rmd\", frequency_table, histogram))\n)\n\n\nAdvantages:\n\nReported results are always kept up-to-date with data and analysis\nChanges at any point along the workflow can be made easily and robustly"
+  },
+  {
+    "objectID": "presentations/Intro-to-R.html#data-workflow-1",
+    "href": "presentations/Intro-to-R.html#data-workflow-1",
+    "title": "Introduction to R",
+    "section": "Data workflow",
+    "text": "Data workflow\n\n\n\nplan &lt;- list(\n  tar_file(words, download_words()),\n  tar_target(frequency_table, summarise_word_lengths(words)),\n  tar_target(histogram, create_histogram(frequency_table)),\n  tar_file(report, render_report(\"reports/report.rmd\", frequency_table, histogram))\n)\n\n\nAdvantages:\n\nReported results are always kept up-to-date with data and analysis\nChanges at any point along the workflow can be made easily and robustly"
+  },
+  {
+    "objectID": "presentations/Intro-to-R.html#r-markdown",
+    "href": "presentations/Intro-to-R.html#r-markdown",
+    "title": "Introduction to R",
+    "section": "R Markdown",
+    "text": "R Markdown"
+  },
+  {
+    "objectID": "presentations/Intro-to-R.html#quarto",
+    "href": "presentations/Intro-to-R.html#quarto",
+    "title": "Introduction to R",
+    "section": "Quarto",
+    "text": "Quarto\n\nWe’ll focus on Quarto instead\nQuarto is a relatively new tool very similar to RMarkdown\n\nMost of what you might read about RMarkdown also applies to Quarto\nsee also https://quarto.org for documentation and guides"
+  },
+  {
+    "objectID": "presentations/osf.html",
+    "href": "presentations/osf.html",
+    "title": "Open Science at CMOR",
+    "section": "",
+    "text": "Open science is a set of principles and practices that aim to make scientific research from all fields accessible to everyone for the benefits of scientists and society as a whole.\n\n— UNESCO Recommendation on Open Science\n\n\n\n\n\nResearch published only in paywalled journals that not everyone can access\nData that supports scientific results being unavailable\nSoftware, code, protocols, etc. being unknown, undocumented, or inaccessible\nScience not being accessible to communities that would benefit from it\n\n\n\n\n\n\nTransparency, scrutiny, critique, and responsibility\nEquality of opportunities\nResponsibility, respect, and accountability\nCollaboration, participation, and inclusion\nFlexibility\nSustainability\n\n\n\n\n\nToday we’ll mostly focus on the first principle\n\nTransparency, or what we might call ‘open scientific knowledge’\n\n\n\n. . .\n\nAre our publications, data, metadata, protocols, educational resources, software, source code freely available to all?\n\n\n. . .\n(This is one end of a continuum of ‘openness’ – depending on the context, nature of the data, etc., it may not be desirable to make all of these completely open in all circumstances)\n\n\n\n\n\nWe design a study to answer a research question\n\n\n. . .\n\nWe collect some data\n\n\n. . .\n\nWe analyse the data and write a paper\n\n\n. . .\n\nThe paper gets published\n\n\n\n\n\n\nUsually, only\n\n\n4. The paper gets published\n\nresults in any accessible output\n. . .\n\n(And often then it is behind a journal paywall and not accessible to all)\n. . .\n\n\n1., 2., and 3. are often a black box, accessible only to the researcher themselves\n\n\n\n\n\n\nOpen protocols/documentation\nOpen research data\nOpen software/source code\nOpen access publication\n\n\n\n\n\n\nRCTs and systematic reviews now generally require registration and pre-specified protocols, e.g.\n\nClinicalTrials.gov for clinical trials in the US\nANZCTR in Australia/NZ\nPROSPERO for systematic reviews\n\n\n\n\nUsually not required for other study types, but still a good idea\n\n\n\n\n\n\nOpen data allows other researchers to:\n\ncheck the correctness of your analysis\ncombine your data with other sources (e.g. IPD meta-analysis)\nuse your data to answer questions you hadn’t even thought of…\n\nFor health data, it is very important to consider the appropriateness of data sharing:\n\nis additional data preprocessing needed to ensure participant anonymity?\nshould there be restrictions on who can access data and for what purpose?\n\nIf data is being shared, it needs to be documented clearly"
+  },
+  {
+    "objectID": "presentations/osf.html#what-is-open-science",
+    "href": "presentations/osf.html#what-is-open-science",
+    "title": "Open Science at CMOR",
+    "section": "",
+    "text": "Open science is a set of principles and practices that aim to make scientific research from all fields accessible to everyone for the benefits of scientists and society as a whole.\n\n— UNESCO Recommendation on Open Science"
+  },
+  {
+    "objectID": "presentations/osf.html#closed-science",
+    "href": "presentations/osf.html#closed-science",
+    "title": "Open Science at CMOR",
+    "section": "",
+    "text": "Research published only in paywalled journals that not everyone can access\nData that supports scientific results being unavailable\nSoftware, code, protocols, etc. being unknown, undocumented, or inaccessible\nScience not being accessible to communities that would benefit from it"
+  },
+  {
+    "objectID": "presentations/osf.html#principles-of-open-science",
+    "href": "presentations/osf.html#principles-of-open-science",
+    "title": "Open Science at CMOR",
+    "section": "",
+    "text": "Transparency, scrutiny, critique, and responsibility\nEquality of opportunities\nResponsibility, respect, and accountability\nCollaboration, participation, and inclusion\nFlexibility\nSustainability"
+  },
+  {
+    "objectID": "presentations/osf.html#principles-of-open-science-1",
+    "href": "presentations/osf.html#principles-of-open-science-1",
+    "title": "Open Science at CMOR",
+    "section": "",
+    "text": "Today we’ll mostly focus on the first principle\n\nTransparency, or what we might call ‘open scientific knowledge’\n\n\n\n. . .\n\nAre our publications, data, metadata, protocols, educational resources, software, source code freely available to all?\n\n\n. . .\n(This is one end of a continuum of ‘openness’ – depending on the context, nature of the data, etc., it may not be desirable to make all of these completely open in all circumstances)"
+  },
+  {
+    "objectID": "presentations/osf.html#the-research-workflow",
+    "href": "presentations/osf.html#the-research-workflow",
+    "title": "Open Science at CMOR",
+    "section": "",
+    "text": "We design a study to answer a research question\n\n\n. . .\n\nWe collect some data\n\n\n. . .\n\nWe analyse the data and write a paper\n\n\n. . .\n\nThe paper gets published"
+  },
+  {
+    "objectID": "presentations/osf.html#the-research-workflow-1",
+    "href": "presentations/osf.html#the-research-workflow-1",
+    "title": "Open Science at CMOR",
+    "section": "",
+    "text": "Usually, only\n\n\n4. The paper gets published\n\nresults in any accessible output\n. . .\n\n(And often then it is behind a journal paywall and not accessible to all)\n. . .\n\n\n1., 2., and 3. are often a black box, accessible only to the researcher themselves"
+  },
+  {
+    "objectID": "presentations/osf.html#components-of-open-scientific-knowledge",
+    "href": "presentations/osf.html#components-of-open-scientific-knowledge",
+    "title": "Open Science at CMOR",
+    "section": "",
+    "text": "Open protocols/documentation\nOpen research data\nOpen software/source code\nOpen access publication"
+  },
+  {
+    "objectID": "presentations/osf.html#open-protocolsdocumentation",
+    "href": "presentations/osf.html#open-protocolsdocumentation",
+    "title": "Open Science at CMOR",
+    "section": "",
+    "text": "RCTs and systematic reviews now generally require registration and pre-specified protocols, e.g.\n\nClinicalTrials.gov for clinical trials in the US\nANZCTR in Australia/NZ\nPROSPERO for systematic reviews\n\n\n\n\nUsually not required for other study types, but still a good idea"
+  },
+  {
+    "objectID": "presentations/osf.html#open-research-data",
+    "href": "presentations/osf.html#open-research-data",
+    "title": "Open Science at CMOR",
+    "section": "",
+    "text": "Open data allows other researchers to:\n\ncheck the correctness of your analysis\ncombine your data with other sources (e.g. IPD meta-analysis)\nuse your data to answer questions you hadn’t even thought of…\n\nFor health data, it is very important to consider the appropriateness of data sharing:\n\nis additional data preprocessing needed to ensure participant anonymity?\nshould there be restrictions on who can access data and for what purpose?\n\nIf data is being shared, it needs to be documented clearly"
+  },
+  {
+    "objectID": "presentations/osf.html#open-softwaresource-code",
+    "href": "presentations/osf.html#open-softwaresource-code",
+    "title": "Open Science at CMOR",
+    "section": "Open software/source code",
+    "text": "Open software/source code\n\n\nAs with open data, sharing source code allows others to check the correctness of your analysis\n\n\n\nWherever possible, the use of open source or freely-available software allows others (or yourself later) to replicate your work"
+  },
+  {
+    "objectID": "presentations/osf.html#open-access-publication",
+    "href": "presentations/osf.html#open-access-publication",
+    "title": "Open Science at CMOR",
+    "section": "Open access publication",
+    "text": "Open access publication\n\n\nResearch is of no use if no one can access it…\nTo ensure our research can reach the widest possible audience, aim for open access publishing whenever possible\n\nOtago has ‘Read & Publish’ agreements with a number of publishers\n\nhttps://otago.libguides.com/research_publishing_impact/read-and-publish\n\n\nOtherwise you can usually post either a ‘pre-print’ or ‘post-print’ (accepted manuscript) on an institutional (e.g. OURArchive) or other repository, sometimes after an embargo period.\n\nSherpa Services provides an easy search function to look up journals’ sharing policies"
+  },
+  {
+    "objectID": "presentations/osf.html#open-science-framework-1",
+    "href": "presentations/osf.html#open-science-framework-1",
+    "title": "Open Science at CMOR",
+    "section": "Open Science Framework",
+    "text": "Open Science Framework\n\n\nAt CMOR, we have started using the Open Science Framework (OSF) for collaborative open science\n\n\n\nhttps://osf.io\n\n\n\nThe OSF allows both private work (within the research team) and public sharing for dissemination and accessibility"
+  },
+  {
+    "objectID": "presentations/osf.html#project-organisation-on-the-osf",
+    "href": "presentations/osf.html#project-organisation-on-the-osf",
+    "title": "Open Science at CMOR",
+    "section": "Project organisation on the OSF",
+    "text": "Project organisation on the OSF\n\n\nWork on the OSF is organised into ‘Projects’, which can be nested to create a structured organisation for all of your files, data, code, protocols, and outputs\n\n\n\nWithin a projected, nested sub-projects are referred to as ‘Components’\n\nThe advantage of nesting components within a project is that each component can have its own permission settings (contributors, public/private access, etc)"
+  },
+  {
+    "objectID": "presentations/osf.html#cmor-osf",
+    "href": "presentations/osf.html#cmor-osf",
+    "title": "Open Science at CMOR",
+    "section": "CMOR @ OSF",
+    "text": "CMOR @ OSF\n\nWe have set up such a nested structure for research projects at CMOR:\n\nCentre for Musculoskeletal Outcomes Research\n\n\n\nReducing the burden of osteoarthritis in Aotearoa New Zealand\n\nDiscrete Event Simulation modelling\nRisks, Impacts, Equity, and Cost-effectiveness\n\nLong-term impacts of ligament injury\n\nAnalysis plan\n\nImpacts of opioid use around TJR surgery\nCost-effectiveness of TJR surgery\n\nHe Oranga mō te whanau\nMātauranga\n\n\n\n\nMeasuring the health state preferences of New Zealanders\n\nDCE\n\nData management plan\nProtocols\nData\nAnalysis\nPublications\n\n\n\n\n\nGraduate students\n\nRichelle Caya\n\nSystematic review\n\n…"
+  },
+  {
+    "objectID": "presentations/osf.html#preregistration",
+    "href": "presentations/osf.html#preregistration",
+    "title": "Open Science at CMOR",
+    "section": "Preregistration",
+    "text": "Preregistration\n\nPreregistration is the practice of documenting your research plan at the beginning of your study and storing that plan in a read-only public repository (such as the OSF)\n\nsee https://www.cos.io/initiatives/prereg\n\nPreregistration, including a detailed analysis plan, helps to address issues of reproducibility through reducing the potential for bias in analysis and reporting\nSee Create a preregistration for information on creating and submitting a preregistration for a project on the OSF\n\nNote that once a preregistration is submitted and approved, you cannot make any changes (by design!), so check everything carefully"
+  },
+  {
+    "objectID": "presentations/osf.html#resources",
+    "href": "presentations/osf.html#resources",
+    "title": "Open Science at CMOR",
+    "section": "Resources",
+    "text": "Resources\n\nUNESCO Recommendation on Open Science\nhttps://www.unesco.org/en/open-science\nPassport for Open Science (Ministry of Higher Education and Research, France)\nhttps://www.ouvrirlascience.fr/passport-for-open-science-a-practical-guide-for-phd-students/\nThe Open Science Training Handbook (FOSTER Open Science)\nhttps://open-science-training-handbook.github.io/Open-Science-Training-Handbook_EN/\nOtago’s Read & Publish agreements\nhttps://otago.libguides.com/research_publishing_impact/read-and-publish\nSherpa Services\nhttps://beta.sherpa.ac.uk/\nOSF\nhttps://osf.io (CMOR: https://osf.io/stw9e/)"
+  },
+  {
+    "objectID": "presentations/meta-analysis.html",
+    "href": "presentations/meta-analysis.html",
+    "title": "Introduction to Meta-Analysis",
+    "section": "",
+    "text": "From Cochrane:\n\nA systematic review is a study that\n“attempts to identify, appraise, and synthesize all the empirical evidence that meets pre-specified eligibility criteria to answer a specific research question”\nMeta-analysis is the statistical combination of results from two or more separate studies\n\nMeta-analysis is often one part of a systematic review"
+  },
+  {
+    "objectID": "presentations/meta-analysis.html#systematic-reviews-and-meta-analyses",
+    "href": "presentations/meta-analysis.html#systematic-reviews-and-meta-analyses",
+    "title": "Introduction to Meta-Analysis",
+    "section": "",
+    "text": "From Cochrane:\n\nA systematic review is a study that\n“attempts to identify, appraise, and synthesize all the empirical evidence that meets pre-specified eligibility criteria to answer a specific research question”\nMeta-analysis is the statistical combination of results from two or more separate studies\n\nMeta-analysis is often one part of a systematic review"
+  },
+  {
+    "objectID": "presentations/meta-analysis.html#potential-advantages-of-meta-analyses",
+    "href": "presentations/meta-analysis.html#potential-advantages-of-meta-analyses",
+    "title": "Introduction to Meta-Analysis",
+    "section": "(Potential) advantages of meta-analyses",
+    "text": "(Potential) advantages of meta-analyses\n\n\n\nImproved precision\n\n\n\n\nEvidence on generalisability\n\n\n\n\nResolve conflicting results from previous studies"
+  },
+  {
+    "objectID": "presentations/meta-analysis.html#types-of-meta-analysis",
+    "href": "presentations/meta-analysis.html#types-of-meta-analysis",
+    "title": "Introduction to Meta-Analysis",
+    "section": "Types of meta-analysis",
+    "text": "Types of meta-analysis\n\n\n\nPairwise comparisons (i.e., intervention vs. comparator; ‘standard’ meta-analysis)\n\n\n\n\nNetwork meta-analysis (comparing more than two interventions in a single model)\n\n\n\n\nIndividual participant data meta-analysis"
+  },
+  {
+    "objectID": "presentations/meta-analysis.html#before-doing-a-meta-analysis",
+    "href": "presentations/meta-analysis.html#before-doing-a-meta-analysis",
+    "title": "Introduction to Meta-Analysis",
+    "section": "Before doing a meta-analysis",
+    "text": "Before doing a meta-analysis\n\n\nDo your systematic review well:\n\nDefine the review aims & scope (PICO)\nEnsure your search strategy, screening, etc. is effective\nIdentify & summarise study characteristics\nDecide whether studies are ‘similar enough’ to be grouped & synthesized"
+  },
+  {
+    "objectID": "presentations/meta-analysis.html#general-approach-to-meta-analysis",
+    "href": "presentations/meta-analysis.html#general-approach-to-meta-analysis",
+    "title": "Introduction to Meta-Analysis",
+    "section": "General approach to meta-analysis",
+    "text": "General approach to meta-analysis\n\n\nExtract (or calculate) a summary statistic for each study\nCalculate (weighted) average effect across all studies\nCalculate the standard error of the summary effect (to derive confidence intervals and/or p-values)\nEstimate heterogeneity between studies\nSummarise findings graphically (usually with a forest plot)"
+  },
+  {
+    "objectID": "presentations/meta-analysis.html#extractcalculate-statistics-for-each-study",
+    "href": "presentations/meta-analysis.html#extractcalculate-statistics-for-each-study",
+    "title": "Introduction to Meta-Analysis",
+    "section": "1. Extract/calculate statistics for each study",
+    "text": "1. Extract/calculate statistics for each study\n\n\nFor dichotomous outcomes:\n\nOdds ratio\nRisk ratio\nRisk difference\n\nFor continuous outcomes:\n\nMean difference\n\n(post-intervention, change from baseline, adjusted post-intervention)\n\nStandardised mean difference"
+  },
+  {
+    "objectID": "presentations/meta-analysis.html#extractcalculate-statistics-for-each-study-1",
+    "href": "presentations/meta-analysis.html#extractcalculate-statistics-for-each-study-1",
+    "title": "Introduction to Meta-Analysis",
+    "section": "1. Extract/calculate statistics for each study",
+    "text": "1. Extract/calculate statistics for each study\n\n\nFor ordinal outcomes:\n\nUsually either treated as dichotomous or continuous\nAlso possible to estimate a proportional odds ratio\n\nFor count outcomes:\n\nAgain, usually treated as dichotomous or continuous\nRate ratio or rate difference\n\nFor time-to-event outcomes:\n\nHazard ratio"
+  },
+  {
+    "objectID": "presentations/meta-analysis.html#calculate-weighted-effect",
+    "href": "presentations/meta-analysis.html#calculate-weighted-effect",
+    "title": "Introduction to Meta-Analysis",
+    "section": "2. Calculate weighted effect",
+    "text": "2. Calculate weighted effect\n\nGenerally, meta-analyses use an inverse-variance weighted method\n\n\\[\\text{Weighted average} = \\frac{\\sum{Y_i W_i}}{\\sum{W_i}}\\]\n   where \\(W_i = (1 / SE_i)^2\\)\n\nFor ratio measures, both the effects and standard errors are on the log scale\n\nThese can be transformed back to the original scale for reporting\n\nThere are slight variants to this general approach for some methods (particularly for dichotomous outcomes)"
+  },
+  {
+    "objectID": "presentations/meta-analysis.html#calculate-standard-errors",
+    "href": "presentations/meta-analysis.html#calculate-standard-errors",
+    "title": "Introduction to Meta-Analysis",
+    "section": "3. Calculate standard errors",
+    "text": "3. Calculate standard errors\n\n\nIn the general inverse-variance method, the standard error of the weighted summary statistic is\n\n\\[\\text{Standard error} = \\frac{1}{\\sqrt{\\sum{W_i}}}\\]\n\nAgain, different formulae for some specific methods"
+  },
+  {
+    "objectID": "presentations/meta-analysis.html#estimate-heterogeneity",
+    "href": "presentations/meta-analysis.html#estimate-heterogeneity",
+    "title": "Introduction to Meta-Analysis",
+    "section": "4. Estimate heterogeneity",
+    "text": "4. Estimate heterogeneity\n\nHeterogeneity is measured by\n\n\\(Q = \\sum{W_i (Y_i - \\overline{Y})^2}\\)\n\nand\n\n\\(I^2 = \\text{max}\\left\\{\\frac{Q - (k - 1)}{Q}, 0\\right\\}\\)\n\nQ is a test statistic following a chi-squared distribution, and I2 is interpreted as the proportion of total variance in study estimates due to heterogeneity rather than sampling error\n\nNOTE: I2 can be very uncertain (imprecise) when the number of studies is small"
+  },
+  {
+    "objectID": "presentations/meta-analysis.html#summarise-findings-graphically",
+    "href": "presentations/meta-analysis.html#summarise-findings-graphically",
+    "title": "Introduction to Meta-Analysis",
+    "section": "5. Summarise findings graphically",
+    "text": "5. Summarise findings graphically\n\n\n\nMeta-analyses are usually illustrated using a forest plot\nA forest plot displays effect estimates for both individual studies and the overall meta-analysis result\nEach study is represented by a square (usually) at the point estimate, and horizontal lines extending to bounds of the confidence interval\n\nThe size of the block indicates the weight assigned to that study in the meta-analysis (roughly proportional to sample size)\n\nThe summary result is presented as a diamond at the bottom, centred on the meta-analysis point estimate and with width showing the confidence interval"
+  },
+  {
+    "objectID": "presentations/meta-analysis.html#assessing-small-study-bias-and-publication-bias",
+    "href": "presentations/meta-analysis.html#assessing-small-study-bias-and-publication-bias",
+    "title": "Introduction to Meta-Analysis",
+    "section": "Assessing small-study bias and publication bias",
+    "text": "Assessing small-study bias and publication bias\n\n\n\nSmall sample bias: small studies may show larger intervention effects than larger studies\n\nNon-reporting/non-publication bias\nPoor methodological quality\nMechanistic vs. pragmatic designs\n\nA ‘funnel plot’ can help detect this"
+  },
+  {
+    "objectID": "presentations/meta-analysis.html#software",
+    "href": "presentations/meta-analysis.html#software",
+    "title": "Introduction to Meta-Analysis",
+    "section": "Software",
+    "text": "Software\n\nCochrane RevMan\n\nManages all stages of the systematic review process, from design to data extraction, analysis, and visualiation\nFree for those doing Cochrane reviews, subscription for everyone else\n\nR: there are several packages for meta-analysis\n\nSee the Meta-Analysis Task View:\nhttps://cran.r-project.org/view=MetaAnalysis\nmetafor is a comprehensive package with functions for converting published results to common summary statistics, fitting inverse-variance weighted and related models, forest and funnel plots, heterogeneity measures, and diagnostic statistics (among others)"
+  },
+  {
+    "objectID": "presentations/meta-analysis.html#references",
+    "href": "presentations/meta-analysis.html#references",
+    "title": "Introduction to Meta-Analysis",
+    "section": "References",
+    "text": "References\n\nCochrane Handbook for Systematic Reviews of Interventions\nhttps://training.cochrane.org/handbook/current\n\nDetails of the statistical methods: https://documentation.cochrane.org/revman-kb/files/210600101/210600103/1/1654774257333/Statistical_methods_in_revman.pdf\n\nEgger M, Smith GD, Altman DG. Systematic Reviews in Health Care: Meta-Analysis in Context, 2nd Ed. London, UK: BMJ Publishing Group. 2001.\nhttps://doi.org/10.1002/9780470693926\nJin Z-C, Zhou X-H, He J. Statistical methods for dealing with publication bias in meta-analysis. Statistics in Medicine 2015;34(2):343-360\nhttps://doi.org/10.1002/sim.6342\nmetafor R package https://wviechtb.github.io/metafor/"
+  }
+]

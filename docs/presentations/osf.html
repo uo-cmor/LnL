@@ -1,0 +1,737 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.3.433">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Ross Wilson">
+<meta name="dcterms.date" content="2023-06-29">
+
+<title>CMOR Lunch’n’Learn - Open Science at CMOR</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<script src="../site_libs/quarto-html/quarto.js"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+
+<link rel="stylesheet" href="../styles.css">
+</head>
+
+<body class="nav-sidebar docked nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-dark ">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container">
+    <a href="../index.html" class="navbar-brand navbar-brand-logo">
+    <img src="../images/cmor-logo.jpg" alt="" class="navbar-logo">
+    </a>
+    <a class="navbar-brand" href="../index.html">
+    <span class="navbar-title">Centre for Musculoskeletal Outcomes Research<br><i>University of Otago</i></span>
+    </a>
+  </div>
+        <div class="quarto-navbar-tools ms-auto">
+</div>
+          <div id="quarto-search" class="" title="Search"></div>
+      </div> <!-- /container-fluid -->
+    </nav>
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../presentations/Intro-to-R.html">Presentations</a></li><li class="breadcrumb-item"><a href="../presentations/osf.html">Open science</a></li></ol></nav>
+      <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+      </a>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation docked overflow-auto">
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Home</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">
+ <span class="menu-text">Presentations</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../presentations/Intro-to-R.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Introduction to R</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../presentations/osf.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">Open science</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../presentations/meta-analysis.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Meta-analysis</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#introduction-to-open-science" id="toc-introduction-to-open-science" class="nav-link active" data-scroll-target="#introduction-to-open-science">Introduction to Open Science</a>
+  <ul class="collapse">
+  <li><a href="#what-is-open-science" id="toc-what-is-open-science" class="nav-link" data-scroll-target="#what-is-open-science">What is Open Science?</a></li>
+  <li><a href="#closed-science" id="toc-closed-science" class="nav-link" data-scroll-target="#closed-science">“Closed” Science</a></li>
+  <li><a href="#principles-of-open-science" id="toc-principles-of-open-science" class="nav-link" data-scroll-target="#principles-of-open-science">Principles of Open Science</a></li>
+  <li><a href="#principles-of-open-science-1" id="toc-principles-of-open-science-1" class="nav-link" data-scroll-target="#principles-of-open-science-1">Principles of Open Science</a></li>
+  <li><a href="#the-research-workflow" id="toc-the-research-workflow" class="nav-link" data-scroll-target="#the-research-workflow">The Research Workflow</a></li>
+  <li><a href="#the-research-workflow-1" id="toc-the-research-workflow-1" class="nav-link" data-scroll-target="#the-research-workflow-1">The Research Workflow</a></li>
+  <li><a href="#components-of-open-scientific-knowledge" id="toc-components-of-open-scientific-knowledge" class="nav-link" data-scroll-target="#components-of-open-scientific-knowledge">Components of Open Scientific Knowledge</a></li>
+  <li><a href="#open-protocolsdocumentation" id="toc-open-protocolsdocumentation" class="nav-link" data-scroll-target="#open-protocolsdocumentation">Open protocols/documentation</a></li>
+  <li><a href="#open-research-data" id="toc-open-research-data" class="nav-link" data-scroll-target="#open-research-data">Open research data</a></li>
+  </ul></li>
+  <li><a href="#data-sharing-a-cautionary-tale" id="toc-data-sharing-a-cautionary-tale" class="nav-link" data-scroll-target="#data-sharing-a-cautionary-tale">Data sharing – a cautionary tale</a>
+  <ul class="collapse">
+  <li><a href="#open-softwaresource-code" id="toc-open-softwaresource-code" class="nav-link" data-scroll-target="#open-softwaresource-code">Open software/source code</a></li>
+  <li><a href="#open-access-publication" id="toc-open-access-publication" class="nav-link" data-scroll-target="#open-access-publication">Open access publication</a></li>
+  </ul></li>
+  <li><a href="#open-science-framework" id="toc-open-science-framework" class="nav-link" data-scroll-target="#open-science-framework">Open Science Framework</a>
+  <ul class="collapse">
+  <li><a href="#open-science-framework-1" id="toc-open-science-framework-1" class="nav-link" data-scroll-target="#open-science-framework-1">Open Science Framework</a></li>
+  <li><a href="#project-organisation-on-the-osf" id="toc-project-organisation-on-the-osf" class="nav-link" data-scroll-target="#project-organisation-on-the-osf">Project organisation on the OSF</a></li>
+  <li><a href="#cmor-osf" id="toc-cmor-osf" class="nav-link" data-scroll-target="#cmor-osf">CMOR @ OSF</a></li>
+  <li><a href="#preregistration" id="toc-preregistration" class="nav-link" data-scroll-target="#preregistration">Preregistration</a></li>
+  <li><a href="#resources" id="toc-resources" class="nav-link" data-scroll-target="#resources">Resources</a></li>
+  </ul></li>
+  </ul>
+<div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="osf.html"><i class="bi bi-file-slides"></i>RevealJS</a></li></ul></div></nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Open Science at CMOR</h1>
+<p class="subtitle lead">CMOR Lunch’n’Learn</p>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Ross Wilson </p>
+          </div>
+  </div>
+    
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">29 June 2023</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
+
+</header>
+
+<section id="introduction-to-open-science" class="level1">
+<h1>Introduction to Open Science</h1>
+<section id="what-is-open-science" class="level2">
+<h2 class="anchored" data-anchor-id="what-is-open-science">What is Open Science?</h2>
+<p><br></p>
+<blockquote class="blockquote">
+<p>Open science is a set of principles and practices that aim to make scientific research from all fields accessible to everyone for the benefits of scientists and society as a whole.</p>
+</blockquote>
+<p>— UNESCO Recommendation on Open Science</p>
+</section>
+<section id="closed-science" class="level2">
+<h2 class="anchored" data-anchor-id="closed-science">“Closed” Science</h2>
+<p><br></p>
+<ul>
+<li><p>Research published only in paywalled journals that not everyone can access</p></li>
+<li><p>Data that supports scientific results being unavailable</p></li>
+<li><p>Software, code, protocols, etc. being unknown, undocumented, or inaccessible</p></li>
+<li><p>Science not being accessible to communities that would benefit from it</p></li>
+</ul>
+</section>
+<section id="principles-of-open-science" class="level2">
+<h2 class="anchored" data-anchor-id="principles-of-open-science">Principles of Open Science</h2>
+<p><br></p>
+<ol type="1">
+<li><p>Transparency, scrutiny, critique, and responsibility</p></li>
+<li><p>Equality of opportunities</p></li>
+<li><p>Responsibility, respect, and accountability</p></li>
+<li><p>Collaboration, participation, and inclusion</p></li>
+<li><p>Flexibility</p></li>
+<li><p>Sustainability</p></li>
+</ol>
+</section>
+<section id="principles-of-open-science-1" class="level2">
+<h2 class="anchored" data-anchor-id="principles-of-open-science-1">Principles of Open Science</h2>
+<ul>
+<li><p>Today we’ll mostly focus on the first principle</p>
+<ul>
+<li>Transparency, or what we might call ‘open scientific knowledge’</li>
+</ul></li>
+</ul>
+<p><br></p>
+<p>. . .</p>
+<ul>
+<li>Are our publications, data, metadata, protocols, educational resources, software, source code freely available to all?</li>
+</ul>
+<p><br></p>
+<p>. . .</p>
+<p>(This is one end of a continuum of ‘openness’ – depending on the context, nature of the data, etc., it may not be desirable to make all of these completely open in all circumstances)</p>
+</section>
+<section id="the-research-workflow" class="level2">
+<h2 class="anchored" data-anchor-id="the-research-workflow">The Research Workflow</h2>
+<p><br></p>
+<ol type="1">
+<li>We design a study to answer a research question</li>
+</ol>
+<p><br></p>
+<p>. . .</p>
+<ol start="2" type="1">
+<li>We collect some data</li>
+</ol>
+<p><br></p>
+<p>. . .</p>
+<ol start="3" type="1">
+<li>We analyse the data and write a paper</li>
+</ol>
+<p><br></p>
+<p>. . .</p>
+<ol start="4" type="1">
+<li>The paper gets published</li>
+</ol>
+</section>
+<section id="the-research-workflow-1" class="level2">
+<h2 class="anchored" data-anchor-id="the-research-workflow-1">The Research Workflow</h2>
+<p><br></p>
+<ul>
+<li>Usually, only</li>
+</ul>
+<blockquote class="blockquote">
+<p>4. The paper gets published</p>
+</blockquote>
+<p>results in any accessible output</p>
+<p>. . .</p>
+<p><br></p>
+<p>(And often then it is behind a journal paywall and not accessible to all)</p>
+<p>. . .</p>
+<p><br></p>
+<ul>
+<li><strong>1.</strong>, <strong>2.</strong>, and <strong>3.</strong> are often a black box, accessible only to the researcher themselves</li>
+</ul>
+</section>
+<section id="components-of-open-scientific-knowledge" class="level2">
+<h2 class="anchored" data-anchor-id="components-of-open-scientific-knowledge">Components of Open Scientific Knowledge</h2>
+<p><br></p>
+<ul>
+<li>Open protocols/documentation</li>
+<li>Open research data</li>
+<li>Open software/source code</li>
+<li>Open access publication</li>
+</ul>
+</section>
+<section id="open-protocolsdocumentation" class="level2">
+<h2 class="anchored" data-anchor-id="open-protocolsdocumentation">Open protocols/documentation</h2>
+<p><br></p>
+<ul>
+<li>RCTs and systematic reviews now generally require registration and pre-specified protocols, e.g.
+<ul>
+<li><a href="https://clinicaltrials.gov">ClinicalTrials.gov</a> for clinical trials in the US</li>
+<li><a href="https://anzctr.org.au">ANZCTR</a> in Australia/NZ</li>
+<li><a href="https://www.crd.york.ac.uk/prospero/">PROSPERO</a> for systematic reviews</li>
+</ul></li>
+</ul>
+<p><br></p>
+<ul>
+<li>Usually not required for other study types, but still a good idea</li>
+</ul>
+</section>
+<section id="open-research-data" class="level2">
+<h2 class="anchored" data-anchor-id="open-research-data">Open research data</h2>
+<p><br></p>
+<ul>
+<li>Open data allows other researchers to:
+<ul>
+<li>check the correctness of your analysis</li>
+<li>combine your data with other sources (e.g.&nbsp;IPD meta-analysis)</li>
+<li>use your data to answer questions you hadn’t even thought of…</li>
+</ul></li>
+<li>For health data, it is very important to consider the appropriateness of data sharing:
+<ul>
+<li>is additional data preprocessing needed to ensure participant anonymity?</li>
+<li>should there be restrictions on who can access data and for what purpose?</li>
+</ul></li>
+<li>If data is being shared, it needs to be documented clearly</li>
+</ul>
+</section>
+</section>
+<section id="data-sharing-a-cautionary-tale" class="level1">
+<h1>Data sharing – a cautionary tale</h1>
+<hr>
+<div class="quarto-video"><iframe data-external="1" src="https://www.youtube.com/embed/N2zK3sAtr-4" width="100%" height="100%" title="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe></div>
+<section id="open-softwaresource-code" class="level2">
+<h2 class="anchored" data-anchor-id="open-softwaresource-code">Open software/source code</h2>
+<p><br></p>
+<ul>
+<li>As with open data, sharing source code allows others to check the correctness of your analysis</li>
+</ul>
+<p><br></p>
+<ul>
+<li>Wherever possible, the use of open source or freely-available software allows others (or yourself later) to replicate your work</li>
+</ul>
+</section>
+<section id="open-access-publication" class="level2">
+<h2 class="anchored" data-anchor-id="open-access-publication">Open access publication</h2>
+<p><br></p>
+<ul>
+<li><p>Research is of no use if no one can access it…</p></li>
+<li><p>To ensure our research can reach the widest possible audience, aim for open access publishing whenever possible</p>
+<ul>
+<li>Otago has ‘Read &amp; Publish’ agreements with a number of publishers
+<ul>
+<li><a href="https://otago.libguides.com/research_publishing_impact/read-and-publish" class="uri">https://otago.libguides.com/research_publishing_impact/read-and-publish</a></li>
+</ul></li>
+</ul></li>
+<li><p>Otherwise you can usually post either a ‘pre-print’ or ‘post-print’ (accepted manuscript) on an institutional (e.g.&nbsp;OURArchive) or other repository, sometimes after an embargo period.</p>
+<ul>
+<li><a href="https://beta.sherpa.ac.uk/">Sherpa Services</a> provides an easy search function to look up journals’ sharing policies</li>
+</ul></li>
+</ul>
+</section>
+</section>
+<section id="open-science-framework" class="level1">
+<h1>Open Science Framework</h1>
+<section id="open-science-framework-1" class="level2">
+<h2 class="anchored" data-anchor-id="open-science-framework-1">Open Science Framework</h2>
+<p><br></p>
+<ul>
+<li>At CMOR, we have started using the Open Science Framework (OSF) for collaborative open science</li>
+</ul>
+<p><br></p>
+<ul>
+<li><a href="https://osf.io" class="uri">https://osf.io</a></li>
+</ul>
+<p><br></p>
+<ul>
+<li>The OSF allows both private work (within the research team) and public sharing for dissemination and accessibility</li>
+</ul>
+</section>
+<section id="project-organisation-on-the-osf" class="level2">
+<h2 class="anchored" data-anchor-id="project-organisation-on-the-osf">Project organisation on the OSF</h2>
+<p><br></p>
+<ul>
+<li>Work on the OSF is organised into ‘Projects’, which can be nested to create a structured organisation for all of your files, data, code, protocols, and outputs</li>
+</ul>
+<p><br></p>
+<ul>
+<li>Within a projected, nested sub-projects are referred to as ‘Components’
+<ul>
+<li>The advantage of nesting components within a project is that each component can have its own permission settings (contributors, public/private access, etc)</li>
+</ul></li>
+</ul>
+</section>
+<section id="cmor-osf" class="level2 smaller">
+<h2 class="smaller anchored" data-anchor-id="cmor-osf">CMOR @ OSF</h2>
+<ul>
+<li>We have set up such a nested structure for research projects at CMOR:</li>
+</ul>
+<p><a href="https://osf.io/stw9e/"><strong>Centre for Musculoskeletal Outcomes Research</strong></a></p>
+<div class="columns">
+<div class="column" style="width:40%;">
+<ul>
+<li>Reducing the burden of osteoarthritis in Aotearoa New Zealand
+<ul>
+<li>Discrete Event Simulation modelling</li>
+<li>Risks, Impacts, Equity, and Cost-effectiveness
+<ul>
+<li>Long-term impacts of ligament injury
+<ul>
+<li>Analysis plan</li>
+</ul></li>
+<li>Impacts of opioid use around TJR surgery</li>
+<li>Cost-effectiveness of TJR surgery</li>
+</ul></li>
+<li>He Oranga mō te whanau</li>
+<li>Mātauranga</li>
+</ul></li>
+</ul>
+</div><div class="column" style="width:35%;">
+<ul>
+<li>Measuring the health state preferences of New Zealanders
+<ul>
+<li>DCE
+<ul>
+<li>Data management plan</li>
+<li>Protocols</li>
+<li>Data</li>
+<li>Analysis</li>
+<li>Publications</li>
+</ul></li>
+</ul></li>
+</ul>
+</div><div class="column" style="width:25%;">
+<ul>
+<li>Graduate students
+<ul>
+<li>Richelle Caya
+<ul>
+<li>Systematic review</li>
+</ul></li>
+<li>…</li>
+</ul></li>
+</ul>
+</div>
+</div>
+</section>
+<section id="preregistration" class="level2">
+<h2 class="anchored" data-anchor-id="preregistration">Preregistration</h2>
+<ul>
+<li><p>Preregistration is the practice of documenting your research plan at the beginning of your study and storing that plan in a read-only public repository (such as the OSF)</p>
+<ul>
+<li>see <a href="https://www.cos.io/initiatives/prereg" class="uri">https://www.cos.io/initiatives/prereg</a></li>
+</ul></li>
+<li><p>Preregistration, including a detailed analysis plan, helps to address issues of reproducibility through reducing the potential for bias in analysis and reporting</p></li>
+<li><p>See <a href="https://help.osf.io/article/158-create-a-preregistration"><strong>Create a preregistration</strong></a> for information on creating and submitting a preregistration for a project on the OSF</p>
+<ul>
+<li>Note that once a preregistration is submitted and approved, you cannot make any changes (by design!), so check everything carefully</li>
+</ul></li>
+</ul>
+</section>
+<section id="resources" class="level2 smaller">
+<h2 class="smaller anchored" data-anchor-id="resources">Resources</h2>
+<ul>
+<li><p>UNESCO Recommendation on Open Science<br>
+<a href="https://www.unesco.org/en/open-science" class="uri">https://www.unesco.org/en/open-science</a></p></li>
+<li><p>Passport for Open Science (Ministry of Higher Education and Research, France)<br>
+<a href="https://www.ouvrirlascience.fr/passport-for-open-science-a-practical-guide-for-phd-students/" class="uri">https://www.ouvrirlascience.fr/passport-for-open-science-a-practical-guide-for-phd-students/</a></p></li>
+<li><p>The Open Science Training Handbook (FOSTER Open Science)<br>
+<a href="https://open-science-training-handbook.github.io/Open-Science-Training-Handbook_EN/" class="uri">https://open-science-training-handbook.github.io/Open-Science-Training-Handbook_EN/</a></p></li>
+<li><p>Otago’s Read &amp; Publish agreements<br>
+<a href="https://otago.libguides.com/research_publishing_impact/read-and-publish" class="uri">https://otago.libguides.com/research_publishing_impact/read-and-publish</a></p></li>
+<li><p>Sherpa Services<br>
+<a href="https://beta.sherpa.ac.uk/" class="uri">https://beta.sherpa.ac.uk/</a></p></li>
+<li><p>OSF<br>
+<a href="https://osf.io" class="uri">https://osf.io</a> (CMOR: <a href="https://osf.io/stw9e/" class="uri">https://osf.io/stw9e/</a>)</p></li>
+</ul>
+
+
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+</body></html>
