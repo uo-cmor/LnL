@@ -1,0 +1,13 @@
+---
+title: "CMOR Lunch'n'Learn"
+---
+
+We run a series of workshops and seminars in research methods, career development, etc. for graduate students and early career researchers at CMOR. A selection of presentations from these workshops is available below.
+
+## Slide decks
+
+* [Introduction to R](presentations/Intro-to-R.qmd)
+
+* [Open science (and the Open Science Framework)](presentations/osf.qmd)
+
+* Introduction to meta-analysis

@@ -1,0 +1,1118 @@
+---
+title: "Introduction to R"
+subtitle: "CMOR Lunch'n'Learn"
+author: "Ross Wilson"
+date: "2023-03-08"
+date-format: "D MMMM YYYY"
+format:
+  revealjs:
+    theme: [default, cmor.scss]
+    title-slide-attributes: 
+      data-background-image: "images/otago-pennant.png, images/cmor-banner.png, images/title-background.png"
+      data-background-size: "7%, 25%, 100%"
+      data-background-position: "3% 1%, bottom 1% left 50px,0 0"
+      data-background-repeat: "no-repeat"
+    template-partials:
+      - styles.html
+      - title-slide.html
+    preview-links: auto
+    margin: 0.2
+    footer: "[Return to CMOR Lunch'n'Learn presentations](../index.html)"
+---
+
+```{r}
+#| include: false
+options(pillar.min_title_chars = 8)
+```
+
+# Getting Started {background-image="images/otago-pennant.png, images/cmor-banner.png, images/title-background.png" background-size="7%, 25%, 100%" background-repeat="no-repeat" background-position="3% 1%, bottom 1% left 50px,0 0" style="text-align:right;"}
+
+## What is R? What is RStudio?
+
+- R is a *programming language* designed to undertake statistical analysis
+- RStudio is an Integrated Development Environment (IDE) for R
+  - An IDE is a piece of software including a text editor and other tools to make programming (in this case programming in R, specifically) easier
+  - You don’t need to use RStudio to use R, but it makes it ***a lot*** easier
+  - To use RStudio, you also need R installed and working
+
+## Why learn R?
+
+- Powerful and extensible
+  - Pretty much any statistical analysis you want to do can be done in R
+  - There are a huge number of freely-available user-written packages that provide all sorts of additional functionality
+- Reproducibility
+  - By writing R scripts (code) for your analyses, they can be easily checked/replicated/ updated/adapted, by yourself and others
+- High-quality graphics
+  - R has a lot of plotting functions to help you produce publication-quality figures
+
+
+## Getting set up
+
+- Install R
+  - <https://cloud.R-project.org/>
+  - Choose the appropriate version for your operating system and follow the instructions
+- Install RStudio
+  - <https://posit.co/download/rstudio-desktop/>
+  - ditto
+
+## Getting to know RStudio
+
+:::{.absolute}
+![](images/rstudio-screenshot.png)
+:::
+
+:::{.fragment}
+:::{.absolute top="155" left="0" width="609" height="161" style="border-style:solid; border-width:5px; border-color:red; background: rgba(255, 255, 255, 0.4);"}
+:::
+:::{.absolute top="205" left="0" width="609" height="50" style="text-align:center; color:red; font-weight:bold;"}
+Source
+:::
+:::
+
+:::{.fragment}
+:::{.absolute top="321" left="0" width="609" height="311" style="border-style:solid; border-width:5px; border-color:red; background: rgba(255, 255, 255, 0.4);"}
+:::
+:::{.absolute top="425" left="0" width="609" style="text-align:center; color:red; font-weight:bold;"}
+Console
+:::
+:::
+
+:::{.fragment}
+:::{.absolute top="155" left="614" width="373" height="180" style="border-style:solid; border-width:5px; border-color:red; background: rgba(255, 255, 255, 0.4);"}
+:::
+:::{.absolute top="190" left="614" width="373" style="text-align:center; color:red; font-weight:bold;"}
+Environment/<br>History
+:::
+:::
+
+:::{.fragment}
+:::{.absolute top="340" left="614" width="373" height="292" style="border-style:solid; border-width:5px; border-color:red; background: rgba(255, 255, 255, 0.4);"}
+:::
+:::{.absolute top="405" left="614" width="373" style="text-align:center; color:red; font-weight:bold;"}
+Files/Plots/<br>Packages/<br>Help/Viewer
+:::
+:::
+
+## Starting with R
+
+. . .
+
+- We can type math in the console, and get an answer:
+
+```{r}
+#| echo: true
+3+5
+```
+
+. . .
+
+- But to do anything useful, we need to assign the result to a name:
+
+```{r}
+#| echo: true
+#| code-line-numbers: "|1|2"
+x <- 3 + 5
+x
+```
+
+![](images/environment-pane.png){.absolute .fragment top=300 left=250}
+
+## Starting with R
+
+. . .
+
+- Then we can do things with them:
+
+```{r}
+#| echo: true
+y <- 2 * x
+y
+```
+
+![](images/environment-pane-2.png){.absolute .fragment top=115 left=250}
+
+. . .
+
+<br>
+
+- But note that once the value is assigned to y, changing x will not update y:
+
+```{r}
+#| echo: true
+x <- 25
+y
+```
+
+## Functions
+
+- Functions allow us to run commands other than simple arithmetic
+
+```{r}
+#| echo: true
+sqrt(x)
+```
+
+- Functions consist of a set of input *arguments*, code that does something with those inputs, and a return *value*
+
+. . .
+
+- To get help on a function, look up the documentation
+
+```{.r}
+?sqrt
+```
+
+![](images/function-documentation.png){.absolute .fragment top=10 left=500}
+
+## Functions
+
+- You can (and should!) also write your own functions
+
+```{r}
+#| echo: true
+times2 <- function(a) {
+	return(a * 2)
+}
+times2(x)
+```
+
+. . .
+
+- Separating your code out into discrete functions makes it
+  - shorter
+  - easier to follow
+  - less error prone
+
+## Data types
+
+- So far we have only seen single numeric values
+- Data in R can take many forms
+  - The most basic data structure is the *vector*
+
+```{r}
+#| echo: true
+z <- c(3, 7, 10, 6)
+z
+```
+
+. . .
+
+- Vectors can also contain characters
+
+```{r}
+#| echo: true
+c("apple", "banana")
+```
+
+:::{.absolute .fragment .smaller top=400 left=300 width=500 style="background:#ffffff; border-style:solid; border-width:medium; border-color:red; font-size:0.7em;"}
+**The quotes are essential:**
+
+otherwise R will look for the names 'apple' and 'banana' (if these names exist, it will use the values they refer to instead of the character strings; if they don't, it will give an error)
+:::
+
+## Data types
+
+- The basic data types are `numeric`, `character`, `logical` (`TRUE` and `FALSE` values only), and `integer`
+  - Also `complex` and `raw`, but we don't need to worry about those
+- In addition to vectors, more complex data structures include:
+  - lists: similar to vectors, but the elements can be anything (including other lists), and don't need to all be the same
+  - matrices and arrays: like vectors, but with multiple dimensions
+  - data frames: more on these later
+
+## Subsetting
+
+- We can extract values from within a vector (or other data structure) with square brackets
+
+```{r}
+#| echo: true
+a <- c(4, 2, 5, 12)
+a[c(4, 2)]
+```
+
+```{r}
+#| echo: true
+a[c(TRUE, FALSE, TRUE, FALSE)]
+```
+
+- We can use this in conjunction with a logical operator to do conditional subsetting
+
+```{r}
+#| echo: true
+a[a > 4]
+```
+
+# Working with Data Frames {background-image="images/otago-pennant.png, images/cmor-banner.png, images/title-background.png" background-size="7%, 25%, 100%" background-repeat="no-repeat" background-position="3% 1%, bottom 1% left 50px,0 0" style="text-align:right;"}
+
+## Data frames
+
+- A data frame is a tabular data structure (like a spreadsheet)
+  - Each column is a variable
+  - Each row is an observation
+- Each column (variable) is a vector, so must contain a single data type
+  - But different columns can have different types
+- We can read data from Excel or CSV spreadsheets, data files from Stata etc, previously saved R data frames, and much else...
+
+## The `tidyverse`
+
+- The '`tidyverse`' is a collection of packages created by the company that makes RStudio
+- It contains a lot of functions designed to make working with data frames easier
+  - `tibble`: a replacement for base data frames
+  - `readr`: read tabular data like csv files (also `readxl` for Excel files, `haven` for SPSS/Stata/SAS, and others for different file types)
+  - `dplyr`: data manipulation
+  - `tidyr`: reshaping and tidying data
+  - `ggplot2`: creating plots
+  - `purrr`: functional programming
+  - `stringr`: working with character strings
+  - `forcats`: working with factor variables
+
+## Data frames
+
+- Reading in a data frame with `read_csv()`:
+```{r}
+#| echo: true
+library(tidyverse)
+gapminder <- read_csv("raw_data/gapminder_data.csv")
+gapminder
+```
+
+## Manipulating data frames with `dplyr`
+
+  - `select()` only a subset of variables
+
+```{r}
+#| echo: true
+select(gapminder, year, country, gdpPercap)
+```
+
+## Manipulating data frames with `dplyr`
+
+  - `filter()` only a subset of observations
+
+```{r}
+#| echo: true
+filter(gapminder, continent == "Europe", year == 2007)
+```
+
+## Manipulating data frames with `dplyr`
+
+  - `mutate()` to create new variables
+
+```{r}
+#| echo: true
+mutate(gapminder, gdp_billion = gdpPercap * pop / 10^9)
+```
+
+## Manipulating data frames with `dplyr`
+
+  - `summarise()` to calculate summary statistics
+
+```{r}
+#| echo: true
+summarise(gapminder, mean_gdpPercap = mean(gdpPercap))
+```
+
+. . .
+
+ - This is most useful in conjunction with `group_by()`
+
+```{r}
+#| echo: true
+summarise(group_by(gapminder, continent),
+					mean_gdpPercap = mean(gdpPercap))
+```
+
+## Manipulating data frames with `dplyr`
+
+  - The power of `dplyr` is in combining several commands using 'pipes'
+  
+  - The previous command could be written:
+
+```{r}
+#| echo: true
+gapminder %>% 
+	group_by(continent) %>% 
+	summarise(mean_gdpPercap = mean(gdpPercap))
+```
+
+## Reshaping data frames
+
+- Previously we said that data frames have variables in columns and observations in rows
+- There may be different ways to interpret this in any given dataset
+  - Our dataset has country-by-year as the observation, and population, life expectancy, and GDP per capita as variables
+  - Sometimes it might make sense to have one row per country (observation), and multiple variables representing years
+  - These are known as 'long' and 'wide' format, respectively
+
+## Reshaping data frames
+
+- The `tidyr` package helps us transform our data from one shape to the other
+  + `pivot_wider()` takes a long dataset and makes it wider
+  + `pivot_longer()` takes a wide dataset and makes it longer
+- Recall our original dataset
+
+```{r}
+#| echo: true
+gapminder
+```
+
+## Reshaping data frames
+
+- We can reshape this to be wider (one row per country)
+
+```{r}
+#| echo: true
+gapminder_wide <- gapminder %>% 
+  pivot_wider(id_cols = c(country, continent),
+              names_from = year, values_from = c(pop, lifeExp, gdpPercap))
+gapminder_wide
+```
+
+## Reshaping data frames
+
+- Often raw data will come in a wide format, and we want to reshape it longer for data analysis
+
+```{r}
+#| echo: true
+gapminder_wide %>% 
+  pivot_longer(pop_1952:gdpPercap_2007,
+               names_to = c(".value", "year"), names_sep = "_")
+```
+
+## Other `tidyverse` packages
+
+- We'll come back to data visualisation with `ggplot2` in a later session
+- `purrr` provides tools for functional programming
+  - If we have several similar datasets, or subgroups within our dataset, we don't want to write out/copy-and-paste our code separately for each one
+  - With `purrr`, we can use `map()` (and similar) to apply a function to multiple inputs and extract all of the outputs
+- `stringr` and `forcats` are worth looking at if you need to work with string or factor variables -- we won't cover them here
+
+## Resources
+
+- This material was adapted from the Data Carpentries' 'R for Social Scientists' course (<https://preview.carpentries.org/r-socialsci/index.html>)
+- Hands-On Programming with R (<https://rstudio-education.github.io/hopr>)
+  - An introduction to programming in R (for non-programmers!)
+- R for Data Science (<https://r4ds.hadley.nz>)
+  - An excellent practical introduction to using the tidyverse
+- Advanced R (<https://adv-r.hadley.nz>) and R Packages (<https://r-pkgs.org>)
+  - More advanced -- good next steps once you're a bit more comfortable using R
+
+# Data analysis in R (regression) {background-image="images/otago-pennant.png, images/cmor-banner.png, images/title-background.png" background-size="7%, 25%, 100%" background-repeat="no-repeat" background-position="3% 1%, bottom 1% left 50px,0 0" style="text-align:right;"}
+
+## Everything in R is an object
+
+. . .
+
+* This includes your fitted regression models
+
+. . .
+
+* Workflow:
+  * Import/tidy/manipulate raw data
+  * Run regression or other models
+  * Use the created model objects
+    * print to console
+    * save to file
+    * extract coefficient estimates
+    * plot results
+    * export to excel/word
+    * etc.
+
+## Fitted model objects
+
+* R has evolved over time to fit a variety of different needs and use cases
+
+* This gives it great flexibility and ability to meet the needs of different users
+
+* But, the diversity of interfaces, data structures, implementation, and fitted model objects can be a challenge
+  * There is often more than one way to fit a given model
+  * What you've learned about one model implemented in a given package may not translate well to working with other functions/packages
+
+* We'll cover some tools to help bridge that gap
+
+## Fitted model objects
+
+* A few common (but not universal) features:
+
+* Models are described by a `formula`: e.g. `y ~ x + z`
+
+* Data are provided in a data frame (or, equivalently, tibble)
+
+* `coef()`, `vcov()`, `summary()` can be used to extract the coefficient estimates, variance covariance matrix, and to print a summary of the fitted model
+
+## The `broom` package
+
+* `broom` provides several functions to convert fitted model objects to tidy tibbles
+
+* Functions:
+  * `tidy()`: construct a tibble that summarises the statistical findings (coefficients, p-values, etc.)
+  * `augment()`: add new columns to the original data (predictions/fitted values, etc.)
+  * `glance()`: construct a one-row summary of the model (goodness-of-fit, etc.)
+
+* The package works with several model fitting functions from base R and commonly-used packages
+
+  * Some other packages may also implement their own methods to work with these functions
+
+## First example -- linear regression
+
+* Linear regression models can be fitted with the `lm()` function (in the `stats` package, part of base R)
+
+* We'll start by loading the gapminder dataset from the previous session:
+
+```{r}
+#| echo: true
+library(tidyverse)
+gapminder <- read_csv("raw_data/gapminder_data.csv")
+```
+
+## First example -- linear regression
+
+::::: {.columns}
+
+:::: {.column width="75%"}
+* Use `?lm` to find the documentation
+
+:::{.fragment fragment-index=2}
+<br>
+
+```{r}
+options(width=72)
+```
+
+```{r}
+#| echo: true
+linear_regression_model <- lm(lifeExp ~ gdpPercap + continent, gapminder)
+linear_regression_model
+```
+:::
+::::
+:::::
+
+![](images/lm-documentation.png){.absolute .fragment fragment-index=1 top=50 left=820}
+
+## First example -- linear regression
+
+* `linear_regression_model` is now a fitted model object
+
+* If we want, we can look at how this object is actually stored:
+
+```{r}
+#| echo: true
+str(linear_regression_model)
+```
+
+## First example -- linear regression
+
+* More usefully, we can print a summary of the model
+
+```{r}
+options(width=90)
+```
+
+```{r}
+#| echo: true
+summary(linear_regression_model)
+```
+
+## First example -- linear regression
+
+* If we want to work with the results or combine/compare them with other models, `tidy()` from the `broom` package will put them into a nice tidy tibble
+
+```{r}
+#| echo: true
+library(broom)
+tidy(linear_regression_model)
+```
+
+. . .
+
+* And `glance()` gives us several overall model statistics
+
+```{r}
+#| echo: true
+glance(linear_regression_model)
+```
+
+## First example -- linear regression
+
+* The `lmtest` and `car` packages provide tools for inference & hypothesis testing
+* Various clustered and heteroskedasticity-robust standard errors are provided by `sandwich`
+  * These work well together (and with `tidy()` from `broom`)
+
+. . .
+
+```{r}
+#| echo: true
+library(lmtest)
+library(sandwich)
+linear_regression_model %>% 
+  coeftest(vcov. = vcovCL, cluster = ~country) %>% 
+	tidy()
+```
+
+
+## Generalised linear regression
+
+* Can be fitted with the `glm()` function\
+(also in the `stats` package)
+
+:::{.fragment fragment-index=1}
+* `?glm`
+:::
+
+:::{.fragment fragment-index=2}
+<br>
+
+```{r}
+options(width=72)
+```
+
+```{r}
+#| echo: true
+gen_linear_regression_model <- glm(lifeExp ~ gdpPercap + continent,
+                                   family = "quasipoisson", gapminder)
+gen_linear_regression_model
+```
+:::
+![](images/glm-documentation.png){.absolute .fragment fragment-index=1 top=50 left=820}
+
+## Generalised linear regression
+
+```{r}
+options(width=90)
+```
+
+* Again, we can print a summary of the model
+
+```{r}
+#| echo: true
+summary(gen_linear_regression_model)
+```
+
+## Generalised linear regression
+
+* And use `tidy()` and `glance()` from the `broom` package to produce nice tidy tibbles
+
+. . .
+
+```{r}
+#| echo: true
+tidy(gen_linear_regression_model, conf.int = TRUE, exponentiate = TRUE)
+```
+
+. . .
+
+<br>
+
+```{r}
+#| echo: true
+glance(gen_linear_regression_model)
+```
+
+## What else?
+
+* There are many (**many!**) other packages that estimate different regression models or provide tools for diagnostic testing, post-hoc analysis, or visualisation of regression models
+
+* For example, the [Econometrics Task View](https://cran.r-project.org/web/views/Econometrics.html){preview-link="true"} on cran.r-project.org
+
+. . .
+
+* Some that might be of particular relevance to (some of) you:
+  * [`mediation`](https://cran.r-project.org/web/packages/mediation/index.html): parametric and non-parametric mediation analysis
+  * [`eRm`](https://cran.r-project.org/web/packages/eRm/index.html) and [`ltm`](https://cran.r-project.org/web/packages/ltm/index.html): Rasch models
+  * [`metafor`](https://cran.r-project.org/web/packages/metafor/index.html): meta-analysis
+  * [`rstan`](https://cran.r-project.org/web/packages/rstan/index.html), [`rstanarm`](https://cran.r-project.org/web/packages/rstanarm/index.html), and [`brms`](https://cran.r-project.org/web/packages/brms/index.html): Bayesian analysis (using [Stan](http://mc-stan.org/))
+  * [`plm`](https://cran.r-project.org/web/packages/plm/index.html), [`fixest`](https://cran.r-project.org/web/packages/fixest/index.html), [`lme4`](https://cran.r-project.org/web/packages/lme4/index.html), and [`nlme`](https://cran.r-project.org/web/packages/nlme/index.html): panel and multi-level/mixed effect models
+  
+
+# Data visualisation {background-image="images/otago-pennant.png, images/cmor-banner.png, images/title-background.png" background-size="7%, 25%, 100%" background-repeat="no-repeat" background-position="3% 1%, bottom 1% left 50px,0 0" style="text-align:right;"}
+
+## Data visualisation with `ggplot2`
+
+- There are a lot of tools available to create plots in R
+  - `ggplot2` is the most well-developed and widely used
+- We generally want data in long format for plotting
+  - One column for each variable
+  - One row for each observation
+- We'll use the `gapminder` dataset from the previous session
+
+```{r}
+#| echo: true
+library(tidyverse)
+gapminder <- read_csv("raw_data/gapminder_data.csv")
+```
+
+## The grammar of graphics
+
+- dataset -- self-explanatory
+- geom -- the geometric object used to represent the data
+- mappings -- which features of the geom represent which variables in the data
+- stats -- transformations of the data before plotting
+- position -- to avoid overplotting data points
+- coordinate system -- how the x and y axes are plotted
+- faceting scheme -- split the plot by subgroups
+
+## Data visualisation with `ggplot2` {.smaller}
+
+- That's the theory
+- In practice, the easiest way is to build the plot up step-by-step (trial-and-error)
+  - start with the basic `ggplot` object
+
+```{.r}
+ggplot(data = gapminder)
+```
+
+:::{.fragment fragment-index=1}
+![](images/ggplot-blank.png){.absolute .fragment fragment-index=2 .fade-out top=100 left=200 width=550 height=550}
+:::
+
+:::{.fragment fragment-index=2}
+- you can specify (some of) the mappings at this stage
+
+```{.r}
+ggplot(data = gapminder, mapping = aes(x = gdpPercap, y = lifeExp))
+```
+:::
+
+::: {.fragment .fade-in fragment-index=3}
+![](images/ggplot-axes.png){.absolute .fragment .fade-out top=100 left=200 width=550 height=550}
+:::
+
+# Data analysis workflows and project organisation {background-image="images/otago-pennant.png, images/cmor-banner.png, images/title-background.png" background-size="7%, 25%, 100%" background-repeat="no-repeat" background-position="3% 1%, bottom 1% left 50px,0 0" style="text-align:right;"}
+
+## Reproducible research
+
+* What is 'reproducibility'?
+  * Focus here is on *computational reproducibility* -- can your results be replicated by someone (or yourself!) with access to your data, code, etc.
+
+* Why might research not be reproducible?
+  * Raw data are not available or have been changed
+  * Intermediate steps taken to extract, clean, reshape, merge, or analyse data are not adequately recorded or described
+  * Software tools have changed or are no longer available since the analysis was conducted
+  * Errors in manually transcribing results from analysis software to final report (manuscript, etc.)
+
+## Reproducible research {.smaller}
+
+<br>
+
+> Computers are now essential in all branches of science, but most researchers are never taught the equivalent of basic lab skills for research computing. As a result, data can get lost, analyses can take much longer than necessary, and researchers are limited in how effectively they can work with software and data. Computing workflows need to follow the same practices as lab projects and notebooks, with organized data, documented steps, and the project structured for reproducibility, but researchers new to computing often don't know where to start.
+
+--- Wilson G, Bryan J, Cranston K, et al. *Good enough practices in scientific computing*. PLoS Comput Biol 2017;13:e1005510
+
+## Reproducible research
+
+* Ensuring reproducibility (for others) can also have great benefits for you as the analyst/author
+  * When you come back to an analysis later, you know exactly what you did, why you did it, and how to replicate it if needed
+  * If data changes, errors are identified, or new analyses need to be conducted, your analysis and results can easily be updated
+  * The code and methods used in one project/analysis can be re-used in other work
+  * Keeping to a simple, standardised workflow for all projects allows you to switch easily & quickly between projects
+    * And prevents you having to make a whole bunch of new decisions every time you start something new
+
+---
+
+![](images/interconnected-tasks.png)
+
+## Key principles
+
+* Raw data stays raw
+* Source is real
+* Design for collaboration
+  * (including with your future self)
+* Consider version control
+* Automation?
+
+## Key principles -- Raw data
+
+* Raw data stays raw
+  * Make raw data files read-only
+  
+## Key principles -- Raw data
+
+![](images/read-only.png)
+
+## Key principles -- Raw data
+
+* Raw data stays raw
+  * Make raw data files read-only
+  * Can be relaxed (temporarily) if needed, but avoids accidental changes
+  * Most (probably all) changes to data should be scripted (in R, Stata, etc.) rather than made directly in raw data files
+
+## Key principles
+
+* Raw data stays raw
+* Source is real
+* Design for collaboration
+  * (including with your future self)
+* Consider version control
+* Automation?
+
+## Key principles
+
+* Raw data stays raw
+* [Source is real]{style="color:Red;"}
+* Design for collaboration
+  * (including with your future self)
+* Consider version control
+* Automation?
+
+## Key principles -- Source files
+
+* Source is real...
+  * ...workspace is replaceable
+* Any individual R session is disposable and can be replaced/recreated at any time, if you have raw data and appropriate source code
+* Thinking in this way forces you to follow good reproducibility practices in your analysis workflow
+
+## Key principles -- Source files
+
+* What does 'Source is real' mean?
+  * Data import, cleaning, reshaping, wrangling, and analysis should all be conducted via script files
+    * or at least documented in thorough, step-by-step detail
+  * All source code should be saved (regularly!) so all of these steps can be reproduced at any time
+  * Important (or time-consuming) intermediate objects (cleaned datasets, figures, etc) should be explicitly saved, individually, to files (by script, not the mouse, if possible)
+
+## Key principles -- Source files
+
+* Start R with a blank slate, and restart often
+
+## Key principles -- Source files
+
+![](images/save-workspace.PNG)
+
+:::{.absolute top="330" left="130" width="260" height="72" style="border-style:solid; border-width:5px; border-color:red;"}
+:::
+
+## Key principles -- Source files
+
+* Start R with a blank slate, and restart often
+  * When you are running code interactively to try things out, you will be adding objects to the workspace, loading packages, etc
+  * If you inadvertently rely on these objects, packages, etc in your source files, you may not be able to reproduce your results in a new session later
+  * If you have saved source code and intermediate objects to file as you go, it is quick and easy to restart R (Ctrl+Shift+F10, in RStudio) regularly to check whether everything still works as expected
+    * It is much better to find this out after a few minutes than after a whole day’s work!
+
+## Key principles
+
+* Raw data stays raw
+* Source is real
+* Design for collaboration
+  * (including with your future self)
+* Consider version control
+* Automation?
+
+## Key principles
+
+* Raw data stays raw
+* Source is real
+* [Design for collaboration]{style="color:Red;"}
+  * [(including with your future self)]{style="color:Red;"}
+* Consider version control
+* Automation?
+
+## Key principles -- Design for collaboration
+
+. . .
+
+* An analysis directory like this makes it very difficult for anyone (including yourself later) to follow the steps required to reproduce your results
+
+---
+
+![](images/bad_layout.png)
+
+## Key principles -- Design for collaboration
+
+:::::{.columns}
+
+::: {.column}
+* Much better to follow a logical structure (and the same across all of your projects)
+  * Set out high-level structure, e.g.
+    1. read raw data
+    2. tidy data for analysis
+    3. run analyses on tidy data
+    4. collate report/results of analyses
+  * Put raw data in its own directory (and read-only)
+  * Consider other structures/subfolders as appropriate for your project
+:::
+
+:::{.column}
+![](images/better-layout.png)
+:::
+
+:::::
+
+## Key principles -- Design for collaboration
+
+* Break up complicated or repeated analysis steps into discrete functions
+* Give functions and variables meaningful names
+* Use comments liberally
+
+![](images/functions.png){.fragment .absolute top=200 left=450}
+
+## Key principles
+
+* Raw data stays raw
+* Source is real
+* Design for collaboration
+  * (including with your future self)
+* Consider version control
+* Automation?
+
+## Key principles
+
+* Raw data stays raw
+* Source is real
+* Design for collaboration
+  * (including with your future self)
+* [Consider version control]{style="color:Red;"}
+* Automation?
+
+## Key principles -- Version control
+
+* Keeping track of changes to data and code (and being able to revert to a previous version if things go wrong) is critical for reproducible research
+
+* This is particularly true when collaborating with others
+
+* The best way to do this is with a version control system such as Git
+
+## Key principles -- Version control
+
+* We won't go into this in detail today, but a quick Getting Started guide:
+  * Register a GitHub account (<https://github.com>)
+  * Install Git (<https://git-scm.com>) and complete basic setup
+  * Get a Git client (GUI)
+    * GitKraken is a good choice (<https://gitkraken.com>)
+    * GitHub offers a free client, GitHub Desktop (<https://desktop.github.com/>)
+    * RStudio has a basic Git client built-in, which is fine for much day-to-day use
+* See <https://happygitwithr.com/> for more detailed instructions
+
+## Key principles -- Version control
+
+* Using Git (& GitHub) in your projects
+  * A couple of ways to get this set up. Probably the easiest is:
+  * Create a project repository (repo) on GitHub
+  * Import ('clone') the repo as a new RStudio project
+  * Make changes as usual in RStudio (or any other program)
+  * 'Commit' (take a snapshot of the current state of the project) often to your local repo
+  * Less often (maybe once/day) 'push' (sync) the local repo to GitHub
+* What to put under version control
+  * Source code
+  * Raw data (unless its very large)
+
+:::{.absolute .fragment top=480 left=500 width=500 style="background:#ffffff; border-style:solid; border-width:medium; border-color:red; font-size:0.9em; margin-left:20px; line-height:0.9;"}
+What **not** to put under version control
+
+* Most intermediate objects
+* Miscellaneous supporting documents (pdf files, etc.)
+* Final output in the form of word documents, etc.
+:::
+
+## Key principles
+
+* Raw data stays raw
+* Source is real
+* Design for collaboration
+  * (including with your future self)
+* Consider version control
+* Automation?
+
+## Key principles
+
+* Raw data stays raw
+* Source is real
+* Design for collaboration
+  * (including with your future self)
+* Consider version control
+* [Automation?]{style="color:Red;"}
+
+## Key principles -- Automation
+
+* Just as we treat source code as the ‘true’, reproducible record of each step of the analysis, we can record (and automate) how the sequence of individual steps fits together to produce our final results
+
+::: {.fragment fragment-index=1}
+::: {.fragment .fade-out fragment-index=2}
+![](images/workflow.png){.absolute top=100 left=333}
+:::
+:::
+
+:::{.fragment fragment-index=2}
+
+* Can be as simple as something like:
+
+	```{.r}
+	source("code/00-download-data.R")
+	source("code/01-tabulate-frequencies.R")
+	source("code/02-create-histogram.R")
+	source("code/03-render-report.R")
+	```
+
+* Shows in what order to run the scripts, and allows us to resume from the middle (if, for example, you have only changed the file `02-create-histogram.R`, there is no need to redo the first two steps, but we do need to rerun the `create-histogram` and `render-report` steps
+  * Each script should load the required inputs and save the resulting output to file
+
+:::
+
+## Key principles -- Automation
+
+* For more complicated (or long-running) analyses, we may want to explicitly specify dependencies and let the computer figure out how to get everything up-to-date
+
+* Two good tools for doing this:
+  * make
+  * targets
+
+* Advantages of an automated pipeline like this:
+  * When you modify one stage of the pipeline, you can re-run your analyses to get up-to-date final results, with a single click/command
+  * Only the things that need to be updated will be re-run, saving time (important if some of your analyses take a long time to run)
+
+## Key principles -- Automation
+
+* Make is a system tool, designed for use in software development, to specify targets, commands, and dependencies between files and selectively re-run commands when dependencies change
+
+* A Makefile is a plain text file specifying a list of these targets (intermediate/output files in the analysis workflow), commands (to create the targets), and dependencies (input files needed for each command)
+
+```{.bash}
+words.txt: /usr/share/dict/words
+	cp /usr/share/dict/words words.txt
+
+histogram.tsv: histogram.r words.txt
+	Rscript $<
+
+histogram.png: histogram.tsv
+	Rscript -e 'library(ggplot2); qplot(Length, Freq, data=read.delim("$<")); ggsave("$@")'
+
+report.html: report.rmd histogram.tsv histogram.png
+	Rscript -e 'rmarkdown::render("$<")'
+```
+
+## Key principles -- Automation
+
+* `targets` is an R package designed to do something very similar, but specifically designed for R projects
+
+```{.r}
+plan <- list(
+  tar_file(words, download_words()),
+  tar_target(frequency_table, summarise_word_lengths(words)),
+  tar_target(histogram, create_histogram(frequency_table)),
+  tar_file(report, render_report("reports/report.rmd", frequency_table, histogram))
+)
+```
+
+* Abstract workflow steps behind function calls (with meaningful names) as much as possible
+  * The plan should be a clear, high-level overview of the analysis steps required
+
+## Summary
+
+* Treat raw data as read-only
+* Save source, not the workspace
+* Design for collaboration
+  * Follow a logical project structure
+  * Simplify code with human-readable abstractions (functions etc)
+* Consider version control
+* Consider automating your analyses
+
+---
+
+![](images/owl.jpg)
+
+## Summary
+
+* Treat raw data as read-only ![](images/tick.jpg){.fragment fragment-index=1 style="height:1em"}
+* Save source, not the workspace ![](images/tick.jpg){.fragment fragment-index=3 style="height:1em"}
+* Design for collaboration
+  * Follow a logical project structure ![](images/tick.jpg){.fragment fragment-index=2 style="height:1em"}
+  * Simplify code with human-readable abstractions (functions etc) ![](images/tick.jpg){.fragment fragment-index=4 style="height:1em"}
+* Consider version control
+* Consider automating your analyses
+
+:::{.absolute .fragment fragment-index=3 top=120 left=540 style="color:#0070c0; font-size:0.6em; line-height:0.6em;"}
+(if you are already writing<br>script files for your analyses)
+:::
+
+:::{.absolute .fragment fragment-index=4 top=325 left=800 style="color:#0070c0; font-size:0.6em; line-height:0.6em;"}
+(will get better<br>with practice)
+:::
+
+:::{.absolute .fragment fragment-index=5 top=445 left=70 style="color:#0070c0; font-size:0.8em; line-height:0.8em;"}
+(start with a simple high-level overview of the steps in the analysis,<br>even if you don't want to do a full automated pipeline)
+:::
+
+## Resources {.smaller}
+
+* Wilson G, Aruliah DA, Brown CT, Chue Hong NP, Davis M, et al. (2014) Best Practices for Scientific Computing. PLoS Biol 12(1):e1001745. <https://doi.org/10.1371/journal.pbio.1001745>
+* Wilson G, Bryan J, Cranston K, Kitzes J, Nederbragt L, Teal TK (2017) Good enough practices in scientific computing. PloS Comput Biol 13(6):e1005510. <https://doi.org/10.1371/journal.pcbi.1005510>
+* Bryan J, Hester J. What they forgot to teach you about R. <https://rstats.wtf> (especially Section I: A holistic workflow)
+* Bryan J. STAT545 (based on the UBC course of the same name). <https://stat545.com>
+* Bryan J. Happy Git and GitHub for the useR. <https://happygitwithr.com>
+* For targets:
+  * McBain M. Benefits of a function-based diet (The \{drake\} post). <https://milesmcbain.xyz/the-drake-post/>
+    * Refers to the `drake` package, which was a predecessor package of `targets`. The same concepts all apply
+  * Landau W. The \{targets\} R package user manual. <https://books.ropensci.org/targets/>
+
+# Writing reports in R {background-image="images/otago-pennant.png, images/cmor-banner.png, images/title-background.png" background-size="7%, 25%, 100%" background-repeat="no-repeat" background-position="3% 1%, bottom 1% left 50px,0 0" style="text-align:right;"}
+
+## Data workflow
+
+![](images/linear-workflow.png){.absolute top=180 height=400 width=1500}
+
+![](images/workflow-arrows.png){.absolute .fragment top=55}
+
+::: {.absolute .fragment top=100 left=500 width=850 style="background:#F2F2F233;"}
+```{.r}
+plan <- list(
+  tar_file(words, download_words()),
+  tar_target(frequency_table, summarise_word_lengths(words)),
+  tar_target(histogram, create_histogram(frequency_table)),
+  tar_file(report, render_report("reports/report.rmd", frequency_table, histogram))
+)
+```
+:::
+
+::: {.absolute .fragment top=400 left=-100 width=500 style="background:#FFC20FCC; font-size:0.8em;"}
+Advantages:
+
+* Reported results are always kept up-to-date with data and analysis
+* Changes at any point along the workflow can be made easily and robustly
+:::
+
+---
+
+{{< video https://youtu.be/s3JldKoA0zw width="100%" height="100%" >}}
+
+## Data workflow
+
+![](images/linear-workflow.png){.absolute top=180 height=400 width=1500}
+
+![](images/workflow-arrows.png){.absolute top=55}
+
+::: {.absolute top=100 left=500 width=850 style="background:#F2F2F233;"}
+```{.r}
+plan <- list(
+  tar_file(words, download_words()),
+  tar_target(frequency_table, summarise_word_lengths(words)),
+  tar_target(histogram, create_histogram(frequency_table)),
+  tar_file(report, render_report("reports/report.rmd", frequency_table, histogram))
+)
+```
+:::
+
+::: {.absolute top=400 left=-100 width=500 style="background:#FFC20FCC; font-size:0.8em;"}
+Advantages:
+
+* Reported results are always kept up-to-date with data and analysis
+* Changes at any point along the workflow can be made easily and robustly
+:::
+
+## R Markdown
+
+{{< video https://vimeo.com/178485416?embedded=true&source=video_title&owner=22717988 width="100%" height="85%" >}}
+
+## Quarto
+
+* We'll focus on Quarto instead
+* Quarto is a relatively new tool very similar to RMarkdown
+  * Most of what you might read about RMarkdown also applies to Quarto
+  * see also <https://quarto.org> for documentation and guides
+
+---
+
+
+
+# Version control {background-image="images/otago-pennant.png, images/cmor-banner.png, images/title-background.png" background-size="7%, 25%, 100%" background-repeat="no-repeat" background-position="3% 1%, bottom 1% left 50px,0 0" style="text-align:right;"}
+
+# Automation {background-image="images/otago-pennant.png, images/cmor-banner.png, images/title-background.png" background-size="7%, 25%, 100%" background-repeat="no-repeat" background-position="3% 1%, bottom 1% left 50px,0 0" style="text-align:right;"}
+
+# Programming in R {background-image="images/otago-pennant.png, images/cmor-banner.png, images/title-background.png" background-size="7%, 25%, 100%" background-repeat="no-repeat" background-position="3% 1%, bottom 1% left 50px,0 0" style="text-align:right;"}

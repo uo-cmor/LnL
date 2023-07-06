@@ -1,0 +1,38 @@
+project:
+  type: website
+  output-dir: docs
+  resources:
+    - "*.png"
+    - "*.jpg"
+
+website:
+  title: "CMOR Lunch'n'Learn"
+
+  navbar:
+    title: "Centre for Musculoskeletal Outcomes Research<br><i>University of Otago</i>"
+    logo: images/cmor-logo.jpg
+    background: "white"
+
+  sidebar:
+    style: "docked"
+    search: false
+    contents:
+      - href: index.qmd
+        text: Home
+      - section: "Presentations"
+        contents:
+          - text: Introduction to R
+            href: presentations/Intro-to-R.qmd
+          - text: Open science
+            href: presentations/osf.qmd
+          - text: Meta-analysis
+            href: presentations/meta-analysis.qmd
+
+format:
+  html:
+    theme: cosmo
+    css: styles.css
+    toc: true
+
+
+
