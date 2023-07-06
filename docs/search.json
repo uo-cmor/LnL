@@ -14,11 +14,214 @@
     "text": "Slide decks\n\nIntroduction to R\nOpen science (and the Open Science Framework)\nIntroduction to meta-analysis"
   },
   {
-    "objectID": "presentations/Intro-to-R.html",
-    "href": "presentations/Intro-to-R.html",
-    "title": "Introduction to R",
-    "section": "",
-    "text": "R is a programming language designed to undertake statistical analysis\nRStudio is an Integrated Development Environment (IDE) for R\n\nAn IDE is a piece of software including a text editor and other tools to make programming (in this case programming in R, specifically) easier\nYou don’t need to use RStudio to use R, but it makes it a lot easier\nTo use RStudio, you also need R installed and working\n\n\n\n\n\n\nPowerful and extensible\n\nPretty much any statistical analysis you want to do can be done in R\nThere are a huge number of freely-available user-written packages that provide all sorts of additional functionality\n\nReproducibility\n\nBy writing R scripts (code) for your analyses, they can be easily checked/replicated/ updated/adapted, by yourself and others\n\nHigh-quality graphics\n\nR has a lot of plotting functions to help you produce publication-quality figures\n\n\n\n\n\n\nInstall R\n\nhttps://cloud.R-project.org/\nChoose the appropriate version for your operating system and follow the instructions\n\nInstall RStudio\n\nhttps://posit.co/download/rstudio-desktop/\nditto\n\n\n\n\n\n\n\n\n\n\n\n\n\nSource\n\n\n\n\n\n\n\nConsole\n\n\n\n\n\n\n\nEnvironment/History\n\n\n\n\n\n\n\nFiles/Plots/Packages/Help/Viewer\n\n\n\n\n\n. . .\n\nWe can type math in the console, and get an answer:\n\n\n3+5\n\n[1] 8\n\n\n. . .\n\nBut to do anything useful, we need to assign the result to a name:\n\n\nx &lt;- 3 + 5\nx\n\n[1] 8\n\n\n\n\n\n\n. . .\n\nThen we can do things with them:\n\n\ny &lt;- 2 * x\ny\n\n[1] 16\n\n\n\n. . .\n\n\nBut note that once the value is assigned to y, changing x will not update y:\n\n\nx &lt;- 25\ny\n\n[1] 16\n\n\n\n\n\n\nFunctions allow us to run commands other than simple arithmetic\n\n\nsqrt(x)\n\n[1] 5\n\n\n\nFunctions consist of a set of input arguments, code that does something with those inputs, and a return value\n\n. . .\n\nTo get help on a function, look up the documentation\n\n?sqrt\n\n\n\n\n\nYou can (and should!) also write your own functions\n\n\ntimes2 &lt;- function(a) {\n    return(a * 2)\n}\ntimes2(x)\n\n[1] 50\n\n\n. . .\n\nSeparating your code out into discrete functions makes it\n\nshorter\neasier to follow\nless error prone\n\n\n\n\n\n\nSo far we have only seen single numeric values\nData in R can take many forms\n\nThe most basic data structure is the vector\n\n\n\nz &lt;- c(3, 7, 10, 6)\nz\n\n[1]  3  7 10  6\n\n\n. . .\n\nVectors can also contain characters\n\n\nc(\"apple\", \"banana\")\n\n[1] \"apple\"  \"banana\"\n\n\n\nThe quotes are essential:\notherwise R will look for the names ‘apple’ and ‘banana’ (if these names exist, it will use the values they refer to instead of the character strings; if they don’t, it will give an error)\n\n\n\n\n\nThe basic data types are numeric, character, logical (TRUE and FALSE values only), and integer\n\nAlso complex and raw, but we don’t need to worry about those\n\nIn addition to vectors, more complex data structures include:\n\nlists: similar to vectors, but the elements can be anything (including other lists), and don’t need to all be the same\nmatrices and arrays: like vectors, but with multiple dimensions\ndata frames: more on these later\n\n\n\n\n\n\nWe can extract values from within a vector (or other data structure) with square brackets\n\n\na &lt;- c(4, 2, 5, 12)\na[c(4, 2)]\n\n[1] 12  2\n\n\n\na[c(TRUE, FALSE, TRUE, FALSE)]\n\n[1] 4 5\n\n\n\nWe can use this in conjunction with a logical operator to do conditional subsetting\n\n\na[a &gt; 4]\n\n[1]  5 12"
+    "objectID": "presentations/meta-analysis.html#systematic-reviews-and-meta-analyses",
+    "href": "presentations/meta-analysis.html#systematic-reviews-and-meta-analyses",
+    "title": "Introduction to Meta-Analysis",
+    "section": "Systematic reviews and meta-analyses",
+    "text": "Systematic reviews and meta-analyses\n\nFrom Cochrane:\n\nA systematic review is a study that\n“attempts to identify, appraise, and synthesize all the empirical evidence that meets pre-specified eligibility criteria to answer a specific research question”\nMeta-analysis is the statistical combination of results from two or more separate studies\n\nMeta-analysis is often one part of a systematic review"
+  },
+  {
+    "objectID": "presentations/meta-analysis.html#potential-advantages-of-meta-analyses",
+    "href": "presentations/meta-analysis.html#potential-advantages-of-meta-analyses",
+    "title": "Introduction to Meta-Analysis",
+    "section": "(Potential) advantages of meta-analyses",
+    "text": "(Potential) advantages of meta-analyses\n\n\n\nImproved precision\n\n\n\n\nEvidence on generalisability\n\n\n\n\nResolve conflicting results from previous studies"
+  },
+  {
+    "objectID": "presentations/meta-analysis.html#types-of-meta-analysis",
+    "href": "presentations/meta-analysis.html#types-of-meta-analysis",
+    "title": "Introduction to Meta-Analysis",
+    "section": "Types of meta-analysis",
+    "text": "Types of meta-analysis\n\n\n\nPairwise comparisons (i.e., intervention vs. comparator; ‘standard’ meta-analysis)\n\n\n\n\nNetwork meta-analysis (comparing more than two interventions in a single model)\n\n\n\n\nIndividual participant data meta-analysis"
+  },
+  {
+    "objectID": "presentations/meta-analysis.html#before-doing-a-meta-analysis",
+    "href": "presentations/meta-analysis.html#before-doing-a-meta-analysis",
+    "title": "Introduction to Meta-Analysis",
+    "section": "Before doing a meta-analysis",
+    "text": "Before doing a meta-analysis\n\n\nDo your systematic review well:\n\nDefine the review aims & scope (PICO)\nEnsure your search strategy, screening, etc. is effective\nIdentify & summarise study characteristics\nDecide whether studies are ‘similar enough’ to be grouped & synthesized"
+  },
+  {
+    "objectID": "presentations/meta-analysis.html#general-approach-to-meta-analysis",
+    "href": "presentations/meta-analysis.html#general-approach-to-meta-analysis",
+    "title": "Introduction to Meta-Analysis",
+    "section": "General approach to meta-analysis",
+    "text": "General approach to meta-analysis\n\n\nExtract (or calculate) a summary statistic for each study\nCalculate (weighted) average effect across all studies\nCalculate the standard error of the summary effect (to derive confidence intervals and/or p-values)\nEstimate heterogeneity between studies\nSummarise findings graphically (usually with a forest plot)"
+  },
+  {
+    "objectID": "presentations/meta-analysis.html#extractcalculate-statistics-for-each-study",
+    "href": "presentations/meta-analysis.html#extractcalculate-statistics-for-each-study",
+    "title": "Introduction to Meta-Analysis",
+    "section": "1. Extract/calculate statistics for each study",
+    "text": "1. Extract/calculate statistics for each study\n\n\nFor dichotomous outcomes:\n\nOdds ratio\nRisk ratio\nRisk difference\n\nFor continuous outcomes:\n\nMean difference\n\n(post-intervention, change from baseline, adjusted post-intervention)\n\nStandardised mean difference"
+  },
+  {
+    "objectID": "presentations/meta-analysis.html#extractcalculate-statistics-for-each-study-1",
+    "href": "presentations/meta-analysis.html#extractcalculate-statistics-for-each-study-1",
+    "title": "Introduction to Meta-Analysis",
+    "section": "1. Extract/calculate statistics for each study",
+    "text": "1. Extract/calculate statistics for each study\n\n\nFor ordinal outcomes:\n\nUsually either treated as dichotomous or continuous\nAlso possible to estimate a proportional odds ratio\n\nFor count outcomes:\n\nAgain, usually treated as dichotomous or continuous\nRate ratio or rate difference\n\nFor time-to-event outcomes:\n\nHazard ratio"
+  },
+  {
+    "objectID": "presentations/meta-analysis.html#calculate-weighted-effect",
+    "href": "presentations/meta-analysis.html#calculate-weighted-effect",
+    "title": "Introduction to Meta-Analysis",
+    "section": "2. Calculate weighted effect",
+    "text": "2. Calculate weighted effect\n\nGenerally, meta-analyses use an inverse-variance weighted method\n\n\\[\\text{Weighted average} = \\frac{\\sum{Y_i W_i}}{\\sum{W_i}}\\]\n   where \\(W_i = (1 / SE_i)^2\\)\n\nFor ratio measures, both the effects and standard errors are on the log scale\n\nThese can be transformed back to the original scale for reporting\n\nThere are slight variants to this general approach for some methods (particularly for dichotomous outcomes)"
+  },
+  {
+    "objectID": "presentations/meta-analysis.html#calculate-standard-errors",
+    "href": "presentations/meta-analysis.html#calculate-standard-errors",
+    "title": "Introduction to Meta-Analysis",
+    "section": "3. Calculate standard errors",
+    "text": "3. Calculate standard errors\n\n\nIn the general inverse-variance method, the standard error of the weighted summary statistic is\n\n\\[\\text{Standard error} = \\frac{1}{\\sqrt{\\sum{W_i}}}\\]\n\nAgain, different formulae for some specific methods"
+  },
+  {
+    "objectID": "presentations/meta-analysis.html#estimate-heterogeneity",
+    "href": "presentations/meta-analysis.html#estimate-heterogeneity",
+    "title": "Introduction to Meta-Analysis",
+    "section": "4. Estimate heterogeneity",
+    "text": "4. Estimate heterogeneity\n\nHeterogeneity is measured by\n\n\\(Q = \\sum{W_i (Y_i - \\overline{Y})^2}\\)\n\nand\n\n\\(I^2 = \\text{max}\\left\\{\\frac{Q - (k - 1)}{Q}, 0\\right\\}\\)\n\nQ is a test statistic following a chi-squared distribution, and I2 is interpreted as the proportion of total variance in study estimates due to heterogeneity rather than sampling error\n\nNOTE: I2 can be very uncertain (imprecise) when the number of studies is small"
+  },
+  {
+    "objectID": "presentations/meta-analysis.html#summarise-findings-graphically",
+    "href": "presentations/meta-analysis.html#summarise-findings-graphically",
+    "title": "Introduction to Meta-Analysis",
+    "section": "5. Summarise findings graphically",
+    "text": "5. Summarise findings graphically\n\n\n\nMeta-analyses are usually illustrated using a forest plot\nA forest plot displays effect estimates for both individual studies and the overall meta-analysis result\nEach study is represented by a square (usually) at the point estimate, and horizontal lines extending to bounds of the confidence interval\n\nThe size of the block indicates the weight assigned to that study in the meta-analysis (roughly proportional to sample size)\n\nThe summary result is presented as a diamond at the bottom, centred on the meta-analysis point estimate and with width showing the confidence interval"
+  },
+  {
+    "objectID": "presentations/meta-analysis.html#assessing-small-study-bias-and-publication-bias",
+    "href": "presentations/meta-analysis.html#assessing-small-study-bias-and-publication-bias",
+    "title": "Introduction to Meta-Analysis",
+    "section": "Assessing small-study bias and publication bias",
+    "text": "Assessing small-study bias and publication bias\n\n\n\nSmall sample bias: small studies may show larger intervention effects than larger studies\n\nNon-reporting/non-publication bias\nPoor methodological quality\nMechanistic vs. pragmatic designs\n\nA ‘funnel plot’ can help detect this"
+  },
+  {
+    "objectID": "presentations/meta-analysis.html#software",
+    "href": "presentations/meta-analysis.html#software",
+    "title": "Introduction to Meta-Analysis",
+    "section": "Software",
+    "text": "Software\n\nCochrane RevMan\n\nManages all stages of the systematic review process, from design to data extraction, analysis, and visualiation\nFree for those doing Cochrane reviews, subscription for everyone else\n\nR: there are several packages for meta-analysis\n\nSee the Meta-Analysis Task View:\nhttps://cran.r-project.org/view=MetaAnalysis\nmetafor is a comprehensive package with functions for converting published results to common summary statistics, fitting inverse-variance weighted and related models, forest and funnel plots, heterogeneity measures, and diagnostic statistics (among others)"
+  },
+  {
+    "objectID": "presentations/meta-analysis.html#references",
+    "href": "presentations/meta-analysis.html#references",
+    "title": "Introduction to Meta-Analysis",
+    "section": "References",
+    "text": "References\n\nCochrane Handbook for Systematic Reviews of Interventions\nhttps://training.cochrane.org/handbook/current\n\nDetails of the statistical methods: https://documentation.cochrane.org/revman-kb/files/210600101/210600103/1/1654774257333/Statistical_methods_in_revman.pdf\n\nEgger M, Smith GD, Altman DG. Systematic Reviews in Health Care: Meta-Analysis in Context, 2nd Ed. London, UK: BMJ Publishing Group. 2001.\nhttps://doi.org/10.1002/9780470693926\nJin Z-C, Zhou X-H, He J. Statistical methods for dealing with publication bias in meta-analysis. Statistics in Medicine 2015;34(2):343-360\nhttps://doi.org/10.1002/sim.6342\nmetafor R package https://wviechtb.github.io/metafor/\n\n\n\nReturn to CMOR Lunch’n’Learn presentations"
+  },
+  {
+    "objectID": "presentations/osf.html#what-is-open-science",
+    "href": "presentations/osf.html#what-is-open-science",
+    "title": "Open Science at CMOR",
+    "section": "What is Open Science?",
+    "text": "What is Open Science?\n\n\nOpen science is a set of principles and practices that aim to make scientific research from all fields accessible to everyone for the benefits of scientists and society as a whole.\n\n— UNESCO Recommendation on Open Science"
+  },
+  {
+    "objectID": "presentations/osf.html#closed-science",
+    "href": "presentations/osf.html#closed-science",
+    "title": "Open Science at CMOR",
+    "section": "“Closed” Science",
+    "text": "“Closed” Science\n\n\nResearch published only in paywalled journals that not everyone can access\nData that supports scientific results being unavailable\nSoftware, code, protocols, etc. being unknown, undocumented, or inaccessible\nScience not being accessible to communities that would benefit from it"
+  },
+  {
+    "objectID": "presentations/osf.html#principles-of-open-science",
+    "href": "presentations/osf.html#principles-of-open-science",
+    "title": "Open Science at CMOR",
+    "section": "Principles of Open Science",
+    "text": "Principles of Open Science\n\n\nTransparency, scrutiny, critique, and responsibility\nEquality of opportunities\nResponsibility, respect, and accountability\nCollaboration, participation, and inclusion\nFlexibility\nSustainability"
+  },
+  {
+    "objectID": "presentations/osf.html#principles-of-open-science-1",
+    "href": "presentations/osf.html#principles-of-open-science-1",
+    "title": "Open Science at CMOR",
+    "section": "Principles of Open Science",
+    "text": "Principles of Open Science\n\nToday we’ll mostly focus on the first principle\n\nTransparency, or what we might call ‘open scientific knowledge’\n\n\n\n\n\nAre our publications, data, metadata, protocols, educational resources, software, source code freely available to all?\n\n\n\n\n(This is one end of a continuum of ‘openness’ – depending on the context, nature of the data, etc., it may not be desirable to make all of these completely open in all circumstances)"
+  },
+  {
+    "objectID": "presentations/osf.html#the-research-workflow",
+    "href": "presentations/osf.html#the-research-workflow",
+    "title": "Open Science at CMOR",
+    "section": "The Research Workflow",
+    "text": "The Research Workflow\n\n\nWe design a study to answer a research question\n\n\n\n\nWe collect some data\n\n\n\n\n\nWe analyse the data and write a paper\n\n\n\n\n\nThe paper gets published"
+  },
+  {
+    "objectID": "presentations/osf.html#the-research-workflow-1",
+    "href": "presentations/osf.html#the-research-workflow-1",
+    "title": "Open Science at CMOR",
+    "section": "The Research Workflow",
+    "text": "The Research Workflow\n\n\nUsually, only\n\n\n4. The paper gets published\n\nresults in any accessible output\n\n\n(And often then it is behind a journal paywall and not accessible to all)\n\n\n\n\n1., 2., and 3. are often a black box, accessible only to the researcher themselves"
+  },
+  {
+    "objectID": "presentations/osf.html#components-of-open-scientific-knowledge",
+    "href": "presentations/osf.html#components-of-open-scientific-knowledge",
+    "title": "Open Science at CMOR",
+    "section": "Components of Open Scientific Knowledge",
+    "text": "Components of Open Scientific Knowledge\n\n\nOpen protocols/documentation\nOpen research data\nOpen software/source code\nOpen access publication"
+  },
+  {
+    "objectID": "presentations/osf.html#open-protocolsdocumentation",
+    "href": "presentations/osf.html#open-protocolsdocumentation",
+    "title": "Open Science at CMOR",
+    "section": "Open protocols/documentation",
+    "text": "Open protocols/documentation\n\n\nRCTs and systematic reviews now generally require registration and pre-specified protocols, e.g.\n\nClinicalTrials.gov for clinical trials in the US\nANZCTR in Australia/NZ\nPROSPERO for systematic reviews\n\n\n\n\nUsually not required for other study types, but still a good idea"
+  },
+  {
+    "objectID": "presentations/osf.html#open-research-data",
+    "href": "presentations/osf.html#open-research-data",
+    "title": "Open Science at CMOR",
+    "section": "Open research data",
+    "text": "Open research data\n\n\nOpen data allows other researchers to:\n\ncheck the correctness of your analysis\ncombine your data with other sources (e.g. IPD meta-analysis)\nuse your data to answer questions you hadn’t even thought of…\n\nFor health data, it is very important to consider the appropriateness of data sharing:\n\nis additional data preprocessing needed to ensure participant anonymity?\nshould there be restrictions on who can access data and for what purpose?\n\nIf data is being shared, it needs to be documented clearly"
+  },
+  {
+    "objectID": "presentations/osf.html#open-softwaresource-code",
+    "href": "presentations/osf.html#open-softwaresource-code",
+    "title": "Open Science at CMOR",
+    "section": "Open software/source code",
+    "text": "Open software/source code\n\n\nAs with open data, sharing source code allows others to check the correctness of your analysis\n\n\n\nWherever possible, the use of open source or freely-available software allows others (or yourself later) to replicate your work"
+  },
+  {
+    "objectID": "presentations/osf.html#open-access-publication",
+    "href": "presentations/osf.html#open-access-publication",
+    "title": "Open Science at CMOR",
+    "section": "Open access publication",
+    "text": "Open access publication\n\n\nResearch is of no use if no one can access it…\nTo ensure our research can reach the widest possible audience, aim for open access publishing whenever possible\n\nOtago has ‘Read & Publish’ agreements with a number of publishers\n\nhttps://otago.libguides.com/research_publishing_impact/read-and-publish\n\n\nOtherwise you can usually post either a ‘pre-print’ or ‘post-print’ (accepted manuscript) on an institutional (e.g. OURArchive) or other repository, sometimes after an embargo period.\n\nSherpa Services provides an easy search function to look up journals’ sharing policies"
+  },
+  {
+    "objectID": "presentations/osf.html#open-science-framework-1",
+    "href": "presentations/osf.html#open-science-framework-1",
+    "title": "Open Science at CMOR",
+    "section": "Open Science Framework",
+    "text": "Open Science Framework\n\n\nAt CMOR, we have started using the Open Science Framework (OSF) for collaborative open science\n\n\n\nhttps://osf.io\n\n\n\nThe OSF allows both private work (within the research team) and public sharing for dissemination and accessibility"
+  },
+  {
+    "objectID": "presentations/osf.html#project-organisation-on-the-osf",
+    "href": "presentations/osf.html#project-organisation-on-the-osf",
+    "title": "Open Science at CMOR",
+    "section": "Project organisation on the OSF",
+    "text": "Project organisation on the OSF\n\n\nWork on the OSF is organised into ‘Projects’, which can be nested to create a structured organisation for all of your files, data, code, protocols, and outputs\n\n\n\nWithin a projected, nested sub-projects are referred to as ‘Components’\n\nThe advantage of nesting components within a project is that each component can have its own permission settings (contributors, public/private access, etc)"
+  },
+  {
+    "objectID": "presentations/osf.html#cmor-osf",
+    "href": "presentations/osf.html#cmor-osf",
+    "title": "Open Science at CMOR",
+    "section": "CMOR @ OSF",
+    "text": "CMOR @ OSF\n\nWe have set up such a nested structure for research projects at CMOR:\n\nCentre for Musculoskeletal Outcomes Research\n\n\n\nReducing the burden of osteoarthritis in Aotearoa New Zealand\n\nDiscrete Event Simulation modelling\nRisks, Impacts, Equity, and Cost-effectiveness\n\nLong-term impacts of ligament injury\n\nAnalysis plan\n\nImpacts of opioid use around TJR surgery\nCost-effectiveness of TJR surgery\n\nHe Oranga mō te whanau\nMātauranga\n\n\n\n\nMeasuring the health state preferences of New Zealanders\n\nDCE\n\nData management plan\nProtocols\nData\nAnalysis\nPublications\n\n\n\n\n\nGraduate students\n\nRichelle Caya\n\nSystematic review\n\n…"
+  },
+  {
+    "objectID": "presentations/osf.html#preregistration",
+    "href": "presentations/osf.html#preregistration",
+    "title": "Open Science at CMOR",
+    "section": "Preregistration",
+    "text": "Preregistration\n\nPreregistration is the practice of documenting your research plan at the beginning of your study and storing that plan in a read-only public repository (such as the OSF)\n\nsee https://www.cos.io/initiatives/prereg\n\nPreregistration, including a detailed analysis plan, helps to address issues of reproducibility through reducing the potential for bias in analysis and reporting\nSee Create a preregistration for information on creating and submitting a preregistration for a project on the OSF\n\nNote that once a preregistration is submitted and approved, you cannot make any changes (by design!), so check everything carefully"
+  },
+  {
+    "objectID": "presentations/osf.html#resources",
+    "href": "presentations/osf.html#resources",
+    "title": "Open Science at CMOR",
+    "section": "Resources",
+    "text": "Resources\n\nUNESCO Recommendation on Open Science\nhttps://www.unesco.org/en/open-science\nPassport for Open Science (Ministry of Higher Education and Research, France)\nhttps://www.ouvrirlascience.fr/passport-for-open-science-a-practical-guide-for-phd-students/\nThe Open Science Training Handbook (FOSTER Open Science)\nhttps://open-science-training-handbook.github.io/Open-Science-Training-Handbook_EN/\nOtago’s Read & Publish agreements\nhttps://otago.libguides.com/research_publishing_impact/read-and-publish\nSherpa Services\nhttps://beta.sherpa.ac.uk/\nOSF\nhttps://osf.io (CMOR: https://osf.io/stw9e/)\n\n\n\nReturn to CMOR Lunch’n’Learn presentations"
   },
   {
     "objectID": "presentations/Intro-to-R.html#what-is-r-what-is-rstudio",
@@ -572,229 +775,5 @@
     "title": "Introduction to R",
     "section": "Quarto",
     "text": "Quarto\n\nWe’ll focus on Quarto instead\nQuarto is a relatively new tool very similar to RMarkdown\n\nMost of what you might read about RMarkdown also applies to Quarto\nsee also https://quarto.org for documentation and guides"
-  },
-  {
-    "objectID": "presentations/osf.html",
-    "href": "presentations/osf.html",
-    "title": "Open Science at CMOR",
-    "section": "",
-    "text": "Open science is a set of principles and practices that aim to make scientific research from all fields accessible to everyone for the benefits of scientists and society as a whole.\n\n— UNESCO Recommendation on Open Science\n\n\n\n\n\nResearch published only in paywalled journals that not everyone can access\nData that supports scientific results being unavailable\nSoftware, code, protocols, etc. being unknown, undocumented, or inaccessible\nScience not being accessible to communities that would benefit from it\n\n\n\n\n\n\nTransparency, scrutiny, critique, and responsibility\nEquality of opportunities\nResponsibility, respect, and accountability\nCollaboration, participation, and inclusion\nFlexibility\nSustainability\n\n\n\n\n\nToday we’ll mostly focus on the first principle\n\nTransparency, or what we might call ‘open scientific knowledge’\n\n\n\n. . .\n\nAre our publications, data, metadata, protocols, educational resources, software, source code freely available to all?\n\n\n. . .\n(This is one end of a continuum of ‘openness’ – depending on the context, nature of the data, etc., it may not be desirable to make all of these completely open in all circumstances)\n\n\n\n\n\nWe design a study to answer a research question\n\n\n. . .\n\nWe collect some data\n\n\n. . .\n\nWe analyse the data and write a paper\n\n\n. . .\n\nThe paper gets published\n\n\n\n\n\n\nUsually, only\n\n\n4. The paper gets published\n\nresults in any accessible output\n. . .\n\n(And often then it is behind a journal paywall and not accessible to all)\n. . .\n\n\n1., 2., and 3. are often a black box, accessible only to the researcher themselves\n\n\n\n\n\n\nOpen protocols/documentation\nOpen research data\nOpen software/source code\nOpen access publication\n\n\n\n\n\n\nRCTs and systematic reviews now generally require registration and pre-specified protocols, e.g.\n\nClinicalTrials.gov for clinical trials in the US\nANZCTR in Australia/NZ\nPROSPERO for systematic reviews\n\n\n\n\nUsually not required for other study types, but still a good idea\n\n\n\n\n\n\nOpen data allows other researchers to:\n\ncheck the correctness of your analysis\ncombine your data with other sources (e.g. IPD meta-analysis)\nuse your data to answer questions you hadn’t even thought of…\n\nFor health data, it is very important to consider the appropriateness of data sharing:\n\nis additional data preprocessing needed to ensure participant anonymity?\nshould there be restrictions on who can access data and for what purpose?\n\nIf data is being shared, it needs to be documented clearly"
-  },
-  {
-    "objectID": "presentations/osf.html#what-is-open-science",
-    "href": "presentations/osf.html#what-is-open-science",
-    "title": "Open Science at CMOR",
-    "section": "What is Open Science?",
-    "text": "What is Open Science?\n\n\nOpen science is a set of principles and practices that aim to make scientific research from all fields accessible to everyone for the benefits of scientists and society as a whole.\n\n— UNESCO Recommendation on Open Science"
-  },
-  {
-    "objectID": "presentations/osf.html#closed-science",
-    "href": "presentations/osf.html#closed-science",
-    "title": "Open Science at CMOR",
-    "section": "“Closed” Science",
-    "text": "“Closed” Science\n\n\nResearch published only in paywalled journals that not everyone can access\nData that supports scientific results being unavailable\nSoftware, code, protocols, etc. being unknown, undocumented, or inaccessible\nScience not being accessible to communities that would benefit from it"
-  },
-  {
-    "objectID": "presentations/osf.html#principles-of-open-science",
-    "href": "presentations/osf.html#principles-of-open-science",
-    "title": "Open Science at CMOR",
-    "section": "Principles of Open Science",
-    "text": "Principles of Open Science\n\n\nTransparency, scrutiny, critique, and responsibility\nEquality of opportunities\nResponsibility, respect, and accountability\nCollaboration, participation, and inclusion\nFlexibility\nSustainability"
-  },
-  {
-    "objectID": "presentations/osf.html#principles-of-open-science-1",
-    "href": "presentations/osf.html#principles-of-open-science-1",
-    "title": "Open Science at CMOR",
-    "section": "Principles of Open Science",
-    "text": "Principles of Open Science\n\nToday we’ll mostly focus on the first principle\n\nTransparency, or what we might call ‘open scientific knowledge’\n\n\n\n\n\nAre our publications, data, metadata, protocols, educational resources, software, source code freely available to all?\n\n\n\n\n(This is one end of a continuum of ‘openness’ – depending on the context, nature of the data, etc., it may not be desirable to make all of these completely open in all circumstances)"
-  },
-  {
-    "objectID": "presentations/osf.html#the-research-workflow",
-    "href": "presentations/osf.html#the-research-workflow",
-    "title": "Open Science at CMOR",
-    "section": "The Research Workflow",
-    "text": "The Research Workflow\n\n\nWe design a study to answer a research question\n\n\n\n\nWe collect some data\n\n\n\n\n\nWe analyse the data and write a paper\n\n\n\n\n\nThe paper gets published"
-  },
-  {
-    "objectID": "presentations/osf.html#the-research-workflow-1",
-    "href": "presentations/osf.html#the-research-workflow-1",
-    "title": "Open Science at CMOR",
-    "section": "The Research Workflow",
-    "text": "The Research Workflow\n\n\nUsually, only\n\n\n4. The paper gets published\n\nresults in any accessible output\n\n\n(And often then it is behind a journal paywall and not accessible to all)\n\n\n\n\n1., 2., and 3. are often a black box, accessible only to the researcher themselves"
-  },
-  {
-    "objectID": "presentations/osf.html#components-of-open-scientific-knowledge",
-    "href": "presentations/osf.html#components-of-open-scientific-knowledge",
-    "title": "Open Science at CMOR",
-    "section": "Components of Open Scientific Knowledge",
-    "text": "Components of Open Scientific Knowledge\n\n\nOpen protocols/documentation\nOpen research data\nOpen software/source code\nOpen access publication"
-  },
-  {
-    "objectID": "presentations/osf.html#open-protocolsdocumentation",
-    "href": "presentations/osf.html#open-protocolsdocumentation",
-    "title": "Open Science at CMOR",
-    "section": "Open protocols/documentation",
-    "text": "Open protocols/documentation\n\n\nRCTs and systematic reviews now generally require registration and pre-specified protocols, e.g.\n\nClinicalTrials.gov for clinical trials in the US\nANZCTR in Australia/NZ\nPROSPERO for systematic reviews\n\n\n\n\nUsually not required for other study types, but still a good idea"
-  },
-  {
-    "objectID": "presentations/osf.html#open-research-data",
-    "href": "presentations/osf.html#open-research-data",
-    "title": "Open Science at CMOR",
-    "section": "Open research data",
-    "text": "Open research data\n\n\nOpen data allows other researchers to:\n\ncheck the correctness of your analysis\ncombine your data with other sources (e.g. IPD meta-analysis)\nuse your data to answer questions you hadn’t even thought of…\n\nFor health data, it is very important to consider the appropriateness of data sharing:\n\nis additional data preprocessing needed to ensure participant anonymity?\nshould there be restrictions on who can access data and for what purpose?\n\nIf data is being shared, it needs to be documented clearly"
-  },
-  {
-    "objectID": "presentations/osf.html#open-softwaresource-code",
-    "href": "presentations/osf.html#open-softwaresource-code",
-    "title": "Open Science at CMOR",
-    "section": "Open software/source code",
-    "text": "Open software/source code\n\n\nAs with open data, sharing source code allows others to check the correctness of your analysis\n\n\n\nWherever possible, the use of open source or freely-available software allows others (or yourself later) to replicate your work"
-  },
-  {
-    "objectID": "presentations/osf.html#open-access-publication",
-    "href": "presentations/osf.html#open-access-publication",
-    "title": "Open Science at CMOR",
-    "section": "Open access publication",
-    "text": "Open access publication\n\n\nResearch is of no use if no one can access it…\nTo ensure our research can reach the widest possible audience, aim for open access publishing whenever possible\n\nOtago has ‘Read & Publish’ agreements with a number of publishers\n\nhttps://otago.libguides.com/research_publishing_impact/read-and-publish\n\n\nOtherwise you can usually post either a ‘pre-print’ or ‘post-print’ (accepted manuscript) on an institutional (e.g. OURArchive) or other repository, sometimes after an embargo period.\n\nSherpa Services provides an easy search function to look up journals’ sharing policies"
-  },
-  {
-    "objectID": "presentations/osf.html#open-science-framework-1",
-    "href": "presentations/osf.html#open-science-framework-1",
-    "title": "Open Science at CMOR",
-    "section": "Open Science Framework",
-    "text": "Open Science Framework\n\n\nAt CMOR, we have started using the Open Science Framework (OSF) for collaborative open science\n\n\n\nhttps://osf.io\n\n\n\nThe OSF allows both private work (within the research team) and public sharing for dissemination and accessibility"
-  },
-  {
-    "objectID": "presentations/osf.html#project-organisation-on-the-osf",
-    "href": "presentations/osf.html#project-organisation-on-the-osf",
-    "title": "Open Science at CMOR",
-    "section": "Project organisation on the OSF",
-    "text": "Project organisation on the OSF\n\n\nWork on the OSF is organised into ‘Projects’, which can be nested to create a structured organisation for all of your files, data, code, protocols, and outputs\n\n\n\nWithin a projected, nested sub-projects are referred to as ‘Components’\n\nThe advantage of nesting components within a project is that each component can have its own permission settings (contributors, public/private access, etc)"
-  },
-  {
-    "objectID": "presentations/osf.html#cmor-osf",
-    "href": "presentations/osf.html#cmor-osf",
-    "title": "Open Science at CMOR",
-    "section": "CMOR @ OSF",
-    "text": "CMOR @ OSF\n\nWe have set up such a nested structure for research projects at CMOR:\n\nCentre for Musculoskeletal Outcomes Research\n\n\n\nReducing the burden of osteoarthritis in Aotearoa New Zealand\n\nDiscrete Event Simulation modelling\nRisks, Impacts, Equity, and Cost-effectiveness\n\nLong-term impacts of ligament injury\n\nAnalysis plan\n\nImpacts of opioid use around TJR surgery\nCost-effectiveness of TJR surgery\n\nHe Oranga mō te whanau\nMātauranga\n\n\n\n\nMeasuring the health state preferences of New Zealanders\n\nDCE\n\nData management plan\nProtocols\nData\nAnalysis\nPublications\n\n\n\n\n\nGraduate students\n\nRichelle Caya\n\nSystematic review\n\n…"
-  },
-  {
-    "objectID": "presentations/osf.html#preregistration",
-    "href": "presentations/osf.html#preregistration",
-    "title": "Open Science at CMOR",
-    "section": "Preregistration",
-    "text": "Preregistration\n\nPreregistration is the practice of documenting your research plan at the beginning of your study and storing that plan in a read-only public repository (such as the OSF)\n\nsee https://www.cos.io/initiatives/prereg\n\nPreregistration, including a detailed analysis plan, helps to address issues of reproducibility through reducing the potential for bias in analysis and reporting\nSee Create a preregistration for information on creating and submitting a preregistration for a project on the OSF\n\nNote that once a preregistration is submitted and approved, you cannot make any changes (by design!), so check everything carefully"
-  },
-  {
-    "objectID": "presentations/osf.html#resources",
-    "href": "presentations/osf.html#resources",
-    "title": "Open Science at CMOR",
-    "section": "Resources",
-    "text": "Resources\n\nUNESCO Recommendation on Open Science\nhttps://www.unesco.org/en/open-science\nPassport for Open Science (Ministry of Higher Education and Research, France)\nhttps://www.ouvrirlascience.fr/passport-for-open-science-a-practical-guide-for-phd-students/\nThe Open Science Training Handbook (FOSTER Open Science)\nhttps://open-science-training-handbook.github.io/Open-Science-Training-Handbook_EN/\nOtago’s Read & Publish agreements\nhttps://otago.libguides.com/research_publishing_impact/read-and-publish\nSherpa Services\nhttps://beta.sherpa.ac.uk/\nOSF\nhttps://osf.io (CMOR: https://osf.io/stw9e/)\n\n\n\nReturn to CMOR Lunch’n’Learn presentations"
-  },
-  {
-    "objectID": "presentations/meta-analysis.html",
-    "href": "presentations/meta-analysis.html",
-    "title": "Introduction to Meta-Analysis",
-    "section": "",
-    "text": "From Cochrane:\n\nA systematic review is a study that\n“attempts to identify, appraise, and synthesize all the empirical evidence that meets pre-specified eligibility criteria to answer a specific research question”\nMeta-analysis is the statistical combination of results from two or more separate studies\n\nMeta-analysis is often one part of a systematic review"
-  },
-  {
-    "objectID": "presentations/meta-analysis.html#systematic-reviews-and-meta-analyses",
-    "href": "presentations/meta-analysis.html#systematic-reviews-and-meta-analyses",
-    "title": "Introduction to Meta-Analysis",
-    "section": "Systematic reviews and meta-analyses",
-    "text": "Systematic reviews and meta-analyses\n\nFrom Cochrane:\n\nA systematic review is a study that\n“attempts to identify, appraise, and synthesize all the empirical evidence that meets pre-specified eligibility criteria to answer a specific research question”\nMeta-analysis is the statistical combination of results from two or more separate studies\n\nMeta-analysis is often one part of a systematic review"
-  },
-  {
-    "objectID": "presentations/meta-analysis.html#potential-advantages-of-meta-analyses",
-    "href": "presentations/meta-analysis.html#potential-advantages-of-meta-analyses",
-    "title": "Introduction to Meta-Analysis",
-    "section": "(Potential) advantages of meta-analyses",
-    "text": "(Potential) advantages of meta-analyses\n\n\n\nImproved precision\n\n\n\n\nEvidence on generalisability\n\n\n\n\nResolve conflicting results from previous studies"
-  },
-  {
-    "objectID": "presentations/meta-analysis.html#types-of-meta-analysis",
-    "href": "presentations/meta-analysis.html#types-of-meta-analysis",
-    "title": "Introduction to Meta-Analysis",
-    "section": "Types of meta-analysis",
-    "text": "Types of meta-analysis\n\n\n\nPairwise comparisons (i.e., intervention vs. comparator; ‘standard’ meta-analysis)\n\n\n\n\nNetwork meta-analysis (comparing more than two interventions in a single model)\n\n\n\n\nIndividual participant data meta-analysis"
-  },
-  {
-    "objectID": "presentations/meta-analysis.html#before-doing-a-meta-analysis",
-    "href": "presentations/meta-analysis.html#before-doing-a-meta-analysis",
-    "title": "Introduction to Meta-Analysis",
-    "section": "Before doing a meta-analysis",
-    "text": "Before doing a meta-analysis\n\n\nDo your systematic review well:\n\nDefine the review aims & scope (PICO)\nEnsure your search strategy, screening, etc. is effective\nIdentify & summarise study characteristics\nDecide whether studies are ‘similar enough’ to be grouped & synthesized"
-  },
-  {
-    "objectID": "presentations/meta-analysis.html#general-approach-to-meta-analysis",
-    "href": "presentations/meta-analysis.html#general-approach-to-meta-analysis",
-    "title": "Introduction to Meta-Analysis",
-    "section": "General approach to meta-analysis",
-    "text": "General approach to meta-analysis\n\n\nExtract (or calculate) a summary statistic for each study\nCalculate (weighted) average effect across all studies\nCalculate the standard error of the summary effect (to derive confidence intervals and/or p-values)\nEstimate heterogeneity between studies\nSummarise findings graphically (usually with a forest plot)"
-  },
-  {
-    "objectID": "presentations/meta-analysis.html#extractcalculate-statistics-for-each-study",
-    "href": "presentations/meta-analysis.html#extractcalculate-statistics-for-each-study",
-    "title": "Introduction to Meta-Analysis",
-    "section": "1. Extract/calculate statistics for each study",
-    "text": "1. Extract/calculate statistics for each study\n\n\nFor dichotomous outcomes:\n\nOdds ratio\nRisk ratio\nRisk difference\n\nFor continuous outcomes:\n\nMean difference\n\n(post-intervention, change from baseline, adjusted post-intervention)\n\nStandardised mean difference"
-  },
-  {
-    "objectID": "presentations/meta-analysis.html#extractcalculate-statistics-for-each-study-1",
-    "href": "presentations/meta-analysis.html#extractcalculate-statistics-for-each-study-1",
-    "title": "Introduction to Meta-Analysis",
-    "section": "1. Extract/calculate statistics for each study",
-    "text": "1. Extract/calculate statistics for each study\n\n\nFor ordinal outcomes:\n\nUsually either treated as dichotomous or continuous\nAlso possible to estimate a proportional odds ratio\n\nFor count outcomes:\n\nAgain, usually treated as dichotomous or continuous\nRate ratio or rate difference\n\nFor time-to-event outcomes:\n\nHazard ratio"
-  },
-  {
-    "objectID": "presentations/meta-analysis.html#calculate-weighted-effect",
-    "href": "presentations/meta-analysis.html#calculate-weighted-effect",
-    "title": "Introduction to Meta-Analysis",
-    "section": "2. Calculate weighted effect",
-    "text": "2. Calculate weighted effect\n\nGenerally, meta-analyses use an inverse-variance weighted method\n\n\\[\\text{Weighted average} = \\frac{\\sum{Y_i W_i}}{\\sum{W_i}}\\]\n   where \\(W_i = (1 / SE_i)^2\\)\n\nFor ratio measures, both the effects and standard errors are on the log scale\n\nThese can be transformed back to the original scale for reporting\n\nThere are slight variants to this general approach for some methods (particularly for dichotomous outcomes)"
-  },
-  {
-    "objectID": "presentations/meta-analysis.html#calculate-standard-errors",
-    "href": "presentations/meta-analysis.html#calculate-standard-errors",
-    "title": "Introduction to Meta-Analysis",
-    "section": "3. Calculate standard errors",
-    "text": "3. Calculate standard errors\n\n\nIn the general inverse-variance method, the standard error of the weighted summary statistic is\n\n\\[\\text{Standard error} = \\frac{1}{\\sqrt{\\sum{W_i}}}\\]\n\nAgain, different formulae for some specific methods"
-  },
-  {
-    "objectID": "presentations/meta-analysis.html#estimate-heterogeneity",
-    "href": "presentations/meta-analysis.html#estimate-heterogeneity",
-    "title": "Introduction to Meta-Analysis",
-    "section": "4. Estimate heterogeneity",
-    "text": "4. Estimate heterogeneity\n\nHeterogeneity is measured by\n\n\\(Q = \\sum{W_i (Y_i - \\overline{Y})^2}\\)\n\nand\n\n\\(I^2 = \\text{max}\\left\\{\\frac{Q - (k - 1)}{Q}, 0\\right\\}\\)\n\nQ is a test statistic following a chi-squared distribution, and I2 is interpreted as the proportion of total variance in study estimates due to heterogeneity rather than sampling error\n\nNOTE: I2 can be very uncertain (imprecise) when the number of studies is small"
-  },
-  {
-    "objectID": "presentations/meta-analysis.html#summarise-findings-graphically",
-    "href": "presentations/meta-analysis.html#summarise-findings-graphically",
-    "title": "Introduction to Meta-Analysis",
-    "section": "5. Summarise findings graphically",
-    "text": "5. Summarise findings graphically\n\n\n\nMeta-analyses are usually illustrated using a forest plot\nA forest plot displays effect estimates for both individual studies and the overall meta-analysis result\nEach study is represented by a square (usually) at the point estimate, and horizontal lines extending to bounds of the confidence interval\n\nThe size of the block indicates the weight assigned to that study in the meta-analysis (roughly proportional to sample size)\n\nThe summary result is presented as a diamond at the bottom, centred on the meta-analysis point estimate and with width showing the confidence interval"
-  },
-  {
-    "objectID": "presentations/meta-analysis.html#assessing-small-study-bias-and-publication-bias",
-    "href": "presentations/meta-analysis.html#assessing-small-study-bias-and-publication-bias",
-    "title": "Introduction to Meta-Analysis",
-    "section": "Assessing small-study bias and publication bias",
-    "text": "Assessing small-study bias and publication bias\n\n\n\nSmall sample bias: small studies may show larger intervention effects than larger studies\n\nNon-reporting/non-publication bias\nPoor methodological quality\nMechanistic vs. pragmatic designs\n\nA ‘funnel plot’ can help detect this"
-  },
-  {
-    "objectID": "presentations/meta-analysis.html#software",
-    "href": "presentations/meta-analysis.html#software",
-    "title": "Introduction to Meta-Analysis",
-    "section": "Software",
-    "text": "Software\n\nCochrane RevMan\n\nManages all stages of the systematic review process, from design to data extraction, analysis, and visualiation\nFree for those doing Cochrane reviews, subscription for everyone else\n\nR: there are several packages for meta-analysis\n\nSee the Meta-Analysis Task View:\nhttps://cran.r-project.org/view=MetaAnalysis\nmetafor is a comprehensive package with functions for converting published results to common summary statistics, fitting inverse-variance weighted and related models, forest and funnel plots, heterogeneity measures, and diagnostic statistics (among others)"
-  },
-  {
-    "objectID": "presentations/meta-analysis.html#references",
-    "href": "presentations/meta-analysis.html#references",
-    "title": "Introduction to Meta-Analysis",
-    "section": "References",
-    "text": "References\n\nCochrane Handbook for Systematic Reviews of Interventions\nhttps://training.cochrane.org/handbook/current\n\nDetails of the statistical methods: https://documentation.cochrane.org/revman-kb/files/210600101/210600103/1/1654774257333/Statistical_methods_in_revman.pdf\n\nEgger M, Smith GD, Altman DG. Systematic Reviews in Health Care: Meta-Analysis in Context, 2nd Ed. London, UK: BMJ Publishing Group. 2001.\nhttps://doi.org/10.1002/9780470693926\nJin Z-C, Zhou X-H, He J. Statistical methods for dealing with publication bias in meta-analysis. Statistics in Medicine 2015;34(2):343-360\nhttps://doi.org/10.1002/sim.6342\nmetafor R package https://wviechtb.github.io/metafor/\n\n\n\nReturn to CMOR Lunch’n’Learn presentations"
   }
 ]
