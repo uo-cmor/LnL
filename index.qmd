@@ -11,3 +11,5 @@ We run a series of workshops and seminars in research methods, career developmen
 * [Open science (and the Open Science Framework)](presentations/osf.qmd)
 
 * [Introduction to meta-analysis](presentations/meta-analysis.qmd)
+
+* [Project workflows](presentations/workflows.qmd)

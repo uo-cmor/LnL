@@ -1,0 +1,168 @@
+---
+title: "Project workflows -- from data to manuscript"
+subtitle: "CMOR Lunch'n'Learn"
+author: "Ross Wilson"
+date: "2023-08-11"
+date-format: "D MMMM YYYY"
+format:
+  revealjs:
+    theme: [default, cmor.scss]
+    title-slide-attributes: 
+      data-background-image: "images/otago-pennant.png, images/cmor-banner.png, images/title-background.png"
+      data-background-size: "7%, 25%, 100%"
+      data-background-position: "3% 1%, bottom 1% left 50px,0 0"
+      data-background-repeat: "no-repeat"
+    template-partials:
+      - styles.html
+      - title-slide.html
+    preview-links: auto
+    margin: 0.2
+    footer: "[Return to CMOR Lunch'n'Learn presentations](../index.html)"
+---
+
+```{r}
+#| include: false
+options(pillar.min_title_chars = 8)
+```
+
+## Data workflow
+
+![](images/linear-workflow.png){.absolute top=180 height=400 width=1500}
+
+![](images/workflow-arrows.png){.absolute .fragment top=55}
+
+## Ideally, we would...
+
+* Have a complete record of all analysis steps, from start to finish
+* Integrate analysis into reporting of results
+* Be able to share the entire project workflow with others
+* Easily update the pipeline when data/analysis changes
+* Maintain a common structure across projects
+
+## Solution -- An integrated analysis workflow with R{.smaller}
+
+## Solution -- An integrated analysis workflow with R{.smaller}
+
+* Have a complete record of all analysis steps, from start to finish
+* Integrate analysis into reporting of results
+* Be able to share the entire project workflow with others
+* Easily update the pipeline when data/analysis changes
+* Maintain a common structure across projects
+
+## Solution -- An integrated analysis workflow with R{.smaller}
+
+* Have a complete record of all analysis steps, from start to finish
+  * `_plan.R` includes (in code) all of the steps in the analysis workflow
+* Integrate analysis into reporting of results
+* Be able to share the entire project workflow with others
+* Easily update the pipeline when data/analysis changes
+* Maintain a common structure across projects
+
+## Solution -- An integrated analysis workflow with R{.smaller}
+
+* Have a complete record of all analysis steps, from start to finish
+  * `_plan.R` includes (in code) all of the steps in the analysis workflow
+* Integrate analysis into reporting of results
+  * Quarto allows us to refer to the results of our analysis directly in the report/manuscript
+* Be able to share the entire project workflow with others
+* Easily update the pipeline when data/analysis changes
+* Maintain a common structure across projects
+
+## Solution -- An integrated analysis workflow with R{.smaller}
+
+* Have a complete record of all analysis steps, from start to finish
+  * `_plan.R` includes (in code) all of the steps in the analysis workflow
+* Integrate analysis into reporting of results
+  * Quarto allows us to refer to the results of our analysis directly in the report/manuscript
+* Be able to share the entire project workflow with others
+  * Git & GitHub for collaborative version control
+* Easily update the pipeline when data/analysis changes
+* Maintain a common structure across projects
+
+## Solution -- An integrated analysis workflow with R{.smaller}
+
+* Have a complete record of all analysis steps, from start to finish
+  * `_plan.R` includes (in code) all of the steps in the analysis workflow
+* Integrate analysis into reporting of results
+  * Quarto allows us to refer to the results of our analysis directly in the report/manuscript
+* Be able to share the entire project workflow with others
+  * Git & GitHub for collaborative version control
+* Easily update the pipeline when data/analysis changes
+  * `targets` tracks dependencies between analysis stages and re-runs steps as needed
+* Maintain a common structure across projects
+
+## Solution -- An integrated analysis workflow with R{.smaller}
+
+* Have a complete record of all analysis steps, from start to finish
+  * `_plan.R` includes (in code) all of the steps in the analysis workflow
+* Integrate analysis into reporting of results
+  * Quarto allows us to refer to the results of our analysis directly in the report/manuscript
+* Be able to share the entire project workflow with others
+  * Git & GitHub for collaborative version control
+* Easily update the pipeline when data/analysis changes
+  * `targets` tracks dependencies between analysis stages and re-runs steps as needed
+* Maintain a common structure across projects
+  * `cmor.tools` brings all of this together under a common structure
+
+## The `targets` pipeline tool for R
+
+* We have briefly looked at the `targets` package in an earlier LnL session
+* The key concept is an analytical *pipeline*: a computational workflow consisting of
+  * **targets** -- the individual tasks involved in the workflow (data import, cleaning, analysis, etc.)
+  * **methods** -- the code used to complete each task
+  * **dependencies** -- which targets depend on the results of which other targets
+
+. . .
+
+```{.r filename="_plan.R"}
+targets <- list(
+  tar_target(file, "data.csv", format = "file"),
+  tar_target(data, get_data(file)),
+  tar_target(model, fit_model(data)),
+  tar_target(plot, plot_model(model, data))
+)
+```
+
+## A closer look at `_plan.R` {.smaller}
+
+```{.r filename="_plan.R"}
+targets <- list(
+  tar_target(file, "data.csv", format = "file"),
+  tar_target(data, get_data(file)),
+  tar_target(model, fit_model(data)),
+  tar_target(plot, plot_model(model, data))
+)
+```
+
+* This is a list (an R `list` object) of targets (specified with `tar_target()`)
+* Each target specifies one step in the pipeline
+  * identify the raw data file
+  * import the data from the file into R
+  * fit a statistical model to the data
+  * create a plot showing the fitted model
+* The methods for each target are defined in the functions\
+`get_data()`, `fit_model()`, and `plot_model()`
+* `targets` works out the dependencies automatically
+
+. . .
+
+![](images/target-network.png){.absolute top=220 left=600 height=400}
+
+## Quarto
+
+* Quarto is a scientific and technical authoring and publishing system that allows us to mix text and executable R code
+* Quarto documents are plain text, but can be rendered to multiple output formats (HTML, PDF, Word, PowerPoint)
+  * Even whole books or websites -- the [CMOR website](https://uo-cmor.github.io){preview-link="true"} is written with Quarto, as is this presentation
+* When the Quarto document is rendered, any R code will be run and the result (numeric values, a table, a figure, etc.) included in the resulting output document
+
+## Quarto in a `targets` pipeline
+
+* The `tarchetypes` package provides `tar_quarto()`, which allows Quarto documents to be used within a `targets` pipeline
+* `tar_quarto(report, path = "report.qmd")` defines a step that renders the source document `"report.qmd"` to a target named `report`
+* The source document should use `tar_load()` in an R code chunk to load dependency targets
+  * `targets` will scan the source for these calls to know what the target dependencies are
+
+## `cmor.tools`
+
+* Our `cmor.tools` package ([github.com/uo-cmor/cmor.tools](https://www.github.com/uo-cmor/cmor.tools){preview-link="true"}) provides various tools to bring these ideas together and provide a common structure for managing data analysis projects
+* We'll use these tools to work through a simple target pipeline (adapted from [books.ropensci.org/targets/walkthrough](https://books.ropensci.org/targets/walkthrough.html))
