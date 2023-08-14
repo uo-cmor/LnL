@@ -8,7 +8,7 @@
 <link href="../site_libs/quarto-html/light-border.css" rel="stylesheet">
 <link href="../site_libs/quarto-html/quarto-html.min.css" rel="stylesheet" data-mode="light">
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
-  <meta name="generator" content="quarto-1.3.433">
+  <meta name="generator" content="quarto-1.3.450">
 
   <meta name="author" content="Ross Wilson">
   <meta name="dcterms.date" content="2023-08-11">
@@ -639,11 +639,39 @@
 </ul></li>
 </ul>
 </section>
-<section id="cmor.tools" class="slide level2">
+<section id="cmor.tools" class="slide level2 smaller">
 <h2><code>cmor.tools</code></h2>
 <ul>
 <li>Our <code>cmor.tools</code> package (<a href="https://www.github.com/uo-cmor/cmor.tools" data-preview-link="true">github.com/uo-cmor/cmor.tools</a>) provides various tools to bring these ideas together and provide a common structure for managing data analysis projects</li>
-<li>We’ll use these tools to work through a simple target pipeline (adapted from <a href="https://books.ropensci.org/targets/walkthrough.html">books.ropensci.org/targets/walkthrough</a>)</li>
+</ul>
+<div class="fragment" data-fragment-index="1">
+<ul>
+<li>Key ideas implemented in <code>cmor.tools</code>:
+<ul>
+<li>A common project folder structure, to keep data separate from code separate from output</li>
+<li>A <code>targets</code> pipeline to specify all of the steps in the workflow</li>
+<li>Output (reports/manuscripts) etc. written in Quarto, and in the pipeline</li>
+<li>Version control with Git, and repository hosted on GitHub</li>
+<li>A few other tools for consistent formatting of outputs, etc.</li>
+<li>(Some analysis tools, not yet fully implemented)</li>
+</ul></li>
+</ul>
+</div>
+<div class="fragment fade-in" data-fragment-index="2">
+<div class="fragment fade-out" data-fragment-index="3">
+<p><img data-src="images/folder-structure.png" class="absolute" style="border: 1px solid grey;top: 50px; right: 50px; "></p>
+</div>
+</div>
+<div class="fragment fade-in" data-fragment-index="3">
+<div class="fragment fade-out" data-fragment-index="4">
+<p><img data-src="images/_plan.R.png" class="absolute" style="top: 50px; right: 50px; "></p>
+</div>
+</div>
+</section>
+<section id="cmor.tools-1" class="slide level2">
+<h2><code>cmor.tools</code></h2>
+<ul>
+<li>We’ll use these tools to work through a simple target pipeline (adapted from <a href="https://books.ropensci.org/targets/walkthrough.html" data-preview-link="true">books.ropensci.org/targets/walkthrough</a>)</li>
 </ul>
 
 <div class="footer footer-default">

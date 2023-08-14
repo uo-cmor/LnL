@@ -162,7 +162,34 @@ targets <- list(
 * The source document should use `tar_load()` in an R code chunk to load dependency targets
   * `targets` will scan the source for these calls to know what the target dependencies are
 
-## `cmor.tools`
+## `cmor.tools` {.smaller}
 
 * Our `cmor.tools` package ([github.com/uo-cmor/cmor.tools](https://www.github.com/uo-cmor/cmor.tools){preview-link="true"}) provides various tools to bring these ideas together and provide a common structure for managing data analysis projects
-* We'll use these tools to work through a simple target pipeline (adapted from [books.ropensci.org/targets/walkthrough](https://books.ropensci.org/targets/walkthrough.html))
+
+::: {.fragment fragment-index=1}
+* Key ideas implemented in `cmor.tools`:
+  * A common project folder structure, to keep data separate from code separate from output
+  * A `targets` pipeline to specify all of the steps in the workflow
+  * Output (reports/manuscripts) etc. written in Quarto, and in the pipeline
+  * Version control with Git, and repository hosted on GitHub
+  * A few other tools for consistent formatting of outputs, etc.
+  * (Some analysis tools, not yet fully implemented)
+:::
+
+::: {.fragment .fade-in fragment-index=2}
+::: {.fragment .fade-out fragment-index=3}
+![](images/folder-structure.png){.absolute top=50 right=50 style="border: 1px solid grey;"}
+:::
+:::
+
+::: {.fragment .fade-in fragment-index=3}
+::: {.fragment .fade-out fragment-index=4}
+![](images/_plan.R.png){.absolute top=50 right=50}
+:::
+:::
+
+## `cmor.tools`
+
+* We'll use these tools to work through a simple target pipeline (adapted from [books.ropensci.org/targets/walkthrough](https://books.ropensci.org/targets/walkthrough.html){preview-link="true"})
+
+

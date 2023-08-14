@@ -95,7 +95,14 @@
     "href": "presentations/workflows.html#cmor.tools",
     "title": "Project workflows – from data to manuscript",
     "section": "cmor.tools",
-    "text": "cmor.tools\n\nOur cmor.tools package (github.com/uo-cmor/cmor.tools) provides various tools to bring these ideas together and provide a common structure for managing data analysis projects\nWe’ll use these tools to work through a simple target pipeline (adapted from books.ropensci.org/targets/walkthrough)\n\n\n\nReturn to CMOR Lunch’n’Learn presentations"
+    "text": "cmor.tools\n\nOur cmor.tools package (github.com/uo-cmor/cmor.tools) provides various tools to bring these ideas together and provide a common structure for managing data analysis projects\n\n\n\nKey ideas implemented in cmor.tools:\n\nA common project folder structure, to keep data separate from code separate from output\nA targets pipeline to specify all of the steps in the workflow\nOutput (reports/manuscripts) etc. written in Quarto, and in the pipeline\nVersion control with Git, and repository hosted on GitHub\nA few other tools for consistent formatting of outputs, etc.\n(Some analysis tools, not yet fully implemented)"
+  },
+  {
+    "objectID": "presentations/workflows.html#cmor.tools-1",
+    "href": "presentations/workflows.html#cmor.tools-1",
+    "title": "Project workflows – from data to manuscript",
+    "section": "cmor.tools",
+    "text": "cmor.tools\n\nWe’ll use these tools to work through a simple target pipeline (adapted from books.ropensci.org/targets/walkthrough)\n\n\n\nReturn to CMOR Lunch’n’Learn presentations"
   },
   {
     "objectID": "presentations/meta-analysis.html#systematic-reviews-and-meta-analyses",
@@ -208,6 +215,118 @@
     "title": "CMOR Lunch’n’Learn",
     "section": "Slide decks",
     "text": "Slide decks\n\nIntroduction to R\nOpen science (and the Open Science Framework)\nIntroduction to meta-analysis\nProject workflows"
+  },
+  {
+    "objectID": "presentations/osf.html#what-is-open-science",
+    "href": "presentations/osf.html#what-is-open-science",
+    "title": "Open Science at CMOR",
+    "section": "What is Open Science?",
+    "text": "What is Open Science?\n\n\nOpen science is a set of principles and practices that aim to make scientific research from all fields accessible to everyone for the benefits of scientists and society as a whole.\n\n— UNESCO Recommendation on Open Science"
+  },
+  {
+    "objectID": "presentations/osf.html#closed-science",
+    "href": "presentations/osf.html#closed-science",
+    "title": "Open Science at CMOR",
+    "section": "“Closed” Science",
+    "text": "“Closed” Science\n\n\nResearch published only in paywalled journals that not everyone can access\nData that supports scientific results being unavailable\nSoftware, code, protocols, etc. being unknown, undocumented, or inaccessible\nScience not being accessible to communities that would benefit from it"
+  },
+  {
+    "objectID": "presentations/osf.html#principles-of-open-science",
+    "href": "presentations/osf.html#principles-of-open-science",
+    "title": "Open Science at CMOR",
+    "section": "Principles of Open Science",
+    "text": "Principles of Open Science\n\n\nTransparency, scrutiny, critique, and responsibility\nEquality of opportunities\nResponsibility, respect, and accountability\nCollaboration, participation, and inclusion\nFlexibility\nSustainability"
+  },
+  {
+    "objectID": "presentations/osf.html#principles-of-open-science-1",
+    "href": "presentations/osf.html#principles-of-open-science-1",
+    "title": "Open Science at CMOR",
+    "section": "Principles of Open Science",
+    "text": "Principles of Open Science\n\nToday we’ll mostly focus on the first principle\n\nTransparency, or what we might call ‘open scientific knowledge’\n\n\n\n\n\nAre our publications, data, metadata, protocols, educational resources, software, source code freely available to all?\n\n\n\n\n(This is one end of a continuum of ‘openness’ – depending on the context, nature of the data, etc., it may not be desirable to make all of these completely open in all circumstances)"
+  },
+  {
+    "objectID": "presentations/osf.html#the-research-workflow",
+    "href": "presentations/osf.html#the-research-workflow",
+    "title": "Open Science at CMOR",
+    "section": "The Research Workflow",
+    "text": "The Research Workflow\n\n\nWe design a study to answer a research question\n\n\n\n\nWe collect some data\n\n\n\n\n\nWe analyse the data and write a paper\n\n\n\n\n\nThe paper gets published"
+  },
+  {
+    "objectID": "presentations/osf.html#the-research-workflow-1",
+    "href": "presentations/osf.html#the-research-workflow-1",
+    "title": "Open Science at CMOR",
+    "section": "The Research Workflow",
+    "text": "The Research Workflow\n\n\nUsually, only\n\n\n4. The paper gets published\n\nresults in any accessible output\n\n\n(And often then it is behind a journal paywall and not accessible to all)\n\n\n\n\n1., 2., and 3. are often a black box, accessible only to the researcher themselves"
+  },
+  {
+    "objectID": "presentations/osf.html#components-of-open-scientific-knowledge",
+    "href": "presentations/osf.html#components-of-open-scientific-knowledge",
+    "title": "Open Science at CMOR",
+    "section": "Components of Open Scientific Knowledge",
+    "text": "Components of Open Scientific Knowledge\n\n\nOpen protocols/documentation\nOpen research data\nOpen software/source code\nOpen access publication"
+  },
+  {
+    "objectID": "presentations/osf.html#open-protocolsdocumentation",
+    "href": "presentations/osf.html#open-protocolsdocumentation",
+    "title": "Open Science at CMOR",
+    "section": "Open protocols/documentation",
+    "text": "Open protocols/documentation\n\n\nRCTs and systematic reviews now generally require registration and pre-specified protocols, e.g.\n\nClinicalTrials.gov for clinical trials in the US\nANZCTR in Australia/NZ\nPROSPERO for systematic reviews\n\n\n\n\nUsually not required for other study types, but still a good idea"
+  },
+  {
+    "objectID": "presentations/osf.html#open-research-data",
+    "href": "presentations/osf.html#open-research-data",
+    "title": "Open Science at CMOR",
+    "section": "Open research data",
+    "text": "Open research data\n\n\nOpen data allows other researchers to:\n\ncheck the correctness of your analysis\ncombine your data with other sources (e.g. IPD meta-analysis)\nuse your data to answer questions you hadn’t even thought of…\n\nFor health data, it is very important to consider the appropriateness of data sharing:\n\nis additional data preprocessing needed to ensure participant anonymity?\nshould there be restrictions on who can access data and for what purpose?\n\nIf data is being shared, it needs to be documented clearly"
+  },
+  {
+    "objectID": "presentations/osf.html#open-softwaresource-code",
+    "href": "presentations/osf.html#open-softwaresource-code",
+    "title": "Open Science at CMOR",
+    "section": "Open software/source code",
+    "text": "Open software/source code\n\n\nAs with open data, sharing source code allows others to check the correctness of your analysis\n\n\n\nWherever possible, the use of open source or freely-available software allows others (or yourself later) to replicate your work"
+  },
+  {
+    "objectID": "presentations/osf.html#open-access-publication",
+    "href": "presentations/osf.html#open-access-publication",
+    "title": "Open Science at CMOR",
+    "section": "Open access publication",
+    "text": "Open access publication\n\n\nResearch is of no use if no one can access it…\nTo ensure our research can reach the widest possible audience, aim for open access publishing whenever possible\n\nOtago has ‘Read & Publish’ agreements with a number of publishers\n\nhttps://otago.libguides.com/research_publishing_impact/read-and-publish\n\n\nOtherwise you can usually post either a ‘pre-print’ or ‘post-print’ (accepted manuscript) on an institutional (e.g. OURArchive) or other repository, sometimes after an embargo period.\n\nSherpa Services provides an easy search function to look up journals’ sharing policies"
+  },
+  {
+    "objectID": "presentations/osf.html#open-science-framework-1",
+    "href": "presentations/osf.html#open-science-framework-1",
+    "title": "Open Science at CMOR",
+    "section": "Open Science Framework",
+    "text": "Open Science Framework\n\n\nAt CMOR, we have started using the Open Science Framework (OSF) for collaborative open science\n\n\n\nhttps://osf.io\n\n\n\nThe OSF allows both private work (within the research team) and public sharing for dissemination and accessibility"
+  },
+  {
+    "objectID": "presentations/osf.html#project-organisation-on-the-osf",
+    "href": "presentations/osf.html#project-organisation-on-the-osf",
+    "title": "Open Science at CMOR",
+    "section": "Project organisation on the OSF",
+    "text": "Project organisation on the OSF\n\n\nWork on the OSF is organised into ‘Projects’, which can be nested to create a structured organisation for all of your files, data, code, protocols, and outputs\n\n\n\nWithin a projected, nested sub-projects are referred to as ‘Components’\n\nThe advantage of nesting components within a project is that each component can have its own permission settings (contributors, public/private access, etc)"
+  },
+  {
+    "objectID": "presentations/osf.html#cmor-osf",
+    "href": "presentations/osf.html#cmor-osf",
+    "title": "Open Science at CMOR",
+    "section": "CMOR @ OSF",
+    "text": "CMOR @ OSF\n\nWe have set up such a nested structure for research projects at CMOR:\n\nCentre for Musculoskeletal Outcomes Research\n\n\n\nReducing the burden of osteoarthritis in Aotearoa New Zealand\n\nDiscrete Event Simulation modelling\nRisks, Impacts, Equity, and Cost-effectiveness\n\nLong-term impacts of ligament injury\n\nAnalysis plan\n\nImpacts of opioid use around TJR surgery\nCost-effectiveness of TJR surgery\n\nHe Oranga mō te whanau\nMātauranga\n\n\n\n\nMeasuring the health state preferences of New Zealanders\n\nDCE\n\nData management plan\nProtocols\nData\nAnalysis\nPublications\n\n\n\n\n\nGraduate students\n\nRichelle Caya\n\nSystematic review\n\n…"
+  },
+  {
+    "objectID": "presentations/osf.html#preregistration",
+    "href": "presentations/osf.html#preregistration",
+    "title": "Open Science at CMOR",
+    "section": "Preregistration",
+    "text": "Preregistration\n\nPreregistration is the practice of documenting your research plan at the beginning of your study and storing that plan in a read-only public repository (such as the OSF)\n\nsee https://www.cos.io/initiatives/prereg\n\nPreregistration, including a detailed analysis plan, helps to address issues of reproducibility through reducing the potential for bias in analysis and reporting\nSee Create a preregistration for information on creating and submitting a preregistration for a project on the OSF\n\nNote that once a preregistration is submitted and approved, you cannot make any changes (by design!), so check everything carefully"
+  },
+  {
+    "objectID": "presentations/osf.html#resources",
+    "href": "presentations/osf.html#resources",
+    "title": "Open Science at CMOR",
+    "section": "Resources",
+    "text": "Resources\n\nUNESCO Recommendation on Open Science\nhttps://www.unesco.org/en/open-science\nPassport for Open Science (Ministry of Higher Education and Research, France)\nhttps://www.ouvrirlascience.fr/passport-for-open-science-a-practical-guide-for-phd-students/\nThe Open Science Training Handbook (FOSTER Open Science)\nhttps://open-science-training-handbook.github.io/Open-Science-Training-Handbook_EN/\nOtago’s Read & Publish agreements\nhttps://otago.libguides.com/research_publishing_impact/read-and-publish\nSherpa Services\nhttps://beta.sherpa.ac.uk/\nOSF\nhttps://osf.io (CMOR: https://osf.io/stw9e/)\n\n\n\nReturn to CMOR Lunch’n’Learn presentations"
   },
   {
     "objectID": "presentations/Intro-to-R.html#what-is-r-what-is-rstudio",
@@ -761,117 +880,5 @@
     "title": "Introduction to R",
     "section": "Quarto",
     "text": "Quarto\n\nWe’ll focus on Quarto instead\nQuarto is a relatively new tool very similar to RMarkdown\n\nMost of what you might read about RMarkdown also applies to Quarto\nsee also https://quarto.org for documentation and guides"
-  },
-  {
-    "objectID": "presentations/osf.html#what-is-open-science",
-    "href": "presentations/osf.html#what-is-open-science",
-    "title": "Open Science at CMOR",
-    "section": "What is Open Science?",
-    "text": "What is Open Science?\n\n\nOpen science is a set of principles and practices that aim to make scientific research from all fields accessible to everyone for the benefits of scientists and society as a whole.\n\n— UNESCO Recommendation on Open Science"
-  },
-  {
-    "objectID": "presentations/osf.html#closed-science",
-    "href": "presentations/osf.html#closed-science",
-    "title": "Open Science at CMOR",
-    "section": "“Closed” Science",
-    "text": "“Closed” Science\n\n\nResearch published only in paywalled journals that not everyone can access\nData that supports scientific results being unavailable\nSoftware, code, protocols, etc. being unknown, undocumented, or inaccessible\nScience not being accessible to communities that would benefit from it"
-  },
-  {
-    "objectID": "presentations/osf.html#principles-of-open-science",
-    "href": "presentations/osf.html#principles-of-open-science",
-    "title": "Open Science at CMOR",
-    "section": "Principles of Open Science",
-    "text": "Principles of Open Science\n\n\nTransparency, scrutiny, critique, and responsibility\nEquality of opportunities\nResponsibility, respect, and accountability\nCollaboration, participation, and inclusion\nFlexibility\nSustainability"
-  },
-  {
-    "objectID": "presentations/osf.html#principles-of-open-science-1",
-    "href": "presentations/osf.html#principles-of-open-science-1",
-    "title": "Open Science at CMOR",
-    "section": "Principles of Open Science",
-    "text": "Principles of Open Science\n\nToday we’ll mostly focus on the first principle\n\nTransparency, or what we might call ‘open scientific knowledge’\n\n\n\n\n\nAre our publications, data, metadata, protocols, educational resources, software, source code freely available to all?\n\n\n\n\n(This is one end of a continuum of ‘openness’ – depending on the context, nature of the data, etc., it may not be desirable to make all of these completely open in all circumstances)"
-  },
-  {
-    "objectID": "presentations/osf.html#the-research-workflow",
-    "href": "presentations/osf.html#the-research-workflow",
-    "title": "Open Science at CMOR",
-    "section": "The Research Workflow",
-    "text": "The Research Workflow\n\n\nWe design a study to answer a research question\n\n\n\n\nWe collect some data\n\n\n\n\n\nWe analyse the data and write a paper\n\n\n\n\n\nThe paper gets published"
-  },
-  {
-    "objectID": "presentations/osf.html#the-research-workflow-1",
-    "href": "presentations/osf.html#the-research-workflow-1",
-    "title": "Open Science at CMOR",
-    "section": "The Research Workflow",
-    "text": "The Research Workflow\n\n\nUsually, only\n\n\n4. The paper gets published\n\nresults in any accessible output\n\n\n(And often then it is behind a journal paywall and not accessible to all)\n\n\n\n\n1., 2., and 3. are often a black box, accessible only to the researcher themselves"
-  },
-  {
-    "objectID": "presentations/osf.html#components-of-open-scientific-knowledge",
-    "href": "presentations/osf.html#components-of-open-scientific-knowledge",
-    "title": "Open Science at CMOR",
-    "section": "Components of Open Scientific Knowledge",
-    "text": "Components of Open Scientific Knowledge\n\n\nOpen protocols/documentation\nOpen research data\nOpen software/source code\nOpen access publication"
-  },
-  {
-    "objectID": "presentations/osf.html#open-protocolsdocumentation",
-    "href": "presentations/osf.html#open-protocolsdocumentation",
-    "title": "Open Science at CMOR",
-    "section": "Open protocols/documentation",
-    "text": "Open protocols/documentation\n\n\nRCTs and systematic reviews now generally require registration and pre-specified protocols, e.g.\n\nClinicalTrials.gov for clinical trials in the US\nANZCTR in Australia/NZ\nPROSPERO for systematic reviews\n\n\n\n\nUsually not required for other study types, but still a good idea"
-  },
-  {
-    "objectID": "presentations/osf.html#open-research-data",
-    "href": "presentations/osf.html#open-research-data",
-    "title": "Open Science at CMOR",
-    "section": "Open research data",
-    "text": "Open research data\n\n\nOpen data allows other researchers to:\n\ncheck the correctness of your analysis\ncombine your data with other sources (e.g. IPD meta-analysis)\nuse your data to answer questions you hadn’t even thought of…\n\nFor health data, it is very important to consider the appropriateness of data sharing:\n\nis additional data preprocessing needed to ensure participant anonymity?\nshould there be restrictions on who can access data and for what purpose?\n\nIf data is being shared, it needs to be documented clearly"
-  },
-  {
-    "objectID": "presentations/osf.html#open-softwaresource-code",
-    "href": "presentations/osf.html#open-softwaresource-code",
-    "title": "Open Science at CMOR",
-    "section": "Open software/source code",
-    "text": "Open software/source code\n\n\nAs with open data, sharing source code allows others to check the correctness of your analysis\n\n\n\nWherever possible, the use of open source or freely-available software allows others (or yourself later) to replicate your work"
-  },
-  {
-    "objectID": "presentations/osf.html#open-access-publication",
-    "href": "presentations/osf.html#open-access-publication",
-    "title": "Open Science at CMOR",
-    "section": "Open access publication",
-    "text": "Open access publication\n\n\nResearch is of no use if no one can access it…\nTo ensure our research can reach the widest possible audience, aim for open access publishing whenever possible\n\nOtago has ‘Read & Publish’ agreements with a number of publishers\n\nhttps://otago.libguides.com/research_publishing_impact/read-and-publish\n\n\nOtherwise you can usually post either a ‘pre-print’ or ‘post-print’ (accepted manuscript) on an institutional (e.g. OURArchive) or other repository, sometimes after an embargo period.\n\nSherpa Services provides an easy search function to look up journals’ sharing policies"
-  },
-  {
-    "objectID": "presentations/osf.html#open-science-framework-1",
-    "href": "presentations/osf.html#open-science-framework-1",
-    "title": "Open Science at CMOR",
-    "section": "Open Science Framework",
-    "text": "Open Science Framework\n\n\nAt CMOR, we have started using the Open Science Framework (OSF) for collaborative open science\n\n\n\nhttps://osf.io\n\n\n\nThe OSF allows both private work (within the research team) and public sharing for dissemination and accessibility"
-  },
-  {
-    "objectID": "presentations/osf.html#project-organisation-on-the-osf",
-    "href": "presentations/osf.html#project-organisation-on-the-osf",
-    "title": "Open Science at CMOR",
-    "section": "Project organisation on the OSF",
-    "text": "Project organisation on the OSF\n\n\nWork on the OSF is organised into ‘Projects’, which can be nested to create a structured organisation for all of your files, data, code, protocols, and outputs\n\n\n\nWithin a projected, nested sub-projects are referred to as ‘Components’\n\nThe advantage of nesting components within a project is that each component can have its own permission settings (contributors, public/private access, etc)"
-  },
-  {
-    "objectID": "presentations/osf.html#cmor-osf",
-    "href": "presentations/osf.html#cmor-osf",
-    "title": "Open Science at CMOR",
-    "section": "CMOR @ OSF",
-    "text": "CMOR @ OSF\n\nWe have set up such a nested structure for research projects at CMOR:\n\nCentre for Musculoskeletal Outcomes Research\n\n\n\nReducing the burden of osteoarthritis in Aotearoa New Zealand\n\nDiscrete Event Simulation modelling\nRisks, Impacts, Equity, and Cost-effectiveness\n\nLong-term impacts of ligament injury\n\nAnalysis plan\n\nImpacts of opioid use around TJR surgery\nCost-effectiveness of TJR surgery\n\nHe Oranga mō te whanau\nMātauranga\n\n\n\n\nMeasuring the health state preferences of New Zealanders\n\nDCE\n\nData management plan\nProtocols\nData\nAnalysis\nPublications\n\n\n\n\n\nGraduate students\n\nRichelle Caya\n\nSystematic review\n\n…"
-  },
-  {
-    "objectID": "presentations/osf.html#preregistration",
-    "href": "presentations/osf.html#preregistration",
-    "title": "Open Science at CMOR",
-    "section": "Preregistration",
-    "text": "Preregistration\n\nPreregistration is the practice of documenting your research plan at the beginning of your study and storing that plan in a read-only public repository (such as the OSF)\n\nsee https://www.cos.io/initiatives/prereg\n\nPreregistration, including a detailed analysis plan, helps to address issues of reproducibility through reducing the potential for bias in analysis and reporting\nSee Create a preregistration for information on creating and submitting a preregistration for a project on the OSF\n\nNote that once a preregistration is submitted and approved, you cannot make any changes (by design!), so check everything carefully"
-  },
-  {
-    "objectID": "presentations/osf.html#resources",
-    "href": "presentations/osf.html#resources",
-    "title": "Open Science at CMOR",
-    "section": "Resources",
-    "text": "Resources\n\nUNESCO Recommendation on Open Science\nhttps://www.unesco.org/en/open-science\nPassport for Open Science (Ministry of Higher Education and Research, France)\nhttps://www.ouvrirlascience.fr/passport-for-open-science-a-practical-guide-for-phd-students/\nThe Open Science Training Handbook (FOSTER Open Science)\nhttps://open-science-training-handbook.github.io/Open-Science-Training-Handbook_EN/\nOtago’s Read & Publish agreements\nhttps://otago.libguides.com/research_publishing_impact/read-and-publish\nSherpa Services\nhttps://beta.sherpa.ac.uk/\nOSF\nhttps://osf.io (CMOR: https://osf.io/stw9e/)\n\n\n\nReturn to CMOR Lunch’n’Learn presentations"
   }
 ]
