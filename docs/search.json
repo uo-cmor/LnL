@@ -1,108 +1,17 @@
 [
   {
-    "objectID": "presentations/workflows.html#data-workflow",
-    "href": "presentations/workflows.html#data-workflow",
-    "title": "Project workflows – from data to manuscript",
-    "section": "Data workflow",
-    "text": "Data workflow"
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "CMOR Lunch’n’Learn",
+    "section": "",
+    "text": "We run a series of workshops and seminars in research methods, career development, etc. for graduate students and early career researchers at CMOR. A selection of presentations from these workshops is available below."
   },
   {
-    "objectID": "presentations/workflows.html#ideally-we-would",
-    "href": "presentations/workflows.html#ideally-we-would",
-    "title": "Project workflows – from data to manuscript",
-    "section": "Ideally, we would…",
-    "text": "Ideally, we would…\n\nHave a complete record of all analysis steps, from start to finish\nIntegrate analysis into reporting of results\nBe able to share the entire project workflow with others\nEasily update the pipeline when data/analysis changes\nMaintain a common structure across projects"
-  },
-  {
-    "objectID": "presentations/workflows.html#solution-an-integrated-analysis-workflow-with-r",
-    "href": "presentations/workflows.html#solution-an-integrated-analysis-workflow-with-r",
-    "title": "Project workflows – from data to manuscript",
-    "section": "Solution – An integrated analysis workflow with R",
-    "text": "Solution – An integrated analysis workflow with R"
-  },
-  {
-    "objectID": "presentations/workflows.html#solution-an-integrated-analysis-workflow-with-r-1",
-    "href": "presentations/workflows.html#solution-an-integrated-analysis-workflow-with-r-1",
-    "title": "Project workflows – from data to manuscript",
-    "section": "Solution – An integrated analysis workflow with R",
-    "text": "Solution – An integrated analysis workflow with R\n\nHave a complete record of all analysis steps, from start to finish\nIntegrate analysis into reporting of results\nBe able to share the entire project workflow with others\nEasily update the pipeline when data/analysis changes\nMaintain a common structure across projects"
-  },
-  {
-    "objectID": "presentations/workflows.html#solution-an-integrated-analysis-workflow-with-r-2",
-    "href": "presentations/workflows.html#solution-an-integrated-analysis-workflow-with-r-2",
-    "title": "Project workflows – from data to manuscript",
-    "section": "Solution – An integrated analysis workflow with R",
-    "text": "Solution – An integrated analysis workflow with R\n\nHave a complete record of all analysis steps, from start to finish\n\n_plan.R includes (in code) all of the steps in the analysis workflow\n\nIntegrate analysis into reporting of results\nBe able to share the entire project workflow with others\nEasily update the pipeline when data/analysis changes\nMaintain a common structure across projects"
-  },
-  {
-    "objectID": "presentations/workflows.html#solution-an-integrated-analysis-workflow-with-r-3",
-    "href": "presentations/workflows.html#solution-an-integrated-analysis-workflow-with-r-3",
-    "title": "Project workflows – from data to manuscript",
-    "section": "Solution – An integrated analysis workflow with R",
-    "text": "Solution – An integrated analysis workflow with R\n\nHave a complete record of all analysis steps, from start to finish\n\n_plan.R includes (in code) all of the steps in the analysis workflow\n\nIntegrate analysis into reporting of results\n\nQuarto allows us to refer to the results of our analysis directly in the report/manuscript\n\nBe able to share the entire project workflow with others\nEasily update the pipeline when data/analysis changes\nMaintain a common structure across projects"
-  },
-  {
-    "objectID": "presentations/workflows.html#solution-an-integrated-analysis-workflow-with-r-4",
-    "href": "presentations/workflows.html#solution-an-integrated-analysis-workflow-with-r-4",
-    "title": "Project workflows – from data to manuscript",
-    "section": "Solution – An integrated analysis workflow with R",
-    "text": "Solution – An integrated analysis workflow with R\n\nHave a complete record of all analysis steps, from start to finish\n\n_plan.R includes (in code) all of the steps in the analysis workflow\n\nIntegrate analysis into reporting of results\n\nQuarto allows us to refer to the results of our analysis directly in the report/manuscript\n\nBe able to share the entire project workflow with others\n\nGit & GitHub for collaborative version control\n\nEasily update the pipeline when data/analysis changes\nMaintain a common structure across projects"
-  },
-  {
-    "objectID": "presentations/workflows.html#solution-an-integrated-analysis-workflow-with-r-5",
-    "href": "presentations/workflows.html#solution-an-integrated-analysis-workflow-with-r-5",
-    "title": "Project workflows – from data to manuscript",
-    "section": "Solution – An integrated analysis workflow with R",
-    "text": "Solution – An integrated analysis workflow with R\n\nHave a complete record of all analysis steps, from start to finish\n\n_plan.R includes (in code) all of the steps in the analysis workflow\n\nIntegrate analysis into reporting of results\n\nQuarto allows us to refer to the results of our analysis directly in the report/manuscript\n\nBe able to share the entire project workflow with others\n\nGit & GitHub for collaborative version control\n\nEasily update the pipeline when data/analysis changes\n\ntargets tracks dependencies between analysis stages and re-runs steps as needed\n\nMaintain a common structure across projects"
-  },
-  {
-    "objectID": "presentations/workflows.html#solution-an-integrated-analysis-workflow-with-r-6",
-    "href": "presentations/workflows.html#solution-an-integrated-analysis-workflow-with-r-6",
-    "title": "Project workflows – from data to manuscript",
-    "section": "Solution – An integrated analysis workflow with R",
-    "text": "Solution – An integrated analysis workflow with R\n\nHave a complete record of all analysis steps, from start to finish\n\n_plan.R includes (in code) all of the steps in the analysis workflow\n\nIntegrate analysis into reporting of results\n\nQuarto allows us to refer to the results of our analysis directly in the report/manuscript\n\nBe able to share the entire project workflow with others\n\nGit & GitHub for collaborative version control\n\nEasily update the pipeline when data/analysis changes\n\ntargets tracks dependencies between analysis stages and re-runs steps as needed\n\nMaintain a common structure across projects\n\ncmor.tools brings all of this together under a common structure"
-  },
-  {
-    "objectID": "presentations/workflows.html#the-targets-pipeline-tool-for-r",
-    "href": "presentations/workflows.html#the-targets-pipeline-tool-for-r",
-    "title": "Project workflows – from data to manuscript",
-    "section": "The targets pipeline tool for R",
-    "text": "The targets pipeline tool for R\n\nWe have briefly looked at the targets package in an earlier LnL session\nThe key concept is an analytical pipeline: a computational workflow consisting of\n\ntargets – the individual tasks involved in the workflow (data import, cleaning, analysis, etc.)\nmethods – the code used to complete each task\ndependencies – which targets depend on the results of which other targets\n\n\n\n\n\n_plan.R\n\ntargets &lt;- list(\n  tar_target(file, \"data.csv\", format = \"file\"),\n  tar_target(data, get_data(file)),\n  tar_target(model, fit_model(data)),\n  tar_target(plot, plot_model(model, data))\n)"
-  },
-  {
-    "objectID": "presentations/workflows.html#a-closer-look-at-_plan.r",
-    "href": "presentations/workflows.html#a-closer-look-at-_plan.r",
-    "title": "Project workflows – from data to manuscript",
-    "section": "A closer look at _plan.R",
-    "text": "A closer look at _plan.R\n\n\n_plan.R\n\ntargets &lt;- list(\n  tar_target(file, \"data.csv\", format = \"file\"),\n  tar_target(data, get_data(file)),\n  tar_target(model, fit_model(data)),\n  tar_target(plot, plot_model(model, data))\n)\n\n\nThis is a list (an R list object) of targets (specified with tar_target())\nEach target specifies one step in the pipeline\n\nidentify the raw data file\nimport the data from the file into R\nfit a statistical model to the data\ncreate a plot showing the fitted model\n\nThe methods for each target are defined in the functions\nget_data(), fit_model(), and plot_model()\ntargets works out the dependencies automatically"
-  },
-  {
-    "objectID": "presentations/workflows.html#quarto",
-    "href": "presentations/workflows.html#quarto",
-    "title": "Project workflows – from data to manuscript",
-    "section": "Quarto",
-    "text": "Quarto\n\nQuarto is a scientific and technical authoring and publishing system that allows us to mix text and executable R code\nQuarto documents are plain text, but can be rendered to multiple output formats (HTML, PDF, Word, PowerPoint)\n\nEven whole books or websites – the CMOR website is written with Quarto, as is this presentation\n\nWhen the Quarto document is rendered, any R code will be run and the result (numeric values, a table, a figure, etc.) included in the resulting output document"
-  },
-  {
-    "objectID": "presentations/workflows.html#quarto-in-a-targets-pipeline",
-    "href": "presentations/workflows.html#quarto-in-a-targets-pipeline",
-    "title": "Project workflows – from data to manuscript",
-    "section": "Quarto in a targets pipeline",
-    "text": "Quarto in a targets pipeline\n\nThe tarchetypes package provides tar_quarto(), which allows Quarto documents to be used within a targets pipeline\ntar_quarto(report, path = \"report.qmd\") defines a step that renders the source document \"report.qmd\" to a target named report\nThe source document should use tar_load() in an R code chunk to load dependency targets\n\ntargets will scan the source for these calls to know what the target dependencies are"
-  },
-  {
-    "objectID": "presentations/workflows.html#cmor.tools",
-    "href": "presentations/workflows.html#cmor.tools",
-    "title": "Project workflows – from data to manuscript",
-    "section": "cmor.tools",
-    "text": "cmor.tools\n\nOur cmor.tools package (github.com/uo-cmor/cmor.tools) provides various tools to bring these ideas together and provide a common structure for managing data analysis projects\n\n\n\nKey ideas implemented in cmor.tools:\n\nA common project folder structure, to keep data separate from code separate from output\nA targets pipeline to specify all of the steps in the workflow\nOutput (reports/manuscripts) etc. written in Quarto, and in the pipeline\nVersion control with Git, and repository hosted on GitHub\nA few other tools for consistent formatting of outputs, etc.\n(Some analysis tools, not yet fully implemented)"
-  },
-  {
-    "objectID": "presentations/workflows.html#cmor.tools-1",
-    "href": "presentations/workflows.html#cmor.tools-1",
-    "title": "Project workflows – from data to manuscript",
-    "section": "cmor.tools",
-    "text": "cmor.tools\n\nWe’ll use these tools to work through a simple target pipeline (adapted from books.ropensci.org/targets/walkthrough)\n\n\n\nReturn to CMOR Lunch’n’Learn presentations"
+    "objectID": "index.html#slide-decks",
+    "href": "index.html#slide-decks",
+    "title": "CMOR Lunch’n’Learn",
+    "section": "Slide decks",
+    "text": "Slide decks\n\nIntroduction to R\nOpen science (and the Open Science Framework)\nIntroduction to meta-analysis\nProject workflows"
   },
   {
     "objectID": "presentations/meta-analysis.html#systematic-reviews-and-meta-analyses",
@@ -203,18 +112,109 @@
     "text": "References\n\nCochrane Handbook for Systematic Reviews of Interventions\nhttps://training.cochrane.org/handbook/current\n\nDetails of the statistical methods: https://documentation.cochrane.org/revman-kb/files/210600101/210600103/1/1654774257333/Statistical_methods_in_revman.pdf\n\nEgger M, Smith GD, Altman DG. Systematic Reviews in Health Care: Meta-Analysis in Context, 2nd Ed. London, UK: BMJ Publishing Group. 2001.\nhttps://doi.org/10.1002/9780470693926\nJin Z-C, Zhou X-H, He J. Statistical methods for dealing with publication bias in meta-analysis. Statistics in Medicine 2015;34(2):343-360\nhttps://doi.org/10.1002/sim.6342\nmetafor R package https://wviechtb.github.io/metafor/\n\n\n\nReturn to CMOR Lunch’n’Learn presentations"
   },
   {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "CMOR Lunch’n’Learn",
-    "section": "",
-    "text": "We run a series of workshops and seminars in research methods, career development, etc. for graduate students and early career researchers at CMOR. A selection of presentations from these workshops is available below."
+    "objectID": "presentations/workflows.html#data-workflow",
+    "href": "presentations/workflows.html#data-workflow",
+    "title": "Project workflows – from data to manuscript",
+    "section": "Data workflow",
+    "text": "Data workflow"
   },
   {
-    "objectID": "index.html#slide-decks",
-    "href": "index.html#slide-decks",
-    "title": "CMOR Lunch’n’Learn",
-    "section": "Slide decks",
-    "text": "Slide decks\n\nIntroduction to R\nOpen science (and the Open Science Framework)\nIntroduction to meta-analysis\nProject workflows"
+    "objectID": "presentations/workflows.html#ideally-we-would",
+    "href": "presentations/workflows.html#ideally-we-would",
+    "title": "Project workflows – from data to manuscript",
+    "section": "Ideally, we would…",
+    "text": "Ideally, we would…\n\nHave a complete record of all analysis steps, from start to finish\nIntegrate analysis into reporting of results\nBe able to share the entire project workflow with others\nEasily update the pipeline when data/analysis changes\nMaintain a common structure across projects"
+  },
+  {
+    "objectID": "presentations/workflows.html#solution-an-integrated-analysis-workflow-with-r",
+    "href": "presentations/workflows.html#solution-an-integrated-analysis-workflow-with-r",
+    "title": "Project workflows – from data to manuscript",
+    "section": "Solution – An integrated analysis workflow with R",
+    "text": "Solution – An integrated analysis workflow with R"
+  },
+  {
+    "objectID": "presentations/workflows.html#solution-an-integrated-analysis-workflow-with-r-1",
+    "href": "presentations/workflows.html#solution-an-integrated-analysis-workflow-with-r-1",
+    "title": "Project workflows – from data to manuscript",
+    "section": "Solution – An integrated analysis workflow with R",
+    "text": "Solution – An integrated analysis workflow with R\n\nHave a complete record of all analysis steps, from start to finish\nIntegrate analysis into reporting of results\nBe able to share the entire project workflow with others\nEasily update the pipeline when data/analysis changes\nMaintain a common structure across projects"
+  },
+  {
+    "objectID": "presentations/workflows.html#solution-an-integrated-analysis-workflow-with-r-2",
+    "href": "presentations/workflows.html#solution-an-integrated-analysis-workflow-with-r-2",
+    "title": "Project workflows – from data to manuscript",
+    "section": "Solution – An integrated analysis workflow with R",
+    "text": "Solution – An integrated analysis workflow with R\n\nHave a complete record of all analysis steps, from start to finish\n\n_plan.R includes (in code) all of the steps in the analysis workflow\n\nIntegrate analysis into reporting of results\nBe able to share the entire project workflow with others\nEasily update the pipeline when data/analysis changes\nMaintain a common structure across projects"
+  },
+  {
+    "objectID": "presentations/workflows.html#solution-an-integrated-analysis-workflow-with-r-3",
+    "href": "presentations/workflows.html#solution-an-integrated-analysis-workflow-with-r-3",
+    "title": "Project workflows – from data to manuscript",
+    "section": "Solution – An integrated analysis workflow with R",
+    "text": "Solution – An integrated analysis workflow with R\n\nHave a complete record of all analysis steps, from start to finish\n\n_plan.R includes (in code) all of the steps in the analysis workflow\n\nIntegrate analysis into reporting of results\n\nQuarto allows us to refer to the results of our analysis directly in the report/manuscript\n\nBe able to share the entire project workflow with others\nEasily update the pipeline when data/analysis changes\nMaintain a common structure across projects"
+  },
+  {
+    "objectID": "presentations/workflows.html#solution-an-integrated-analysis-workflow-with-r-4",
+    "href": "presentations/workflows.html#solution-an-integrated-analysis-workflow-with-r-4",
+    "title": "Project workflows – from data to manuscript",
+    "section": "Solution – An integrated analysis workflow with R",
+    "text": "Solution – An integrated analysis workflow with R\n\nHave a complete record of all analysis steps, from start to finish\n\n_plan.R includes (in code) all of the steps in the analysis workflow\n\nIntegrate analysis into reporting of results\n\nQuarto allows us to refer to the results of our analysis directly in the report/manuscript\n\nBe able to share the entire project workflow with others\n\nGit & GitHub for collaborative version control\n\nEasily update the pipeline when data/analysis changes\nMaintain a common structure across projects"
+  },
+  {
+    "objectID": "presentations/workflows.html#solution-an-integrated-analysis-workflow-with-r-5",
+    "href": "presentations/workflows.html#solution-an-integrated-analysis-workflow-with-r-5",
+    "title": "Project workflows – from data to manuscript",
+    "section": "Solution – An integrated analysis workflow with R",
+    "text": "Solution – An integrated analysis workflow with R\n\nHave a complete record of all analysis steps, from start to finish\n\n_plan.R includes (in code) all of the steps in the analysis workflow\n\nIntegrate analysis into reporting of results\n\nQuarto allows us to refer to the results of our analysis directly in the report/manuscript\n\nBe able to share the entire project workflow with others\n\nGit & GitHub for collaborative version control\n\nEasily update the pipeline when data/analysis changes\n\ntargets tracks dependencies between analysis stages and re-runs steps as needed\n\nMaintain a common structure across projects"
+  },
+  {
+    "objectID": "presentations/workflows.html#solution-an-integrated-analysis-workflow-with-r-6",
+    "href": "presentations/workflows.html#solution-an-integrated-analysis-workflow-with-r-6",
+    "title": "Project workflows – from data to manuscript",
+    "section": "Solution – An integrated analysis workflow with R",
+    "text": "Solution – An integrated analysis workflow with R\n\nHave a complete record of all analysis steps, from start to finish\n\n_plan.R includes (in code) all of the steps in the analysis workflow\n\nIntegrate analysis into reporting of results\n\nQuarto allows us to refer to the results of our analysis directly in the report/manuscript\n\nBe able to share the entire project workflow with others\n\nGit & GitHub for collaborative version control\n\nEasily update the pipeline when data/analysis changes\n\ntargets tracks dependencies between analysis stages and re-runs steps as needed\n\nMaintain a common structure across projects\n\ncmor.tools brings all of this together under a common structure"
+  },
+  {
+    "objectID": "presentations/workflows.html#the-targets-pipeline-tool-for-r",
+    "href": "presentations/workflows.html#the-targets-pipeline-tool-for-r",
+    "title": "Project workflows – from data to manuscript",
+    "section": "The targets pipeline tool for R",
+    "text": "The targets pipeline tool for R\n\nWe have briefly looked at the targets package in an earlier LnL session\nThe key concept is an analytical pipeline: a computational workflow consisting of\n\ntargets – the individual tasks involved in the workflow (data import, cleaning, analysis, etc.)\nmethods – the code used to complete each task\ndependencies – which targets depend on the results of which other targets\n\ntargets analyses the pipeline, runs the code, and stores the results in /_targets/"
+  },
+  {
+    "objectID": "presentations/workflows.html#the-pipeline-is-described-in-_plan.r",
+    "href": "presentations/workflows.html#the-pipeline-is-described-in-_plan.r",
+    "title": "Project workflows – from data to manuscript",
+    "section": "The pipeline is described in _plan.R",
+    "text": "The pipeline is described in _plan.R\n\n\n_plan.R\n\ntargets &lt;- list(\n  tar_target(file, \"data.csv\", format = \"file\"),\n  tar_target(data, get_data(file)),\n  tar_target(model, fit_model(data)),\n  tar_target(plot, plot_model(model, data))\n)\n\n\nThis is a list (an R list object) of targets (specified with tar_target())\nEach target specifies one step in the pipeline\n\nidentify the raw data file\nimport the data from the file into R\nfit a statistical model to the data\ncreate a plot showing the fitted model\n\nThe methods for each target are defined in the functions\nget_data(), fit_model(), and plot_model()\ntargets works out the dependencies automatically"
+  },
+  {
+    "objectID": "presentations/workflows.html#quarto",
+    "href": "presentations/workflows.html#quarto",
+    "title": "Project workflows – from data to manuscript",
+    "section": "Quarto",
+    "text": "Quarto\n\nQuarto is a scientific and technical authoring and publishing system that allows us to mix text and executable R code\nQuarto documents are plain text, but can be rendered to multiple output formats (HTML, PDF, Word, PowerPoint)\n\nEven whole books or websites – the CMOR website is written with Quarto, as is this presentation\n\nWhen the Quarto document is rendered, any R code will be run and the result (numeric values, a table, a figure, etc.) included in the resulting output document"
+  },
+  {
+    "objectID": "presentations/workflows.html#quarto-in-a-targets-pipeline",
+    "href": "presentations/workflows.html#quarto-in-a-targets-pipeline",
+    "title": "Project workflows – from data to manuscript",
+    "section": "Quarto in a targets pipeline",
+    "text": "Quarto in a targets pipeline\n\nThe tarchetypes package provides tar_quarto(), which allows Quarto documents to be used within a targets pipeline\ntar_quarto(report, path = \"report.qmd\") defines a step that renders the source document \"report.qmd\" to a target named report\nThe source document should use tar_load() in an R code chunk to load dependency targets\n\ntargets will scan the source for these calls to know what the target dependencies are"
+  },
+  {
+    "objectID": "presentations/workflows.html#cmor.tools",
+    "href": "presentations/workflows.html#cmor.tools",
+    "title": "Project workflows – from data to manuscript",
+    "section": "cmor.tools",
+    "text": "cmor.tools\n\nOur cmor.tools package (github.com/uo-cmor/cmor.tools) provides various tools to bring these ideas together and provide a common structure for managing data analysis projects\n\n\n\nKey ideas implemented in cmor.tools:\n\nA common project folder structure, to keep data separate from code separate from output\nA targets pipeline to specify all of the steps in the workflow\nOutput (reports/manuscripts) etc. written in Quarto, and in the pipeline\nVersion control with Git, and repository hosted on GitHub\nA few other tools for consistent formatting of outputs, etc.\n(Some analysis tools, not yet fully implemented)"
+  },
+  {
+    "objectID": "presentations/workflows.html#cmor.tools-1",
+    "href": "presentations/workflows.html#cmor.tools-1",
+    "title": "Project workflows – from data to manuscript",
+    "section": "cmor.tools",
+    "text": "cmor.tools\n\nWe’ll use these tools to work through a simple target pipeline (adapted from books.ropensci.org/targets/walkthrough)\n\n\n\nYou can install cmor.tools from GitHub:\n\n#install.packages(\"remotes\")\nremotes::install_github(\"uo-cmor/cmor.tools\")\n\n\nReturn to CMOR Lunch’n’Learn presentations"
   },
   {
     "objectID": "presentations/osf.html#what-is-open-science",

@@ -111,19 +111,9 @@ options(pillar.min_title_chars = 8)
   * **targets** -- the individual tasks involved in the workflow (data import, cleaning, analysis, etc.)
   * **methods** -- the code used to complete each task
   * **dependencies** -- which targets depend on the results of which other targets
+* `targets` analyses the pipeline, runs the code, and stores the results in `/_targets/`
 
-. . .
-
-```{.r filename="_plan.R"}
-targets <- list(
-  tar_target(file, "data.csv", format = "file"),
-  tar_target(data, get_data(file)),
-  tar_target(model, fit_model(data)),
-  tar_target(plot, plot_model(model, data))
-)
-```
-
-## A closer look at `_plan.R` {.smaller}
+## The pipeline is described in `_plan.R` {.smaller}
 
 ```{.r filename="_plan.R"}
 targets <- list(
@@ -182,8 +172,8 @@ targets <- list(
 :::
 :::
 
-::: {.fragment .fade-in fragment-index=3}
-::: {.fragment .fade-out fragment-index=4}
+::: {.fragment .fade-in fragment-index=4}
+::: {.fragment .fade-out fragment-index=5}
 ![](images/_plan.R.png){.absolute top=50 right=50}
 :::
 :::
@@ -192,4 +182,12 @@ targets <- list(
 
 * We'll use these tools to work through a simple target pipeline (adapted from [books.ropensci.org/targets/walkthrough](https://books.ropensci.org/targets/walkthrough.html){preview-link="true"})
 
+. . .
+
+* You can install `cmor.tools` from GitHub:
+
+```{.r}
+#install.packages("remotes")
+remotes::install_github("uo-cmor/cmor.tools")
+```
 

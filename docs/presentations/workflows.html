@@ -572,8 +572,11 @@
 <li><strong>methods</strong> – the code used to complete each task</li>
 <li><strong>dependencies</strong> – which targets depend on the results of which other targets</li>
 </ul></li>
+<li><code>targets</code> analyses the pipeline, runs the code, and stores the results in <code>/_targets/</code></li>
 </ul>
-<div class="fragment">
+</section>
+<section id="the-pipeline-is-described-in-_plan.r" class="slide level2 smaller">
+<h2>The pipeline is described in <code>_plan.R</code></h2>
 <div class="code-with-filename">
 <div class="code-with-filename-file">
 <pre><strong>_plan.R</strong></pre>
@@ -584,21 +587,6 @@
 <span id="cb1-4"><a href="#cb1-4"></a>  <span class="fu">tar_target</span>(model, <span class="fu">fit_model</span>(data)),</span>
 <span id="cb1-5"><a href="#cb1-5"></a>  <span class="fu">tar_target</span>(plot, <span class="fu">plot_model</span>(model, data))</span>
 <span id="cb1-6"><a href="#cb1-6"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-</div>
-</section>
-<section id="a-closer-look-at-_plan.r" class="slide level2 smaller">
-<h2>A closer look at <code>_plan.R</code></h2>
-<div class="code-with-filename">
-<div class="code-with-filename-file">
-<pre><strong>_plan.R</strong></pre>
-</div>
-<div class="sourceCode" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1"></a>targets <span class="ot">&lt;-</span> <span class="fu">list</span>(</span>
-<span id="cb2-2"><a href="#cb2-2"></a>  <span class="fu">tar_target</span>(file, <span class="st">"data.csv"</span>, <span class="at">format =</span> <span class="st">"file"</span>),</span>
-<span id="cb2-3"><a href="#cb2-3"></a>  <span class="fu">tar_target</span>(data, <span class="fu">get_data</span>(file)),</span>
-<span id="cb2-4"><a href="#cb2-4"></a>  <span class="fu">tar_target</span>(model, <span class="fu">fit_model</span>(data)),</span>
-<span id="cb2-5"><a href="#cb2-5"></a>  <span class="fu">tar_target</span>(plot, <span class="fu">plot_model</span>(model, data))</span>
-<span id="cb2-6"><a href="#cb2-6"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <ul>
 <li>This is a list (an R <code>list</code> object) of targets (specified with <code>tar_target()</code>)</li>
@@ -662,8 +650,8 @@
 <p><img data-src="images/folder-structure.png" class="absolute" style="border: 1px solid grey;top: 50px; right: 50px; "></p>
 </div>
 </div>
-<div class="fragment fade-in" data-fragment-index="3">
-<div class="fragment fade-out" data-fragment-index="4">
+<div class="fragment fade-in" data-fragment-index="4">
+<div class="fragment fade-out" data-fragment-index="5">
 <p><img data-src="images/_plan.R.png" class="absolute" style="top: 50px; right: 50px; "></p>
 </div>
 </div>
@@ -673,9 +661,16 @@
 <ul>
 <li>We’ll use these tools to work through a simple target pipeline (adapted from <a href="https://books.ropensci.org/targets/walkthrough.html" data-preview-link="true">books.ropensci.org/targets/walkthrough</a>)</li>
 </ul>
+<div class="fragment">
+<ul>
+<li>You can install <code>cmor.tools</code> from GitHub:</li>
+</ul>
+<div class="sourceCode" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1"></a><span class="co">#install.packages("remotes")</span></span>
+<span id="cb2-2"><a href="#cb2-2"></a>remotes<span class="sc">::</span><span class="fu">install_github</span>(<span class="st">"uo-cmor/cmor.tools"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 
 <div class="footer footer-default">
 <p><a href="../index.html">Return to CMOR Lunch’n’Learn presentations</a></p>
+</div>
 </div>
 </section>
     </div>
