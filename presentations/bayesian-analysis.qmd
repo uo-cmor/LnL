@@ -1,0 +1,178 @@
+---
+title: "Introduction to Bayesian Analysis"
+subtitle: "CMOR Lunch'n'Learn"
+author: "Ross Wilson"
+date: "2023-11-23"
+date-format: "D MMMM YYYY"
+format:
+  revealjs:
+    theme: [default, cmor.scss]
+    title-slide-attributes: 
+      data-background-image: "images/otago-pennant.png, images/cmor-banner.png, images/title-background.png"
+      data-background-size: "7%, 25%, 100%"
+      data-background-position: "3% 1%, bottom 1% left 50px,0 0"
+      data-background-repeat: "no-repeat"
+    template-partials:
+      - styles.html
+      - title-slide.html
+    margin: 0.2
+    footer: "[Return to CMOR Lunch'n'Learn presentations](../index.html)"
+---
+```{r setup}
+library(tidyverse)
+library(kableExtra, exclude = "group_rows")
+```
+
+# What is Bayesian analysis?
+
+## Probability-based analysis
+
+<br>
+
+* Bayesian analysis is about estimating/interpreting the uncertainty or probability distribution of parameters
+
+* To understand this, we need a very brief background to probability theory
+
+## What is probability?
+
+<br>
+
+Or, how should we interpret a probability of, say, 20%?
+
+<br>
+
+:::: {.columns}
+
+::: {.column .fragment}
+**Relative frequency**
+
+$$\mathrm{Pr}(A) = \lim\limits_{n \to \infty} \frac{\text{# times } A \text{ occurs}}{n}$$
+
+Classical statistics is based on this concept of repeated sampling
+
+:::
+
+::: {.column .fragment}
+**Subjective probability**
+
+*A measure of certainty (or uncertainty) in an event*
+
+::: {.fragment}
+* What is the probability it will rain tomorrow?
+
+* What is the probability I had chicken for dinner last night?
+:::
+:::
+
+::::
+
+## Conditional probability
+
+<br>
+
+* Probability is defined over some set of possibilities, and conditional on some information
+
+* What is the probability it will rain tomorrow?
+
+## What is Bayesian analysis?
+
+<br>
+
+::::: {.columns}
+
+:::: {.column}
+| Traditional 'Frequentist' analysis  |
+|:-----------------------------------:|
+| *Pr(data\|parameters)*              |
+
+::: {style="font-size:0.7em;"}
+<br>
+
+Given a particular data generating process and parameter value(s), what is the likelihood of the observed data?
+
+Maximum likelihood estimation: find the value that maximises this likelihood
+:::
+
+::::
+
+:::: {.column}
+::::
+
+:::::
+
+## Numeric example
+* Consider a simple repeated coin toss:
+  * Say we toss a coin 10 times, and it comes up heads 7/10
+* Maximum likelihood analysis:
+```{r}
+tmp_pdf <- tempfile(fileext = ".pdf")
+img_png <- "images/mle.png"
+tibble(
+  hypothesis = (2:9)/10,
+  likelihood = dbinom(7, 10, hypothesis)
+) |> 
+  kbl(
+    "latex", align = "c", escape = FALSE, booktabs = TRUE, linesep = "",
+    col.names = linebreak(c("\\textbf{Hypothesis}\n$\\mathrm{Pr}(\\mathit{heads}) = \\theta$",
+                            "\\textbf{Likelihood}\n$\\mathrm{Pr}(\\mathit{data \\mid hypothesis})$"))
+  ) |> 
+  kable_styling() |> 
+  save_kable(tmp_pdf)
+table_image_pdf <- magick::image_read_pdf(tmp_pdf)
+table_image <- magick::image_convert(table_image_pdf, "png")
+magick::image_write(table_image, img_png, density = 300)
+```
+
+![](images/mle.png){.absolute top=1000, right=250}
+
+## What is Bayesian analysis?
+
+<br>
+
+::::: {.columns}
+
+:::: {.column}
+| Classical statistics    |
+|:-----------------------:|
+| *Pr(data\|parameters)*  |
+
+::: {style="font-size:0.7em;"}
+<br>
+
+Given a particular data generating process and parameter value(s), what is the likelihood of the observed data?
+
+Maximum likelihood estimation: find the value that maximises this likelihood
+:::
+
+::::
+
+:::: {.column}
+| Bayesian analysis       |
+|:-----------------------:|
+| *Pr(parameters\|data)*  |
+
+::: {style="font-size:0.7em;"}
+<br>
+
+Given the observed data (and some prior beliefs), what are likely values of the parameters?
+:::
+
+::::
+
+:::::
+
+## Bayes' Theorem
+
+<br>
+
+$$\mathrm{Pr}(A | B) = \frac{\mathrm{Pr}(B | A) \mathrm{Pr}(A)}{\mathrm{Pr}(B)}$$
+
+$$f(\theta | y) = \frac{f(y | \theta) f(\theta)}{f(y)}$$
+
+<br>
+
+$$\mathrm{Posterior} \propto \mathrm{Likelihood} \times \mathrm{Prior}$$
+
+<br>
+
+$$\text{updated belief} = \text{current evidence} \times \text{prior evidence or belief}$$

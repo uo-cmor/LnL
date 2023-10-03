@@ -14,207 +14,53 @@
     "text": "Slide decks\n\nIntroduction to R\nOpen science (and the Open Science Framework)\nIntroduction to meta-analysis\nProject workflows"
   },
   {
-    "objectID": "presentations/meta-analysis.html#systematic-reviews-and-meta-analyses",
-    "href": "presentations/meta-analysis.html#systematic-reviews-and-meta-analyses",
-    "title": "Introduction to Meta-Analysis",
-    "section": "Systematic reviews and meta-analyses",
-    "text": "Systematic reviews and meta-analyses\n\nFrom Cochrane:\n\nA systematic review is a study that\n“attempts to identify, appraise, and synthesize all the empirical evidence that meets pre-specified eligibility criteria to answer a specific research question”\nMeta-analysis is the statistical combination of results from two or more separate studies\n\nMeta-analysis is often one part of a systematic review"
+    "objectID": "presentations/bayesian-analysis.html#probability-based-analysis",
+    "href": "presentations/bayesian-analysis.html#probability-based-analysis",
+    "title": "Introduction to Bayesian Analysis",
+    "section": "Probability-based analysis",
+    "text": "Probability-based analysis\n\n\nBayesian analysis is about estimating/interpreting the uncertainty or probability distribution of parameters\nTo understand this, we need a very brief background to probability theory"
   },
   {
-    "objectID": "presentations/meta-analysis.html#potential-advantages-of-meta-analyses",
-    "href": "presentations/meta-analysis.html#potential-advantages-of-meta-analyses",
-    "title": "Introduction to Meta-Analysis",
-    "section": "(Potential) advantages of meta-analyses",
-    "text": "(Potential) advantages of meta-analyses\n\n\n\nImproved precision\n\n\n\n\nEvidence on generalisability\n\n\n\n\nResolve conflicting results from previous studies"
+    "objectID": "presentations/bayesian-analysis.html#what-is-probability",
+    "href": "presentations/bayesian-analysis.html#what-is-probability",
+    "title": "Introduction to Bayesian Analysis",
+    "section": "What is probability?",
+    "text": "What is probability?\n\nOr, how should we interpret a probability of, say, 20%?\n\n\n\nRelative frequency\n\\[\\mathrm{Pr}(A) = \\lim\\limits_{n \\to \\infty} \\frac{\\text{# times } A \\text{ occurs}}{n}\\]\nClassical statistics is based on this concept of repeated sampling\n\nSubjective probability\nA measure of certainty (or uncertainty) in an event\n\n\nWhat is the probability it will rain tomorrow?\nWhat is the probability I had chicken for dinner last night?"
   },
   {
-    "objectID": "presentations/meta-analysis.html#types-of-meta-analysis",
-    "href": "presentations/meta-analysis.html#types-of-meta-analysis",
-    "title": "Introduction to Meta-Analysis",
-    "section": "Types of meta-analysis",
-    "text": "Types of meta-analysis\n\n\n\nPairwise comparisons (i.e., intervention vs. comparator; ‘standard’ meta-analysis)\n\n\n\n\nNetwork meta-analysis (comparing more than two interventions in a single model)\n\n\n\n\nIndividual participant data meta-analysis"
+    "objectID": "presentations/bayesian-analysis.html#conditional-probability",
+    "href": "presentations/bayesian-analysis.html#conditional-probability",
+    "title": "Introduction to Bayesian Analysis",
+    "section": "Conditional probability",
+    "text": "Conditional probability\n\n\nProbability is defined over some set of possibilities, and conditional on some information\nWhat is the probability it will rain tomorrow?"
   },
   {
-    "objectID": "presentations/meta-analysis.html#before-doing-a-meta-analysis",
-    "href": "presentations/meta-analysis.html#before-doing-a-meta-analysis",
-    "title": "Introduction to Meta-Analysis",
-    "section": "Before doing a meta-analysis",
-    "text": "Before doing a meta-analysis\n\n\nDo your systematic review well:\n\nDefine the review aims & scope (PICO)\nEnsure your search strategy, screening, etc. is effective\nIdentify & summarise study characteristics\nDecide whether studies are ‘similar enough’ to be grouped & synthesized"
+    "objectID": "presentations/bayesian-analysis.html#what-is-bayesian-analysis-1",
+    "href": "presentations/bayesian-analysis.html#what-is-bayesian-analysis-1",
+    "title": "Introduction to Bayesian Analysis",
+    "section": "What is Bayesian analysis?",
+    "text": "What is Bayesian analysis?\n\n\n\n\n\n\nTraditional ‘Frequentist’ analysis\n\n\n\n\nPr(data|parameters)\n\n\n\n\n\nGiven a particular data generating process and parameter value(s), what is the likelihood of the observed data?\nMaximum likelihood estimation: find the value that maximises this likelihood"
   },
   {
-    "objectID": "presentations/meta-analysis.html#general-approach-to-meta-analysis",
-    "href": "presentations/meta-analysis.html#general-approach-to-meta-analysis",
-    "title": "Introduction to Meta-Analysis",
-    "section": "General approach to meta-analysis",
-    "text": "General approach to meta-analysis\n\n\nExtract (or calculate) a summary statistic for each study\nCalculate (weighted) average effect across all studies\nCalculate the standard error of the summary effect (to derive confidence intervals and/or p-values)\nEstimate heterogeneity between studies\nSummarise findings graphically (usually with a forest plot)"
+    "objectID": "presentations/bayesian-analysis.html#numeric-example",
+    "href": "presentations/bayesian-analysis.html#numeric-example",
+    "title": "Introduction to Bayesian Analysis",
+    "section": "Numeric example",
+    "text": "Numeric example\n\nConsider a simple repeated coin toss:\n\nSay we toss a coin 10 times, and it comes up heads 7/10\n\nMaximum likelihood analysis:"
   },
   {
-    "objectID": "presentations/meta-analysis.html#extractcalculate-statistics-for-each-study",
-    "href": "presentations/meta-analysis.html#extractcalculate-statistics-for-each-study",
-    "title": "Introduction to Meta-Analysis",
-    "section": "1. Extract/calculate statistics for each study",
-    "text": "1. Extract/calculate statistics for each study\n\n\nFor dichotomous outcomes:\n\nOdds ratio\nRisk ratio\nRisk difference\n\nFor continuous outcomes:\n\nMean difference\n\n(post-intervention, change from baseline, adjusted post-intervention)\n\nStandardised mean difference"
+    "objectID": "presentations/bayesian-analysis.html#what-is-bayesian-analysis-2",
+    "href": "presentations/bayesian-analysis.html#what-is-bayesian-analysis-2",
+    "title": "Introduction to Bayesian Analysis",
+    "section": "What is Bayesian analysis?",
+    "text": "What is Bayesian analysis?\n\n\n\n\n\n\nClassical statistics\n\n\n\n\nPr(data|parameters)\n\n\n\n\n\nGiven a particular data generating process and parameter value(s), what is the likelihood of the observed data?\nMaximum likelihood estimation: find the value that maximises this likelihood\n\n\n\n\n\nBayesian analysis\n\n\n\n\nPr(parameters|data)\n\n\n\n\n\nGiven the observed data (and some prior beliefs), what are likely values of the parameters?"
   },
   {
-    "objectID": "presentations/meta-analysis.html#extractcalculate-statistics-for-each-study-1",
-    "href": "presentations/meta-analysis.html#extractcalculate-statistics-for-each-study-1",
-    "title": "Introduction to Meta-Analysis",
-    "section": "1. Extract/calculate statistics for each study",
-    "text": "1. Extract/calculate statistics for each study\n\n\nFor ordinal outcomes:\n\nUsually either treated as dichotomous or continuous\nAlso possible to estimate a proportional odds ratio\n\nFor count outcomes:\n\nAgain, usually treated as dichotomous or continuous\nRate ratio or rate difference\n\nFor time-to-event outcomes:\n\nHazard ratio"
-  },
-  {
-    "objectID": "presentations/meta-analysis.html#calculate-weighted-effect",
-    "href": "presentations/meta-analysis.html#calculate-weighted-effect",
-    "title": "Introduction to Meta-Analysis",
-    "section": "2. Calculate weighted effect",
-    "text": "2. Calculate weighted effect\n\nGenerally, meta-analyses use an inverse-variance weighted method\n\n\\[\\text{Weighted average} = \\frac{\\sum{Y_i W_i}}{\\sum{W_i}}\\]\n   where \\(W_i = (1 / SE_i)^2\\)\n\nFor ratio measures, both the effects and standard errors are on the log scale\n\nThese can be transformed back to the original scale for reporting\n\nThere are slight variants to this general approach for some methods (particularly for dichotomous outcomes)"
-  },
-  {
-    "objectID": "presentations/meta-analysis.html#calculate-standard-errors",
-    "href": "presentations/meta-analysis.html#calculate-standard-errors",
-    "title": "Introduction to Meta-Analysis",
-    "section": "3. Calculate standard errors",
-    "text": "3. Calculate standard errors\n\n\nIn the general inverse-variance method, the standard error of the weighted summary statistic is\n\n\\[\\text{Standard error} = \\frac{1}{\\sqrt{\\sum{W_i}}}\\]\n\nAgain, different formulae for some specific methods"
-  },
-  {
-    "objectID": "presentations/meta-analysis.html#estimate-heterogeneity",
-    "href": "presentations/meta-analysis.html#estimate-heterogeneity",
-    "title": "Introduction to Meta-Analysis",
-    "section": "4. Estimate heterogeneity",
-    "text": "4. Estimate heterogeneity\n\nHeterogeneity is measured by\n\n\\(Q = \\sum{W_i (Y_i - \\overline{Y})^2}\\)\n\nand\n\n\\(I^2 = \\text{max}\\left\\{\\frac{Q - (k - 1)}{Q}, 0\\right\\}\\)\n\nQ is a test statistic following a chi-squared distribution, and I2 is interpreted as the proportion of total variance in study estimates due to heterogeneity rather than sampling error\n\nNOTE: I2 can be very uncertain (imprecise) when the number of studies is small"
-  },
-  {
-    "objectID": "presentations/meta-analysis.html#summarise-findings-graphically",
-    "href": "presentations/meta-analysis.html#summarise-findings-graphically",
-    "title": "Introduction to Meta-Analysis",
-    "section": "5. Summarise findings graphically",
-    "text": "5. Summarise findings graphically\n\n\n\nMeta-analyses are usually illustrated using a forest plot\nA forest plot displays effect estimates for both individual studies and the overall meta-analysis result\nEach study is represented by a square (usually) at the point estimate, and horizontal lines extending to bounds of the confidence interval\n\nThe size of the block indicates the weight assigned to that study in the meta-analysis (roughly proportional to sample size)\n\nThe summary result is presented as a diamond at the bottom, centred on the meta-analysis point estimate and with width showing the confidence interval"
-  },
-  {
-    "objectID": "presentations/meta-analysis.html#assessing-small-study-bias-and-publication-bias",
-    "href": "presentations/meta-analysis.html#assessing-small-study-bias-and-publication-bias",
-    "title": "Introduction to Meta-Analysis",
-    "section": "Assessing small-study bias and publication bias",
-    "text": "Assessing small-study bias and publication bias\n\n\n\nSmall sample bias: small studies may show larger intervention effects than larger studies\n\nNon-reporting/non-publication bias\nPoor methodological quality\nMechanistic vs. pragmatic designs\n\nA ‘funnel plot’ can help detect this"
-  },
-  {
-    "objectID": "presentations/meta-analysis.html#software",
-    "href": "presentations/meta-analysis.html#software",
-    "title": "Introduction to Meta-Analysis",
-    "section": "Software",
-    "text": "Software\n\nCochrane RevMan\n\nManages all stages of the systematic review process, from design to data extraction, analysis, and visualiation\nFree for those doing Cochrane reviews, subscription for everyone else\n\nR: there are several packages for meta-analysis\n\nSee the Meta-Analysis Task View:\nhttps://cran.r-project.org/view=MetaAnalysis\nmetafor is a comprehensive package with functions for converting published results to common summary statistics, fitting inverse-variance weighted and related models, forest and funnel plots, heterogeneity measures, and diagnostic statistics (among others)"
-  },
-  {
-    "objectID": "presentations/meta-analysis.html#references",
-    "href": "presentations/meta-analysis.html#references",
-    "title": "Introduction to Meta-Analysis",
-    "section": "References",
-    "text": "References\n\nCochrane Handbook for Systematic Reviews of Interventions\nhttps://training.cochrane.org/handbook/current\n\nDetails of the statistical methods: https://documentation.cochrane.org/revman-kb/files/210600101/210600103/1/1654774257333/Statistical_methods_in_revman.pdf\n\nEgger M, Smith GD, Altman DG. Systematic Reviews in Health Care: Meta-Analysis in Context, 2nd Ed. London, UK: BMJ Publishing Group. 2001.\nhttps://doi.org/10.1002/9780470693926\nJin Z-C, Zhou X-H, He J. Statistical methods for dealing with publication bias in meta-analysis. Statistics in Medicine 2015;34(2):343-360\nhttps://doi.org/10.1002/sim.6342\nmetafor R package https://wviechtb.github.io/metafor/\n\n\n\nReturn to CMOR Lunch’n’Learn presentations"
-  },
-  {
-    "objectID": "presentations/workflows.html#data-workflow",
-    "href": "presentations/workflows.html#data-workflow",
-    "title": "Project workflows – from data to manuscript",
-    "section": "Data workflow",
-    "text": "Data workflow"
-  },
-  {
-    "objectID": "presentations/workflows.html#ideally-we-would",
-    "href": "presentations/workflows.html#ideally-we-would",
-    "title": "Project workflows – from data to manuscript",
-    "section": "Ideally, we would…",
-    "text": "Ideally, we would…\n\nHave a complete record of all analysis steps, from start to finish\nIntegrate analysis into reporting of results\nBe able to share the entire project workflow with others\nEasily update the pipeline when data/analysis changes\nMaintain a common structure across projects"
-  },
-  {
-    "objectID": "presentations/workflows.html#solution-an-integrated-analysis-workflow-with-r",
-    "href": "presentations/workflows.html#solution-an-integrated-analysis-workflow-with-r",
-    "title": "Project workflows – from data to manuscript",
-    "section": "Solution – An integrated analysis workflow with R",
-    "text": "Solution – An integrated analysis workflow with R"
-  },
-  {
-    "objectID": "presentations/workflows.html#solution-an-integrated-analysis-workflow-with-r-1",
-    "href": "presentations/workflows.html#solution-an-integrated-analysis-workflow-with-r-1",
-    "title": "Project workflows – from data to manuscript",
-    "section": "Solution – An integrated analysis workflow with R",
-    "text": "Solution – An integrated analysis workflow with R\n\nHave a complete record of all analysis steps, from start to finish\nIntegrate analysis into reporting of results\nBe able to share the entire project workflow with others\nEasily update the pipeline when data/analysis changes\nMaintain a common structure across projects"
-  },
-  {
-    "objectID": "presentations/workflows.html#solution-an-integrated-analysis-workflow-with-r-2",
-    "href": "presentations/workflows.html#solution-an-integrated-analysis-workflow-with-r-2",
-    "title": "Project workflows – from data to manuscript",
-    "section": "Solution – An integrated analysis workflow with R",
-    "text": "Solution – An integrated analysis workflow with R\n\nHave a complete record of all analysis steps, from start to finish\n\n_plan.R includes (in code) all of the steps in the analysis workflow\n\nIntegrate analysis into reporting of results\nBe able to share the entire project workflow with others\nEasily update the pipeline when data/analysis changes\nMaintain a common structure across projects"
-  },
-  {
-    "objectID": "presentations/workflows.html#solution-an-integrated-analysis-workflow-with-r-3",
-    "href": "presentations/workflows.html#solution-an-integrated-analysis-workflow-with-r-3",
-    "title": "Project workflows – from data to manuscript",
-    "section": "Solution – An integrated analysis workflow with R",
-    "text": "Solution – An integrated analysis workflow with R\n\nHave a complete record of all analysis steps, from start to finish\n\n_plan.R includes (in code) all of the steps in the analysis workflow\n\nIntegrate analysis into reporting of results\n\nQuarto allows us to refer to the results of our analysis directly in the report/manuscript\n\nBe able to share the entire project workflow with others\nEasily update the pipeline when data/analysis changes\nMaintain a common structure across projects"
-  },
-  {
-    "objectID": "presentations/workflows.html#solution-an-integrated-analysis-workflow-with-r-4",
-    "href": "presentations/workflows.html#solution-an-integrated-analysis-workflow-with-r-4",
-    "title": "Project workflows – from data to manuscript",
-    "section": "Solution – An integrated analysis workflow with R",
-    "text": "Solution – An integrated analysis workflow with R\n\nHave a complete record of all analysis steps, from start to finish\n\n_plan.R includes (in code) all of the steps in the analysis workflow\n\nIntegrate analysis into reporting of results\n\nQuarto allows us to refer to the results of our analysis directly in the report/manuscript\n\nBe able to share the entire project workflow with others\n\nGit & GitHub for collaborative version control\n\nEasily update the pipeline when data/analysis changes\nMaintain a common structure across projects"
-  },
-  {
-    "objectID": "presentations/workflows.html#solution-an-integrated-analysis-workflow-with-r-5",
-    "href": "presentations/workflows.html#solution-an-integrated-analysis-workflow-with-r-5",
-    "title": "Project workflows – from data to manuscript",
-    "section": "Solution – An integrated analysis workflow with R",
-    "text": "Solution – An integrated analysis workflow with R\n\nHave a complete record of all analysis steps, from start to finish\n\n_plan.R includes (in code) all of the steps in the analysis workflow\n\nIntegrate analysis into reporting of results\n\nQuarto allows us to refer to the results of our analysis directly in the report/manuscript\n\nBe able to share the entire project workflow with others\n\nGit & GitHub for collaborative version control\n\nEasily update the pipeline when data/analysis changes\n\ntargets tracks dependencies between analysis stages and re-runs steps as needed\n\nMaintain a common structure across projects"
-  },
-  {
-    "objectID": "presentations/workflows.html#solution-an-integrated-analysis-workflow-with-r-6",
-    "href": "presentations/workflows.html#solution-an-integrated-analysis-workflow-with-r-6",
-    "title": "Project workflows – from data to manuscript",
-    "section": "Solution – An integrated analysis workflow with R",
-    "text": "Solution – An integrated analysis workflow with R\n\nHave a complete record of all analysis steps, from start to finish\n\n_plan.R includes (in code) all of the steps in the analysis workflow\n\nIntegrate analysis into reporting of results\n\nQuarto allows us to refer to the results of our analysis directly in the report/manuscript\n\nBe able to share the entire project workflow with others\n\nGit & GitHub for collaborative version control\n\nEasily update the pipeline when data/analysis changes\n\ntargets tracks dependencies between analysis stages and re-runs steps as needed\n\nMaintain a common structure across projects\n\ncmor.tools brings all of this together under a common structure"
-  },
-  {
-    "objectID": "presentations/workflows.html#the-targets-pipeline-tool-for-r",
-    "href": "presentations/workflows.html#the-targets-pipeline-tool-for-r",
-    "title": "Project workflows – from data to manuscript",
-    "section": "The targets pipeline tool for R",
-    "text": "The targets pipeline tool for R\n\nWe have briefly looked at the targets package in an earlier LnL session\nThe key concept is an analytical pipeline: a computational workflow consisting of\n\ntargets – the individual tasks involved in the workflow (data import, cleaning, analysis, etc.)\nmethods – the code used to complete each task\ndependencies – which targets depend on the results of which other targets\n\ntargets analyses the pipeline, runs the code, and stores the results in /_targets/"
-  },
-  {
-    "objectID": "presentations/workflows.html#the-pipeline-is-described-in-_plan.r",
-    "href": "presentations/workflows.html#the-pipeline-is-described-in-_plan.r",
-    "title": "Project workflows – from data to manuscript",
-    "section": "The pipeline is described in _plan.R",
-    "text": "The pipeline is described in _plan.R\n\n\n_plan.R\n\ntargets &lt;- list(\n  tar_target(file, \"data.csv\", format = \"file\"),\n  tar_target(data, get_data(file)),\n  tar_target(model, fit_model(data)),\n  tar_target(plot, plot_model(model, data))\n)\n\n\nThis is a list (an R list object) of targets (specified with tar_target())\nEach target specifies one step in the pipeline\n\nidentify the raw data file\nimport the data from the file into R\nfit a statistical model to the data\ncreate a plot showing the fitted model\n\nThe methods for each target are defined in the functions\nget_data(), fit_model(), and plot_model()\ntargets works out the dependencies automatically"
-  },
-  {
-    "objectID": "presentations/workflows.html#quarto",
-    "href": "presentations/workflows.html#quarto",
-    "title": "Project workflows – from data to manuscript",
-    "section": "Quarto",
-    "text": "Quarto\n\nQuarto is a scientific and technical authoring and publishing system that allows us to mix text and executable R code\nQuarto documents are plain text, but can be rendered to multiple output formats (HTML, PDF, Word, PowerPoint)\n\nEven whole books or websites – the CMOR website is written with Quarto, as is this presentation\n\nWhen the Quarto document is rendered, any R code will be run and the result (numeric values, a table, a figure, etc.) included in the resulting output document"
-  },
-  {
-    "objectID": "presentations/workflows.html#quarto-in-a-targets-pipeline",
-    "href": "presentations/workflows.html#quarto-in-a-targets-pipeline",
-    "title": "Project workflows – from data to manuscript",
-    "section": "Quarto in a targets pipeline",
-    "text": "Quarto in a targets pipeline\n\nThe tarchetypes package provides tar_quarto(), which allows Quarto documents to be used within a targets pipeline\ntar_quarto(report, path = \"report.qmd\") defines a step that renders the source document \"report.qmd\" to a target named report\nThe source document should use tar_load() in an R code chunk to load dependency targets\n\ntargets will scan the source for these calls to know what the target dependencies are"
-  },
-  {
-    "objectID": "presentations/workflows.html#cmor.tools",
-    "href": "presentations/workflows.html#cmor.tools",
-    "title": "Project workflows – from data to manuscript",
-    "section": "cmor.tools",
-    "text": "cmor.tools\n\nOur cmor.tools package (github.com/uo-cmor/cmor.tools) provides various tools to bring these ideas together and provide a common structure for managing data analysis projects\n\n\n\nKey ideas implemented in cmor.tools:\n\nA common project folder structure, to keep data separate from code separate from output\nA targets pipeline to specify all of the steps in the workflow\nOutput (reports/manuscripts) etc. written in Quarto, and in the pipeline\nVersion control with Git, and repository hosted on GitHub\nA few other tools for consistent formatting of outputs, etc.\n(Some analysis tools, not yet fully implemented)"
-  },
-  {
-    "objectID": "presentations/workflows.html#cmor.tools-1",
-    "href": "presentations/workflows.html#cmor.tools-1",
-    "title": "Project workflows – from data to manuscript",
-    "section": "cmor.tools",
-    "text": "cmor.tools\n\nWe’ll use these tools to work through a simple target pipeline (adapted from books.ropensci.org/targets/walkthrough)\n\n\n\nYou can install cmor.tools from GitHub:\n\n#install.packages(\"remotes\")\nremotes::install_github(\"uo-cmor/cmor.tools\")\n\n\nReturn to CMOR Lunch’n’Learn presentations"
+    "objectID": "presentations/bayesian-analysis.html#bayes-theorem",
+    "href": "presentations/bayesian-analysis.html#bayes-theorem",
+    "title": "Introduction to Bayesian Analysis",
+    "section": "Bayes’ Theorem",
+    "text": "Bayes’ Theorem\n\n\\[\\mathrm{Pr}(A | B) = \\frac{\\mathrm{Pr}(B | A) \\mathrm{Pr}(A)}{\\mathrm{Pr}(B)}\\]\n\\[f(\\theta | y) = \\frac{f(y | \\theta) f(\\theta)}{f(y)}\\]\n\n\\[\\mathrm{Posterior} \\propto \\mathrm{Likelihood} \\times \\mathrm{Prior}\\]\n\n\\[\\text{updated belief} = \\text{current evidence} \\times \\text{prior evidence or belief}\\]\n\n\nReturn to CMOR Lunch’n’Learn presentations"
   },
   {
     "objectID": "presentations/osf.html#what-is-open-science",
@@ -327,6 +173,209 @@
     "title": "Open Science at CMOR",
     "section": "Resources",
     "text": "Resources\n\nUNESCO Recommendation on Open Science\nhttps://www.unesco.org/en/open-science\nPassport for Open Science (Ministry of Higher Education and Research, France)\nhttps://www.ouvrirlascience.fr/passport-for-open-science-a-practical-guide-for-phd-students/\nThe Open Science Training Handbook (FOSTER Open Science)\nhttps://open-science-training-handbook.github.io/Open-Science-Training-Handbook_EN/\nOtago’s Read & Publish agreements\nhttps://otago.libguides.com/research_publishing_impact/read-and-publish\nSherpa Services\nhttps://beta.sherpa.ac.uk/\nOSF\nhttps://osf.io (CMOR: https://osf.io/stw9e/)\n\n\n\nReturn to CMOR Lunch’n’Learn presentations"
+  },
+  {
+    "objectID": "presentations/workflows.html#data-workflow",
+    "href": "presentations/workflows.html#data-workflow",
+    "title": "Project workflows – from data to manuscript",
+    "section": "Data workflow",
+    "text": "Data workflow"
+  },
+  {
+    "objectID": "presentations/workflows.html#ideally-we-would",
+    "href": "presentations/workflows.html#ideally-we-would",
+    "title": "Project workflows – from data to manuscript",
+    "section": "Ideally, we would…",
+    "text": "Ideally, we would…\n\nHave a complete record of all analysis steps, from start to finish\nIntegrate analysis into reporting of results\nBe able to share the entire project workflow with others\nEasily update the pipeline when data/analysis changes\nMaintain a common structure across projects"
+  },
+  {
+    "objectID": "presentations/workflows.html#solution-an-integrated-analysis-workflow-with-r",
+    "href": "presentations/workflows.html#solution-an-integrated-analysis-workflow-with-r",
+    "title": "Project workflows – from data to manuscript",
+    "section": "Solution – An integrated analysis workflow with R",
+    "text": "Solution – An integrated analysis workflow with R"
+  },
+  {
+    "objectID": "presentations/workflows.html#solution-an-integrated-analysis-workflow-with-r-1",
+    "href": "presentations/workflows.html#solution-an-integrated-analysis-workflow-with-r-1",
+    "title": "Project workflows – from data to manuscript",
+    "section": "Solution – An integrated analysis workflow with R",
+    "text": "Solution – An integrated analysis workflow with R\n\nHave a complete record of all analysis steps, from start to finish\nIntegrate analysis into reporting of results\nBe able to share the entire project workflow with others\nEasily update the pipeline when data/analysis changes\nMaintain a common structure across projects"
+  },
+  {
+    "objectID": "presentations/workflows.html#solution-an-integrated-analysis-workflow-with-r-2",
+    "href": "presentations/workflows.html#solution-an-integrated-analysis-workflow-with-r-2",
+    "title": "Project workflows – from data to manuscript",
+    "section": "Solution – An integrated analysis workflow with R",
+    "text": "Solution – An integrated analysis workflow with R\n\nHave a complete record of all analysis steps, from start to finish\n\n_plan.R includes (in code) all of the steps in the analysis workflow\n\nIntegrate analysis into reporting of results\nBe able to share the entire project workflow with others\nEasily update the pipeline when data/analysis changes\nMaintain a common structure across projects"
+  },
+  {
+    "objectID": "presentations/workflows.html#solution-an-integrated-analysis-workflow-with-r-3",
+    "href": "presentations/workflows.html#solution-an-integrated-analysis-workflow-with-r-3",
+    "title": "Project workflows – from data to manuscript",
+    "section": "Solution – An integrated analysis workflow with R",
+    "text": "Solution – An integrated analysis workflow with R\n\nHave a complete record of all analysis steps, from start to finish\n\n_plan.R includes (in code) all of the steps in the analysis workflow\n\nIntegrate analysis into reporting of results\n\nQuarto allows us to refer to the results of our analysis directly in the report/manuscript\n\nBe able to share the entire project workflow with others\nEasily update the pipeline when data/analysis changes\nMaintain a common structure across projects"
+  },
+  {
+    "objectID": "presentations/workflows.html#solution-an-integrated-analysis-workflow-with-r-4",
+    "href": "presentations/workflows.html#solution-an-integrated-analysis-workflow-with-r-4",
+    "title": "Project workflows – from data to manuscript",
+    "section": "Solution – An integrated analysis workflow with R",
+    "text": "Solution – An integrated analysis workflow with R\n\nHave a complete record of all analysis steps, from start to finish\n\n_plan.R includes (in code) all of the steps in the analysis workflow\n\nIntegrate analysis into reporting of results\n\nQuarto allows us to refer to the results of our analysis directly in the report/manuscript\n\nBe able to share the entire project workflow with others\n\nGit & GitHub for collaborative version control\n\nEasily update the pipeline when data/analysis changes\nMaintain a common structure across projects"
+  },
+  {
+    "objectID": "presentations/workflows.html#solution-an-integrated-analysis-workflow-with-r-5",
+    "href": "presentations/workflows.html#solution-an-integrated-analysis-workflow-with-r-5",
+    "title": "Project workflows – from data to manuscript",
+    "section": "Solution – An integrated analysis workflow with R",
+    "text": "Solution – An integrated analysis workflow with R\n\nHave a complete record of all analysis steps, from start to finish\n\n_plan.R includes (in code) all of the steps in the analysis workflow\n\nIntegrate analysis into reporting of results\n\nQuarto allows us to refer to the results of our analysis directly in the report/manuscript\n\nBe able to share the entire project workflow with others\n\nGit & GitHub for collaborative version control\n\nEasily update the pipeline when data/analysis changes\n\ntargets tracks dependencies between analysis stages and re-runs steps as needed\n\nMaintain a common structure across projects"
+  },
+  {
+    "objectID": "presentations/workflows.html#solution-an-integrated-analysis-workflow-with-r-6",
+    "href": "presentations/workflows.html#solution-an-integrated-analysis-workflow-with-r-6",
+    "title": "Project workflows – from data to manuscript",
+    "section": "Solution – An integrated analysis workflow with R",
+    "text": "Solution – An integrated analysis workflow with R\n\nHave a complete record of all analysis steps, from start to finish\n\n_plan.R includes (in code) all of the steps in the analysis workflow\n\nIntegrate analysis into reporting of results\n\nQuarto allows us to refer to the results of our analysis directly in the report/manuscript\n\nBe able to share the entire project workflow with others\n\nGit & GitHub for collaborative version control\n\nEasily update the pipeline when data/analysis changes\n\ntargets tracks dependencies between analysis stages and re-runs steps as needed\n\nMaintain a common structure across projects\n\ncmor.tools brings all of this together under a common structure"
+  },
+  {
+    "objectID": "presentations/workflows.html#the-targets-pipeline-tool-for-r",
+    "href": "presentations/workflows.html#the-targets-pipeline-tool-for-r",
+    "title": "Project workflows – from data to manuscript",
+    "section": "The targets pipeline tool for R",
+    "text": "The targets pipeline tool for R\n\nWe have briefly looked at the targets package in an earlier LnL session\nThe key concept is an analytical pipeline: a computational workflow consisting of\n\ntargets – the individual tasks involved in the workflow (data import, cleaning, analysis, etc.)\nmethods – the code used to complete each task\ndependencies – which targets depend on the results of which other targets\n\ntargets analyses the pipeline, runs the code, and stores the results in /_targets/"
+  },
+  {
+    "objectID": "presentations/workflows.html#the-pipeline-is-described-in-_plan.r",
+    "href": "presentations/workflows.html#the-pipeline-is-described-in-_plan.r",
+    "title": "Project workflows – from data to manuscript",
+    "section": "The pipeline is described in _plan.R",
+    "text": "The pipeline is described in _plan.R\n\n\n_plan.R\n\ntargets &lt;- list(\n  tar_target(file, \"data.csv\", format = \"file\"),\n  tar_target(data, get_data(file)),\n  tar_target(model, fit_model(data)),\n  tar_target(plot, plot_model(model, data))\n)\n\n\nThis is a list (an R list object) of targets (specified with tar_target())\nEach target specifies one step in the pipeline\n\nidentify the raw data file\nimport the data from the file into R\nfit a statistical model to the data\ncreate a plot showing the fitted model\n\nThe methods for each target are defined in the functions\nget_data(), fit_model(), and plot_model()\ntargets works out the dependencies automatically"
+  },
+  {
+    "objectID": "presentations/workflows.html#quarto",
+    "href": "presentations/workflows.html#quarto",
+    "title": "Project workflows – from data to manuscript",
+    "section": "Quarto",
+    "text": "Quarto\n\nQuarto is a scientific and technical authoring and publishing system that allows us to mix text and executable R code\nQuarto documents are plain text, but can be rendered to multiple output formats (HTML, PDF, Word, PowerPoint)\n\nEven whole books or websites – the CMOR website is written with Quarto, as is this presentation\n\nWhen the Quarto document is rendered, any R code will be run and the result (numeric values, a table, a figure, etc.) included in the resulting output document"
+  },
+  {
+    "objectID": "presentations/workflows.html#quarto-in-a-targets-pipeline",
+    "href": "presentations/workflows.html#quarto-in-a-targets-pipeline",
+    "title": "Project workflows – from data to manuscript",
+    "section": "Quarto in a targets pipeline",
+    "text": "Quarto in a targets pipeline\n\nThe tarchetypes package provides tar_quarto(), which allows Quarto documents to be used within a targets pipeline\ntar_quarto(report, path = \"report.qmd\") defines a step that renders the source document \"report.qmd\" to a target named report\nThe source document should use tar_load() in an R code chunk to load dependency targets\n\ntargets will scan the source for these calls to know what the target dependencies are"
+  },
+  {
+    "objectID": "presentations/workflows.html#cmor.tools",
+    "href": "presentations/workflows.html#cmor.tools",
+    "title": "Project workflows – from data to manuscript",
+    "section": "cmor.tools",
+    "text": "cmor.tools\n\nOur cmor.tools package (github.com/uo-cmor/cmor.tools) provides various tools to bring these ideas together and provide a common structure for managing data analysis projects\n\n\n\nKey ideas implemented in cmor.tools:\n\nA common project folder structure, to keep data separate from code separate from output\nA targets pipeline to specify all of the steps in the workflow\nOutput (reports/manuscripts) etc. written in Quarto, and in the pipeline\nVersion control with Git, and repository hosted on GitHub\nA few other tools for consistent formatting of outputs, etc.\n(Some analysis tools, not yet fully implemented)"
+  },
+  {
+    "objectID": "presentations/workflows.html#cmor.tools-1",
+    "href": "presentations/workflows.html#cmor.tools-1",
+    "title": "Project workflows – from data to manuscript",
+    "section": "cmor.tools",
+    "text": "cmor.tools\n\nWe’ll use these tools to work through a simple target pipeline (adapted from books.ropensci.org/targets/walkthrough)\n\n\n\nYou can install cmor.tools from GitHub:\n\n#install.packages(\"remotes\")\nremotes::install_github(\"uo-cmor/cmor.tools\")\n\n\nReturn to CMOR Lunch’n’Learn presentations"
+  },
+  {
+    "objectID": "presentations/meta-analysis.html#systematic-reviews-and-meta-analyses",
+    "href": "presentations/meta-analysis.html#systematic-reviews-and-meta-analyses",
+    "title": "Introduction to Meta-Analysis",
+    "section": "Systematic reviews and meta-analyses",
+    "text": "Systematic reviews and meta-analyses\n\nFrom Cochrane:\n\nA systematic review is a study that\n“attempts to identify, appraise, and synthesize all the empirical evidence that meets pre-specified eligibility criteria to answer a specific research question”\nMeta-analysis is the statistical combination of results from two or more separate studies\n\nMeta-analysis is often one part of a systematic review"
+  },
+  {
+    "objectID": "presentations/meta-analysis.html#potential-advantages-of-meta-analyses",
+    "href": "presentations/meta-analysis.html#potential-advantages-of-meta-analyses",
+    "title": "Introduction to Meta-Analysis",
+    "section": "(Potential) advantages of meta-analyses",
+    "text": "(Potential) advantages of meta-analyses\n\n\n\nImproved precision\n\n\n\n\nEvidence on generalisability\n\n\n\n\nResolve conflicting results from previous studies"
+  },
+  {
+    "objectID": "presentations/meta-analysis.html#types-of-meta-analysis",
+    "href": "presentations/meta-analysis.html#types-of-meta-analysis",
+    "title": "Introduction to Meta-Analysis",
+    "section": "Types of meta-analysis",
+    "text": "Types of meta-analysis\n\n\n\nPairwise comparisons (i.e., intervention vs. comparator; ‘standard’ meta-analysis)\n\n\n\n\nNetwork meta-analysis (comparing more than two interventions in a single model)\n\n\n\n\nIndividual participant data meta-analysis"
+  },
+  {
+    "objectID": "presentations/meta-analysis.html#before-doing-a-meta-analysis",
+    "href": "presentations/meta-analysis.html#before-doing-a-meta-analysis",
+    "title": "Introduction to Meta-Analysis",
+    "section": "Before doing a meta-analysis",
+    "text": "Before doing a meta-analysis\n\n\nDo your systematic review well:\n\nDefine the review aims & scope (PICO)\nEnsure your search strategy, screening, etc. is effective\nIdentify & summarise study characteristics\nDecide whether studies are ‘similar enough’ to be grouped & synthesized"
+  },
+  {
+    "objectID": "presentations/meta-analysis.html#general-approach-to-meta-analysis",
+    "href": "presentations/meta-analysis.html#general-approach-to-meta-analysis",
+    "title": "Introduction to Meta-Analysis",
+    "section": "General approach to meta-analysis",
+    "text": "General approach to meta-analysis\n\n\nExtract (or calculate) a summary statistic for each study\nCalculate (weighted) average effect across all studies\nCalculate the standard error of the summary effect (to derive confidence intervals and/or p-values)\nEstimate heterogeneity between studies\nSummarise findings graphically (usually with a forest plot)"
+  },
+  {
+    "objectID": "presentations/meta-analysis.html#extractcalculate-statistics-for-each-study",
+    "href": "presentations/meta-analysis.html#extractcalculate-statistics-for-each-study",
+    "title": "Introduction to Meta-Analysis",
+    "section": "1. Extract/calculate statistics for each study",
+    "text": "1. Extract/calculate statistics for each study\n\n\nFor dichotomous outcomes:\n\nOdds ratio\nRisk ratio\nRisk difference\n\nFor continuous outcomes:\n\nMean difference\n\n(post-intervention, change from baseline, adjusted post-intervention)\n\nStandardised mean difference"
+  },
+  {
+    "objectID": "presentations/meta-analysis.html#extractcalculate-statistics-for-each-study-1",
+    "href": "presentations/meta-analysis.html#extractcalculate-statistics-for-each-study-1",
+    "title": "Introduction to Meta-Analysis",
+    "section": "1. Extract/calculate statistics for each study",
+    "text": "1. Extract/calculate statistics for each study\n\n\nFor ordinal outcomes:\n\nUsually either treated as dichotomous or continuous\nAlso possible to estimate a proportional odds ratio\n\nFor count outcomes:\n\nAgain, usually treated as dichotomous or continuous\nRate ratio or rate difference\n\nFor time-to-event outcomes:\n\nHazard ratio"
+  },
+  {
+    "objectID": "presentations/meta-analysis.html#calculate-weighted-effect",
+    "href": "presentations/meta-analysis.html#calculate-weighted-effect",
+    "title": "Introduction to Meta-Analysis",
+    "section": "2. Calculate weighted effect",
+    "text": "2. Calculate weighted effect\n\nGenerally, meta-analyses use an inverse-variance weighted method\n\n\\[\\text{Weighted average} = \\frac{\\sum{Y_i W_i}}{\\sum{W_i}}\\]\n   where \\(W_i = (1 / SE_i)^2\\)\n\nFor ratio measures, both the effects and standard errors are on the log scale\n\nThese can be transformed back to the original scale for reporting\n\nThere are slight variants to this general approach for some methods (particularly for dichotomous outcomes)"
+  },
+  {
+    "objectID": "presentations/meta-analysis.html#calculate-standard-errors",
+    "href": "presentations/meta-analysis.html#calculate-standard-errors",
+    "title": "Introduction to Meta-Analysis",
+    "section": "3. Calculate standard errors",
+    "text": "3. Calculate standard errors\n\n\nIn the general inverse-variance method, the standard error of the weighted summary statistic is\n\n\\[\\text{Standard error} = \\frac{1}{\\sqrt{\\sum{W_i}}}\\]\n\nAgain, different formulae for some specific methods"
+  },
+  {
+    "objectID": "presentations/meta-analysis.html#estimate-heterogeneity",
+    "href": "presentations/meta-analysis.html#estimate-heterogeneity",
+    "title": "Introduction to Meta-Analysis",
+    "section": "4. Estimate heterogeneity",
+    "text": "4. Estimate heterogeneity\n\nHeterogeneity is measured by\n\n\\(Q = \\sum{W_i (Y_i - \\overline{Y})^2}\\)\n\nand\n\n\\(I^2 = \\text{max}\\left\\{\\frac{Q - (k - 1)}{Q}, 0\\right\\}\\)\n\nQ is a test statistic following a chi-squared distribution, and I2 is interpreted as the proportion of total variance in study estimates due to heterogeneity rather than sampling error\n\nNOTE: I2 can be very uncertain (imprecise) when the number of studies is small"
+  },
+  {
+    "objectID": "presentations/meta-analysis.html#summarise-findings-graphically",
+    "href": "presentations/meta-analysis.html#summarise-findings-graphically",
+    "title": "Introduction to Meta-Analysis",
+    "section": "5. Summarise findings graphically",
+    "text": "5. Summarise findings graphically\n\n\n\nMeta-analyses are usually illustrated using a forest plot\nA forest plot displays effect estimates for both individual studies and the overall meta-analysis result\nEach study is represented by a square (usually) at the point estimate, and horizontal lines extending to bounds of the confidence interval\n\nThe size of the block indicates the weight assigned to that study in the meta-analysis (roughly proportional to sample size)\n\nThe summary result is presented as a diamond at the bottom, centred on the meta-analysis point estimate and with width showing the confidence interval"
+  },
+  {
+    "objectID": "presentations/meta-analysis.html#assessing-small-study-bias-and-publication-bias",
+    "href": "presentations/meta-analysis.html#assessing-small-study-bias-and-publication-bias",
+    "title": "Introduction to Meta-Analysis",
+    "section": "Assessing small-study bias and publication bias",
+    "text": "Assessing small-study bias and publication bias\n\n\n\nSmall sample bias: small studies may show larger intervention effects than larger studies\n\nNon-reporting/non-publication bias\nPoor methodological quality\nMechanistic vs. pragmatic designs\n\nA ‘funnel plot’ can help detect this"
+  },
+  {
+    "objectID": "presentations/meta-analysis.html#software",
+    "href": "presentations/meta-analysis.html#software",
+    "title": "Introduction to Meta-Analysis",
+    "section": "Software",
+    "text": "Software\n\nCochrane RevMan\n\nManages all stages of the systematic review process, from design to data extraction, analysis, and visualiation\nFree for those doing Cochrane reviews, subscription for everyone else\n\nR: there are several packages for meta-analysis\n\nSee the Meta-Analysis Task View:\nhttps://cran.r-project.org/view=MetaAnalysis\nmetafor is a comprehensive package with functions for converting published results to common summary statistics, fitting inverse-variance weighted and related models, forest and funnel plots, heterogeneity measures, and diagnostic statistics (among others)"
+  },
+  {
+    "objectID": "presentations/meta-analysis.html#references",
+    "href": "presentations/meta-analysis.html#references",
+    "title": "Introduction to Meta-Analysis",
+    "section": "References",
+    "text": "References\n\nCochrane Handbook for Systematic Reviews of Interventions\nhttps://training.cochrane.org/handbook/current\n\nDetails of the statistical methods: https://documentation.cochrane.org/revman-kb/files/210600101/210600103/1/1654774257333/Statistical_methods_in_revman.pdf\n\nEgger M, Smith GD, Altman DG. Systematic Reviews in Health Care: Meta-Analysis in Context, 2nd Ed. London, UK: BMJ Publishing Group. 2001.\nhttps://doi.org/10.1002/9780470693926\nJin Z-C, Zhou X-H, He J. Statistical methods for dealing with publication bias in meta-analysis. Statistics in Medicine 2015;34(2):343-360\nhttps://doi.org/10.1002/sim.6342\nmetafor R package https://wviechtb.github.io/metafor/\n\n\n\nReturn to CMOR Lunch’n’Learn presentations"
   },
   {
     "objectID": "presentations/Intro-to-R.html#what-is-r-what-is-rstudio",
