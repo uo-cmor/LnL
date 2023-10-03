@@ -105,6 +105,7 @@ Maximum likelihood estimation: find the value that maximises this likelihood
   * Say we toss a coin 10 times, and it comes up heads 7/10
 * Maximum likelihood analysis:
 ```{r}
+try({
 tmp_pdf <- tempfile(fileext = ".pdf")
 img_png <- "images/mle.png"
 tibble(
@@ -121,6 +122,7 @@ tibble(
 table_image_pdf <- magick::image_read_pdf(tmp_pdf)
 table_image <- magick::image_convert(table_image_pdf, "png")
 magick::image_write(table_image, img_png, density = 300)
+}, silent = TRUE)
 ```
 
 ![](images/mle.png){.absolute top=1000, right=250}
@@ -176,3 +178,23 @@ $$\mathrm{Posterior} \propto \mathrm{Likelihood} \times \mathrm{Prior}$$
 <br>
 
 $$\text{updated belief} = \text{current evidence} \times \text{prior evidence or belief}$$
+
+## References
+
+* Recommended textbooks:
+  * Introductory: *Doing Bayesian Data Analysis: A tutorial with R, JAGS, and Stan*, 2^nd^ Edition. John K. Kruschke (2015)
+    * Mostly non-technical presentation of applied Bayesian analysis
+    * e-Book available for download via the library
+  * Intermediate: *Statistical Rethinking: A Bayesian Course with Examples in R and Stan*, 2^nd^ Edition. Richard McElreath (2020)
+    * How to think about statistics in terms of data generating models
+    * I couldn't find an e-Book version, but there are video lectures by the author on YouTube: <https://www.youtube.com/playlist?list=PLDcUM9US4XdPz-KxHM4XHt7uUVGWWVSus>
+  * Advanced: *Bayesian Data Analysis*, 3^rd^ Edition. Andrew Gelman, John B. Carlin, Hal S. Stearn, David B. Dunson, Aki Vehtari, and Donald B. Rubin (2013)
+    * Parts of this are quite advanced, but it also has lots of useful examples and applications
+    * PDF version available from Gelman's website: <http://www.stat.columbia.edu/~gelman/book/>
+
+## References
+
+* Other useful resources:
+  * Much of the background theory here follows *Bayesian Basics*, Michael Clark (2018): <https://m-clark.github.io/bayesian-basics/>
+  * Stan and `rstan` both have extensive documentation, examples, etc. -- See <https://mc-stan.org>
+  * Other R packages (`rstanarm`, `brms`, `edstan`, etc.) have their own documentation and usually good vignettes, tutorials, and/or examples
