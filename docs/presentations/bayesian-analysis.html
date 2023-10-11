@@ -448,28 +448,37 @@
 <h2>Probability-based analysis</h2>
 <p><br></p>
 <ul>
-<li><p>Bayesian analysis is about estimating/interpreting the uncertainty or probability distribution of parameters</p></li>
-<li><p>To understand this, we need a very brief background to probability theory</p></li>
+<li>Bayesian analysis is about estimating/interpreting the <em>uncertainty</em> or <em>probability distribution</em> of parameters</li>
+</ul>
+<p><br></p>
+<ul>
+<li>To understand this, we need a very brief background to probability theory</li>
 </ul>
 </section>
 <section id="what-is-probability" class="slide level2">
 <h2>What is probability?</h2>
+<div class="fragment">
 <p><br></p>
 <p>Or, how should we interpret a probability of, say, 20%?</p>
 <p><br></p>
 <div class="columns">
-<div class="column fragment">
+<div class="column fragment" style="width:45%;">
 <p><strong>Relative frequency</strong></p>
-<p><span class="math display">\[\mathrm{Pr}(A) = \lim\limits_{n \to \infty} \frac{\text{# times } A \text{ occurs}}{n}\]</span></p>
+<p><br></p>
+<p><span class="math inline">\(\mathrm{Pr}(A) = \lim\limits_{n \to \infty} \frac{\text{# times } A \text{ occurs}}{n}\)</span></p>
+<p><br></p>
 <p>Classical statistics is based on this concept of repeated sampling</p>
-</div><div class="column fragment">
+</div><div class="column" style="width:10%;">
+
+</div><div class="column fragment" style="width:45%;">
 <p><strong>Subjective probability</strong></p>
 <p><em>A measure of certainty (or uncertainty) in an event</em></p>
 <div class="fragment">
 <ul>
-<li><p>What is the probability it will rain tomorrow?</p></li>
+<li><p>What is the probability it will rain in Dunedin tomorrow?</p></li>
 <li><p>What is the probability I had chicken for dinner last night?</p></li>
 </ul>
+</div>
 </div>
 </div>
 </div>
@@ -478,36 +487,97 @@
 <h2>Conditional probability</h2>
 <p><br></p>
 <ul>
-<li><p>Probability is defined over some set of possibilities, and conditional on some information</p></li>
-<li><p>What is the probability it will rain tomorrow?</p></li>
+<li>Probability can be defined conditional on information</li>
 </ul>
+<div>
+<ul>
+<li class="fragment"><p>What is the probability it will rain in Dunedin tomorrow?</p>
+<ul>
+<li class="fragment"><p><span class="math inline">\(\mathrm{Pr}(\text{Rain tomorrow})\)</span></p></li>
+<li class="fragment"><p><span class="math inline">\(\mathrm{Pr}(\text{Rain tomorrow}\ |\ \text{Today's weather})\)</span></p></li>
+<li class="fragment"><p><span class="math inline">\(\mathrm{Pr}(\text{Rain tomorrow}\ |\ \text{Tomorrow's forecast})\)</span></p></li>
+</ul></li>
+</ul>
+</div>
 </section>
 <section id="what-is-bayesian-analysis-1" class="slide level2">
 <h2>What is Bayesian analysis?</h2>
 <p><br></p>
-<div class="columns">
-<div class="column">
-<table>
-<thead>
-<tr class="header">
-<th style="text-align: center;">Traditional ‘Frequentist’ analysis</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: center;"><em>Pr(data|parameters)</em></td>
-</tr>
-</tbody>
-</table>
-<div style="font-size:0.7em;">
+<ul>
+<li>Bayesian analysis is the process of updating these probabilities in light of new information</li>
+</ul>
 <p><br></p>
-<p>Given a particular data generating process and parameter value(s), what is the likelihood of the observed data?</p>
-<p>Maximum likelihood estimation: find the value that maximises this likelihood</p>
+<ul>
+<li>In a statistical model, we are usually interested in probability distributions over continuous covariates:</li>
+</ul>
+<p><span class="math display">\[f(\theta|y)\]</span></p>
+<p>(updated knowledge about a parameter <span class="math inline">\(\theta\)</span> given data <span class="math inline">\(y\)</span>)</p>
+</section>
+<section id="bayes-theorem" class="slide level2">
+<h2>Bayes’ Theorem</h2>
+<p><br></p>
+<p><br></p>
+<p><span class="math display">\[\mathrm{Pr}(A | B) = \frac{\mathrm{Pr}(B | A) \mathrm{Pr}(A)}{\mathrm{Pr}(B)}\]</span></p>
+</section>
+<section id="bayes-theorem-1" class="slide level2">
+<h2>Bayes’ Theorem</h2>
+<ul>
+<li>This tells us how to calculate the ‘posterior distribution’ given:
+<ul>
+<li>an assumed data generating model</li>
+<li>prior information/beliefs about the parameter(s)</li>
+<li>current data</li>
+</ul></li>
+</ul>
+<div class="fragment">
+<p><span class="math display">\[f(\theta | y) = \frac{f(y | \theta) f(\theta)}{f(y)}\]</span></p>
 </div>
-</div><div class="column">
-
+<div class="fragment">
+<p><span class="math display">\[\mathrm{Posterior} \propto \mathrm{Likelihood} \times \mathrm{Prior}\]</span></p>
 </div>
+<div class="fragment">
+<ul>
+<li>Informally: updated belief = current evidence <span class="math inline">\(\times\)</span> prior evidence or belief</li>
+</ul>
 </div>
+</section>
+<section id="bayes-theorem-2" class="slide level2">
+<h2>Bayes’ Theorem</h2>
+<ul>
+<li><p>Conceptually,</p>
+<ul>
+<li><p>we start with some beliefs about the parameters of interest</p></li>
+<li><p>review those beliefs in light of the evidence at hand</p></li>
+<li><p>and calculate an updated belief as a combination of the prior and the new evidence</p></li>
+</ul></li>
+</ul>
+<p><img data-src="images/density-1.png" class="absolute fragment" style="left: 230px; bottom: -60px; width: 675px; " data-fragment-index="1"></p>
+<p><img data-src="images/density-2.png" class="absolute fragment" style="left: 230px; bottom: -60px; width: 675px; " data-fragment-index="2"></p>
+<p><img data-src="images/density-3.png" class="absolute fragment" style="left: 230px; bottom: -60px; width: 675px; " data-fragment-index="3"></p>
+<div class="absolute fragment" data-fragment-index="1" style="left: 430px; bottom: 180px; ">
+<p><span style="color:#9999FF;">Prior</span></p>
+</div>
+<div class="absolute fragment" data-fragment-index="2" style="left: 750px; bottom: 130px; ">
+<p><span style="color:#FF9999;">Likelihood</span></p>
+</div>
+<div class="absolute fragment" data-fragment-index="3" style="left: 650px; bottom: 300px; ">
+<p><span style="color:#C76F8E;">Posterior</span></p>
+</div>
+</section>
+<section id="bayes-theorem-3" class="slide level2">
+<h2>Bayes’ Theorem</h2>
+<p><img data-src="images/more-data-1.png" class="absolute fragment" style="left: 410px; bottom: -60px; width: 600px; " data-fragment-index="1"></p>
+<p><img data-src="images/more-data-2.png" class="absolute fragment" style="left: 410px; bottom: -60px; width: 600px; " data-fragment-index="2"></p>
+<p><img data-src="images/more-data-3.png" class="absolute fragment" style="left: 410px; bottom: -60px; width: 600px; " data-fragment-index="3"></p>
+<ul>
+<li><p>Where do these ‘priors’ come from?</p>
+<ul>
+<li><p>Previous research</p></li>
+<li><p>Common sense/intuition?</p></li>
+<li><p>‘Weakly informative’ priors</p></li>
+</ul></li>
+<li><p>The more data we have, the less the prior matters</p></li>
+</ul>
 </section>
 <section id="numeric-example" class="slide level2">
 <h2>Numeric example</h2>
@@ -518,59 +588,70 @@
 </ul></li>
 <li>Maximum likelihood analysis:</li>
 </ul>
-<p><img data-src="images/mle.png" class="absolute" style="top: 1000,; right: 250px; "></p>
-</section>
-<section id="what-is-bayesian-analysis-2" class="slide level2">
-<h2>What is Bayesian analysis?</h2>
-<p><br></p>
-<div class="columns">
-<div class="column">
-<table>
+<table class="table" data-quarto-postprocess="true" style="margin-left: auto; margin-right: auto;">
+<colgroup>
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+</colgroup>
 <thead>
 <tr class="header">
-<th style="text-align: center;">Classical statistics</th>
+<th style="text-align: center;" data-quarto-table-cell-role="th"><strong>Hypothesis</strong><br>
+<span style="font-size: 0.8em;">\(\mathrm{Pr}(\mathit{heads}) = \theta\)</span></th>
+<th style="text-align: center;" data-quarto-table-cell-role="th"><strong>Prior</strong><br>
+<span style="font-size: 0.8em;">\(\mathrm{Pr}(\theta)\)</span></th>
+<th style="text-align: center;" data-quarto-table-cell-role="th"><strong>Likelihood</strong><br>
+<span style="font-size: 0.8em;">\(\mathrm{Pr}(y \mid \theta)\)</span></th>
+<th style="text-align: center;" data-quarto-table-cell-role="th"><strong>Posterior</strong><br>
+<span style="font-size: 0.8em;">\(\mathrm{Pr}(\theta \mid y)\)</span></th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td style="text-align: center;"><em>Pr(data|parameters)</em></td>
+<td style="text-align: center;">0.2</td>
+<td style="text-align: center;">0.01</td>
+<td style="text-align: center;">0.0008</td>
+<td style="text-align: center;">0.0001</td>
 </tr>
-</tbody>
-</table>
-<div style="font-size:0.7em;">
-<p><br></p>
-<p>Given a particular data generating process and parameter value(s), what is the likelihood of the observed data?</p>
-<p>Maximum likelihood estimation: find the value that maximises this likelihood</p>
-</div>
-</div><div class="column">
-<table>
-<thead>
-<tr class="header">
-<th style="text-align: center;">Bayesian analysis</th>
+<tr class="even">
+<td style="text-align: center;">0.3</td>
+<td style="text-align: center;">0.04</td>
+<td style="text-align: center;">0.0090</td>
+<td style="text-align: center;">0.0030</td>
 </tr>
-</thead>
-<tbody>
 <tr class="odd">
-<td style="text-align: center;"><em>Pr(parameters|data)</em></td>
+<td style="text-align: center;">0.4</td>
+<td style="text-align: center;">0.10</td>
+<td style="text-align: center;">0.0425</td>
+<td style="text-align: center;">0.0351</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">0.5</td>
+<td style="text-align: center;">0.70</td>
+<td style="text-align: center;">0.1172</td>
+<td style="text-align: center;">0.6789</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">0.6</td>
+<td style="text-align: center;">0.10</td>
+<td style="text-align: center;">0.2150</td>
+<td style="text-align: center;">0.1779</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">0.7</td>
+<td style="text-align: center;">0.04</td>
+<td style="text-align: center;">0.2668</td>
+<td style="text-align: center;">0.0883</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">0.8</td>
+<td style="text-align: center;">0.01</td>
+<td style="text-align: center;">0.2013</td>
+<td style="text-align: center;">0.0167</td>
 </tr>
 </tbody>
 </table>
-<div style="font-size:0.7em;">
-<p><br></p>
-<p>Given the observed data (and some prior beliefs), what are likely values of the parameters?</p>
-</div>
-</div>
-</div>
-</section>
-<section id="bayes-theorem" class="slide level2">
-<h2>Bayes’ Theorem</h2>
-<p><br></p>
-<p><span class="math display">\[\mathrm{Pr}(A | B) = \frac{\mathrm{Pr}(B | A) \mathrm{Pr}(A)}{\mathrm{Pr}(B)}\]</span></p>
-<p><span class="math display">\[f(\theta | y) = \frac{f(y | \theta) f(\theta)}{f(y)}\]</span></p>
-<p><br></p>
-<p><span class="math display">\[\mathrm{Posterior} \propto \mathrm{Likelihood} \times \mathrm{Prior}\]</span></p>
-<p><br></p>
-<p><span class="math display">\[\text{updated belief} = \text{current evidence} \times \text{prior evidence or belief}\]</span></p>
 </section>
 <section id="references" class="slide level2">
 <h2>References</h2>

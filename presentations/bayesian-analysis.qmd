@@ -29,11 +29,15 @@ library(kableExtra, exclude = "group_rows")
 
 <br>
 
-* Bayesian analysis is about estimating/interpreting the uncertainty or probability distribution of parameters
+* Bayesian analysis is about estimating/interpreting the *uncertainty* or *probability distribution* of parameters
+
+<br>
 
 * To understand this, we need a very brief background to probability theory
 
 ## What is probability?
+
+. . .
 
 <br>
 
@@ -43,22 +47,30 @@ Or, how should we interpret a probability of, say, 20%?
 
 :::: {.columns}
 
-::: {.column .fragment}
+::: {.column .fragment width="45%"}
 **Relative frequency**
 
-$$\mathrm{Pr}(A) = \lim\limits_{n \to \infty} \frac{\text{# times } A \text{ occurs}}{n}$$
+<br>
+
+$\mathrm{Pr}(A) = \lim\limits_{n \to \infty} \frac{\text{# times } A \text{ occurs}}{n}$
+
+<br>
 
 Classical statistics is based on this concept of repeated sampling
 
 :::
 
-::: {.column .fragment}
+::: {.column width="10%"}
+
+:::
+
+::: {.column .fragment width="45%"}
 **Subjective probability**
 
 *A measure of certainty (or uncertainty) in an event*
 
 ::: {.fragment}
-* What is the probability it will rain tomorrow?
+* What is the probability it will rain in Dunedin tomorrow?
 
 * What is the probability I had chicken for dinner last night?
 :::
@@ -70,114 +82,169 @@ Classical statistics is based on this concept of repeated sampling
 
 <br>
 
-* Probability is defined over some set of possibilities, and conditional on some information
+* Probability can be defined conditional on information
 
-* What is the probability it will rain tomorrow?
+::: {.incremental}
+
+* What is the probability it will rain in Dunedin tomorrow?
+
+  * $\mathrm{Pr}(\text{Rain tomorrow})$
+
+  * $\mathrm{Pr}(\text{Rain tomorrow}\ |\ \text{Today's weather})$
+
+  * $\mathrm{Pr}(\text{Rain tomorrow}\ |\ \text{Tomorrow's forecast})$
+  
+:::
 
 ## What is Bayesian analysis?
 
 <br>
 
-::::: {.columns}
-
-:::: {.column}
-| Traditional 'Frequentist' analysis  |
-|:-----------------------------------:|
-| *Pr(data\|parameters)*              |
-
-::: {style="font-size:0.7em;"}
-<br>
-
-Given a particular data generating process and parameter value(s), what is the likelihood of the observed data?
-
-Maximum likelihood estimation: find the value that maximises this likelihood
-:::
-
-::::
-
-:::: {.column}
-::::
-
-:::::
-
-## Numeric example
-* Consider a simple repeated coin toss:
-  * Say we toss a coin 10 times, and it comes up heads 7/10
-* Maximum likelihood analysis:
-```{r}
-try({
-tmp_pdf <- tempfile(fileext = ".pdf")
-img_png <- "images/mle.png"
-tibble(
-  hypothesis = (2:9)/10,
-  likelihood = dbinom(7, 10, hypothesis)
-) |> 
-  kbl(
-    "latex", align = "c", escape = FALSE, booktabs = TRUE, linesep = "",
-    col.names = linebreak(c("\\textbf{Hypothesis}\n$\\mathrm{Pr}(\\mathit{heads}) = \\theta$",
-                            "\\textbf{Likelihood}\n$\\mathrm{Pr}(\\mathit{data \\mid hypothesis})$"))
-  ) |> 
-  kable_styling() |> 
-  save_kable(tmp_pdf)
-table_image_pdf <- magick::image_read_pdf(tmp_pdf)
-table_image <- magick::image_convert(table_image_pdf, "png")
-magick::image_write(table_image, img_png, density = 300)
-}, silent = TRUE)
-```
-
-![](images/mle.png){.absolute top=1000, right=250}
-
-## What is Bayesian analysis?
+* Bayesian analysis is the process of updating these probabilities in light of new information
 
 <br>
 
-::::: {.columns}
+* In a statistical model, we are usually interested in probability distributions over continuous covariates:
 
-:::: {.column}
-| Classical statistics    |
-|:-----------------------:|
-| *Pr(data\|parameters)*  |
+$$f(\theta|y)$$
 
-::: {style="font-size:0.7em;"}
-<br>
-
-Given a particular data generating process and parameter value(s), what is the likelihood of the observed data?
-
-Maximum likelihood estimation: find the value that maximises this likelihood
-:::
-
-::::
-
-:::: {.column}
-| Bayesian analysis       |
-|:-----------------------:|
-| *Pr(parameters\|data)*  |
-
-::: {style="font-size:0.7em;"}
-<br>
-
-Given the observed data (and some prior beliefs), what are likely values of the parameters?
-:::
-
-::::
-
-:::::
+(updated knowledge about a parameter $\theta$ given data $y$)
 
 ## Bayes' Theorem
 
 <br>
 
+<br>
+
 $$\mathrm{Pr}(A | B) = \frac{\mathrm{Pr}(B | A) \mathrm{Pr}(A)}{\mathrm{Pr}(B)}$$
+
+## Bayes' Theorem
+
+* This tells us how to calculate the 'posterior distribution' given:
+  * an assumed data generating model
+  * prior information/beliefs about the parameter(s)
+  * current data
+
+. . .
 
 $$f(\theta | y) = \frac{f(y | \theta) f(\theta)}{f(y)}$$
 
-<br>
+. . .
 
 $$\mathrm{Posterior} \propto \mathrm{Likelihood} \times \mathrm{Prior}$$
 
-<br>
+. . .
 
-$$\text{updated belief} = \text{current evidence} \times \text{prior evidence or belief}$$
+* Informally: updated belief = current evidence $\times$ prior evidence or belief
+
+## Bayes' Theorem
+
+* Conceptually,
+
+  * we start with some beliefs about the parameters of interest
+  
+  * review those beliefs in light of the evidence at hand
+  
+  * and calculate an updated belief as a combination of the prior and the new evidence
+
+![](images/density-1.png){.absolute bottom=-60 left=230 width=675 .fragment fragment-index=1}
+
+![](images/density-2.png){.absolute bottom=-60 left=230 width=675 .fragment fragment-index=2}
+
+![](images/density-3.png){.absolute bottom=-60 left=230 width=675 .fragment fragment-index=3}
+
+::: {.absolute bottom=180 left=430 .fragment fragment-index=1}
+[Prior]{style="color:#9999FF;"}
+:::
+
+
+::: {.absolute bottom=130 left=750 .fragment fragment-index=2}
+[Likelihood]{style="color:#FF9999;"}
+:::
+
+
+::: {.absolute bottom=300 left=650 .fragment fragment-index=3}
+[Posterior]{style="color:#C76F8E;"}
+:::
+## Bayes' Theorem
+
+![](images/more-data-1.png){.absolute bottom=-60 left=410 width=600 .fragment fragment-index=1}
+
+![](images/more-data-2.png){.absolute bottom=-60 left=410 width=600 .fragment fragment-index=2}
+
+![](images/more-data-3.png){.absolute bottom=-60 left=410 width=600 .fragment fragment-index=3}
+
+* Where do these 'priors' come from?
+
+  * Previous research
+  
+  * Common sense/intuition?
+  
+  * 'Weakly informative' priors
+
+* The more data we have, the less the prior matters
+
+## Numeric example
+* Consider a simple repeated coin toss:
+  * Say we toss a coin 10 times, and it comes up heads 7/10
+* Maximum likelihood analysis:
+
+```{=html}
+<table class="table" style="margin-left: auto; margin-right: auto;">
+ <thead>
+  <tr>
+   <th style="text-align:center;"> <b>Hypothesis</b><br><span style="font-size: 0.8em;">\(\mathrm{Pr}(\mathit{heads}) = \theta\)</span> </th>
+   <th style="text-align:center;"> <b>Prior</b><br><span style="font-size: 0.8em;">\(\mathrm{Pr}(\theta)\)</span> </th>
+   <th style="text-align:center;"> <b>Likelihood</b><br><span style="font-size: 0.8em;">\(\mathrm{Pr}(y \mid \theta)\)</span> </th>
+   <th style="text-align:center;"> <b>Posterior</b><br><span style="font-size: 0.8em;">\(\mathrm{Pr}(\theta \mid y)\)</span> </th>
+  </tr>
+ </thead>
+<tbody>
+  <tr>
+   <td style="text-align:center;"> 0.2 </td>
+   <td style="text-align:center;"> 0.01 </td>
+   <td style="text-align:center;"> 0.0008 </td>
+   <td style="text-align:center;"> 0.0001 </td>
+  </tr>
+  <tr>
+   <td style="text-align:center;"> 0.3 </td>
+   <td style="text-align:center;"> 0.04 </td>
+   <td style="text-align:center;"> 0.0090 </td>
+   <td style="text-align:center;"> 0.0030 </td>
+  </tr>
+  <tr>
+   <td style="text-align:center;"> 0.4 </td>
+   <td style="text-align:center;"> 0.10 </td>
+   <td style="text-align:center;"> 0.0425 </td>
+   <td style="text-align:center;"> 0.0351 </td>
+  </tr>
+  <tr>
+   <td style="text-align:center;"> 0.5 </td>
+   <td style="text-align:center;"> 0.70 </td>
+   <td style="text-align:center;"> 0.1172 </td>
+   <td style="text-align:center;"> 0.6789 </td>
+  </tr>
+  <tr>
+   <td style="text-align:center;"> 0.6 </td>
+   <td style="text-align:center;"> 0.10 </td>
+   <td style="text-align:center;"> 0.2150 </td>
+   <td style="text-align:center;"> 0.1779 </td>
+  </tr>
+  <tr>
+   <td style="text-align:center;"> 0.7 </td>
+   <td style="text-align:center;"> 0.04 </td>
+   <td style="text-align:center;"> 0.2668 </td>
+   <td style="text-align:center;"> 0.0883 </td>
+  </tr>
+  <tr>
+   <td style="text-align:center;"> 0.8 </td>
+   <td style="text-align:center;"> 0.01 </td>
+   <td style="text-align:center;"> 0.2013 </td>
+   <td style="text-align:center;"> 0.0167 </td>
+  </tr>
+</tbody>
+</table>
+```
 
 ## References
 

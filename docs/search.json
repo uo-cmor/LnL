@@ -207,49 +207,63 @@
     "href": "presentations/bayesian-analysis.html#probability-based-analysis",
     "title": "Introduction to Bayesian Analysis",
     "section": "Probability-based analysis",
-    "text": "Probability-based analysis\n\n\nBayesian analysis is about estimating/interpreting the uncertainty or probability distribution of parameters\nTo understand this, we need a very brief background to probability theory"
+    "text": "Probability-based analysis\n\n\nBayesian analysis is about estimating/interpreting the uncertainty or probability distribution of parameters\n\n\n\nTo understand this, we need a very brief background to probability theory"
   },
   {
     "objectID": "presentations/bayesian-analysis.html#what-is-probability",
     "href": "presentations/bayesian-analysis.html#what-is-probability",
     "title": "Introduction to Bayesian Analysis",
     "section": "What is probability?",
-    "text": "What is probability?\n\nOr, how should we interpret a probability of, say, 20%?\n\n\n\nRelative frequency\n\\[\\mathrm{Pr}(A) = \\lim\\limits_{n \\to \\infty} \\frac{\\text{# times } A \\text{ occurs}}{n}\\]\nClassical statistics is based on this concept of repeated sampling\n\nSubjective probability\nA measure of certainty (or uncertainty) in an event\n\n\nWhat is the probability it will rain tomorrow?\nWhat is the probability I had chicken for dinner last night?"
+    "text": "What is probability?\n\n\nOr, how should we interpret a probability of, say, 20%?\n\n\n\nRelative frequency\n\n\\(\\mathrm{Pr}(A) = \\lim\\limits_{n \\to \\infty} \\frac{\\text{# times } A \\text{ occurs}}{n}\\)\n\nClassical statistics is based on this concept of repeated sampling\n\n\n\nSubjective probability\nA measure of certainty (or uncertainty) in an event\n\n\nWhat is the probability it will rain in Dunedin tomorrow?\nWhat is the probability I had chicken for dinner last night?"
   },
   {
     "objectID": "presentations/bayesian-analysis.html#conditional-probability",
     "href": "presentations/bayesian-analysis.html#conditional-probability",
     "title": "Introduction to Bayesian Analysis",
     "section": "Conditional probability",
-    "text": "Conditional probability\n\n\nProbability is defined over some set of possibilities, and conditional on some information\nWhat is the probability it will rain tomorrow?"
+    "text": "Conditional probability\n\n\nProbability can be defined conditional on information\n\n\n\nWhat is the probability it will rain in Dunedin tomorrow?\n\n\\(\\mathrm{Pr}(\\text{Rain tomorrow})\\)\n\\(\\mathrm{Pr}(\\text{Rain tomorrow}\\ |\\ \\text{Today's weather})\\)\n\\(\\mathrm{Pr}(\\text{Rain tomorrow}\\ |\\ \\text{Tomorrow's forecast})\\)"
   },
   {
     "objectID": "presentations/bayesian-analysis.html#what-is-bayesian-analysis-1",
     "href": "presentations/bayesian-analysis.html#what-is-bayesian-analysis-1",
     "title": "Introduction to Bayesian Analysis",
     "section": "What is Bayesian analysis?",
-    "text": "What is Bayesian analysis?\n\n\n\n\n\n\nTraditional ‘Frequentist’ analysis\n\n\n\n\nPr(data|parameters)\n\n\n\n\n\nGiven a particular data generating process and parameter value(s), what is the likelihood of the observed data?\nMaximum likelihood estimation: find the value that maximises this likelihood"
-  },
-  {
-    "objectID": "presentations/bayesian-analysis.html#numeric-example",
-    "href": "presentations/bayesian-analysis.html#numeric-example",
-    "title": "Introduction to Bayesian Analysis",
-    "section": "Numeric example",
-    "text": "Numeric example\n\nConsider a simple repeated coin toss:\n\nSay we toss a coin 10 times, and it comes up heads 7/10\n\nMaximum likelihood analysis:"
-  },
-  {
-    "objectID": "presentations/bayesian-analysis.html#what-is-bayesian-analysis-2",
-    "href": "presentations/bayesian-analysis.html#what-is-bayesian-analysis-2",
-    "title": "Introduction to Bayesian Analysis",
-    "section": "What is Bayesian analysis?",
-    "text": "What is Bayesian analysis?\n\n\n\n\n\n\nClassical statistics\n\n\n\n\nPr(data|parameters)\n\n\n\n\n\nGiven a particular data generating process and parameter value(s), what is the likelihood of the observed data?\nMaximum likelihood estimation: find the value that maximises this likelihood\n\n\n\n\n\nBayesian analysis\n\n\n\n\nPr(parameters|data)\n\n\n\n\n\nGiven the observed data (and some prior beliefs), what are likely values of the parameters?"
+    "text": "What is Bayesian analysis?\n\n\nBayesian analysis is the process of updating these probabilities in light of new information\n\n\n\nIn a statistical model, we are usually interested in probability distributions over continuous covariates:\n\n\\[f(\\theta|y)\\]\n(updated knowledge about a parameter \\(\\theta\\) given data \\(y\\))"
   },
   {
     "objectID": "presentations/bayesian-analysis.html#bayes-theorem",
     "href": "presentations/bayesian-analysis.html#bayes-theorem",
     "title": "Introduction to Bayesian Analysis",
     "section": "Bayes’ Theorem",
-    "text": "Bayes’ Theorem\n\n\\[\\mathrm{Pr}(A | B) = \\frac{\\mathrm{Pr}(B | A) \\mathrm{Pr}(A)}{\\mathrm{Pr}(B)}\\]\n\\[f(\\theta | y) = \\frac{f(y | \\theta) f(\\theta)}{f(y)}\\]\n\n\\[\\mathrm{Posterior} \\propto \\mathrm{Likelihood} \\times \\mathrm{Prior}\\]\n\n\\[\\text{updated belief} = \\text{current evidence} \\times \\text{prior evidence or belief}\\]"
+    "text": "Bayes’ Theorem\n\n\n\\[\\mathrm{Pr}(A | B) = \\frac{\\mathrm{Pr}(B | A) \\mathrm{Pr}(A)}{\\mathrm{Pr}(B)}\\]"
+  },
+  {
+    "objectID": "presentations/bayesian-analysis.html#bayes-theorem-1",
+    "href": "presentations/bayesian-analysis.html#bayes-theorem-1",
+    "title": "Introduction to Bayesian Analysis",
+    "section": "Bayes’ Theorem",
+    "text": "Bayes’ Theorem\n\nThis tells us how to calculate the ‘posterior distribution’ given:\n\nan assumed data generating model\nprior information/beliefs about the parameter(s)\ncurrent data\n\n\n\n\\[f(\\theta | y) = \\frac{f(y | \\theta) f(\\theta)}{f(y)}\\]\n\n\n\\[\\mathrm{Posterior} \\propto \\mathrm{Likelihood} \\times \\mathrm{Prior}\\]\n\n\n\nInformally: updated belief = current evidence \\(\\times\\) prior evidence or belief"
+  },
+  {
+    "objectID": "presentations/bayesian-analysis.html#bayes-theorem-2",
+    "href": "presentations/bayesian-analysis.html#bayes-theorem-2",
+    "title": "Introduction to Bayesian Analysis",
+    "section": "Bayes’ Theorem",
+    "text": "Bayes’ Theorem\n\nConceptually,\n\nwe start with some beliefs about the parameters of interest\nreview those beliefs in light of the evidence at hand\nand calculate an updated belief as a combination of the prior and the new evidence\n\n\n\n\n\n\nPrior\n\n\nLikelihood\n\n\nPosterior"
+  },
+  {
+    "objectID": "presentations/bayesian-analysis.html#bayes-theorem-3",
+    "href": "presentations/bayesian-analysis.html#bayes-theorem-3",
+    "title": "Introduction to Bayesian Analysis",
+    "section": "Bayes’ Theorem",
+    "text": "Bayes’ Theorem\n\n\n\n\nWhere do these ‘priors’ come from?\n\nPrevious research\nCommon sense/intuition?\n‘Weakly informative’ priors\n\nThe more data we have, the less the prior matters"
+  },
+  {
+    "objectID": "presentations/bayesian-analysis.html#numeric-example",
+    "href": "presentations/bayesian-analysis.html#numeric-example",
+    "title": "Introduction to Bayesian Analysis",
+    "section": "Numeric example",
+    "text": "Numeric example\n\nConsider a simple repeated coin toss:\n\nSay we toss a coin 10 times, and it comes up heads 7/10\n\nMaximum likelihood analysis:\n\n\n\n\n\n\n\n\n\n\nHypothesis\n\\(\\mathrm{Pr}(\\mathit{heads}) = \\theta\\)\nPrior\n\\(\\mathrm{Pr}(\\theta)\\)\nLikelihood\n\\(\\mathrm{Pr}(y \\mid \\theta)\\)\nPosterior\n\\(\\mathrm{Pr}(\\theta \\mid y)\\)\n\n\n\n\n0.2\n0.01\n0.0008\n0.0001\n\n\n0.3\n0.04\n0.0090\n0.0030\n\n\n0.4\n0.10\n0.0425\n0.0351\n\n\n0.5\n0.70\n0.1172\n0.6789\n\n\n0.6\n0.10\n0.2150\n0.1779\n\n\n0.7\n0.04\n0.2668\n0.0883\n\n\n0.8\n0.01\n0.2013\n0.0167"
   },
   {
     "objectID": "presentations/bayesian-analysis.html#references",
