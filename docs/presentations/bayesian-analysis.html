@@ -8,7 +8,7 @@
 <link href="../site_libs/quarto-html/light-border.css" rel="stylesheet">
 <link href="../site_libs/quarto-html/quarto-html.min.css" rel="stylesheet" data-mode="light">
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
-  <meta name="generator" content="quarto-1.3.433">
+  <meta name="generator" content="quarto-1.3.450">
 
   <meta name="author" content="Ross Wilson">
   <meta name="dcterms.date" content="2023-11-23">
@@ -457,7 +457,6 @@
 </section>
 <section id="what-is-probability" class="slide level2">
 <h2>What is probability?</h2>
-<div class="fragment">
 <p><br></p>
 <p>Or, how should we interpret a probability of, say, 20%?</p>
 <p><br></p>
@@ -467,7 +466,9 @@
 <p><br></p>
 <p><span class="math inline">\(\mathrm{Pr}(A) = \lim\limits_{n \to \infty} \frac{\text{# times } A \text{ occurs}}{n}\)</span></p>
 <p><br></p>
+<div class="fragment">
 <p>Classical statistics is based on this concept of repeated sampling</p>
+</div>
 </div><div class="column" style="width:10%;">
 
 </div><div class="column fragment" style="width:45%;">
@@ -476,9 +477,8 @@
 <div class="fragment">
 <ul>
 <li><p>What is the probability it will rain in Dunedin tomorrow?</p></li>
-<li><p>What is the probability I had chicken for dinner last night?</p></li>
+<li><p>What is the probability that exercise therapy is beneficial for a patient with OA?</p></li>
 </ul>
-</div>
 </div>
 </div>
 </div>
@@ -506,23 +506,21 @@
 <ul>
 <li>Bayesian analysis is the process of updating these probabilities in light of new information</li>
 </ul>
+<div class="fragment">
 <p><br></p>
+<h4 id="bayes-theorem">Bayes’ Theorem:</h4>
+<p><span class="math display">\[\mathrm{Pr}(A | B) = \frac{\mathrm{Pr}(B | A) \mathrm{Pr}(A)}{\mathrm{Pr}(B)}\]</span></p>
 <ul>
 <li>In a statistical model, we are usually interested in probability distributions over continuous covariates:</li>
 </ul>
-<p><span class="math display">\[f(\theta|y)\]</span></p>
+<p><span class="math display">\[f(\theta | y) = \frac{f(y | \theta) f(\theta)}{f(y)}\]</span></p>
 <p>(updated knowledge about a parameter <span class="math inline">\(\theta\)</span> given data <span class="math inline">\(y\)</span>)</p>
-</section>
-<section id="bayes-theorem" class="slide level2">
-<h2>Bayes’ Theorem</h2>
-<p><br></p>
-<p><br></p>
-<p><span class="math display">\[\mathrm{Pr}(A | B) = \frac{\mathrm{Pr}(B | A) \mathrm{Pr}(A)}{\mathrm{Pr}(B)}\]</span></p>
+</div>
 </section>
 <section id="bayes-theorem-1" class="slide level2">
 <h2>Bayes’ Theorem</h2>
 <ul>
-<li>This tells us how to calculate the ‘posterior distribution’ given:
+<li>Tells us how to calculate the ‘posterior distribution’ given:
 <ul>
 <li>an assumed data generating model</li>
 <li>prior information/beliefs about the parameter(s)</li>
@@ -566,9 +564,6 @@
 </section>
 <section id="bayes-theorem-3" class="slide level2">
 <h2>Bayes’ Theorem</h2>
-<p><img data-src="images/more-data-1.png" class="absolute fragment" style="left: 410px; bottom: -60px; width: 600px; " data-fragment-index="1"></p>
-<p><img data-src="images/more-data-2.png" class="absolute fragment" style="left: 410px; bottom: -60px; width: 600px; " data-fragment-index="2"></p>
-<p><img data-src="images/more-data-3.png" class="absolute fragment" style="left: 410px; bottom: -60px; width: 600px; " data-fragment-index="3"></p>
 <ul>
 <li><p>Where do these ‘priors’ come from?</p>
 <ul>
@@ -578,6 +573,9 @@
 </ul></li>
 <li><p>The more data we have, the less the prior matters</p></li>
 </ul>
+<p><img data-src="images/more-data-1.png" class="absolute fragment fade-in-then-out" style="left: 410px; bottom: -60px; width: 600px; height: 1000px; " data-fragment-index="1"></p>
+<p><img data-src="images/more-data-2.png" class="absolute fragment fade-in-then-out" style="left: 410px; bottom: -60px; width: 600px; height: 1000px; " data-fragment-index="2"></p>
+<p><img data-src="images/more-data-3.png" class="absolute fragment" style="left: 410px; bottom: -60px; width: 600px; height: 1000px; " data-fragment-index="3"></p>
 </section>
 <section id="numeric-example" class="slide level2">
 <h2>Numeric example</h2>
@@ -652,6 +650,173 @@
 </tr>
 </tbody>
 </table>
+</section></section>
+<section>
+<section id="bayesian-analysis-in-practice" class="title-slide slide level1 center">
+<h1>Bayesian analysis in practice</h1>
+
+</section>
+<section id="software" class="slide level2">
+<h2>Software</h2>
+<ul>
+<li>Historically, conducting Bayesian analysis required specialised software/modelling languages
+<ul>
+<li>BUGS (Bayesian inference Using Gibbs Sampling)</li>
+<li>JAGS (Just Another Gibbs Sampler)</li>
+<li>Stan</li>
+</ul></li>
+</ul>
+<div class="fragment">
+<ul>
+<li>Most general-purpose statistical programs these days have (at least some) Bayesian methods available
+<ul>
+<li>R
+<ul>
+<li><code>rstanarm</code></li>
+<li><code>brms</code></li>
+<li>direct interface to Bayesian modelling languages with <code>rstan</code>, <code>rjags</code></li>
+</ul></li>
+<li>Stata (also StataStan)</li>
+<li>SPSS ?</li>
+</ul></li>
+</ul>
+</div>
+</section>
+<section id="example---linear-regression-model" class="slide level2">
+<h2>Example - linear regression model</h2>
+<ul>
+<li>We will use the <code>rstanarm</code> package in R for illustration</li>
+<li>This makes it very easy to run Bayesian analogues of several standard regression models (linear, logistic, etc.)
+<ul>
+<li>(Just as easy as running the standard classical models)</li>
+</ul></li>
+</ul>
+<div class="fragment">
+<ul>
+<li>Well, almost as easy
+<ul>
+<li>There are still a few Bayesian-specific issues to consider (prior distributions, computational options, etc.)</li>
+</ul></li>
+</ul>
+</div>
+</section>
+<section id="not-so-technical-backgroun" class="slide level2">
+<h2>(Not so) technical backgroun</h2>
+<ul>
+<li>Bayesian estimation is based on Markov Chain Monte Carlo (MCMC) simulation</li>
+<li>We won’t go into the details
+<ul>
+<li>Basically, we start with some initial guesses for the parameters, then keep adjusting these until we get to a stable distribution</li>
+<li>Once we get to this stable range, the distribution of parameter ‘guesses’ is our posterior distribution</li>
+<li>Checking how well this convergence has worked is a key part of model diagnostics</li>
+</ul></li>
+</ul>
+</section>
+<section id="example---linear-regression-model-1" class="slide level2">
+<h2>Example - linear regression model</h2>
+<ul>
+<li>Linear regression models in R (standard <code>lm()</code>, Bayesian analysis with <code>stan</code> and <code>stan_glm()</code>)</li>
+<li>Convergence diagnostics</li>
+<li>More substantive model checks – i.e., does the model make sense?
+<ul>
+<li>Sensitivity to alternative priors
+<ul>
+<li>If the results are highly sensitive to different plausible priors, that should give us less confidence in our conclusions</li>
+</ul></li>
+<li>Predictive accuracy
+<ul>
+<li>How well does the model predict the actual (distribution of) data?</li>
+</ul></li>
+</ul></li>
+<li>Model interpretation/analysis/reporting</li>
+</ul>
+</section>
+<section id="further-examples" class="slide level2">
+<h2>Further examples</h2>
+<ul>
+<li>Other common regression models are easily replicated with <code>rstanarm</code> (or <code>brms</code>)
+<ul>
+<li>Logistic regression (binary outcomes)</li>
+<li>Poisson regression (count outcomes)</li>
+</ul></li>
+<li>These packages can also do some more complicated models
+<ul>
+<li>Multinomial or ordinal outcomes</li>
+<li>Mixed/random effects</li>
+</ul></li>
+<li>For more complex models, you will need to use Stan (or BUGS/JAGS) directly
+<ul>
+<li><code>rstan</code> can run these models from within R</li>
+<li><code>brms</code> can be used to generate starter code, if the model is a variant of a <code>brms</code> model</li>
+</ul></li>
+</ul>
+</section>
+<section id="further-examples-1" class="slide level2">
+<h2>Further examples</h2>
+<ul>
+<li>8 Schools
+<ul>
+<li>Hierarchical Bayesian modelling</li>
+</ul></li>
+</ul>
+<div class="fragment">
+<table class="table" data-quarto-postprocess="true" style="margin-left: auto; margin-right: auto;">
+<thead>
+<tr class="header">
+<th style="text-align: center;" data-quarto-table-cell-role="th"><strong>School</strong></th>
+<th style="text-align: center;" data-quarto-table-cell-role="th"><strong>Mean estimate</strong></th>
+<th style="text-align: center;" data-quarto-table-cell-role="th"><strong>Standard error</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">A</td>
+<td style="text-align: center;">28</td>
+<td style="text-align: center;">15</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">B</td>
+<td style="text-align: center;">8</td>
+<td style="text-align: center;">10</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">C</td>
+<td style="text-align: center;">-3</td>
+<td style="text-align: center;">16</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">D</td>
+<td style="text-align: center;">7</td>
+<td style="text-align: center;">11</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">E</td>
+<td style="text-align: center;">-1</td>
+<td style="text-align: center;">9</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">F</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">11</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">G</td>
+<td style="text-align: center;">18</td>
+<td style="text-align: center;">10</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">H</td>
+<td style="text-align: center;">12</td>
+<td style="text-align: center;">18</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="fragment">
+<div class="absolute" style="border:1px solid black;padding:10px 20px;top: 30px; right: -50px; ">
+<p>What is our ‘best’<br> estimate of the true<br> effect in School A?</p>
+</div>
+</div>
 </section>
 <section id="references" class="slide level2">
 <h2>References</h2>

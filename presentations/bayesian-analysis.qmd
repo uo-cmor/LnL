@@ -37,17 +37,15 @@ library(kableExtra, exclude = "group_rows")
 
 ## What is probability?
 
-. . .
-
 <br>
 
 Or, how should we interpret a probability of, say, 20%?
 
 <br>
 
-:::: {.columns}
+::: {.columns}
 
-::: {.column .fragment width="45%"}
+:::: {.column .fragment width="45%"}
 **Relative frequency**
 
 <br>
@@ -56,27 +54,34 @@ $\mathrm{Pr}(A) = \lim\limits_{n \to \infty} \frac{\text{# times } A \text{ occu
 
 <br>
 
+::::: {.fragment}
+
 Classical statistics is based on this concept of repeated sampling
 
-:::
+:::::
 
-::: {.column width="10%"}
+::::
 
-:::
+:::: {.column width="10%"}
 
-::: {.column .fragment width="45%"}
+::::
+
+:::: {.column .fragment width="45%"}
 **Subjective probability**
 
 *A measure of certainty (or uncertainty) in an event*
 
-::: {.fragment}
+::::: {.fragment}
+
 * What is the probability it will rain in Dunedin tomorrow?
 
-* What is the probability I had chicken for dinner last night?
-:::
-:::
+* What is the probability that exercise therapy is beneficial for a patient with OA?
+
+:::::
 
 ::::
+
+:::
 
 ## Conditional probability
 
@@ -102,25 +107,23 @@ Classical statistics is based on this concept of repeated sampling
 
 * Bayesian analysis is the process of updating these probabilities in light of new information
 
-<br>
-
-* In a statistical model, we are usually interested in probability distributions over continuous covariates:
-
-$$f(\theta|y)$$
-
-(updated knowledge about a parameter $\theta$ given data $y$)
-
-## Bayes' Theorem
+. . .
 
 <br>
 
-<br>
+#### Bayes' Theorem:
 
 $$\mathrm{Pr}(A | B) = \frac{\mathrm{Pr}(B | A) \mathrm{Pr}(A)}{\mathrm{Pr}(B)}$$
 
+  * In a statistical model, we are usually interested in probability distributions over continuous covariates:
+
+$$f(\theta | y) = \frac{f(y | \theta) f(\theta)}{f(y)}$$
+
+  (updated knowledge about a parameter $\theta$ given data $y$)
+
 ## Bayes' Theorem
 
-* This tells us how to calculate the 'posterior distribution' given:
+* Tells us how to calculate the 'posterior distribution' given:
   * an assumed data generating model
   * prior information/beliefs about the parameter(s)
   * current data
@@ -146,6 +149,34 @@ $$\mathrm{Posterior} \propto \mathrm{Likelihood} \times \mathrm{Prior}$$
   * review those beliefs in light of the evidence at hand
   
   * and calculate an updated belief as a combination of the prior and the new evidence
+  
+```{r}
+density_tbl <- tibble(
+  theta = seq(0, 1, length.out = 99999),
+  prior = dbeta(theta, 10, 10),
+  likelihood = dbeta(theta, 9, 6),
+  posterior = dbeta(theta, 19, 16)
+)
+
+ymax <- max(density_tbl$prior, density_tbl$likelihood, density_tbl$posterior)
+```
+
+```{r}
+p1 <- ggplot(density_tbl, aes(theta)) +
+    geom_area(aes(y = prior), linetype = 0, fill = "#8888FF66", stat = "identity", position = "identity") +
+    scale_x_continuous(limits = c(0, 1)) +
+    scale_y_continuous("Density", limits = c(0, ymax), expand = c(0, 0)) +
+    theme(axis.line.y = element_blank(), axis.ticks.y = element_blank(), axis.text.y = element_blank(),
+          axis.line.x = element_blank(),
+          panel.background = element_blank())
+p2 <- p1 +
+  geom_area(aes(y = likelihood), linetype = 0, fill = "#FF888866", stat = "identity", position = "identity")
+p3 <- p2 +
+  geom_area(aes(y = posterior), linetype = 0, fill = "#EE88CC66", stat = "identity", position = "identity")
+ggsave("images/density-1.png", p1, width = 6, height = 4)
+ggsave("images/density-2.png", p2, width = 6, height = 4)
+ggsave("images/density-3.png", p3, width = 6, height = 4)
+```
 
 ![](images/density-1.png){.absolute bottom=-60 left=230 width=675 .fragment fragment-index=1}
 
@@ -168,12 +199,6 @@ $$\mathrm{Posterior} \propto \mathrm{Likelihood} \times \mathrm{Prior}$$
 :::
 ## Bayes' Theorem
 
-![](images/more-data-1.png){.absolute bottom=-60 left=410 width=600 .fragment fragment-index=1}
-
-![](images/more-data-2.png){.absolute bottom=-60 left=410 width=600 .fragment fragment-index=2}
-
-![](images/more-data-3.png){.absolute bottom=-60 left=410 width=600 .fragment fragment-index=3}
-
 * Where do these 'priors' come from?
 
   * Previous research
@@ -183,6 +208,37 @@ $$\mathrm{Posterior} \propto \mathrm{Likelihood} \times \mathrm{Prior}$$
   * 'Weakly informative' priors
 
 * The more data we have, the less the prior matters
+
+```{r}
+density_tbl2 <- density_tbl |> 
+  mutate(
+  likelihood2 = dbeta(theta, 90, 60),
+  posterior2 = dbeta(theta, 100, 70)
+)
+
+ymax2 <- max(density_tbl2$prior, density_tbl2$likelihood2, density_tbl2$posterior2)
+
+p4 <- ggplot(density_tbl2, aes(theta)) +
+    geom_area(aes(y = prior), linetype = 0, fill = "#8888FF66", stat = "identity", position = "identity") +
+    scale_x_continuous(limits = c(0, 1)) +
+    scale_y_continuous(NULL, limits = c(0, ymax2), expand = c(0, 0)) +
+    theme(axis.line.y = element_blank(), axis.ticks.y = element_blank(), axis.text.y = element_blank(),
+          axis.line.x = element_blank(), panel.grid = element_blank(),
+          panel.background = element_blank(), plot.background = element_blank())
+p5 <- p4 +
+  geom_area(aes(y = likelihood2), linetype = 0, fill = "#FF888866", stat = "identity", position = "identity")
+p6 <- p5 +
+  geom_area(aes(y = posterior2), linetype = 0, fill = "#EE88CC66", stat = "identity", position = "identity")
+ggsave("images/more-data-1.png", p4, width = 6, height = 10)
+ggsave("images/more-data-2.png", p5, width = 6, height = 10)
+ggsave("images/more-data-3.png", p6, width = 6, height = 10)
+```
+
+![](images/more-data-1.png){.absolute bottom=-60 left=410 width=600 height=1000 .fragment .fade-in-then-out fragment-index=1}
+
+![](images/more-data-2.png){.absolute bottom=-60 left=410 width=600 height=1000 .fragment .fade-in-then-out fragment-index=2}
+
+![](images/more-data-3.png){.absolute bottom=-60 left=410 width=600 height=1000 .fragment fragment-index=3}
 
 ## Numeric example
 * Consider a simple repeated coin toss:
@@ -245,6 +301,162 @@ $$\mathrm{Posterior} \propto \mathrm{Likelihood} \times \mathrm{Prior}$$
 </tbody>
 </table>
 ```
+
+# Bayesian analysis in practice
+
+## Software
+
+* Historically, conducting Bayesian analysis required specialised software/modelling languages
+  * BUGS (Bayesian inference Using Gibbs Sampling)
+  * JAGS (Just Another Gibbs Sampler)
+  * Stan
+
+. . .
+
+* Most general-purpose statistical programs these days have (at least some) Bayesian methods available
+  * R
+    * `rstanarm`
+    * `brms`
+    * direct interface to Bayesian modelling languages with `rstan`, `rjags`
+  * Stata (also StataStan)
+  * SPSS ?
+
+## Example - linear regression model
+
+* We will use the `rstanarm` package in R for illustration
+* This makes it very easy to run Bayesian analogues of several standard regression models (linear, logistic, etc.)
+  * (Just as easy as running the standard classical models)
+
+. . .
+
+* Well, almost as easy
+  * There are still a few Bayesian-specific issues to consider (prior distributions, computational options, etc.)
+
+## (Not so) technical backgroun
+
+* Bayesian estimation is based on Markov Chain Monte Carlo (MCMC) simulation
+* We won't go into the details
+  * Basically, we start with some initial guesses for the parameters, then keep adjusting these until we get to a stable distribution
+  * Once we get to this stable range, the distribution of parameter 'guesses' is our posterior distribution
+  * Checking how well this convergence has worked is a key part of model diagnostics
+
+## Example - linear regression model
+
+* Linear regression models in R (standard `lm()`, Bayesian analysis with `stan` and `stan_glm()`)
+* Convergence diagnostics
+* More substantive model checks -- i.e., does the model make sense?
+  * Sensitivity to alternative priors
+    * If the results are highly sensitive to different plausible priors, that should give us less confidence in our conclusions
+  * Predictive accuracy
+    * How well does the model predict the actual (distribution of) data?
+* Model interpretation/analysis/reporting
+
+## Further examples
+
+* Other common regression models are easily replicated with `rstanarm` (or `brms`)
+  * Logistic regression (binary outcomes)
+  * Poisson regression (count outcomes)
+* These packages can also do some more complicated models
+  * Multinomial or ordinal outcomes
+  * Mixed/random effects
+* For more complex models, you will need to use Stan (or BUGS/JAGS) directly
+  * `rstan` can run these models from within R
+  * `brms` can be used to generate starter code, if the model is a variant of a `brms` model
+
+## Further examples
+
+* 8 Schools
+  * Hierarchical Bayesian modelling
+
+. . .
+
+```{=html}
+<table class="table" style="margin-left: auto; margin-right: auto;">
+ <thead>
+  <tr>
+   <th style="text-align:center;"> <b>School</b> </th>
+   <th style="text-align:center;"> <b>Mean estimate</b> </th>
+   <th style="text-align:center;"> <b>Standard error</b> </th>
+  </tr>
+ </thead>
+<tbody>
+  <tr>
+   <td style="text-align:center;"> A </td>
+   <td style="text-align:center;"> 28 </td>
+   <td style="text-align:center;"> 15 </td>
+  </tr>
+  <tr>
+   <td style="text-align:center;"> B </td>
+   <td style="text-align:center;"> 8 </td>
+   <td style="text-align:center;"> 10 </td>
+  </tr>
+  <tr>
+   <td style="text-align:center;"> C </td>
+   <td style="text-align:center;"> -3 </td>
+   <td style="text-align:center;"> 16 </td>
+  </tr>
+  <tr>
+   <td style="text-align:center;"> D </td>
+   <td style="text-align:center;"> 7 </td>
+   <td style="text-align:center;"> 11 </td>
+  </tr>
+  <tr>
+   <td style="text-align:center;"> E </td>
+   <td style="text-align:center;"> -1 </td>
+   <td style="text-align:center;"> 9 </td>
+  </tr>
+  <tr>
+   <td style="text-align:center;"> F </td>
+   <td style="text-align:center;"> 1 </td>
+   <td style="text-align:center;"> 11 </td>
+  </tr>
+  <tr>
+   <td style="text-align:center;"> G </td>
+   <td style="text-align:center;"> 18 </td>
+   <td style="text-align:center;"> 10 </td>
+  </tr>
+  <tr>
+   <td style="text-align:center;"> H </td>
+   <td style="text-align:center;"> 12 </td>
+   <td style="text-align:center;"> 18 </td>
+  </tr>
+</tbody>
+</table>
+```
+
+. . .
+
+::: {.absolute right=-50 top=30 style="border:1px solid black;padding:10px 20px;"}
+
+What is our 'best'<br>
+estimate of the true<br>
+effect in School A?
+
+:::
+
+## Further examples
+
+* Item Response Theory modelling
+  * Rasch model: $\mathrm{logit}[\mathrm{Pr}(y_{ij} = 1 | \theta_j)] = \theta_j - \beta_i$
+  * 2-parameter model: $\mathrm{logit}[\mathrm{Pr}(y_{ij} = 1 | \theta_j)] = \alpha_i(\theta_j - \beta_i)$
+* The `edstan` package provides functions and Stan code to fit IRT models
+
+## Frequentist vs. Bayesian
+
+* Bayesian analysis:
+  * Uses prior information (when available)
+  * Accounts for uncertainty in parameters
+  * Provides probability values and credible parameters with more intuitive (and meaningful) interpretation
+  * Can provide more reliable estimates in small samples
+  * Can estimate more complicated models and conduct more informative post-estimation analyses than traditional approaches
+* But: can be more difficult to implement in practice
+  * This is not necessarily a bad thing -- it might make us think about some of the underlying assumptions that can be swept under the carpet in traditional statistical analysis
+
+## Summary
+
+* Conducting Bayesian analysis requires a little more thought, and a little more confidence with statistical methods, than 'traditional' frequentist approaches
+* Modern software packages make this a lot easier (and are getting better all the time)
+* The payoff is more flexible modelling options, ability to incorporate relevant prior information, more robust estimates in small samples, and more meaningful analysis of uncertainty in parameter estimates
 
 ## References
 

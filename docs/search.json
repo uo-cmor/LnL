@@ -214,7 +214,7 @@
     "href": "presentations/bayesian-analysis.html#what-is-probability",
     "title": "Introduction to Bayesian Analysis",
     "section": "What is probability?",
-    "text": "What is probability?\n\n\nOr, how should we interpret a probability of, say, 20%?\n\n\n\nRelative frequency\n\n\\(\\mathrm{Pr}(A) = \\lim\\limits_{n \\to \\infty} \\frac{\\text{# times } A \\text{ occurs}}{n}\\)\n\nClassical statistics is based on this concept of repeated sampling\n\n\n\nSubjective probability\nA measure of certainty (or uncertainty) in an event\n\n\nWhat is the probability it will rain in Dunedin tomorrow?\nWhat is the probability I had chicken for dinner last night?"
+    "text": "What is probability?\n\nOr, how should we interpret a probability of, say, 20%?\n\n\n\nRelative frequency\n\n\\(\\mathrm{Pr}(A) = \\lim\\limits_{n \\to \\infty} \\frac{\\text{# times } A \\text{ occurs}}{n}\\)\n\n\nClassical statistics is based on this concept of repeated sampling\n\n\n\n\nSubjective probability\nA measure of certainty (or uncertainty) in an event\n\n\nWhat is the probability it will rain in Dunedin tomorrow?\nWhat is the probability that exercise therapy is beneficial for a patient with OA?"
   },
   {
     "objectID": "presentations/bayesian-analysis.html#conditional-probability",
@@ -228,7 +228,7 @@
     "href": "presentations/bayesian-analysis.html#what-is-bayesian-analysis-1",
     "title": "Introduction to Bayesian Analysis",
     "section": "What is Bayesian analysis?",
-    "text": "What is Bayesian analysis?\n\n\nBayesian analysis is the process of updating these probabilities in light of new information\n\n\n\nIn a statistical model, we are usually interested in probability distributions over continuous covariates:\n\n\\[f(\\theta|y)\\]\n(updated knowledge about a parameter \\(\\theta\\) given data \\(y\\))"
+    "text": "What is Bayesian analysis?\n\n\nBayesian analysis is the process of updating these probabilities in light of new information\n\n\n\nBayes’ Theorem:\n\\[\\mathrm{Pr}(A | B) = \\frac{\\mathrm{Pr}(B | A) \\mathrm{Pr}(A)}{\\mathrm{Pr}(B)}\\]\n\nIn a statistical model, we are usually interested in probability distributions over continuous covariates:\n\n\\[f(\\theta | y) = \\frac{f(y | \\theta) f(\\theta)}{f(y)}\\]\n(updated knowledge about a parameter \\(\\theta\\) given data \\(y\\))"
   },
   {
     "objectID": "presentations/bayesian-analysis.html#bayes-theorem",
@@ -242,7 +242,7 @@
     "href": "presentations/bayesian-analysis.html#bayes-theorem-1",
     "title": "Introduction to Bayesian Analysis",
     "section": "Bayes’ Theorem",
-    "text": "Bayes’ Theorem\n\nThis tells us how to calculate the ‘posterior distribution’ given:\n\nan assumed data generating model\nprior information/beliefs about the parameter(s)\ncurrent data\n\n\n\n\\[f(\\theta | y) = \\frac{f(y | \\theta) f(\\theta)}{f(y)}\\]\n\n\n\\[\\mathrm{Posterior} \\propto \\mathrm{Likelihood} \\times \\mathrm{Prior}\\]\n\n\n\nInformally: updated belief = current evidence \\(\\times\\) prior evidence or belief"
+    "text": "Bayes’ Theorem\n\nTells us how to calculate the ‘posterior distribution’ given:\n\nan assumed data generating model\nprior information/beliefs about the parameter(s)\ncurrent data\n\n\n\n\\[f(\\theta | y) = \\frac{f(y | \\theta) f(\\theta)}{f(y)}\\]\n\n\n\\[\\mathrm{Posterior} \\propto \\mathrm{Likelihood} \\times \\mathrm{Prior}\\]\n\n\n\nInformally: updated belief = current evidence \\(\\times\\) prior evidence or belief"
   },
   {
     "objectID": "presentations/bayesian-analysis.html#bayes-theorem-2",
@@ -256,7 +256,7 @@
     "href": "presentations/bayesian-analysis.html#bayes-theorem-3",
     "title": "Introduction to Bayesian Analysis",
     "section": "Bayes’ Theorem",
-    "text": "Bayes’ Theorem\n\n\n\n\nWhere do these ‘priors’ come from?\n\nPrevious research\nCommon sense/intuition?\n‘Weakly informative’ priors\n\nThe more data we have, the less the prior matters"
+    "text": "Bayes’ Theorem\n\nWhere do these ‘priors’ come from?\n\nPrevious research\nCommon sense/intuition?\n‘Weakly informative’ priors\n\nThe more data we have, the less the prior matters"
   },
   {
     "objectID": "presentations/bayesian-analysis.html#numeric-example",
@@ -957,5 +957,61 @@
     "title": "Open Science at CMOR",
     "section": "Resources",
     "text": "Resources\n\nUNESCO Recommendation on Open Science\nhttps://www.unesco.org/en/open-science\nPassport for Open Science (Ministry of Higher Education and Research, France)\nhttps://www.ouvrirlascience.fr/passport-for-open-science-a-practical-guide-for-phd-students/\nThe Open Science Training Handbook (FOSTER Open Science)\nhttps://open-science-training-handbook.github.io/Open-Science-Training-Handbook_EN/\nOtago’s Read & Publish agreements\nhttps://otago.libguides.com/research_publishing_impact/read-and-publish\nSherpa Services\nhttps://beta.sherpa.ac.uk/\nOSF\nhttps://osf.io (CMOR: https://osf.io/stw9e/)\n\n\n\nReturn to CMOR Lunch’n’Learn presentations"
+  },
+  {
+    "objectID": "presentations/bayesian-analysis.html#section",
+    "href": "presentations/bayesian-analysis.html#section",
+    "title": "Introduction to Bayesian Analysis",
+    "section": "",
+    "text": "In a statistical model, we are usually interested in probability distributions over continuous covariates:\n\n\\[f(\\theta | y) = \\frac{f(y | \\theta) f(\\theta)}{f(y)}\\]\n(updated knowledge about a parameter \\(\\theta\\) given data \\(y\\))"
+  },
+  {
+    "objectID": "presentations/bayesian-analysis.html#bayes-theorem-4",
+    "href": "presentations/bayesian-analysis.html#bayes-theorem-4",
+    "title": "Introduction to Bayesian Analysis",
+    "section": "Bayes’ Theorem",
+    "text": "Bayes’ Theorem\n\nWhere do these ‘priors’ come from?\n\nPrevious research\nCommon sense/intuition?\n‘Weakly informative’ priors\n\nThe more data we have, the less the prior matters"
+  },
+  {
+    "objectID": "presentations/bayesian-analysis.html#software",
+    "href": "presentations/bayesian-analysis.html#software",
+    "title": "Introduction to Bayesian Analysis",
+    "section": "Software",
+    "text": "Software\n\nHistorically, conducting Bayesian analysis required specialised software/modelling languages\n\nBUGS (Bayesian inference Using Gibbs Sampling)\nJAGS (Just Another Gibbs Sampler)\nStan\n\n\n\n\nMost general-purpose statistical programs these days have (at least some) Bayesian methods available\n\nR\n\nrstanarm\nbrms\ndirect interface to Bayesian modelling languages with rstan, rjags\n\nStata (also StataStan)\nSPSS ?"
+  },
+  {
+    "objectID": "presentations/bayesian-analysis.html#example---linear-regression-model",
+    "href": "presentations/bayesian-analysis.html#example---linear-regression-model",
+    "title": "Introduction to Bayesian Analysis",
+    "section": "Example - linear regression model",
+    "text": "Example - linear regression model\n\nWe will use the rstanarm package in R for illustration\nThis makes it very easy to run Bayesian analogues of several standard regression models (linear, logistic, etc.)\n\n(Just as easy as running the standard classical models)\n\n\n\n\nWell, almost as easy\n\nThere are still a few Bayesian-specific issues to consider (prior distributions, computational options, etc.)"
+  },
+  {
+    "objectID": "presentations/bayesian-analysis.html#not-so-technical-backgroun",
+    "href": "presentations/bayesian-analysis.html#not-so-technical-backgroun",
+    "title": "Introduction to Bayesian Analysis",
+    "section": "(Not so) technical backgroun",
+    "text": "(Not so) technical backgroun\n\nBayesian estimation is based on Markov Chain Monte Carlo (MCMC) simulation\nWe won’t go into the details\n\nBasically, we start with some initial guesses for the parameters, then keep adjusting these until we get to a stable distribution\nOnce we get to this stable range, the distribution of parameter ‘guesses’ is our posterior distribution\nChecking how well this convergence has worked is a key part of model diagnostics"
+  },
+  {
+    "objectID": "presentations/bayesian-analysis.html#example---linear-regression-model-1",
+    "href": "presentations/bayesian-analysis.html#example---linear-regression-model-1",
+    "title": "Introduction to Bayesian Analysis",
+    "section": "Example - linear regression model",
+    "text": "Example - linear regression model\n\nLinear regression models in R (standard lm(), Bayesian analysis with stan and stan_glm())\nConvergence diagnostics\nMore substantive model checks – i.e., does the model make sense?\n\nSensitivity to alternative priors\n\nIf the results are highly sensitive to different plausible priors, that should give us less confidence in our conclusions\n\nPredictive accuracy\n\nHow well does the model predict the actual (distribution of) data?\n\n\nModel interpretation/analysis/reporting"
+  },
+  {
+    "objectID": "presentations/bayesian-analysis.html#further-examples",
+    "href": "presentations/bayesian-analysis.html#further-examples",
+    "title": "Introduction to Bayesian Analysis",
+    "section": "Further examples",
+    "text": "Further examples\n\nOther common regression models are easily replicated with rstanarm (or brms)\n\nLogistic regression (binary outcomes)\nPoisson regression (count outcomes)\n\nThese packages can also do some more complicated models\n\nMultinomial or ordinal outcomes\nMixed/random effects\n\nFor more complex models, you will need to use Stan (or BUGS/JAGS) directly\n\nrstan can run these models from within R\nbrms can be used to generate starter code, if the model is a variant of a brms model"
+  },
+  {
+    "objectID": "presentations/bayesian-analysis.html#further-examples-1",
+    "href": "presentations/bayesian-analysis.html#further-examples-1",
+    "title": "Introduction to Bayesian Analysis",
+    "section": "Further examples",
+    "text": "Further examples\n\n8 Schools\n\nHierarchical Bayesian modelling\n\n\n\n\n\n\nSchool\nMean estimate\nStandard error\n\n\n\n\nA\n28\n15\n\n\nB\n8\n10\n\n\nC\n-3\n16\n\n\nD\n7\n11\n\n\nE\n-1\n9\n\n\nF\n1\n11\n\n\nG\n18\n10\n\n\nH\n12\n18\n\n\n\n\n\n\nWhat is our ‘best’ estimate of the true effect in School A?"
   }
 ]
