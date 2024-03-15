@@ -2,7 +2,7 @@
 title: "Introduction to Bayesian Analysis"
 subtitle: "CMOR Lunch'n'Learn"
 author: "Ross Wilson"
-date: "2023-11-23"
+date: "2024-04-11"
 date-format: "D MMMM YYYY"
 format:
   revealjs:
@@ -23,23 +23,32 @@ library(tidyverse)
 library(kableExtra, exclude = "group_rows")
 ```
 
-# What is Bayesian analysis?
-
-## Probability-based analysis
+## What is Bayesian analysis?
 
 <br>
 
-* Bayesian analysis is about estimating/interpreting the *uncertainty* or *probability distribution* of parameters
+* A **probabilistic** approach to data analysis and interpretation
 
 <br>
 
-* To understand this, we need a very brief background to probability theory
+* How should we refine our prior beliefs about (say) a treatment effect, in light of data from a study?
+
+<br>
+
+* Traditional statistical analysis summarises what the data from *this study* tells us about the treatment effect;  
+Bayesian analysis tells us how the data should change our opinion about the effect
+
+<!-- * Bayesian analysis is about estimating/interpreting the *uncertainty* or *probability distribution* of parameters -->
+
+<!-- <br> -->
+
+<!-- * To understand this, we need a very brief background to probability theory -->
 
 ## What is probability?
 
 <br>
 
-Or, how should we interpret a probability of, say, 20%?
+What does it mean to say something has a probability of, say, 20%?
 
 <br>
 
@@ -56,7 +65,7 @@ $\mathrm{Pr}(A) = \lim\limits_{n \to \infty} \frac{\text{# times } A \text{ occu
 
 ::::: {.fragment}
 
-Classical statistics is based on this concept of repeated sampling
+If we repeatedly sample from a given situation, what proportion of times will the event occur?
 
 :::::
 
@@ -87,7 +96,7 @@ Classical statistics is based on this concept of repeated sampling
 
 <br>
 
-* Probability can be defined conditional on information
+* Probability is conditional on available information
 
 ::: {.incremental}
 
@@ -98,7 +107,10 @@ Classical statistics is based on this concept of repeated sampling
   * $\mathrm{Pr}(\text{Rain tomorrow}\ |\ \text{Today's weather})$
 
   * $\mathrm{Pr}(\text{Rain tomorrow}\ |\ \text{Tomorrow's forecast})$
-  
+
+* Even the first (unconditional) probability is implicitly conditional on some information set  
+(your general knowledge about Dunedin's rainfall patterns)
+
 :::
 
 ## What is Bayesian analysis?
@@ -109,11 +121,29 @@ Classical statistics is based on this concept of repeated sampling
 
 . . .
 
+* That is, given new $\mathit{data}$, how should we get from
+
+$$\mathrm{Pr}(A)$$
+
+. . .
+
+::: {style="text-align:center"}
+to
+:::
+
+$$\mathrm{Pr}(A\ |\ \mathit{data})$$
+
 <br>
 
-#### Bayes' Theorem:
+## Bayes' Theorem:
+
+<br>
 
 $$\mathrm{Pr}(A | B) = \frac{\mathrm{Pr}(B | A) \mathrm{Pr}(A)}{\mathrm{Pr}(B)}$$
+
+<br>
+
+. . .
 
   * In a statistical model, we are usually interested in probability distributions over continuous covariates:
 
@@ -167,8 +197,8 @@ p1 <- ggplot(density_tbl, aes(theta)) +
     scale_x_continuous(limits = c(0, 1)) +
     scale_y_continuous("Density", limits = c(0, ymax), expand = c(0, 0)) +
     theme(axis.line.y = element_blank(), axis.ticks.y = element_blank(), axis.text.y = element_blank(),
-          axis.line.x = element_blank(),
-          panel.background = element_blank())
+          axis.line.x = element_blank(), panel.grid = element_blank(),
+          panel.background = element_blank(), plot.background = element_blank())
 p2 <- p1 +
   geom_area(aes(y = likelihood), linetype = 0, fill = "#FF888866", stat = "identity", position = "identity")
 p3 <- p2 +
@@ -178,9 +208,9 @@ ggsave("images/density-2.png", p2, width = 6, height = 4)
 ggsave("images/density-3.png", p3, width = 6, height = 4)
 ```
 
-![](images/density-1.png){.absolute bottom=-60 left=230 width=675 .fragment fragment-index=1}
+![](images/density-1.png){.absolute bottom=-60 left=230 width=675 .fragment .fade-in-then-out fragment-index=1}
 
-![](images/density-2.png){.absolute bottom=-60 left=230 width=675 .fragment fragment-index=2}
+![](images/density-2.png){.absolute bottom=-60 left=230 width=675 .fragment .fade-in-then-out fragment-index=2}
 
 ![](images/density-3.png){.absolute bottom=-60 left=230 width=675 .fragment fragment-index=3}
 
@@ -197,7 +227,7 @@ ggsave("images/density-3.png", p3, width = 6, height = 4)
 ::: {.absolute bottom=300 left=650 .fragment fragment-index=3}
 [Posterior]{style="color:#C76F8E;"}
 :::
-## Bayes' Theorem
+## Specifying priors
 
 * Where do these 'priors' come from?
 
@@ -207,7 +237,16 @@ ggsave("images/density-3.png", p3, width = 6, height = 4)
   
   * 'Weakly informative' priors
 
+::: {.fragment fragment-index=1}
+
+* In most cases there is no 'correct' prior, and sensitivity to various plausible priors should be considered
+
+:::
+::: {.fragment fragment-index=2}
+
 * The more data we have, the less the prior matters
+
+:::
 
 ```{r}
 density_tbl2 <- density_tbl |> 
@@ -234,73 +273,221 @@ ggsave("images/more-data-2.png", p5, width = 6, height = 10)
 ggsave("images/more-data-3.png", p6, width = 6, height = 10)
 ```
 
-![](images/more-data-1.png){.absolute bottom=-60 left=410 width=600 height=1000 .fragment .fade-in-then-out fragment-index=1}
+![](images/more-data-1.png){.absolute bottom=-60 left=410 width=600 .fragment .fade-in-then-out fragment-index=3}
 
-![](images/more-data-2.png){.absolute bottom=-60 left=410 width=600 height=1000 .fragment .fade-in-then-out fragment-index=2}
+![](images/more-data-2.png){.absolute bottom=-60 left=410 width=600 .fragment .fade-in-then-out fragment-index=4}
 
-![](images/more-data-3.png){.absolute bottom=-60 left=410 width=600 height=1000 .fragment fragment-index=3}
+![](images/more-data-3.png){.absolute bottom=-60 left=410 width=600 .fragment fragment-index=5}
 
-## Numeric example
-* Consider a simple repeated coin toss:
-  * Say we toss a coin 10 times, and it comes up heads 7/10
-* Maximum likelihood analysis:
+## Why Bayesian analysis? {.smaller}
+
+* Our objective is usually to conclude something about the likely values of a treatment effect (or other outcome of interest)
+
+* There is usually at least some prior evidence relevant to the research question
+
+  * Ignoring this evidence limits our ability to draw appropriate conclusions from research
+  
+  * Explicitly incorporating prior evidence forces researchers, and users of research, to think carefully and be transparent about what external evidence, judgements, and assumptions should be included
+
+. . .
+
+* As we will see, Bayesian analysis can also be much more flexible than traditional approaches, both in what data can contribute to analysis and in the particular models that can be estimated
+
+. . .
+
+* Interpretation of Bayesian results is much more intuitive and applicable than most traditional statistical methods
+
+## Presentation and interpretation
+
+To be added - consider prior -> posterior interpretation, so need to consider sensitivity to prior, summary of posterior by mean/median/credible interval/probability of specific hypotheses/parameter values (e.g., Pr(theta > 0), Pr(theta > MCID), etc.)
+
+# Examples
+
+## Examples
+
+<br>
+
+* All examples are taken from *Bayesian Approaches to Clinical Trials and Health-Care Evaluation* by Spiegelhalter et al. (2003)
+
+<br>
+
+* I hope to give some idea of the range and flexibility of Bayesian analysis
+
+<br>
+
+* We will focus on the 'What' and the 'Why', not on the 'How'
+
+## Diagnostic testing
+
+<br>
+
+* Suppose have a new HIV test, which has 95% sensitivity and 98% specificity
+
+* We want to use the test for screening, in a population with HIV prevalence of 1/1000
+
+<br>
+
+. . .
+
+* What is the probability that someone has HIV, given that they have tested positive?
+
+## Diagnostic testing
+
+* Using Bayes' theorem:
+$$\mathrm{Pr}(\text{HIV}^+\ |\ \text{test}^+) = \frac{\mathrm{Pr}(\text{test}^+\ |\ \text{HIV}^+)\ \mathrm{Pr}(\text{HIV}^+)}{\mathrm{Pr}(\text{test}^+)}$$
+
+  * $\mathrm{Pr}(\text{test}^+\ |\ \text{HIV}^+)$ is the sensitivity, $0.95$
+  
+  * $\mathrm{Pr}(\text{HIV}^+)$ is $1 / 1000 = 0.001$
+  
+  * $\mathrm{Pr}(\text{test}^+)$ can be calculated as  
+  $\mathrm{Pr}(\text{test}^+\ |\ \text{HIV}^-)\ \mathrm{Pr}(\text{HIV}^-) + \mathrm{Pr}(\text{test}^+\ |\ \text{HIV}^+)\ \mathrm{Pr}(\text{HIV}^+)$  
+  $\ \ \ \  = 0.02 \times 0.999 + 0.95 \times 0.001 = 0.02093$
+
+. . .
+
+* Therefore,
+$$\mathrm{Pr}(\text{HIV}^+\ |\ \text{test}^+) = \frac{0.95 \times 0.001}{0.02093} = 0.045$$
+
+## Diagnostic testing
+
+* To see how this works, consider the expected status of 100,000 individuals being screened
 
 ```{=html}
 <table class="table" style="margin-left: auto; margin-right: auto;">
  <thead>
   <tr>
-   <th style="text-align:center;"> <b>Hypothesis</b><br><span style="font-size: 0.8em;">\(\mathrm{Pr}(\mathit{heads}) = \theta\)</span> </th>
-   <th style="text-align:center;"> <b>Prior</b><br><span style="font-size: 0.8em;">\(\mathrm{Pr}(\theta)\)</span> </th>
-   <th style="text-align:center;"> <b>Likelihood</b><br><span style="font-size: 0.8em;">\(\mathrm{Pr}(y \mid \theta)\)</span> </th>
-   <th style="text-align:center;"> <b>Posterior</b><br><span style="font-size: 0.8em;">\(\mathrm{Pr}(\theta \mid y)\)</span> </th>
+   <th style="text-align:center;"> </th>
+   <th style="text-align:center;"> <b>HIV<sup>&minus;</sup></b> </th>
+   <th style="text-align:center;"> <b>HIV<sup>+</sup></b> </th>
+   <th style="text-align:center;"> </th>
   </tr>
  </thead>
 <tbody>
   <tr>
-   <td style="text-align:center;"> 0.2 </td>
-   <td style="text-align:center;"> 0.01 </td>
-   <td style="text-align:center;"> 0.0008 </td>
-   <td style="text-align:center;"> 0.0001 </td>
+   <td style="text-align:center;"> <b>Test<sup>&minus;</sup></b> </td>
+   <td style="text-align:center;"> 97 902 </td>
+   <td style="text-align:center;"> 5 </td>
+   <td style="text-align:center;"> 97 903 </td>
   </tr>
   <tr>
-   <td style="text-align:center;"> 0.3 </td>
-   <td style="text-align:center;"> 0.04 </td>
-   <td style="text-align:center;"> 0.0090 </td>
-   <td style="text-align:center;"> 0.0030 </td>
+   <td style="text-align:center;"> <b>Test<sup>+</sup></b> </td>
+   <td style="text-align:center;"> 1 998 </td>
+   <td style="text-align:center;"> 95 </td>
+   <td style="text-align:center;"> 2 093 </td>
   </tr>
   <tr>
-   <td style="text-align:center;"> 0.4 </td>
-   <td style="text-align:center;"> 0.10 </td>
-   <td style="text-align:center;"> 0.0425 </td>
-   <td style="text-align:center;"> 0.0351 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;"> 0.5 </td>
-   <td style="text-align:center;"> 0.70 </td>
-   <td style="text-align:center;"> 0.1172 </td>
-   <td style="text-align:center;"> 0.6789 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;"> 0.6 </td>
-   <td style="text-align:center;"> 0.10 </td>
-   <td style="text-align:center;"> 0.2150 </td>
-   <td style="text-align:center;"> 0.1779 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;"> 0.7 </td>
-   <td style="text-align:center;"> 0.04 </td>
-   <td style="text-align:center;"> 0.2668 </td>
-   <td style="text-align:center;"> 0.0883 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;"> 0.8 </td>
-   <td style="text-align:center;"> 0.01 </td>
-   <td style="text-align:center;"> 0.2013 </td>
-   <td style="text-align:center;"> 0.0167 </td>
+   <td style="text-align:center;">  </td>
+   <td style="text-align:center;"> 99 900 </td>
+   <td style="text-align:center;"> 100 </td>
+   <td style="text-align:center;"> 100 000 </td>
   </tr>
 </tbody>
 </table>
 ```
+
+* As before, the probability of having HIV given a positive test can be calculated:
+$$\mathrm{Pr}(\text{HIV}^+\ |\ \text{test}^+) = \frac{95}{2093} = 0.045$$
+
+## Diagnostic testing
+
+* More than 95% of those testing positive will not actually have HIV!
+
+<br>
+
+. . .
+
+* Note that this is very sensitive to the base rate (the proportion who have HIV in the population being tested)
+
+* If the test was used for diagnosis in people suspected of having HIV, such that, say $\mathrm{Pr}(\text{HIV}^+) = 0.2$, then
+$$\mathrm{Pr}(\text{HIV}^+\ |\ \text{test}^+) = \frac{0.95 \times 0.2}{0.206} = 0.922$$
+
+## Aside: 'The epidemiology of clinical trials'
+
+* The same idea can be used to consider the 'diagnostic accuracy' of clinical trials in identifying truly effective treatments
+
+* In early phase trials, in particular, most treatments tested are probably not effective
+
+* Assume 10% of such trials are of effective treatments, and trials are designed for 80% power at 5% significance level
+
+* The same calculations as before give $\mathrm{Pr}(\text{Effective}\ |\ \text{Significant result}) = 0.64$
+
+* That is, even if all trials were conducted perfectly, no publication bias, etc., 36% of significant results are actually of ineffective treatments
+
+## A simple RCT analysis
+
+* The GREAT trial was a study of a new drug for early treatment after myocardial infarction, compared with placebo
+
+* The primary outcome was 30-day mortality rate, with data:
+
+```{=html}
+<table class="table" style="margin-left: auto; margin-right: auto;">
+ <thead>
+  <tr>
+   <th style="text-align:center;"> </th>
+   <th style="text-align:center;"> <b>New</b> </th>
+   <th style="text-align:center;"> <b>Placebo</b> </th>
+   <th style="text-align:center;"> </th>
+  </tr>
+ </thead>
+<tbody>
+  <tr>
+   <td style="text-align:center;"> <b>Death</b> </td>
+   <td style="text-align:center;"> 13 </td>
+   <td style="text-align:center;"> 23 </td>
+   <td style="text-align:center;"> 36 </td>
+  </tr>
+  <tr>
+   <td style="text-align:center;"> <b>No death</b> </td>
+   <td style="text-align:center;"> 150 </td>
+   <td style="text-align:center;"> 125 </td>
+   <td style="text-align:center;"> 275 </td>
+  </tr>
+  <tr>
+   <td style="text-align:center;">  </td>
+   <td style="text-align:center;"> 163 </td>
+   <td style="text-align:center;"> 148 </td>
+   <td style="text-align:center;"> 311 </td>
+  </tr>
+</tbody>
+</table>
+```
+
+## A simple RCT analysis
+
+* Standard analysis of these data gives an OR of (13 / 150) / (23 / 125) = 0.47, with 95% CI 0.24 to 0.97
+
+  * That is, a fairly large reduction in mortality, just reaching statistical significance at the 5% level
+
+. . . 
+
+* From a Bayesian perspective, we need to consider what our prior belief is (was) on the plausible range of true effects, and how these results should cause us to revise those beliefs
+
+. . . 
+
+* Prior distribution was based on the subjective judgement of a senior cardiologist, informed by previous published and unpublished studies
+
+  * 'an expectation of 15--20% reduction in mortality is highly plausible, while the extremes of no benefit and a 40% relative reduction are both unlikely'
+  
+  * Two initial thoughts on this prior:
+  
+    * If we are already confident that it is effective, why are we doing the trial?
+    
+    * This is a strong prior judgement, compared to the amount of information provided by the trial
+
+. . . 
+
+* Combining this prior with the observed data gives posterior estimate of 0.73 (95% credible interval 0.58 to 0.93)
+
+## A simple RCT analysis
+
+* Bayesian analysis can also be used to ask how the results of this trial should change the views of a reasonably skeptical observer
+
+  * That is, with no prior view one way or the other, but believing large treatment effects are unlikely
+
+* Assuming a prior centred on no effect (OR = 1), with 95% interval from 50% reduction (OR = 0.5) to 100% increase (OR = 2):
+
+* Posterior OR = 0.70 (95% interval 0.43 to 1.14), i.e., no effect would still be considered reasonably plausible
 
 # Bayesian analysis in practice
 

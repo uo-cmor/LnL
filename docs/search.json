@@ -214,28 +214,28 @@
     "href": "presentations/bayesian-analysis.html#what-is-probability",
     "title": "Introduction to Bayesian Analysis",
     "section": "What is probability?",
-    "text": "What is probability?\n\nOr, how should we interpret a probability of, say, 20%?\n\n\n\nRelative frequency\n\n\\(\\mathrm{Pr}(A) = \\lim\\limits_{n \\to \\infty} \\frac{\\text{# times } A \\text{ occurs}}{n}\\)\n\n\nClassical statistics is based on this concept of repeated sampling\n\n\n\n\nSubjective probability\nA measure of certainty (or uncertainty) in an event\n\n\nWhat is the probability it will rain in Dunedin tomorrow?\nWhat is the probability that exercise therapy is beneficial for a patient with OA?"
+    "text": "What is probability?\n\nWhat does it mean to say something has a probability of, say, 20%?\n\n\n\nRelative frequency\n\n\\(\\mathrm{Pr}(A) = \\lim\\limits_{n \\to \\infty} \\frac{\\text{# times } A \\text{ occurs}}{n}\\)\n\n\nIf we repeatedly sample from a given situation, what proportion of times will the event occur?\n\n\n\n\nSubjective probability\nA measure of certainty (or uncertainty) in an event\n\n\nWhat is the probability it will rain in Dunedin tomorrow?\nWhat is the probability that exercise therapy is beneficial for a patient with OA?"
   },
   {
     "objectID": "presentations/bayesian-analysis.html#conditional-probability",
     "href": "presentations/bayesian-analysis.html#conditional-probability",
     "title": "Introduction to Bayesian Analysis",
     "section": "Conditional probability",
-    "text": "Conditional probability\n\n\nProbability can be defined conditional on information\n\n\n\nWhat is the probability it will rain in Dunedin tomorrow?\n\n\\(\\mathrm{Pr}(\\text{Rain tomorrow})\\)\n\\(\\mathrm{Pr}(\\text{Rain tomorrow}\\ |\\ \\text{Today's weather})\\)\n\\(\\mathrm{Pr}(\\text{Rain tomorrow}\\ |\\ \\text{Tomorrow's forecast})\\)"
+    "text": "Conditional probability\n\n\nProbability is conditional on available information\n\n\n\nWhat is the probability it will rain in Dunedin tomorrow?\n\n\\(\\mathrm{Pr}(\\text{Rain tomorrow})\\)\n\\(\\mathrm{Pr}(\\text{Rain tomorrow}\\ |\\ \\text{Today's weather})\\)\n\\(\\mathrm{Pr}(\\text{Rain tomorrow}\\ |\\ \\text{Tomorrow's forecast})\\)\n\nEven the first (unconditional) probability is implicitly conditional on some information set\n(your general knowledge about Dunedin’s rainfall patterns)"
   },
   {
     "objectID": "presentations/bayesian-analysis.html#what-is-bayesian-analysis-1",
     "href": "presentations/bayesian-analysis.html#what-is-bayesian-analysis-1",
     "title": "Introduction to Bayesian Analysis",
     "section": "What is Bayesian analysis?",
-    "text": "What is Bayesian analysis?\n\n\nBayesian analysis is the process of updating these probabilities in light of new information\n\n\n\nBayes’ Theorem:\n\\[\\mathrm{Pr}(A | B) = \\frac{\\mathrm{Pr}(B | A) \\mathrm{Pr}(A)}{\\mathrm{Pr}(B)}\\]\n\nIn a statistical model, we are usually interested in probability distributions over continuous covariates:\n\n\\[f(\\theta | y) = \\frac{f(y | \\theta) f(\\theta)}{f(y)}\\]\n(updated knowledge about a parameter \\(\\theta\\) given data \\(y\\))"
+    "text": "What is Bayesian analysis?\n\n\nBayesian analysis is the process of updating these probabilities in light of new information\n\n\n\nThat is, given new \\(\\mathit{data}\\), how should we get from\n\n\\[\\mathrm{Pr}(A)\\]\n\n\n\nto\n\n\\[\\mathrm{Pr}(A\\ |\\ \\mathit{data})\\]"
   },
   {
     "objectID": "presentations/bayesian-analysis.html#bayes-theorem",
     "href": "presentations/bayesian-analysis.html#bayes-theorem",
     "title": "Introduction to Bayesian Analysis",
-    "section": "Bayes’ Theorem",
-    "text": "Bayes’ Theorem\n\n\n\\[\\mathrm{Pr}(A | B) = \\frac{\\mathrm{Pr}(B | A) \\mathrm{Pr}(A)}{\\mathrm{Pr}(B)}\\]"
+    "section": "Bayes’ Theorem:",
+    "text": "Bayes’ Theorem:\n\n\\[\\mathrm{Pr}(A | B) = \\frac{\\mathrm{Pr}(B | A) \\mathrm{Pr}(A)}{\\mathrm{Pr}(B)}\\]\n\n\n\nIn a statistical model, we are usually interested in probability distributions over continuous covariates:\n\n\\[f(\\theta | y) = \\frac{f(y | \\theta) f(\\theta)}{f(y)}\\]\n(updated knowledge about a parameter \\(\\theta\\) given data \\(y\\))"
   },
   {
     "objectID": "presentations/bayesian-analysis.html#bayes-theorem-1",
@@ -1013,5 +1013,75 @@
     "title": "Introduction to Bayesian Analysis",
     "section": "Further examples",
     "text": "Further examples\n\n8 Schools\n\nHierarchical Bayesian modelling\n\n\n\n\n\n\nSchool\nMean estimate\nStandard error\n\n\n\n\nA\n28\n15\n\n\nB\n8\n10\n\n\nC\n-3\n16\n\n\nD\n7\n11\n\n\nE\n-1\n9\n\n\nF\n1\n11\n\n\nG\n18\n10\n\n\nH\n12\n18\n\n\n\n\n\n\nWhat is our ‘best’ estimate of the true effect in School A?"
+  },
+  {
+    "objectID": "presentations/bayesian-analysis.html#what-is-bayesian-analysis",
+    "href": "presentations/bayesian-analysis.html#what-is-bayesian-analysis",
+    "title": "Introduction to Bayesian Analysis",
+    "section": "What is Bayesian analysis?",
+    "text": "What is Bayesian analysis?\n\n\nA probabilistic approach to data analysis and interpretation\n\n\n\nHow should we refine our prior beliefs about (say) a treatment effect, in light of data from a study?\n\n\n\nTraditional statistical analysis summarises what the data from this study tells us about the treatment effect;\nBayesian analysis tells us how the data should change our opinion about the effect"
+  },
+  {
+    "objectID": "presentations/bayesian-analysis.html#further-examples-2",
+    "href": "presentations/bayesian-analysis.html#further-examples-2",
+    "title": "Introduction to Bayesian Analysis",
+    "section": "Further examples",
+    "text": "Further examples\n\nItem Response Theory modelling\n\nRasch model: \\(\\mathrm{logit}[\\mathrm{Pr}(y_{ij} = 1 | \\theta_j)] = \\theta_j - \\beta_i\\)\n2-parameter model: \\(\\mathrm{logit}[\\mathrm{Pr}(y_{ij} = 1 | \\theta_j)] = \\alpha_i(\\theta_j - \\beta_i)\\)\n\nThe edstan package provides functions and Stan code to fit IRT models"
+  },
+  {
+    "objectID": "presentations/bayesian-analysis.html#frequentist-vs.-bayesian",
+    "href": "presentations/bayesian-analysis.html#frequentist-vs.-bayesian",
+    "title": "Introduction to Bayesian Analysis",
+    "section": "Frequentist vs. Bayesian",
+    "text": "Frequentist vs. Bayesian\n\nBayesian analysis:\n\nUses prior information (when available)\nAccounts for uncertainty in parameters\nProvides probability values and credible parameters with more intuitive (and meaningful) interpretation\nCan provide more reliable estimates in small samples\nCan estimate more complicated models and conduct more informative post-estimation analyses than traditional approaches\n\nBut: can be more difficult to implement in practice\n\nThis is not necessarily a bad thing – it might make us think about some of the underlying assumptions that can be swept under the carpet in traditional statistical analysis"
+  },
+  {
+    "objectID": "presentations/bayesian-analysis.html#summary",
+    "href": "presentations/bayesian-analysis.html#summary",
+    "title": "Introduction to Bayesian Analysis",
+    "section": "Summary",
+    "text": "Summary\n\nConducting Bayesian analysis requires a little more thought, and a little more confidence with statistical methods, than ‘traditional’ frequentist approaches\nModern software packages make this a lot easier (and are getting better all the time)\nThe payoff is more flexible modelling options, ability to incorporate relevant prior information, more robust estimates in small samples, and more meaningful analysis of uncertainty in parameter estimates"
+  },
+  {
+    "objectID": "presentations/bayesian-analysis.html#specifying-priors",
+    "href": "presentations/bayesian-analysis.html#specifying-priors",
+    "title": "Introduction to Bayesian Analysis",
+    "section": "Specifying priors",
+    "text": "Specifying priors\n\nWhere do these ‘priors’ come from?\n\nPrevious research\nCommon sense/intuition?\n‘Weakly informative’ priors\n\n\n\n\nIn most cases there is no ‘correct’ prior, and sensitivity to various plausible priors should be considered\n\n\n\n\nThe more data we have, the less the prior matters"
+  },
+  {
+    "objectID": "presentations/bayesian-analysis.html#examples-1",
+    "href": "presentations/bayesian-analysis.html#examples-1",
+    "title": "Introduction to Bayesian Analysis",
+    "section": "Examples",
+    "text": "Examples\n\n\nAll examples are taken from Bayesian Approaches to Clinical Trials and Health-Care Evaluation by Spiegelhalter et al. (2003)\n\n\n\nI hope to give some idea of the range and flexibility of Bayesian analysis\n\n\n\nWe will focus on the ‘What’ and the ‘Why’, not on the ‘How’"
+  },
+  {
+    "objectID": "presentations/bayesian-analysis.html#diagnostic-testing",
+    "href": "presentations/bayesian-analysis.html#diagnostic-testing",
+    "title": "Introduction to Bayesian Analysis",
+    "section": "Diagnostic testing",
+    "text": "Diagnostic testing\n\n\nSuppose have a new HIV test, which has 95% sensitivity and 98% specificity\nWe want to use the test for screening, in a population with HIV prevalence of 1/1000\n\n\n\n\nWhat is the probability that someone has HIV, given that they have tested positive?"
+  },
+  {
+    "objectID": "presentations/bayesian-analysis.html#diagnostic-testing-1",
+    "href": "presentations/bayesian-analysis.html#diagnostic-testing-1",
+    "title": "Introduction to Bayesian Analysis",
+    "section": "Diagnostic testing",
+    "text": "Diagnostic testing\n\nUsing Bayes’ theorem: \\[\\mathrm{Pr}(\\text{HIV}^+\\ |\\ \\text{test}^+) = \\frac{\\mathrm{Pr}(\\text{test}^+\\ |\\ \\text{HIV}^+)\\ \\mathrm{Pr}(\\text{HIV}^+)}{\\mathrm{Pr}(\\text{test}^+)}\\]\n\n\\(\\mathrm{Pr}(\\text{test}^+\\ |\\ \\text{HIV}^+)\\) is the sensitivity, \\(0.95\\)\n\\(\\mathrm{Pr}(\\text{HIV}^+)\\) is \\(1 / 1000 = 0.001\\)\n\\(\\mathrm{Pr}(\\text{test}^+)\\) can be calculated as\n\\(\\mathrm{Pr}(\\text{test}^+\\ |\\ \\text{HIV}^-)\\ \\mathrm{Pr}(\\text{HIV}^-) + \\mathrm{Pr}(\\text{test}^+\\ |\\ \\text{HIV}^+)\\ \\mathrm{Pr}(\\text{HIV}^+)\\)\n\\(\\ \\ \\ \\  = 0.02 \\times 0.999 + 0.95 \\times 0.001 = 0.02093\\)\n\n\n\n\nTherefore, \\[\\mathrm{Pr}(\\text{HIV}^+\\ |\\ \\text{test}^+) = \\frac{0.95 \\times 0.001}{0.02093} = 0.045\\]"
+  },
+  {
+    "objectID": "presentations/bayesian-analysis.html#diagnostic-testing-2",
+    "href": "presentations/bayesian-analysis.html#diagnostic-testing-2",
+    "title": "Introduction to Bayesian Analysis",
+    "section": "Diagnostic testing",
+    "text": "Diagnostic testing\n\nTo see how this works, consider the expected status of 100,000 individuals being screened\n\n\n\n\n\nHIV−\nHIV+\n\n\n\n\n\nTest−\n97 902\n5\n97 903\n\n\nTest+\n1 998\n95\n2 093\n\n\n\n99 900\n100\n100 000\n\n\n\n\nAs before, the probability of having HIV given a positive test can be calculated: \\[\\mathrm{Pr}(\\text{HIV}^+\\ |\\ \\text{test}^+) = \\frac{95}{2093} = 0.045\\]"
+  },
+  {
+    "objectID": "presentations/bayesian-analysis.html#diagnostic-testing-3",
+    "href": "presentations/bayesian-analysis.html#diagnostic-testing-3",
+    "title": "Introduction to Bayesian Analysis",
+    "section": "Diagnostic testing",
+    "text": "Diagnostic testing\n\nMore than 95% of those testing positive will not actually have HIV!\n\n\n\n\nNote that this is very sensitive to the base rate (the proportion who have HIV in the population being tested)\nIf the test was used for diagnosis in people suspected of having HIV, such that, say \\(\\mathrm{Pr}(\\text{HIV}^+) = 0.2\\), then \\[\\mathrm{Pr}(\\text{HIV}^+\\ |\\ \\text{test}^+) = \\frac{0.95 \\times 0.2}{0.206} = 0.922\\]"
   }
 ]
