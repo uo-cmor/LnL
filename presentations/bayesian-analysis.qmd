@@ -23,6 +23,58 @@ library(tidyverse)
 library(kableExtra, exclude = "group_rows")
 ```
 
+# What is statistical analysis for?
+
+## What is the objective of a statistical analysis?
+
+* Consider, for example, a clinical trial to estimate a treatment effect
+
+* We may want to know:
+
+  * What is the 'true' (average) treatment effect?
+  
+  * How certain are we about that estimate?
+  
+    * What is the range of plausible values of the effect?
+    
+    * What is the probability that the treatment is 'effective'?
+
+# Classical versus Bayesian approaches
+
+## Classical versus Bayesian approaches
+
+<br>
+
+* We'll try not to go into too much technical detail
+
+<br>
+
+. . .
+
+* A useful way I have seen it described:
+
+  * Classical methods tell us what the observed data (e.g. from this trial) tell us about the treatment effect
+  
+  * Bayesian methods tell us how we should update our beliefs about the treatment effect based on these data
+
+## Brief review of classical statistics
+
+* Maximum likelihood - what true value of the treatment effect is most compatible with observed data?
+  
+  * *For what value of the treatment effect are the observed data most likely to occur?*
+
+. . .
+
+* Hypothesis testing - how likely is it that the observed data could be due to chance alone?
+
+  * *If there is no true effect of treatment, how likely would the observed (or larger) effect be?*
+
+. . .
+
+* Confidence intervals - what range of values can we be 'confident' the treatment effect falls within?
+  
+  * Almost, but not quite: *There is a (say) 95% probability that the true effect lies within the 95% confidence interval*
+
 ## What is Bayesian analysis?
 
 <br>
@@ -31,18 +83,13 @@ library(kableExtra, exclude = "group_rows")
 
 <br>
 
-* How should we refine our prior beliefs about (say) a treatment effect, in light of data from a study?
+* Conceptually, we consider the treatment effect to be a **random variable**
+
+  * We can express our beliefs about the value of this variable as a probability distribution
 
 <br>
 
-* Traditional statistical analysis summarises what the data from *this study* tells us about the treatment effect;  
-Bayesian analysis tells us how the data should change our opinion about the effect
-
-<!-- * Bayesian analysis is about estimating/interpreting the *uncertainty* or *probability distribution* of parameters -->
-
-<!-- <br> -->
-
-<!-- * To understand this, we need a very brief background to probability theory -->
+* How should we refine our prior beliefs in light of new data?
 
 ## What is probability?
 
@@ -108,8 +155,9 @@ If we repeatedly sample from a given situation, what proportion of times will th
 
   * $\mathrm{Pr}(\text{Rain tomorrow}\ |\ \text{Tomorrow's forecast})$
 
-* Even the first (unconditional) probability is implicitly conditional on some information set  
-(your general knowledge about Dunedin's rainfall patterns)
+<br>
+
+* Even the first (unconditional) probability is implicitly conditional on some information set (e.g. your general knowledge about Dunedin's rainfall patterns)
 
 :::
 
@@ -172,7 +220,7 @@ $$\mathrm{Posterior} \propto \mathrm{Likelihood} \times \mathrm{Prior}$$
 
 ## Bayes' Theorem
 
-* Conceptually,
+* In principle:
 
   * we start with some beliefs about the parameters of interest
   
@@ -229,7 +277,11 @@ ggsave("images/density-3.png", p3, width = 6, height = 4)
 :::
 ## Specifying priors
 
-* Where do these 'priors' come from?
+* The role of prior beliefs has been the most controversial aspect of Bayesian analysis
+
+::: {.fragment fragment-index=1}
+
+* Where do our 'priors' come from?
 
   * Previous research
   
@@ -237,14 +289,16 @@ ggsave("images/density-3.png", p3, width = 6, height = 4)
   
   * 'Weakly informative' priors
 
-::: {.fragment fragment-index=1}
+:::
+::: {.fragment fragment-index=2}
 
 * In most cases there is no 'correct' prior, and sensitivity to various plausible priors should be considered
 
 :::
-::: {.fragment fragment-index=2}
+::: {.fragment fragment-index=3}
 
-* The more data we have, the less the prior matters
+* The more data we have,  
+the less the prior matters
 
 :::
 
@@ -273,15 +327,17 @@ ggsave("images/more-data-2.png", p5, width = 6, height = 10)
 ggsave("images/more-data-3.png", p6, width = 6, height = 10)
 ```
 
-![](images/more-data-1.png){.absolute bottom=-60 left=410 width=600 .fragment .fade-in-then-out fragment-index=3}
+![](images/more-data-1.png){.absolute bottom=-60 left=410 width=600 .fragment .fade-in-then-out fragment-index=4}
 
-![](images/more-data-2.png){.absolute bottom=-60 left=410 width=600 .fragment .fade-in-then-out fragment-index=4}
+![](images/more-data-2.png){.absolute bottom=-60 left=410 width=600 .fragment .fade-in-then-out fragment-index=5}
 
-![](images/more-data-3.png){.absolute bottom=-60 left=410 width=600 .fragment fragment-index=5}
+![](images/more-data-3.png){.absolute bottom=-60 left=410 width=600 .fragment fragment-index=6}
 
 ## Why Bayesian analysis? {.smaller}
 
 * Our objective is usually to conclude something about the likely values of a treatment effect (or other outcome of interest)
+
+. . .
 
 * There is usually at least some prior evidence relevant to the research question
 
@@ -297,9 +353,38 @@ ggsave("images/more-data-3.png", p6, width = 6, height = 10)
 
 * Interpretation of Bayesian results is much more intuitive and applicable than most traditional statistical methods
 
-## Presentation and interpretation
+## Comparing classical and Bayesian approaches {.smaller}
 
-To be added - consider prior -> posterior interpretation, so need to consider sensitivity to prior, summary of posterior by mean/median/credible interval/probability of specific hypotheses/parameter values (e.g., Pr(theta > 0), Pr(theta > MCID), etc.)
+* Maximum likelihood
+  * Classical approaches use the likelihood (i.e. observed data) alone
+  * Bayesian approaches combine the observed data likelihood with prior beliefs
+
+. . .
+
+* Hypothesis testing
+  * The classical p-value is ***not*** $\mathrm{Pr}(\text{no treatment effect})$
+  * Bayesian analysis **can** tell us $\mathrm{Pr}(\text{no treatment effect})$ (or any other probability statement about the parameters of interest)
+
+. . .
+
+* Confidence intervals
+  * Slightly more subtle differences
+  * In some (many) cases, classical confidence intervals are identical or very similar to Bayesian equivalents assuming no useful prior information
+  * When prior information is available, Bayesian credible intervals incorporate that information
+
+## Presentation and interpretation {.smaller}
+
+* Bayesian analyses are often more complex than classical analyses, and care is needed in presentation and interpretation
+
+* The prior(s) used should always be explicitly stated and justified
+  * Sensitivity to different plausible priors should be considered
+
+* Bayesian analysis produces an estimated parameter *distribution*, not a single point estimate
+  * The mean or median can be used as a central estimate
+  * The 2.5th and 97.5th percentiles of the distribution can be used to generate a 95% credible interval
+  * The probability of specific ranges of parameter values (e.g. $\mathrm{Pr}(\theta > 0)$) might be of interest
+
+* It is important to note (as in classical analyses) that the distribution captures *uncertainty* in the parameter estimate, not between-person variability in treatment effects
 
 # Examples
 
@@ -307,7 +392,7 @@ To be added - consider prior -> posterior interpretation, so need to consider se
 
 <br>
 
-* All examples are taken from *Bayesian Approaches to Clinical Trials and Health-Care Evaluation* by Spiegelhalter et al. (2003)
+* These examples are taken from *Bayesian Approaches to Clinical Trials and Health-Care Evaluation* by Spiegelhalter et al. (2003), and *Bayesian Data Analysis* (Third edition) by Gelman et al. (2020)
 
 <br>
 
@@ -402,18 +487,6 @@ $$\mathrm{Pr}(\text{HIV}^+\ |\ \text{test}^+) = \frac{95}{2093} = 0.045$$
 * If the test was used for diagnosis in people suspected of having HIV, such that, say $\mathrm{Pr}(\text{HIV}^+) = 0.2$, then
 $$\mathrm{Pr}(\text{HIV}^+\ |\ \text{test}^+) = \frac{0.95 \times 0.2}{0.206} = 0.922$$
 
-## Aside: 'The epidemiology of clinical trials'
-
-* The same idea can be used to consider the 'diagnostic accuracy' of clinical trials in identifying truly effective treatments
-
-* In early phase trials, in particular, most treatments tested are probably not effective
-
-* Assume 10% of such trials are of effective treatments, and trials are designed for 80% power at 5% significance level
-
-* The same calculations as before give $\mathrm{Pr}(\text{Effective}\ |\ \text{Significant result}) = 0.64$
-
-* That is, even if all trials were conducted perfectly, no publication bias, etc., 36% of significant results are actually of ineffective treatments
-
 ## A simple RCT analysis
 
 * The GREAT trial was a study of a new drug for early treatment after myocardial infarction, compared with placebo
@@ -453,7 +526,7 @@ $$\mathrm{Pr}(\text{HIV}^+\ |\ \text{test}^+) = \frac{0.95 \times 0.2}{0.206} = 
 </table>
 ```
 
-## A simple RCT analysis
+## A simple RCT analysis {.smaller}
 
 * Standard analysis of these data gives an OR of (13 / 150) / (23 / 125) = 0.47, with 95% CI 0.24 to 0.97
 
@@ -470,10 +543,10 @@ $$\mathrm{Pr}(\text{HIV}^+\ |\ \text{test}^+) = \frac{0.95 \times 0.2}{0.206} = 
   * 'an expectation of 15--20% reduction in mortality is highly plausible, while the extremes of no benefit and a 40% relative reduction are both unlikely'
   
   * Two initial thoughts on this prior:
-  
-    * If we are already confident that it is effective, why are we doing the trial?
     
     * This is a strong prior judgement, compared to the amount of information provided by the trial
+  
+    * If we are already confident that the treatment is effective, why are we doing the trial?
 
 . . . 
 
@@ -488,6 +561,239 @@ $$\mathrm{Pr}(\text{HIV}^+\ |\ \text{test}^+) = \frac{0.95 \times 0.2}{0.206} = 
 * Assuming a prior centred on no effect (OR = 1), with 95% interval from 50% reduction (OR = 0.5) to 100% increase (OR = 2):
 
 * Posterior OR = 0.70 (95% interval 0.43 to 1.14), i.e., no effect would still be considered reasonably plausible
+
+## Multiplicity and hierarchical models
+
+* Problems of multiplicity are well-recognised in traditional statistical analyses
+  * If we test multiple outcomes, multiple subsets of participants, multiple treatment group contrasts, we will inevitably find some 'significant' results, even if there are no true effects
+
+* In a Bayesian analysis, these multiple endpoints can often be nested within a larger hierarchical model
+
+## Educational coaching interventions in 8 schools {.smaller}
+
+* A study was performed of coaching programs to improve SAT scores in each of 8 schools
+  * Estimates of the treatment effect were obtained separately from each school
+
+```{=html}
+<table class="table" style="margin-left: auto; margin-right: auto;">
+ <thead>
+  <tr>
+   <th style="text-align:center;"> School </th>
+   <th style="text-align:center;"> Estimated treatment effect </th>
+   <th style="text-align:center;"> Standard error of effect estimate </th>
+  </tr>
+ </thead>
+<tbody>
+  <tr>
+   <td style="text-align:center;"> A </td>
+   <td style="text-align:center;"> 28 </td>
+   <td style="text-align:center;"> 15 </td>
+  </tr>
+  <tr>
+   <td style="text-align:center;"> B </td>
+   <td style="text-align:center;"> 8 </td>
+   <td style="text-align:center;"> 10 </td>
+  </tr>
+  <tr>
+   <td style="text-align:center;"> C </td>
+   <td style="text-align:center;"> &minus;3 </td>
+   <td style="text-align:center;"> 16 </td>
+  </tr>
+  <tr>
+   <td style="text-align:center;"> D </td>
+   <td style="text-align:center;"> 7 </td>
+   <td style="text-align:center;"> 11 </td>
+  </tr>
+  <tr>
+   <td style="text-align:center;"> E </td>
+   <td style="text-align:center;"> &minus;1 </td>
+   <td style="text-align:center;"> 9 </td>
+  </tr>
+  <tr>
+   <td style="text-align:center;"> F </td>
+   <td style="text-align:center;"> 1 </td>
+   <td style="text-align:center;"> 11 </td>
+  </tr>
+  <tr>
+   <td style="text-align:center;"> G </td>
+   <td style="text-align:center;"> 18 </td>
+   <td style="text-align:center;"> 10 </td>
+  </tr>
+  <tr>
+   <td style="text-align:center;"> H </td>
+   <td style="text-align:center;"> 12 </td>
+   <td style="text-align:center;"> 18 </td>
+  </tr>
+</tbody>
+</table>
+```
+
+## Educational coaching interventions in 8 schools
+
+* We can distinguish 3 different assumptions about the relationship between these estimates:
+
+  * *Identical parameters*: All the true effects are identical, and the observed differences are due to sampling variation
+  
+  * *Independent parameters*: The true effects are independent---knowledge about one tells us nothing about the likely values of the others
+  
+  * *Exchangeable parameters*: The true effects are different, but drawn from a common distribution
+  
+    * The results from each school will affect our estimate of that common distribution, and therefore our estimate of the 'true' effect in the other schools
+
+## Educational coaching interventions in 8 schools {.smaller}
+
+* What do these different assumptions imply for our results and interpretation?
+
+  * Identical parameters: We can pool the results from all studies (weighted by the inverse of the sampling variances)
+  
+    * We get an estimate of 7.7 points (S.E. 4.1) for the (common) treatment effect in all schools
+  
+  * Independent parameters: Take the estimates in the table at face value
+  
+  * Exchangeable parameters: Estimate a Bayesian hierarchical model
+  
+    * Assume the 'true' effects in each school are drawn from a normal (or other) distribution, and estimate the parameters (mean, sd) of that distribution
+    
+    * This requires us to specify prior beliefs about the mean and standard deviation of the effect distribution
+    
+      * For now we assume non-informative prior distributions for both
+
+    * The effects for all schools are pulled towards the sample mean (between 5 and 10 points, instead of between --3 and 28, but with substantial uncertainty)
+
+## Meta-analysis {.smaller}
+
+* Similar hierarchical models can be used for meta-analysis as well
+
+* We consider an example of a meta-analysis of beta-blockers for reducing mortality after myocardial infarction
+
+* The study included 22 clinical trials, with data for the first few as shown
+
+```{=html}
+<table class="table" style="margin-left: auto; margin-right: auto;">
+ <thead>
+  <tr>
+   <th style="text-align:center;"> Study </th>
+   <th style="text-align:center;"> Control </th>
+   <th style="text-align:center;"> Treated </th>
+   <th style="text-align:center;"> Log(OR) </th>
+   <th style="text-align:center;"> SE </th>
+  </tr>
+ </thead>
+<tbody>
+  <tr>
+   <td style="text-align:center;"> 1 </td>
+   <td style="text-align:center;"> 3/39 </td>
+   <td style="text-align:center;"> 3/38 </td>
+   <td style="text-align:center;"> 0.028 </td>
+   <td style="text-align:center;"> 0.850 </td>
+  </tr>
+  <tr>
+   <td style="text-align:center;"> 2 </td>
+   <td style="text-align:center;"> 14/116 </td>
+   <td style="text-align:center;"> 7/114 </td>
+   <td style="text-align:center;"> -0.741 </td>
+   <td style="text-align:center;"> 0.483 </td>
+  </tr>
+  <tr>
+   <td style="text-align:center;"> 3 </td>
+   <td style="text-align:center;"> 11/93 </td>
+   <td style="text-align:center;"> 5/69 </td>
+   <td style="text-align:center;"> -0.541 </td>
+   <td style="text-align:center;"> 0.565 </td>
+  </tr>
+  <tr>
+   <td style="text-align:center;"> 4 </td>
+   <td style="text-align:center;"> 127/1520 </td>
+   <td style="text-align:center;"> 102/1533 </td>
+   <td style="text-align:center;"> -0.246 </td>
+   <td style="text-align:center;"> 0.138 </td>
+  </tr>
+  <tr>
+   <td style="text-align:center;"> 5 </td>
+   <td style="text-align:center;"> 27/365 </td>
+   <td style="text-align:center;"> 28/355 </td>
+   <td style="text-align:center;"> 0.069 </td>
+   <td style="text-align:center;"> 0.281 </td>
+  </tr>
+  <tr>
+   <td style="text-align:center;"> 6 </td>
+   <td style="text-align:center;"> 6/52 </td>
+   <td style="text-align:center;"> 4/59 </td>
+   <td style="text-align:center;"> -0.584 </td>
+   <td style="text-align:center;"> 0.676 </td>
+  </tr>
+  <tr>
+   <td style="text-align:center;"> 7 </td>
+   <td style="text-align:center;"> 152/939 </td>
+   <td style="text-align:center;"> 98/945 </td>
+   <td style="text-align:center;"> -0.512 </td>
+   <td style="text-align:center;"> 0.139 </td>
+  </tr>
+  <tr>
+   <td style="text-align:center;"> 8 </td>
+   <td style="text-align:center;"> 48/471 </td>
+   <td style="text-align:center;"> 60/632 </td>
+   <td style="text-align:center;"> -0.079 </td>
+   <td style="text-align:center;"> 0.204 </td>
+  </tr>
+</tbody>
+</table>
+```
+
+## Meta-analysis
+
+* As before, if we assume exchangeability between the studies, we can estimate a Bayesian hierarchical model for the treatment effects
+
+* There are several estimands that may be of interest:
+
+  * The mean of the distribution of effect sizes
+  
+  * The effect size in a new comparable study
+  
+  * The effect size in any of the observed studies
+
+* The results, using a non-informative prior, are
+
+```{=html}
+<table class="table" style="margin-left: auto; margin-right: auto;">
+ <thead>
+  <tr>
+   <th style="text-align:center;"> Estimand </th>
+   <th style="text-align:center;"> 2.5% </th>
+   <th style="text-align:center;"> 25% </th>
+   <th style="text-align:center;"> Median </th>
+   <th style="text-align:center;"> 75% </th>
+   <th style="text-align:center;"> 97.5% </th>
+  </tr>
+ </thead>
+<tbody>
+  <tr>
+   <td style="text-align:center;"> Mean </td>
+   <td style="text-align:center;"> &minus;0.37 </td>
+   <td style="text-align:center;"> &minus;0.29 </td>
+   <td style="text-align:center;"> &minus;0.25 </td>
+   <td style="text-align:center;"> &minus;0.20 </td>
+   <td style="text-align:center;"> &minus;0.11 </td>
+  </tr>
+  <tr>
+   <td style="text-align:center;"> Standard deviation </td>
+   <td style="text-align:center;"> 0.02 </td>
+   <td style="text-align:center;"> 0.08 </td>
+   <td style="text-align:center;"> 0.13 </td>
+   <td style="text-align:center;"> 0.18 </td>
+   <td style="text-align:center;"> 0.31 </td>
+  </tr>
+  <tr>
+   <td style="text-align:center;"> Predicted effect </td>
+   <td style="text-align:center;"> &minus;0.58 </td>
+   <td style="text-align:center;"> &minus;0.34 </td>
+   <td style="text-align:center;"> &minus;0.25 </td>
+   <td style="text-align:center;"> &minus;0.17 </td>
+   <td style="text-align:center;"> 0.11 </td>
+  </tr>
+</tbody>
+</table>
+```
 
 # Bayesian analysis in practice
 

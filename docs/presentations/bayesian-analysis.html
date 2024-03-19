@@ -439,6 +439,73 @@
   <p class="date">11 April 2024</p>
   <p class="author">Ross Wilson</p>
 </section>
+<section>
+<section id="what-is-statistical-analysis-for" class="title-slide slide level1 center">
+<h1>What is statistical analysis for?</h1>
+
+</section>
+<section id="what-is-the-objective-of-a-statistical-analysis" class="slide level2">
+<h2>What is the objective of a statistical analysis?</h2>
+<ul>
+<li><p>Consider, for example, a clinical trial to estimate a treatment effect</p></li>
+<li><p>We may want to know:</p>
+<ul>
+<li><p>What is the ‘true’ (average) treatment effect?</p></li>
+<li><p>How certain are we about that estimate?</p>
+<ul>
+<li><p>What is the range of plausible values of the effect?</p></li>
+<li><p>What is the probability that the treatment is ‘effective’?</p></li>
+</ul></li>
+</ul></li>
+</ul>
+</section></section>
+<section>
+<section id="classical-versus-bayesian-approaches" class="title-slide slide level1 center">
+<h1>Classical versus Bayesian approaches</h1>
+
+</section>
+<section id="classical-versus-bayesian-approaches-1" class="slide level2">
+<h2>Classical versus Bayesian approaches</h2>
+<p><br></p>
+<ul>
+<li>We’ll try not to go into too much technical detail</li>
+</ul>
+<p><br></p>
+<div class="fragment">
+<ul>
+<li><p>A useful way I have seen it described:</p>
+<ul>
+<li><p>Classical methods tell us what the observed data (e.g.&nbsp;from this trial) tell us about the treatment effect</p></li>
+<li><p>Bayesian methods tell us how we should update our beliefs about the treatment effect based on these data</p></li>
+</ul></li>
+</ul>
+</div>
+</section>
+<section id="brief-review-of-classical-statistics" class="slide level2">
+<h2>Brief review of classical statistics</h2>
+<ul>
+<li><p>Maximum likelihood - what true value of the treatment effect is most compatible with observed data?</p>
+<ul>
+<li><em>For what value of the treatment effect are the observed data most likely to occur?</em></li>
+</ul></li>
+</ul>
+<div class="fragment">
+<ul>
+<li><p>Hypothesis testing - how likely is it that the observed data could be due to chance alone?</p>
+<ul>
+<li><em>If there is no true effect of treatment, how likely would the observed (or larger) effect be?</em></li>
+</ul></li>
+</ul>
+</div>
+<div class="fragment">
+<ul>
+<li><p>Confidence intervals - what range of values can we be ‘confident’ the treatment effect falls within?</p>
+<ul>
+<li>Almost, but not quite: <em>There is a (say) 95% probability that the true effect lies within the 95% confidence interval</em></li>
+</ul></li>
+</ul>
+</div>
+</section>
 <section id="what-is-bayesian-analysis" class="slide level2">
 <h2>What is Bayesian analysis?</h2>
 <p><br></p>
@@ -447,16 +514,15 @@
 </ul>
 <p><br></p>
 <ul>
-<li>How should we refine our prior beliefs about (say) a treatment effect, in light of data from a study?</li>
+<li><p>Conceptually, we consider the treatment effect to be a <strong>random variable</strong></p>
+<ul>
+<li>We can express our beliefs about the value of this variable as a probability distribution</li>
+</ul></li>
 </ul>
 <p><br></p>
 <ul>
-<li>Traditional statistical analysis summarises what the data from <em>this study</em> tells us about the treatment effect;<br>
-Bayesian analysis tells us how the data should change our opinion about the effect</li>
+<li>How should we refine our prior beliefs in light of new data?</li>
 </ul>
-<!-- * Bayesian analysis is about estimating/interpreting the *uncertainty* or *probability distribution* of parameters -->
-<!-- <br> -->
-<!-- * To understand this, we need a very brief background to probability theory -->
 </section>
 <section id="what-is-probability" class="slide level2">
 <h2>What is probability?</h2>
@@ -500,8 +566,10 @@ Bayesian analysis tells us how the data should change our opinion about the effe
 <li class="fragment"><p><span class="math inline">\(\mathrm{Pr}(\text{Rain tomorrow}\ |\ \text{Today's weather})\)</span></p></li>
 <li class="fragment"><p><span class="math inline">\(\mathrm{Pr}(\text{Rain tomorrow}\ |\ \text{Tomorrow's forecast})\)</span></p></li>
 </ul></li>
-<li class="fragment"><p>Even the first (unconditional) probability is implicitly conditional on some information set<br>
-(your general knowledge about Dunedin’s rainfall patterns)</p></li>
+</ul>
+<p><br></p>
+<ul>
+<li class="fragment">Even the first (unconditional) probability is implicitly conditional on some information set (e.g.&nbsp;your general knowledge about Dunedin’s rainfall patterns)</li>
 </ul>
 </div>
 </section>
@@ -563,7 +631,7 @@ Bayesian analysis tells us how the data should change our opinion about the effe
 <section id="bayes-theorem-2" class="slide level2">
 <h2>Bayes’ Theorem</h2>
 <ul>
-<li><p>Conceptually,</p>
+<li><p>In principle:</p>
 <ul>
 <li><p>we start with some beliefs about the parameters of interest</p></li>
 <li><p>review those beliefs in light of the evidence at hand</p></li>
@@ -586,37 +654,47 @@ Bayesian analysis tells us how the data should change our opinion about the effe
 <section id="specifying-priors" class="slide level2">
 <h2>Specifying priors</h2>
 <ul>
-<li><p>Where do these ‘priors’ come from?</p>
+<li>The role of prior beliefs has been the most controversial aspect of Bayesian analysis</li>
+</ul>
+<div class="fragment" data-fragment-index="1">
+<ul>
+<li><p>Where do our ‘priors’ come from?</p>
 <ul>
 <li><p>Previous research</p></li>
 <li><p>Common sense/intuition?</p></li>
 <li><p>‘Weakly informative’ priors</p></li>
 </ul></li>
 </ul>
-<div class="fragment" data-fragment-index="1">
+</div>
+<div class="fragment" data-fragment-index="2">
 <ul>
 <li>In most cases there is no ‘correct’ prior, and sensitivity to various plausible priors should be considered</li>
 </ul>
 </div>
-<div class="fragment" data-fragment-index="2">
+<div class="fragment" data-fragment-index="3">
 <ul>
-<li>The more data we have, the less the prior matters</li>
+<li>The more data we have,<br>
+the less the prior matters</li>
 </ul>
 </div>
-<p><img data-src="images/more-data-1.png" class="absolute fragment fade-in-then-out" style="left: 410px; bottom: -60px; width: 600px; " data-fragment-index="3"></p>
-<p><img data-src="images/more-data-2.png" class="absolute fragment fade-in-then-out" style="left: 410px; bottom: -60px; width: 600px; " data-fragment-index="4"></p>
-<p><img data-src="images/more-data-3.png" class="absolute fragment" style="left: 410px; bottom: -60px; width: 600px; " data-fragment-index="5"></p>
+<p><img data-src="images/more-data-1.png" class="absolute fragment fade-in-then-out" style="left: 410px; bottom: -60px; width: 600px; " data-fragment-index="4"></p>
+<p><img data-src="images/more-data-2.png" class="absolute fragment fade-in-then-out" style="left: 410px; bottom: -60px; width: 600px; " data-fragment-index="5"></p>
+<p><img data-src="images/more-data-3.png" class="absolute fragment" style="left: 410px; bottom: -60px; width: 600px; " data-fragment-index="6"></p>
 </section>
-<section id="why-bayesian-analysis" class="title-slide slide level1 smaller center">
-<h1>Why Bayesian analysis?</h1>
+<section id="why-bayesian-analysis" class="slide level2 smaller">
+<h2>Why Bayesian analysis?</h2>
 <ul>
-<li><p>Our objective is usually to conclude something about the likely values of a treatment effect (or other outcome of interest)</p></li>
+<li>Our objective is usually to conclude something about the likely values of a treatment effect (or other outcome of interest)</li>
+</ul>
+<div class="fragment">
+<ul>
 <li><p>There is usually at least some prior evidence relevant to the research question</p>
 <ul>
 <li><p>Ignoring this evidence limits our ability to draw appropriate conclusions from research</p></li>
 <li><p>Explicitly incorporating prior evidence forces researchers, and users of research, to think carefully and be transparent about what external evidence, judgements, and assumptions should be included</p></li>
 </ul></li>
 </ul>
+</div>
 <div class="fragment">
 <ul>
 <li>As we will see, Bayesian analysis can also be much more flexible than traditional approaches, both in what data can contribute to analysis and in the particular models that can be estimated</li>
@@ -628,7 +706,52 @@ Bayesian analysis tells us how the data should change our opinion about the effe
 </ul>
 </div>
 </section>
-
+<section id="comparing-classical-and-bayesian-approaches" class="slide level2 smaller">
+<h2>Comparing classical and Bayesian approaches</h2>
+<ul>
+<li>Maximum likelihood
+<ul>
+<li>Classical approaches use the likelihood (i.e.&nbsp;observed data) alone</li>
+<li>Bayesian approaches combine the observed data likelihood with prior beliefs</li>
+</ul></li>
+</ul>
+<div class="fragment">
+<ul>
+<li>Hypothesis testing
+<ul>
+<li>The classical p-value is <strong><em>not</em></strong> <span class="math inline">\(\mathrm{Pr}(\text{no treatment effect})\)</span></li>
+<li>Bayesian analysis <strong>can</strong> tell us <span class="math inline">\(\mathrm{Pr}(\text{no treatment effect})\)</span> (or any other probability statement about the parameters of interest)</li>
+</ul></li>
+</ul>
+</div>
+<div class="fragment">
+<ul>
+<li>Confidence intervals
+<ul>
+<li>Slightly more subtle differences</li>
+<li>In some (many) cases, classical confidence intervals are identical or very similar to Bayesian equivalents assuming no useful prior information</li>
+<li>When prior information is available, Bayesian credible intervals incorporate that information</li>
+</ul></li>
+</ul>
+</div>
+</section>
+<section id="presentation-and-interpretation" class="slide level2 smaller">
+<h2>Presentation and interpretation</h2>
+<ul>
+<li><p>Bayesian analyses are often more complex than classical analyses, and care is needed in presentation and interpretation</p></li>
+<li><p>The prior(s) used should always be explicitly stated and justified</p>
+<ul>
+<li>Sensitivity to different plausible priors should be considered</li>
+</ul></li>
+<li><p>Bayesian analysis produces an estimated parameter <em>distribution</em>, not a single point estimate</p>
+<ul>
+<li>The mean or median can be used as a central estimate</li>
+<li>The 2.5th and 97.5th percentiles of the distribution can be used to generate a 95% credible interval</li>
+<li>The probability of specific ranges of parameter values (e.g.&nbsp;<span class="math inline">\(\mathrm{Pr}(\theta &gt; 0)\)</span>) might be of interest</li>
+</ul></li>
+<li><p>It is important to note (as in classical analyses) that the distribution captures <em>uncertainty</em> in the parameter estimate, not between-person variability in treatment effects</p></li>
+</ul>
+</section></section>
 <section>
 <section id="examples" class="title-slide slide level1 center">
 <h1>Examples</h1>
@@ -638,7 +761,7 @@ Bayesian analysis tells us how the data should change our opinion about the effe
 <h2>Examples</h2>
 <p><br></p>
 <ul>
-<li>All examples are taken from <em>Bayesian Approaches to Clinical Trials and Health-Care Evaluation</em> by Spiegelhalter et al.&nbsp;(2003)</li>
+<li>These examples are taken from <em>Bayesian Approaches to Clinical Trials and Health-Care Evaluation</em> by Spiegelhalter et al.&nbsp;(2003), and <em>Bayesian Data Analysis</em> (Third edition) by Gelman et al.&nbsp;(2020)</li>
 </ul>
 <p><br></p>
 <ul>
@@ -732,6 +855,269 @@ Bayesian analysis tells us how the data should change our opinion about the effe
 <li><p>If the test was used for diagnosis in people suspected of having HIV, such that, say <span class="math inline">\(\mathrm{Pr}(\text{HIV}^+) = 0.2\)</span>, then <span class="math display">\[\mathrm{Pr}(\text{HIV}^+\ |\ \text{test}^+) = \frac{0.95 \times 0.2}{0.206} = 0.922\]</span></p></li>
 </ul>
 </div>
+</section>
+<section id="a-simple-rct-analysis" class="slide level2">
+<h2>A simple RCT analysis</h2>
+<ul>
+<li><p>The GREAT trial was a study of a new drug for early treatment after myocardial infarction, compared with placebo</p></li>
+<li><p>The primary outcome was 30-day mortality rate, with data:</p></li>
+</ul>
+<table class="table" data-quarto-postprocess="true" style="margin-left: auto; margin-right: auto;">
+<thead>
+<tr class="header">
+<th style="text-align: center;" data-quarto-table-cell-role="th"></th>
+<th style="text-align: center;" data-quarto-table-cell-role="th"><strong>New</strong></th>
+<th style="text-align: center;" data-quarto-table-cell-role="th"><strong>Placebo</strong></th>
+<th style="text-align: center;" data-quarto-table-cell-role="th"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;"><strong>Death</strong></td>
+<td style="text-align: center;">13</td>
+<td style="text-align: center;">23</td>
+<td style="text-align: center;">36</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><strong>No death</strong></td>
+<td style="text-align: center;">150</td>
+<td style="text-align: center;">125</td>
+<td style="text-align: center;">275</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"></td>
+<td style="text-align: center;">163</td>
+<td style="text-align: center;">148</td>
+<td style="text-align: center;">311</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="a-simple-rct-analysis-1" class="slide level2 smaller">
+<h2>A simple RCT analysis</h2>
+<ul>
+<li><p>Standard analysis of these data gives an OR of (13 / 150) / (23 / 125) = 0.47, with 95% CI 0.24 to 0.97</p>
+<ul>
+<li>That is, a fairly large reduction in mortality, just reaching statistical significance at the 5% level</li>
+</ul></li>
+</ul>
+<div class="fragment">
+<ul>
+<li>From a Bayesian perspective, we need to consider what our prior belief is (was) on the plausible range of true effects, and how these results should cause us to revise those beliefs</li>
+</ul>
+</div>
+<div class="fragment">
+<ul>
+<li><p>Prior distribution was based on the subjective judgement of a senior cardiologist, informed by previous published and unpublished studies</p>
+<ul>
+<li><p>‘an expectation of 15–20% reduction in mortality is highly plausible, while the extremes of no benefit and a 40% relative reduction are both unlikely’</p></li>
+<li><p>Two initial thoughts on this prior:</p>
+<ul>
+<li><p>This is a strong prior judgement, compared to the amount of information provided by the trial</p></li>
+<li><p>If we are already confident that the treatment is effective, why are we doing the trial?</p></li>
+</ul></li>
+</ul></li>
+</ul>
+</div>
+<div class="fragment">
+<ul>
+<li>Combining this prior with the observed data gives posterior estimate of 0.73 (95% credible interval 0.58 to 0.93)</li>
+</ul>
+</div>
+</section>
+<section id="a-simple-rct-analysis-2" class="slide level2">
+<h2>A simple RCT analysis</h2>
+<ul>
+<li><p>Bayesian analysis can also be used to ask how the results of this trial should change the views of a reasonably skeptical observer</p>
+<ul>
+<li>That is, with no prior view one way or the other, but believing large treatment effects are unlikely</li>
+</ul></li>
+<li><p>Assuming a prior centred on no effect (OR = 1), with 95% interval from 50% reduction (OR = 0.5) to 100% increase (OR = 2):</p></li>
+<li><p>Posterior OR = 0.70 (95% interval 0.43 to 1.14), i.e., no effect would still be considered reasonably plausible</p></li>
+</ul>
+</section>
+<section id="multiplicity-and-hierarchical-models" class="slide level2">
+<h2>Multiplicity and hierarchical models</h2>
+<ul>
+<li>Problems of multiplicity are well-recognised in traditional statistical analyses
+<ul>
+<li>If we test multiple outcomes, multiple subsets of participants, multiple treatment group contrasts, we will inevitably find some ‘significant’ results, even if there are no true effects</li>
+</ul></li>
+<li>In a Bayesian analysis, these multiple endpoints can often be nested within a larger hierarchical model</li>
+</ul>
+</section>
+<section id="educational-coaching-interventions-in-8-schools" class="slide level2 smaller">
+<h2>Educational coaching interventions in 8 schools</h2>
+<ul>
+<li>A study was performed of coaching programs to improve SAT scores in each of 8 schools
+<ul>
+<li>Estimates of the treatment effect were obtained separately from each school</li>
+</ul></li>
+</ul>
+<table class="table" data-quarto-postprocess="true" style="margin-left: auto; margin-right: auto;">
+<thead>
+<tr class="header">
+<th style="text-align: center;" data-quarto-table-cell-role="th">School</th>
+<th style="text-align: center;" data-quarto-table-cell-role="th">Estimated treatment effect</th>
+<th style="text-align: center;" data-quarto-table-cell-role="th">Standard error of effect estimate</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">A</td>
+<td style="text-align: center;">28</td>
+<td style="text-align: center;">15</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">B</td>
+<td style="text-align: center;">8</td>
+<td style="text-align: center;">10</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">C</td>
+<td style="text-align: center;">−3</td>
+<td style="text-align: center;">16</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">D</td>
+<td style="text-align: center;">7</td>
+<td style="text-align: center;">11</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">E</td>
+<td style="text-align: center;">−1</td>
+<td style="text-align: center;">9</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">F</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">11</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">G</td>
+<td style="text-align: center;">18</td>
+<td style="text-align: center;">10</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">H</td>
+<td style="text-align: center;">12</td>
+<td style="text-align: center;">18</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="educational-coaching-interventions-in-8-schools-1" class="slide level2">
+<h2>Educational coaching interventions in 8 schools</h2>
+<ul>
+<li><p>We can distinguish 3 different assumptions about the relationship between these estimates:</p>
+<ul>
+<li><p><em>Identical parameters</em>: All the true effects are identical, and the observed differences are due to sampling variation</p></li>
+<li><p><em>Independent parameters</em>: The true effects are independent—knowledge about one tells us nothing about the likely values of the others</p></li>
+<li><p><em>Exchangeable parameters</em>: The true effects are different, but drawn from a common distribution</p>
+<ul>
+<li>The results from each school will affect our estimate of that common distribution, and therefore our estimate of the ‘true’ effect in the other schools</li>
+</ul></li>
+</ul></li>
+</ul>
+</section>
+<section id="educational-coaching-interventions-in-8-schools-2" class="slide level2">
+<h2>Educational coaching interventions in 8 schools</h2>
+<ul>
+<li><p>What do these different assumptions imply for our results and interpretation?</p>
+<ul>
+<li><p>Identical parameters: We can pool the results from all studies (weighted by the inverse of the sampling variances)</p>
+<ul>
+<li>We get an estimate of 7.7 points (S.E. 4.1) for the (common) treatment effect in all schools</li>
+</ul></li>
+<li><p>Independent parameters: Take the estimates in the table at face value (or apply an informative prior distribution independently to each study)</p></li>
+<li><p>Exchangeable parameters: Estimate a Bayesian hierarchical model</p>
+<ul>
+<li><p>Assume the ‘true’ effects in each school are drawn from a normal (or other) distribution, and estimate the parameters (mean, sd) of that distribution</p></li>
+<li><p>This requires us to specify prior beliefs about the mean and standard deviation of the effect distribution</p>
+<ul>
+<li>For now we assume non-informative prior distributions for both</li>
+</ul></li>
+<li><p>The effects for all schools are pulled towards the sample mean (between 5 and 10 points, instead of between –3 and 28, but with substantial uncertainty)</p></li>
+</ul></li>
+</ul></li>
+</ul>
+</section>
+<section id="meta-analysis" class="slide level2 smaller">
+<h2>Meta-analysis</h2>
+<ul>
+<li><p>Similar hierarchical models can be used for meta-analysis as well</p></li>
+<li><p>We consider an example of a meta-analysis of beta-blockers for reducing mortality after MI</p></li>
+<li><p>The study included 22 clinical trials, with data for the first few as shown</p></li>
+</ul>
+<table class="table" data-quarto-postprocess="true" style="margin-left: auto; margin-right: auto;">
+<thead>
+<tr class="header">
+<th style="text-align: center;" data-quarto-table-cell-role="th">Study</th>
+<th style="text-align: center;" data-quarto-table-cell-role="th">Control</th>
+<th style="text-align: center;" data-quarto-table-cell-role="th">Treated</th>
+<th style="text-align: center;" data-quarto-table-cell-role="th">Log(OR)</th>
+<th style="text-align: center;" data-quarto-table-cell-role="th">SE</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">3/39</td>
+<td style="text-align: center;">3/38</td>
+<td style="text-align: center;">0.028</td>
+<td style="text-align: center;">0.850</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">2</td>
+<td style="text-align: center;">14/116</td>
+<td style="text-align: center;">7/114</td>
+<td style="text-align: center;">-0.741</td>
+<td style="text-align: center;">0.483</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">3</td>
+<td style="text-align: center;">11/93</td>
+<td style="text-align: center;">5/69</td>
+<td style="text-align: center;">-0.541</td>
+<td style="text-align: center;">0.565</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">4</td>
+<td style="text-align: center;">127/1520</td>
+<td style="text-align: center;">102/1533</td>
+<td style="text-align: center;">-0.246</td>
+<td style="text-align: center;">0.138</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">5</td>
+<td style="text-align: center;">27/365</td>
+<td style="text-align: center;">28/355</td>
+<td style="text-align: center;">0.069</td>
+<td style="text-align: center;">0.281</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">6</td>
+<td style="text-align: center;">6/52</td>
+<td style="text-align: center;">4/59</td>
+<td style="text-align: center;">-0.584</td>
+<td style="text-align: center;">0.676</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">7</td>
+<td style="text-align: center;">152/939</td>
+<td style="text-align: center;">98/945</td>
+<td style="text-align: center;">-0.512</td>
+<td style="text-align: center;">0.139</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">8</td>
+<td style="text-align: center;">48/471</td>
+<td style="text-align: center;">60/632</td>
+<td style="text-align: center;">-0.079</td>
+<td style="text-align: center;">0.204</td>
+</tr>
+</tbody>
+</table>
 </section></section>
 <section>
 <section id="bayesian-analysis-in-practice" class="title-slide slide level1 center">

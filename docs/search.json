@@ -221,7 +221,7 @@
     "href": "presentations/bayesian-analysis.html#conditional-probability",
     "title": "Introduction to Bayesian Analysis",
     "section": "Conditional probability",
-    "text": "Conditional probability\n\n\nProbability is conditional on available information\n\n\n\nWhat is the probability it will rain in Dunedin tomorrow?\n\n\\(\\mathrm{Pr}(\\text{Rain tomorrow})\\)\n\\(\\mathrm{Pr}(\\text{Rain tomorrow}\\ |\\ \\text{Today's weather})\\)\n\\(\\mathrm{Pr}(\\text{Rain tomorrow}\\ |\\ \\text{Tomorrow's forecast})\\)\n\nEven the first (unconditional) probability is implicitly conditional on some information set\n(your general knowledge about Dunedin’s rainfall patterns)"
+    "text": "Conditional probability\n\n\nProbability is conditional on available information\n\n\n\nWhat is the probability it will rain in Dunedin tomorrow?\n\n\\(\\mathrm{Pr}(\\text{Rain tomorrow})\\)\n\\(\\mathrm{Pr}(\\text{Rain tomorrow}\\ |\\ \\text{Today's weather})\\)\n\\(\\mathrm{Pr}(\\text{Rain tomorrow}\\ |\\ \\text{Tomorrow's forecast})\\)\n\n\n\n\nEven the first (unconditional) probability is implicitly conditional on some information set (e.g. your general knowledge about Dunedin’s rainfall patterns)"
   },
   {
     "objectID": "presentations/bayesian-analysis.html#what-is-bayesian-analysis-1",
@@ -249,7 +249,7 @@
     "href": "presentations/bayesian-analysis.html#bayes-theorem-2",
     "title": "Introduction to Bayesian Analysis",
     "section": "Bayes’ Theorem",
-    "text": "Bayes’ Theorem\n\nConceptually,\n\nwe start with some beliefs about the parameters of interest\nreview those beliefs in light of the evidence at hand\nand calculate an updated belief as a combination of the prior and the new evidence\n\n\n\n\n\n\nPrior\n\n\nLikelihood\n\n\nPosterior"
+    "text": "Bayes’ Theorem\n\nIn principle:\n\nwe start with some beliefs about the parameters of interest\nreview those beliefs in light of the evidence at hand\nand calculate an updated belief as a combination of the prior and the new evidence\n\n\n\n\n\n\nPrior\n\n\nLikelihood\n\n\nPosterior"
   },
   {
     "objectID": "presentations/bayesian-analysis.html#bayes-theorem-3",
@@ -1019,7 +1019,7 @@
     "href": "presentations/bayesian-analysis.html#what-is-bayesian-analysis",
     "title": "Introduction to Bayesian Analysis",
     "section": "What is Bayesian analysis?",
-    "text": "What is Bayesian analysis?\n\n\nA probabilistic approach to data analysis and interpretation\n\n\n\nHow should we refine our prior beliefs about (say) a treatment effect, in light of data from a study?\n\n\n\nTraditional statistical analysis summarises what the data from this study tells us about the treatment effect;\nBayesian analysis tells us how the data should change our opinion about the effect"
+    "text": "What is Bayesian analysis?\n\n\nA probabilistic approach to data analysis and interpretation\n\n\n\nConceptually, we consider the treatment effect to be a random variable\n\nWe can express our beliefs about the value of this variable as a probability distribution\n\n\n\n\nHow should we refine our prior beliefs in light of new data?"
   },
   {
     "objectID": "presentations/bayesian-analysis.html#further-examples-2",
@@ -1047,14 +1047,14 @@
     "href": "presentations/bayesian-analysis.html#specifying-priors",
     "title": "Introduction to Bayesian Analysis",
     "section": "Specifying priors",
-    "text": "Specifying priors\n\nWhere do these ‘priors’ come from?\n\nPrevious research\nCommon sense/intuition?\n‘Weakly informative’ priors\n\n\n\n\nIn most cases there is no ‘correct’ prior, and sensitivity to various plausible priors should be considered\n\n\n\n\nThe more data we have, the less the prior matters"
+    "text": "Specifying priors\n\nThe role of prior beliefs has been the most controversial aspect of Bayesian analysis\n\n\n\nWhere do our ‘priors’ come from?\n\nPrevious research\nCommon sense/intuition?\n‘Weakly informative’ priors\n\n\n\n\n\nIn most cases there is no ‘correct’ prior, and sensitivity to various plausible priors should be considered\n\n\n\n\nThe more data we have,\nthe less the prior matters"
   },
   {
     "objectID": "presentations/bayesian-analysis.html#examples-1",
     "href": "presentations/bayesian-analysis.html#examples-1",
     "title": "Introduction to Bayesian Analysis",
     "section": "Examples",
-    "text": "Examples\n\n\nAll examples are taken from Bayesian Approaches to Clinical Trials and Health-Care Evaluation by Spiegelhalter et al. (2003)\n\n\n\nI hope to give some idea of the range and flexibility of Bayesian analysis\n\n\n\nWe will focus on the ‘What’ and the ‘Why’, not on the ‘How’"
+    "text": "Examples\n\n\nThese examples are taken from Bayesian Approaches to Clinical Trials and Health-Care Evaluation by Spiegelhalter et al. (2003), and Bayesian Data Analysis (Third edition) by Gelman et al. (2020)\n\n\n\nI hope to give some idea of the range and flexibility of Bayesian analysis\n\n\n\nWe will focus on the ‘What’ and the ‘Why’, not on the ‘How’"
   },
   {
     "objectID": "presentations/bayesian-analysis.html#diagnostic-testing",
@@ -1083,5 +1083,117 @@
     "title": "Introduction to Bayesian Analysis",
     "section": "Diagnostic testing",
     "text": "Diagnostic testing\n\nMore than 95% of those testing positive will not actually have HIV!\n\n\n\n\nNote that this is very sensitive to the base rate (the proportion who have HIV in the population being tested)\nIf the test was used for diagnosis in people suspected of having HIV, such that, say \\(\\mathrm{Pr}(\\text{HIV}^+) = 0.2\\), then \\[\\mathrm{Pr}(\\text{HIV}^+\\ |\\ \\text{test}^+) = \\frac{0.95 \\times 0.2}{0.206} = 0.922\\]"
+  },
+  {
+    "objectID": "presentations/bayesian-analysis.html#what-is-the-objective-of-a-statistical-analysis",
+    "href": "presentations/bayesian-analysis.html#what-is-the-objective-of-a-statistical-analysis",
+    "title": "Introduction to Bayesian Analysis",
+    "section": "What is the objective of a statistical analysis?",
+    "text": "What is the objective of a statistical analysis?\n\nConsider, for example, a clinical trial to estimate a treatment effect\nWe may want to know:\n\nWhat is the ‘true’ (average) treatment effect?\nHow certain are we about that estimate?\n\nWhat is the range of plausible values of the effect?\nWhat is the probability that the treatment is ‘effective’?"
+  },
+  {
+    "objectID": "presentations/bayesian-analysis.html#why-bayesian-analysis",
+    "href": "presentations/bayesian-analysis.html#why-bayesian-analysis",
+    "title": "Introduction to Bayesian Analysis",
+    "section": "Why Bayesian analysis?",
+    "text": "Why Bayesian analysis?\n\nOur objective is usually to conclude something about the likely values of a treatment effect (or other outcome of interest)\n\n\n\nThere is usually at least some prior evidence relevant to the research question\n\nIgnoring this evidence limits our ability to draw appropriate conclusions from research\nExplicitly incorporating prior evidence forces researchers, and users of research, to think carefully and be transparent about what external evidence, judgements, and assumptions should be included\n\n\n\n\n\nAs we will see, Bayesian analysis can also be much more flexible than traditional approaches, both in what data can contribute to analysis and in the particular models that can be estimated\n\n\n\n\nInterpretation of Bayesian results is much more intuitive and applicable than most traditional statistical methods"
+  },
+  {
+    "objectID": "presentations/bayesian-analysis.html#presentation-and-interpretation",
+    "href": "presentations/bayesian-analysis.html#presentation-and-interpretation",
+    "title": "Introduction to Bayesian Analysis",
+    "section": "Presentation and interpretation",
+    "text": "Presentation and interpretation\n\nBayesian analyses are often more complex than classical analyses, and care is needed in presentation and interpretation\nThe prior(s) used should always be explicitly stated and justified\n\nSensitivity to different plausible priors should be considered\n\nBayesian analysis produces an estimated parameter distribution, not a single point estimate\n\nThe mean or median can be used as a central estimate\nThe 2.5th and 97.5th percentiles of the distribution can be used to generate a 95% credible interval\nThe probability of specific ranges of parameter values (e.g. \\(\\mathrm{Pr}(\\theta &gt; 0)\\)) might be of interest\n\nIt is important to note (as in classical analyses) that the distribution captures uncertainty in the parameter estimate, not between-person variability in treatment effects"
+  },
+  {
+    "objectID": "presentations/bayesian-analysis.html#aside-the-epidemiology-of-clinical-trials",
+    "href": "presentations/bayesian-analysis.html#aside-the-epidemiology-of-clinical-trials",
+    "title": "Introduction to Bayesian Analysis",
+    "section": "Aside: ‘The epidemiology of clinical trials’",
+    "text": "Aside: ‘The epidemiology of clinical trials’\n\nThe same idea can be used to consider the ‘diagnostic accuracy’ of clinical trials in identifying truly effective treatments\nIn early phase trials, in particular, most treatments tested are probably not effective\nAssume 10% of such trials are of effective treatments, and trials are designed for 80% power at 5% significance level\nThe same calculations as before give \\(\\mathrm{Pr}(\\text{Effective}\\ |\\ \\text{Significant result}) = 0.64\\)\nThat is, even if all trials were conducted perfectly, no publication bias, etc., 36% of significant results are actually of ineffective treatments"
+  },
+  {
+    "objectID": "presentations/bayesian-analysis.html#a-simple-rct-analysis",
+    "href": "presentations/bayesian-analysis.html#a-simple-rct-analysis",
+    "title": "Introduction to Bayesian Analysis",
+    "section": "A simple RCT analysis",
+    "text": "A simple RCT analysis\n\nThe GREAT trial was a study of a new drug for early treatment after myocardial infarction, compared with placebo\nThe primary outcome was 30-day mortality rate, with data:\n\n\n\n\n\nNew\nPlacebo\n\n\n\n\n\nDeath\n13\n23\n36\n\n\nNo death\n150\n125\n275\n\n\n\n163\n148\n311"
+  },
+  {
+    "objectID": "presentations/bayesian-analysis.html#a-simple-rct-analysis-1",
+    "href": "presentations/bayesian-analysis.html#a-simple-rct-analysis-1",
+    "title": "Introduction to Bayesian Analysis",
+    "section": "A simple RCT analysis",
+    "text": "A simple RCT analysis\n\nStandard analysis of these data gives an OR of (13 / 150) / (23 / 125) = 0.47, with 95% CI 0.24 to 0.97\n\nThat is, a fairly large reduction in mortality, just reaching statistical significance at the 5% level\n\n\n\n\nFrom a Bayesian perspective, we need to consider what our prior belief is (was) on the plausible range of true effects, and how these results should cause us to revise those beliefs\n\n\n\n\nPrior distribution was based on the subjective judgement of a senior cardiologist, informed by previous published and unpublished studies\n\n‘an expectation of 15–20% reduction in mortality is highly plausible, while the extremes of no benefit and a 40% relative reduction are both unlikely’\nTwo initial thoughts on this prior:\n\nThis is a strong prior judgement, compared to the amount of information provided by the trial\nIf we are already confident that the treatment is effective, why are we doing the trial?\n\n\n\n\n\n\nCombining this prior with the observed data gives posterior estimate of 0.73 (95% credible interval 0.58 to 0.93)"
+  },
+  {
+    "objectID": "presentations/bayesian-analysis.html#a-simple-rct-analysis-2",
+    "href": "presentations/bayesian-analysis.html#a-simple-rct-analysis-2",
+    "title": "Introduction to Bayesian Analysis",
+    "section": "A simple RCT analysis",
+    "text": "A simple RCT analysis\n\nBayesian analysis can also be used to ask how the results of this trial should change the views of a reasonably skeptical observer\n\nThat is, with no prior view one way or the other, but believing large treatment effects are unlikely\n\nAssuming a prior centred on no effect (OR = 1), with 95% interval from 50% reduction (OR = 0.5) to 100% increase (OR = 2):\nPosterior OR = 0.70 (95% interval 0.43 to 1.14), i.e., no effect would still be considered reasonably plausible"
+  },
+  {
+    "objectID": "presentations/bayesian-analysis.html#classical-versus-bayesian-approaches-1",
+    "href": "presentations/bayesian-analysis.html#classical-versus-bayesian-approaches-1",
+    "title": "Introduction to Bayesian Analysis",
+    "section": "Classical versus Bayesian approaches",
+    "text": "Classical versus Bayesian approaches\n\n\nWe’ll try not to go into too much technical detail\n\n\n\n\nA useful way I have seen it described:\n\nClassical methods tell us what the observed data (e.g. from this trial) tell us about the treatment effect\nBayesian methods tell us how we should update our beliefs about the treatment effect based on these data"
+  },
+  {
+    "objectID": "presentations/bayesian-analysis.html#brief-review-of-classical-statistics",
+    "href": "presentations/bayesian-analysis.html#brief-review-of-classical-statistics",
+    "title": "Introduction to Bayesian Analysis",
+    "section": "Brief review of classical statistics",
+    "text": "Brief review of classical statistics\n\nMaximum likelihood - what true value of the treatment effect is most compatible with observed data?\n\nFor what value of the treatment effect are the observed data most likely to occur?\n\n\n\n\nHypothesis testing - how likely is it that the observed data could be due to chance alone?\n\nIf there is no true effect of treatment, how likely would the observed (or larger) effect be?\n\n\n\n\n\nConfidence intervals - what range of values can we be ‘confident’ the treatment effect falls within?\n\nAlmost, but not quite: There is a (say) 95% probability that the true effect lies within the 95% confidence interval"
+  },
+  {
+    "objectID": "presentations/bayesian-analysis.html#meta-analysis",
+    "href": "presentations/bayesian-analysis.html#meta-analysis",
+    "title": "Introduction to Bayesian Analysis",
+    "section": "Meta-analysis",
+    "text": "Meta-analysis\n\nSimilar hierarchical models can be used for meta-analysis as well\nWe consider an example of a meta-analysis of beta-blockers for reducing mortality after MI\nThe study included 22 clinical trials, with data for the first few as shown\n\n\n\n\nStudy\nControl\nTreated\nLog(OR)\nSE\n\n\n\n\n1\n3/39\n3/38\n0.028\n0.850\n\n\n2\n14/116\n7/114\n-0.741\n0.483\n\n\n3\n11/93\n5/69\n-0.541\n0.565\n\n\n4\n127/1520\n102/1533\n-0.246\n0.138\n\n\n5\n27/365\n28/355\n0.069\n0.281\n\n\n6\n6/52\n4/59\n-0.584\n0.676\n\n\n7\n152/939\n98/945\n-0.512\n0.139\n\n\n8\n48/471\n60/632\n-0.079\n0.204"
+  },
+  {
+    "objectID": "presentations/bayesian-analysis.html#comparing-classical-and-bayesian-approaches",
+    "href": "presentations/bayesian-analysis.html#comparing-classical-and-bayesian-approaches",
+    "title": "Introduction to Bayesian Analysis",
+    "section": "Comparing classical and Bayesian approaches",
+    "text": "Comparing classical and Bayesian approaches\n\nMaximum likelihood\n\nClassical approaches use the likelihood (i.e. observed data) alone\nBayesian approaches combine the observed data likelihood with prior beliefs\n\n\n\n\nHypothesis testing\n\nThe classical p-value is not \\(\\mathrm{Pr}(\\text{no treatment effect})\\)\nBayesian analysis can tell us \\(\\mathrm{Pr}(\\text{no treatment effect})\\) (or any other probability statement about the parameters of interest)\n\n\n\n\n\nConfidence intervals\n\nSlightly more subtle differences\nIn some (many) cases, classical confidence intervals are identical or very similar to Bayesian equivalents assuming no useful prior information\nWhen prior information is available, Bayesian credible intervals incorporate that information"
+  },
+  {
+    "objectID": "presentations/bayesian-analysis.html#multiplicity-and-hierarchical-models",
+    "href": "presentations/bayesian-analysis.html#multiplicity-and-hierarchical-models",
+    "title": "Introduction to Bayesian Analysis",
+    "section": "Multiplicity and hierarchical models",
+    "text": "Multiplicity and hierarchical models\n\nProblems of multiplicity are well-recognised in traditional statistical analyses\n\nIf we test multiple outcomes, multiple subsets of participants, multiple treatment group contrasts, we will inevitably find some ‘significant’ results, even if there are no true effects\n\nIn a Bayesian analysis, these multiple endpoints can often be nested within a larger hierarchical model"
+  },
+  {
+    "objectID": "presentations/bayesian-analysis.html#educational-coaching-interventions-in-8-schools",
+    "href": "presentations/bayesian-analysis.html#educational-coaching-interventions-in-8-schools",
+    "title": "Introduction to Bayesian Analysis",
+    "section": "Educational coaching interventions in 8 schools",
+    "text": "Educational coaching interventions in 8 schools\n\nA study was performed of coaching programs to improve SAT scores in each of 8 schools\n\nEstimates of the treatment effect were obtained separately from each school\n\n\n\n\n\nSchool\nEstimated treatment effect\nStandard error of effect estimate\n\n\n\n\nA\n28\n15\n\n\nB\n8\n10\n\n\nC\n−3\n16\n\n\nD\n7\n11\n\n\nE\n−1\n9\n\n\nF\n1\n11\n\n\nG\n18\n10\n\n\nH\n12\n18"
+  },
+  {
+    "objectID": "presentations/bayesian-analysis.html#educational-coaching-interventions-in-8-schools-1",
+    "href": "presentations/bayesian-analysis.html#educational-coaching-interventions-in-8-schools-1",
+    "title": "Introduction to Bayesian Analysis",
+    "section": "Educational coaching interventions in 8 schools",
+    "text": "Educational coaching interventions in 8 schools\n\nWe can distinguish 3 different assumptions about the relationship between these estimates:\n\nIdentical parameters: All the true effects are identical, and the observed differences are due to sampling variation\nIndependent parameters: The true effects are independent—knowledge about one tells us nothing about the likely values of the others\nExchangeable parameters: The true effects are different, but drawn from a common distribution\n\nThe results from each school will affect our estimate of that common distribution, and therefore our estimate of the ‘true’ effect in the other schools"
+  },
+  {
+    "objectID": "presentations/bayesian-analysis.html#educational-coaching-interventions-in-8-schools-2",
+    "href": "presentations/bayesian-analysis.html#educational-coaching-interventions-in-8-schools-2",
+    "title": "Introduction to Bayesian Analysis",
+    "section": "Educational coaching interventions in 8 schools",
+    "text": "Educational coaching interventions in 8 schools\n\nWhat do these different assumptions imply for our results and interpretation?\n\nIdentical parameters: We can pool the results from all studies (weighted by the inverse of the sampling variances)\n\nWe get an estimate of 7.7 points (S.E. 4.1) for the (common) treatment effect in all schools\n\nIndependent parameters: Take the estimates in the table at face value (or apply an informative prior distribution independently to each study)\nExchangeable parameters: Estimate a Bayesian hierarchical model\n\nAssume the ‘true’ effects in each school are drawn from a normal (or other) distribution, and estimate the parameters (mean, sd) of that distribution\nThis requires us to specify prior beliefs about the mean and standard deviation of the effect distribution\n\nFor now we assume non-informative prior distributions for both\n\nThe effects for all schools are pulled towards the sample mean (between 5 and 10 points, instead of between –3 and 28, but with substantial uncertainty)"
+  },
+  {
+    "objectID": "presentations/bayesian-analysis.html#educational-coaching-interventions-in-8-schools-3",
+    "href": "presentations/bayesian-analysis.html#educational-coaching-interventions-in-8-schools-3",
+    "title": "Introduction to Bayesian Analysis",
+    "section": "Educational coaching interventions in 8 schools",
+    "text": "Educational coaching interventions in 8 schools\n\nExchangeable parameters: Estimate a Bayesian hierarchical model\n\nThis gives us at least three sets of potentially useful estimates:\n\nThe mean effect across all schools (including those not involved in the study)\nThe variance of the effect between schools (including those not involved in the study)\nThe ‘true’ effects in each of the 8 schools in the study\n\nThis requires us to specify prior beliefs about the mean and standard deviation of the effect distribution\nWith non-informative priors, we get estimates for the mean of 7.8 points (S.E. 5.6) and standard deviation 6.5 points (S.E. 5.6)\n\nThe effects for all schools are pulled towards the sample mean (between 5 and 10 points, instead of between –3 and 28)"
   }
 ]
