@@ -23,8 +23,6 @@ library(tidyverse)
 library(kableExtra, exclude = "group_rows")
 ```
 
-# What is statistical analysis for?
-
 ## What is the objective of a statistical analysis?
 
 * Consider, for example, a clinical trial to estimate a treatment effect
@@ -89,55 +87,9 @@ library(kableExtra, exclude = "group_rows")
 
 <br>
 
+. . .
+
 * How should we refine our prior beliefs in light of new data?
-
-## What is probability?
-
-<br>
-
-What does it mean to say something has a probability of, say, 20%?
-
-<br>
-
-::: {.columns}
-
-:::: {.column .fragment width="45%"}
-**Relative frequency**
-
-<br>
-
-$\mathrm{Pr}(A) = \lim\limits_{n \to \infty} \frac{\text{# times } A \text{ occurs}}{n}$
-
-<br>
-
-::::: {.fragment}
-
-If we repeatedly sample from a given situation, what proportion of times will the event occur?
-
-:::::
-
-::::
-
-:::: {.column width="10%"}
-
-::::
-
-:::: {.column .fragment width="45%"}
-**Subjective probability**
-
-*A measure of certainty (or uncertainty) in an event*
-
-::::: {.fragment}
-
-* What is the probability it will rain in Dunedin tomorrow?
-
-* What is the probability that exercise therapy is beneficial for a patient with OA?
-
-:::::
-
-::::
-
-:::
 
 ## Conditional probability
 
@@ -193,13 +145,15 @@ $$\mathrm{Pr}(A | B) = \frac{\mathrm{Pr}(B | A) \mathrm{Pr}(A)}{\mathrm{Pr}(B)}$
 
 . . .
 
-  * In a statistical model, we are usually interested in probability distributions over continuous covariates:
+  * In a statistical model, we are usually interested in probability distributions over continuous variables:
 
 $$f(\theta | y) = \frac{f(y | \theta) f(\theta)}{f(y)}$$
 
   (updated knowledge about a parameter $\theta$ given data $y$)
 
 ## Bayes' Theorem
+
+<br>
 
 * Tells us how to calculate the 'posterior distribution' given:
   * an assumed data generating model
@@ -229,20 +183,22 @@ $$\mathrm{Posterior} \propto \mathrm{Likelihood} \times \mathrm{Prior}$$
   * and calculate an updated belief as a combination of the prior and the new evidence
   
 ```{r}
+sigma <- 10
+mu_0 <- 175; tau_0 <- 3
+n <- 10; y_bar <- 178
 density_tbl <- tibble(
-  theta = seq(0, 1, length.out = 99999),
-  prior = dbeta(theta, 10, 10),
-  likelihood = dbeta(theta, 9, 6),
-  posterior = dbeta(theta, 19, 16)
+    mu = seq(160, 190, length.out = 99999),
+    prior = dnorm(mu, mu_0, tau_0),
+    likelihood = dnorm(mu, y_bar, sigma/sqrt(n)),
+    posterior = dnorm(mu, (mu_0 / tau_0^2 + y_bar / (sigma^2 / n)) / (1 / tau_0^2 + n / sigma^2), sqrt(1 / (1 / tau_0^2 + n / sigma^2)))
 )
-
 ymax <- max(density_tbl$prior, density_tbl$likelihood, density_tbl$posterior)
 ```
 
 ```{r}
-p1 <- ggplot(density_tbl, aes(theta)) +
+p1 <- ggplot(density_tbl, aes(mu)) +
     geom_area(aes(y = prior), linetype = 0, fill = "#8888FF66", stat = "identity", position = "identity") +
-    scale_x_continuous(limits = c(0, 1)) +
+    scale_x_continuous(limits = c(160, 190)) +
     scale_y_continuous("Density", limits = c(0, ymax), expand = c(0, 0)) +
     theme(axis.line.y = element_blank(), axis.ticks.y = element_blank(), axis.text.y = element_blank(),
           axis.line.x = element_blank(), panel.grid = element_blank(),
@@ -303,17 +259,18 @@ the less the prior matters
 :::
 
 ```{r}
-density_tbl2 <- density_tbl |> 
+n2 <- 100
+density_tbl2 <- density_tbl %>% 
   mutate(
-  likelihood2 = dbeta(theta, 90, 60),
-  posterior2 = dbeta(theta, 100, 70)
+  likelihood2 = dnorm(mu, y_bar, sigma/sqrt(n2)),
+  posterior2 = dnorm(mu, (mu_0 / tau_0^2 + y_bar / (sigma^2 / n2)) / (1 / tau_0^2 + n2 / sigma^2), sqrt(1 / (1 / tau_0^2 + n2 / sigma^2)))
 )
 
 ymax2 <- max(density_tbl2$prior, density_tbl2$likelihood2, density_tbl2$posterior2)
 
-p4 <- ggplot(density_tbl2, aes(theta)) +
+p4 <- ggplot(density_tbl2, aes(mu)) +
     geom_area(aes(y = prior), linetype = 0, fill = "#8888FF66", stat = "identity", position = "identity") +
-    scale_x_continuous(limits = c(0, 1)) +
+    scale_x_continuous(limits = c(160, 190)) +
     scale_y_continuous(NULL, limits = c(0, ymax2), expand = c(0, 0)) +
     theme(axis.line.y = element_blank(), axis.ticks.y = element_blank(), axis.text.y = element_blank(),
           axis.line.x = element_blank(), panel.grid = element_blank(),
@@ -327,13 +284,13 @@ ggsave("images/more-data-2.png", p5, width = 6, height = 10)
 ggsave("images/more-data-3.png", p6, width = 6, height = 10)
 ```
 
-![](images/more-data-1.png){.absolute bottom=-60 left=410 width=600 .fragment .fade-in-then-out fragment-index=4}
+![](images/more-data-1.png){.absolute bottom=-60 left=210 width=800 height=1500 .fragment .fade-in-then-out fragment-index=4}
 
-![](images/more-data-2.png){.absolute bottom=-60 left=410 width=600 .fragment .fade-in-then-out fragment-index=5}
+![](images/more-data-2.png){.absolute bottom=-60 left=210 width=800 height=1500 .fragment .fade-in-then-out fragment-index=5}
 
-![](images/more-data-3.png){.absolute bottom=-60 left=410 width=600 .fragment fragment-index=6}
+![](images/more-data-3.png){.absolute bottom=-60 left=210 width=800 height=1500 .fragment fragment-index=6}
 
-## Why Bayesian analysis? {.smaller}
+## Why Bayesian analysis?
 
 * Our objective is usually to conclude something about the likely values of a treatment effect (or other outcome of interest)
 
@@ -341,17 +298,33 @@ ggsave("images/more-data-3.png", p6, width = 6, height = 10)
 
 * There is usually at least some prior evidence relevant to the research question
 
-  * Ignoring this evidence limits our ability to draw appropriate conclusions from research
+  * Be explicit and transparent about the use of external evidence, judgements, and assumptions
+
+. . .
+
+* Can be much more flexible than traditional approaches
+
+  * Using more---and more varied---sources of data
   
-  * Explicitly incorporating prior evidence forces researchers, and users of research, to think carefully and be transparent about what external evidence, judgements, and assumptions should be included
+  * More flexible models tailored to particular situations
 
 . . .
 
-* As we will see, Bayesian analysis can also be much more flexible than traditional approaches, both in what data can contribute to analysis and in the particular models that can be estimated
+* Interpretation of results is much more intuitive (and relevant) than most traditional statistical methods
 
-. . .
+## Presentation and interpretation {.smaller}
 
-* Interpretation of Bayesian results is much more intuitive and applicable than most traditional statistical methods
+* Bayesian analyses are often quite complex, and care is needed in presentation and interpretation
+
+* The prior(s) used should always be explicitly stated and justified
+  * Sensitivity to different plausible priors should be considered
+
+* Bayesian analysis produces an estimated parameter *distribution*, not a single point estimate
+  * The mean or median can be used as a central estimate
+  * Quantiles of the distribution can be used to generate credible intervals
+  * The probability of specific ranges of parameter values (e.g. $\mathrm{Pr}(\theta > 0)$) might be of interest
+
+* It is important to note (as in classical analyses) that the distribution captures *uncertainty* in the parameter estimate, not between-person variability in treatment effects
 
 ## Comparing classical and Bayesian approaches {.smaller}
 
@@ -363,28 +336,14 @@ ggsave("images/more-data-3.png", p6, width = 6, height = 10)
 
 * Hypothesis testing
   * The classical p-value is ***not*** $\mathrm{Pr}(\text{no treatment effect})$
-  * Bayesian analysis **can** tell us $\mathrm{Pr}(\text{no treatment effect})$ (or any other probability statement about the parameters of interest)
+  * Bayesian analysis ***can*** tell us $\mathrm{Pr}(\text{no treatment effect})$ (or any other probability statement about the parameters of interest)
 
 . . .
 
 * Confidence intervals
-  * Slightly more subtle differences
+  * Again, the classical confidence interval is ***not*** strictly a probability statement
   * In some (many) cases, classical confidence intervals are identical or very similar to Bayesian equivalents assuming no useful prior information
   * When prior information is available, Bayesian credible intervals incorporate that information
-
-## Presentation and interpretation {.smaller}
-
-* Bayesian analyses are often more complex than classical analyses, and care is needed in presentation and interpretation
-
-* The prior(s) used should always be explicitly stated and justified
-  * Sensitivity to different plausible priors should be considered
-
-* Bayesian analysis produces an estimated parameter *distribution*, not a single point estimate
-  * The mean or median can be used as a central estimate
-  * The 2.5th and 97.5th percentiles of the distribution can be used to generate a 95% credible interval
-  * The probability of specific ranges of parameter values (e.g. $\mathrm{Pr}(\theta > 0)$) might be of interest
-
-* It is important to note (as in classical analyses) that the distribution captures *uncertainty* in the parameter estimate, not between-person variability in treatment effects
 
 # Examples
 
@@ -404,6 +363,8 @@ ggsave("images/more-data-3.png", p6, width = 6, height = 10)
 
 ## Diagnostic testing
 
+. . .
+
 <br>
 
 * Suppose have a new HIV test, which has 95% sensitivity and 98% specificity
@@ -418,25 +379,7 @@ ggsave("images/more-data-3.png", p6, width = 6, height = 10)
 
 ## Diagnostic testing
 
-* Using Bayes' theorem:
-$$\mathrm{Pr}(\text{HIV}^+\ |\ \text{test}^+) = \frac{\mathrm{Pr}(\text{test}^+\ |\ \text{HIV}^+)\ \mathrm{Pr}(\text{HIV}^+)}{\mathrm{Pr}(\text{test}^+)}$$
-
-  * $\mathrm{Pr}(\text{test}^+\ |\ \text{HIV}^+)$ is the sensitivity, $0.95$
-  
-  * $\mathrm{Pr}(\text{HIV}^+)$ is $1 / 1000 = 0.001$
-  
-  * $\mathrm{Pr}(\text{test}^+)$ can be calculated as  
-  $\mathrm{Pr}(\text{test}^+\ |\ \text{HIV}^-)\ \mathrm{Pr}(\text{HIV}^-) + \mathrm{Pr}(\text{test}^+\ |\ \text{HIV}^+)\ \mathrm{Pr}(\text{HIV}^+)$  
-  $\ \ \ \  = 0.02 \times 0.999 + 0.95 \times 0.001 = 0.02093$
-
-. . .
-
-* Therefore,
-$$\mathrm{Pr}(\text{HIV}^+\ |\ \text{test}^+) = \frac{0.95 \times 0.001}{0.02093} = 0.045$$
-
-## Diagnostic testing
-
-* To see how this works, consider the expected status of 100,000 individuals being screened
+* Consider the expected status of 100,000 individuals being screened
 
 ```{=html}
 <table class="table" style="margin-left: auto; margin-right: auto;">
@@ -471,8 +414,26 @@ $$\mathrm{Pr}(\text{HIV}^+\ |\ \text{test}^+) = \frac{0.95 \times 0.001}{0.02093
 </table>
 ```
 
-* As before, the probability of having HIV given a positive test can be calculated:
+. . .
+
+* The probability of having HIV given a positive test can be calculated:
 $$\mathrm{Pr}(\text{HIV}^+\ |\ \text{test}^+) = \frac{95}{2093} = 0.045$$
+
+## Diagnostic testing
+
+* Using Bayes' theorem:
+$$\mathrm{Pr}(\text{HIV}^+\ |\ \text{test}^+) = \frac{\mathrm{Pr}(\text{test}^+\ |\ \text{HIV}^+)\ \mathrm{Pr}(\text{HIV}^+)}{\mathrm{Pr}(\text{test}^+)}$$
+
+  * $\mathrm{Pr}(\text{test}^+\ |\ \text{HIV}^+)$ is the sensitivity, $0.95$
+  
+  * $\mathrm{Pr}(\text{HIV}^+)$ is $1 / 1000 = 0.001$
+  
+  * $\mathrm{Pr}(\text{test}^+)$ can be calculated as  
+  $\mathrm{Pr}(\text{test}^+\ |\ \text{HIV}^-)\ \mathrm{Pr}(\text{HIV}^-) + \mathrm{Pr}(\text{test}^+\ |\ \text{HIV}^+)\ \mathrm{Pr}(\text{HIV}^+)$  
+  $\ \ \ \  = 0.02 \times 0.999 + 0.95 \times 0.001 = 0.02093$
+
+* Therefore,
+$$\mathrm{Pr}(\text{HIV}^+\ |\ \text{test}^+) = \frac{0.95 \times 0.001}{0.02093} = 0.045$$
 
 ## Diagnostic testing
 
@@ -488,6 +449,8 @@ $$\mathrm{Pr}(\text{HIV}^+\ |\ \text{test}^+) = \frac{95}{2093} = 0.045$$
 $$\mathrm{Pr}(\text{HIV}^+\ |\ \text{test}^+) = \frac{0.95 \times 0.2}{0.206} = 0.922$$
 
 ## A simple RCT analysis
+
+. . .
 
 * The GREAT trial was a study of a new drug for early treatment after myocardial infarction, compared with placebo
 
@@ -563,6 +526,8 @@ $$\mathrm{Pr}(\text{HIV}^+\ |\ \text{test}^+) = \frac{0.95 \times 0.2}{0.206} = 
 * Posterior OR = 0.70 (95% interval 0.43 to 1.14), i.e., no effect would still be considered reasonably plausible
 
 ## Multiplicity and hierarchical models
+
+. . .
 
 * Problems of multiplicity are well-recognised in traditional statistical analyses
   * If we test multiple outcomes, multiple subsets of participants, multiple treatment group contrasts, we will inevitably find some 'significant' results, even if there are no true effects
@@ -642,25 +607,54 @@ $$\mathrm{Pr}(\text{HIV}^+\ |\ \text{test}^+) = \frac{0.95 \times 0.2}{0.206} = 
 
 ## Educational coaching interventions in 8 schools {.smaller}
 
+```{r}
+eightschools <- tibble(
+  school = factor(rep(LETTERS[1:8], 2), rev(LETTERS[1:8])),
+  model = factor(rep(c("Independent", "Exchangeable"), each = 8), c("Independent", "Exchangeable")),
+  effect = c(28, 8, -3, 7, -1, 1, 18, 12, 10, 8, 7, 8, 5, 6, 10, 8),
+  se = c(15, 10, 16, 11, 9, 11, 10, 18, rep(NA, 8)),
+  lower = if_else(!is.na(se), effect - qnorm(0.975) * se, 
+                  c(rep(NA, 8), -2, -5, -11, -7, -9, -7, -1, -6)),
+  upper = if_else(!is.na(se), effect + qnorm(0.975) * se, 
+                  c(rep(NA, 8), 31, 23, 19, 21, 18, 28, 26, 33))
+)
+p_8schools <- eightschools %>% 
+  ggplot(aes(school, effect, ymin = lower, ymax = upper, colour = model)) +
+  geom_hline(yintercept = 0) +
+  geom_linerange(position = position_dodge(width = -0.5), show.legend = FALSE) +
+  geom_point(position = position_dodge(width = -0.5)) +
+  scale_y_continuous("Treatment effect") +
+  scale_x_discrete(NULL) +
+  scale_color_brewer(NULL, type = "qual", palette = 6) +
+  coord_flip() +
+  theme(legend.position = "bottom")
+
+ggsave("images/8-schools.png", p_8schools, width = 6, height = 6)
+```
+
+
 * What do these different assumptions imply for our results and interpretation?
 
-  * Identical parameters: We can pool the results from all studies (weighted by the inverse of the sampling variances)
+  * *Identical parameters*: We can pool the results from all studies (weighted by the inverse of the sampling variances)
   
     * We get an estimate of 7.7 points (S.E. 4.1) for the (common) treatment effect in all schools
   
-  * Independent parameters: Take the estimates in the table at face value
+  * *Independent parameters*: Take the estimates in the table at face value
   
-  * Exchangeable parameters: Estimate a Bayesian hierarchical model
+  * *Exchangeable parameters*: Estimate a Bayesian hierarchical model
   
     * Assume the 'true' effects in each school are drawn from a normal (or other) distribution, and estimate the parameters (mean, sd) of that distribution
     
-    * This requires us to specify prior beliefs about the mean and standard deviation of the effect distribution
-    
-      * For now we assume non-informative prior distributions for both
+    * This requires us to specify prior beliefs about the mean and standard deviation of the effect distribution  
+(For now, we assume non-informative prior distributions for both)
 
     * The effects for all schools are pulled towards the sample mean (between 5 and 10 points, instead of between --3 and 28, but with substantial uncertainty)
 
+![](images/8-schools.png){.absolute bottom=-60 left=210 width=900 height=900 .fragment}
+
 ## Meta-analysis {.smaller}
+
+. . .
 
 * Similar hierarchical models can be used for meta-analysis as well
 
@@ -744,15 +738,50 @@ $$\mathrm{Pr}(\text{HIV}^+\ |\ \text{test}^+) = \frac{0.95 \times 0.2}{0.206} = 
 
 * As before, if we assume exchangeability between the studies, we can estimate a Bayesian hierarchical model for the treatment effects
 
+* The results, using a non-informative prior, are
+
+```{=html}
+<table class="table" style="margin-left: auto; margin-right: auto;">
+ <thead>
+  <tr>
+   <th style="text-align:center;"> Estimand </th>
+   <th style="text-align:center;"> 2.5% </th>
+   <th style="text-align:center;"> 25% </th>
+   <th style="text-align:center;"> Median </th>
+   <th style="text-align:center;"> 75% </th>
+   <th style="text-align:center;"> 97.5% </th>
+  </tr>
+ </thead>
+<tbody>
+  <tr>
+   <td style="text-align:center;"> Mean </td>
+   <td style="text-align:center;"> &minus;0.37 </td>
+   <td style="text-align:center;"> &minus;0.29 </td>
+   <td style="text-align:center;"> &minus;0.25 </td>
+   <td style="text-align:center;"> &minus;0.20 </td>
+   <td style="text-align:center;"> &minus;0.11 </td>
+  </tr>
+  <tr>
+   <td style="text-align:center;"> Standard deviation </td>
+   <td style="text-align:center;"> 0.02 </td>
+   <td style="text-align:center;"> 0.08 </td>
+   <td style="text-align:center;"> 0.13 </td>
+   <td style="text-align:center;"> 0.18 </td>
+   <td style="text-align:center;"> 0.31 </td>
+  </tr>
+</tbody>
+</table>
+```
+
+## Meta-analysis
+
 * There are several estimands that may be of interest:
 
   * The mean of the distribution of effect sizes
   
-  * The effect size in a new comparable study
-  
   * The effect size in any of the observed studies
-
-* The results, using a non-informative prior, are
+  
+  * The effect size in a new comparable study
 
 ```{=html}
 <table class="table" style="margin-left: auto; margin-right: auto;">
@@ -795,6 +824,10 @@ $$\mathrm{Pr}(\text{HIV}^+\ |\ \text{test}^+) = \frac{0.95 \times 0.2}{0.206} = 
 </table>
 ```
 
+## One more example to be added
+
+* Something demonstrating the use of external data (e.g. observational studies as well as trials)
+
 # Bayesian analysis in practice
 
 ## Software
@@ -807,166 +840,33 @@ $$\mathrm{Pr}(\text{HIV}^+\ |\ \text{test}^+) = \frac{0.95 \times 0.2}{0.206} = 
 . . .
 
 * Most general-purpose statistical programs these days have (at least some) Bayesian methods available
-  * R
-    * `rstanarm`
-    * `brms`
-    * direct interface to Bayesian modelling languages with `rstan`, `rjags`
+  * R: e.g. `rstanarm`, `brms`
+    * Also direct interface to Bayesian modelling languages with `rstan`, `rjags`
   * Stata (also StataStan)
-  * SPSS ?
+  * SAS, SPSS ?
 
-## Example - linear regression model
+## Model checking
 
-* We will use the `rstanarm` package in R for illustration
-* This makes it very easy to run Bayesian analogues of several standard regression models (linear, logistic, etc.)
-  * (Just as easy as running the standard classical models)
+* We won't go into this in any detail today, but it is a very important part of any Bayesian analysis
+* Posterior predictive checks
+  * The model can be used to predict outcomes both in- and out-of-sample
+  * Do these predictions make sense (face validity)? Are they consistent with observed data?
+* Model convergence
+  * Bayesian models are generally estimated by simulation methods
+  * Has the simulation converged to a stable distibution of parameter values?
 
-. . .
-
-* Well, almost as easy
-  * There are still a few Bayesian-specific issues to consider (prior distributions, computational options, etc.)
-
-## (Not so) technical backgroun
-
-* Bayesian estimation is based on Markov Chain Monte Carlo (MCMC) simulation
-* We won't go into the details
-  * Basically, we start with some initial guesses for the parameters, then keep adjusting these until we get to a stable distribution
-  * Once we get to this stable range, the distribution of parameter 'guesses' is our posterior distribution
-  * Checking how well this convergence has worked is a key part of model diagnostics
-
-## Example - linear regression model
-
-* Linear regression models in R (standard `lm()`, Bayesian analysis with `stan` and `stan_glm()`)
-* Convergence diagnostics
-* More substantive model checks -- i.e., does the model make sense?
-  * Sensitivity to alternative priors
-    * If the results are highly sensitive to different plausible priors, that should give us less confidence in our conclusions
-  * Predictive accuracy
-    * How well does the model predict the actual (distribution of) data?
-* Model interpretation/analysis/reporting
-
-## Further examples
-
-* Other common regression models are easily replicated with `rstanarm` (or `brms`)
-  * Logistic regression (binary outcomes)
-  * Poisson regression (count outcomes)
-* These packages can also do some more complicated models
-  * Multinomial or ordinal outcomes
-  * Mixed/random effects
-* For more complex models, you will need to use Stan (or BUGS/JAGS) directly
-  * `rstan` can run these models from within R
-  * `brms` can be used to generate starter code, if the model is a variant of a `brms` model
-
-## Further examples
-
-* 8 Schools
-  * Hierarchical Bayesian modelling
-
-. . .
-
-```{=html}
-<table class="table" style="margin-left: auto; margin-right: auto;">
- <thead>
-  <tr>
-   <th style="text-align:center;"> <b>School</b> </th>
-   <th style="text-align:center;"> <b>Mean estimate</b> </th>
-   <th style="text-align:center;"> <b>Standard error</b> </th>
-  </tr>
- </thead>
-<tbody>
-  <tr>
-   <td style="text-align:center;"> A </td>
-   <td style="text-align:center;"> 28 </td>
-   <td style="text-align:center;"> 15 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;"> B </td>
-   <td style="text-align:center;"> 8 </td>
-   <td style="text-align:center;"> 10 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;"> C </td>
-   <td style="text-align:center;"> -3 </td>
-   <td style="text-align:center;"> 16 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;"> D </td>
-   <td style="text-align:center;"> 7 </td>
-   <td style="text-align:center;"> 11 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;"> E </td>
-   <td style="text-align:center;"> -1 </td>
-   <td style="text-align:center;"> 9 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;"> F </td>
-   <td style="text-align:center;"> 1 </td>
-   <td style="text-align:center;"> 11 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;"> G </td>
-   <td style="text-align:center;"> 18 </td>
-   <td style="text-align:center;"> 10 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;"> H </td>
-   <td style="text-align:center;"> 12 </td>
-   <td style="text-align:center;"> 18 </td>
-  </tr>
-</tbody>
-</table>
-```
-
-. . .
-
-::: {.absolute right=-50 top=30 style="border:1px solid black;padding:10px 20px;"}
-
-What is our 'best'<br>
-estimate of the true<br>
-effect in School A?
-
-:::
-
-## Further examples
-
-* Item Response Theory modelling
-  * Rasch model: $\mathrm{logit}[\mathrm{Pr}(y_{ij} = 1 | \theta_j)] = \theta_j - \beta_i$
-  * 2-parameter model: $\mathrm{logit}[\mathrm{Pr}(y_{ij} = 1 | \theta_j)] = \alpha_i(\theta_j - \beta_i)$
-* The `edstan` package provides functions and Stan code to fit IRT models
-
-## Frequentist vs. Bayesian
-
-* Bayesian analysis:
-  * Uses prior information (when available)
-  * Accounts for uncertainty in parameters
-  * Provides probability values and credible parameters with more intuitive (and meaningful) interpretation
-  * Can provide more reliable estimates in small samples
-  * Can estimate more complicated models and conduct more informative post-estimation analyses than traditional approaches
-* But: can be more difficult to implement in practice
-  * This is not necessarily a bad thing -- it might make us think about some of the underlying assumptions that can be swept under the carpet in traditional statistical analysis
-
-## Summary
-
-* Conducting Bayesian analysis requires a little more thought, and a little more confidence with statistical methods, than 'traditional' frequentist approaches
-* Modern software packages make this a lot easier (and are getting better all the time)
-* The payoff is more flexible modelling options, ability to incorporate relevant prior information, more robust estimates in small samples, and more meaningful analysis of uncertainty in parameter estimates
-
-## References
+## References {.smaller}
 
 * Recommended textbooks:
   * Introductory: *Doing Bayesian Data Analysis: A tutorial with R, JAGS, and Stan*, 2^nd^ Edition. John K. Kruschke (2015)
     * Mostly non-technical presentation of applied Bayesian analysis
-    * e-Book available for download via the library
+    * eBook available for download via the library
   * Intermediate: *Statistical Rethinking: A Bayesian Course with Examples in R and Stan*, 2^nd^ Edition. Richard McElreath (2020)
     * How to think about statistics in terms of data generating models
-    * I couldn't find an e-Book version, but there are video lectures by the author on YouTube: <https://www.youtube.com/playlist?list=PLDcUM9US4XdPz-KxHM4XHt7uUVGWWVSus>
+    * I couldn't find an eBook version, but there are video lectures by the author on YouTube: <https://www.youtube.com/playlist?list=PLDcUM9US4XdPz-KxHM4XHt7uUVGWWVSus>
+  * Intermediate: *Bayesian Approaches to Clinical Trials and Health-Care Evaluation*. David J. Spiegelhalter, Keith R. Abrams, Jonathan P. Myles (2004)
+    * Focus on RCTs and some other clinical research designs, presenting several interesting examples of different uses of Bayesian methods
+    * eBook available for download via the library
   * Advanced: *Bayesian Data Analysis*, 3^rd^ Edition. Andrew Gelman, John B. Carlin, Hal S. Stearn, David B. Dunson, Aki Vehtari, and Donald B. Rubin (2013)
     * Parts of this are quite advanced, but it also has lots of useful examples and applications
     * PDF version available from Gelman's website: <http://www.stat.columbia.edu/~gelman/book/>
-
-## References
-
-* Other useful resources:
-  * Much of the background theory here follows *Bayesian Basics*, Michael Clark (2018): <https://m-clark.github.io/bayesian-basics/>
-  * Stan and `rstan` both have extensive documentation, examples, etc. -- See <https://mc-stan.org>
-  * Other R packages (`rstanarm`, `brms`, `edstan`, etc.) have their own documentation and usually good vignettes, tutorials, and/or examples

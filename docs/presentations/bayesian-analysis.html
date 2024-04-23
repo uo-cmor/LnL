@@ -8,7 +8,7 @@
 <link href="../site_libs/quarto-html/light-border.css" rel="stylesheet">
 <link href="../site_libs/quarto-html/quarto-html.min.css" rel="stylesheet" data-mode="light">
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
-  <meta name="generator" content="quarto-1.3.450">
+  <meta name="generator" content="quarto-1.4.553">
 
   <meta name="author" content="Ross Wilson">
   <meta name="dcterms.date" content="2024-04-11">
@@ -265,7 +265,8 @@
   }
 
   .callout.callout-titled .callout-body > .callout-content > :last-child {
-    margin-bottom: 0.5rem;
+    padding-bottom: 0.5rem;
+    margin-bottom: 0;
   }
 
   .callout.callout-titled .callout-icon::before {
@@ -439,11 +440,6 @@
   <p class="date">11 April 2024</p>
   <p class="author">Ross Wilson</p>
 </section>
-<section>
-<section id="what-is-statistical-analysis-for" class="title-slide slide level1 center">
-<h1>What is statistical analysis for?</h1>
-
-</section>
 <section id="what-is-the-objective-of-a-statistical-analysis" class="slide level2">
 <h2>What is the objective of a statistical analysis?</h2>
 <ul>
@@ -458,7 +454,7 @@
 </ul></li>
 </ul></li>
 </ul>
-</section></section>
+</section>
 <section>
 <section id="classical-versus-bayesian-approaches" class="title-slide slide level1 center">
 <h1>Classical versus Bayesian approaches</h1>
@@ -520,36 +516,10 @@
 </ul></li>
 </ul>
 <p><br></p>
+<div class="fragment">
 <ul>
 <li>How should we refine our prior beliefs in light of new data?</li>
 </ul>
-</section>
-<section id="what-is-probability" class="slide level2">
-<h2>What is probability?</h2>
-<p><br></p>
-<p>What does it mean to say something has a probability of, say, 20%?</p>
-<p><br></p>
-<div class="columns">
-<div class="column fragment" style="width:45%;">
-<p><strong>Relative frequency</strong></p>
-<p><br></p>
-<p><span class="math inline">\(\mathrm{Pr}(A) = \lim\limits_{n \to \infty} \frac{\text{# times } A \text{ occurs}}{n}\)</span></p>
-<p><br></p>
-<div class="fragment">
-<p>If we repeatedly sample from a given situation, what proportion of times will the event occur?</p>
-</div>
-</div><div class="column" style="width:10%;">
-
-</div><div class="column fragment" style="width:45%;">
-<p><strong>Subjective probability</strong></p>
-<p><em>A measure of certainty (or uncertainty) in an event</em></p>
-<div class="fragment">
-<ul>
-<li><p>What is the probability it will rain in Dunedin tomorrow?</p></li>
-<li><p>What is the probability that exercise therapy is beneficial for a patient with OA?</p></li>
-</ul>
-</div>
-</div>
 </div>
 </section>
 <section id="conditional-probability" class="slide level2">
@@ -600,7 +570,7 @@
 <p><br></p>
 <div class="fragment">
 <ul>
-<li>In a statistical model, we are usually interested in probability distributions over continuous covariates:</li>
+<li>In a statistical model, we are usually interested in probability distributions over continuous variables:</li>
 </ul>
 <p><span class="math display">\[f(\theta | y) = \frac{f(y | \theta) f(\theta)}{f(y)}\]</span></p>
 <p>(updated knowledge about a parameter <span class="math inline">\(\theta\)</span> given data <span class="math inline">\(y\)</span>)</p>
@@ -608,6 +578,7 @@
 </section>
 <section id="bayes-theorem-1" class="slide level2">
 <h2>Bayes’ Theorem</h2>
+<p><br></p>
 <ul>
 <li>Tells us how to calculate the ‘posterior distribution’ given:
 <ul>
@@ -677,11 +648,11 @@
 the less the prior matters</li>
 </ul>
 </div>
-<p><img data-src="images/more-data-1.png" class="absolute fragment fade-in-then-out" style="left: 410px; bottom: -60px; width: 600px; " data-fragment-index="4"></p>
-<p><img data-src="images/more-data-2.png" class="absolute fragment fade-in-then-out" style="left: 410px; bottom: -60px; width: 600px; " data-fragment-index="5"></p>
-<p><img data-src="images/more-data-3.png" class="absolute fragment" style="left: 410px; bottom: -60px; width: 600px; " data-fragment-index="6"></p>
+<p><img data-src="images/more-data-1.png" class="absolute fragment fade-in-then-out" style="left: 210px; bottom: -60px; width: 800px; height: 1500px; " data-fragment-index="4"></p>
+<p><img data-src="images/more-data-2.png" class="absolute fragment fade-in-then-out" style="left: 210px; bottom: -60px; width: 800px; height: 1500px; " data-fragment-index="5"></p>
+<p><img data-src="images/more-data-3.png" class="absolute fragment" style="left: 210px; bottom: -60px; width: 800px; height: 1500px; " data-fragment-index="6"></p>
 </section>
-<section id="why-bayesian-analysis" class="slide level2 smaller">
+<section id="why-bayesian-analysis" class="slide level2">
 <h2>Why Bayesian analysis?</h2>
 <ul>
 <li>Our objective is usually to conclude something about the likely values of a treatment effect (or other outcome of interest)</li>
@@ -690,21 +661,41 @@ the less the prior matters</li>
 <ul>
 <li><p>There is usually at least some prior evidence relevant to the research question</p>
 <ul>
-<li><p>Ignoring this evidence limits our ability to draw appropriate conclusions from research</p></li>
-<li><p>Explicitly incorporating prior evidence forces researchers, and users of research, to think carefully and be transparent about what external evidence, judgements, and assumptions should be included</p></li>
+<li>Be explicit and transparent about the use of external evidence, judgements, and assumptions</li>
 </ul></li>
 </ul>
 </div>
 <div class="fragment">
 <ul>
-<li>As we will see, Bayesian analysis can also be much more flexible than traditional approaches, both in what data can contribute to analysis and in the particular models that can be estimated</li>
+<li><p>Can be much more flexible than traditional approaches</p>
+<ul>
+<li><p>Using more—and more varied—sources of data</p></li>
+<li><p>More flexible models tailored to particular situations</p></li>
+</ul></li>
 </ul>
 </div>
 <div class="fragment">
 <ul>
-<li>Interpretation of Bayesian results is much more intuitive and applicable than most traditional statistical methods</li>
+<li>Interpretation of results is much more intuitive (and relevant) than most traditional statistical methods</li>
 </ul>
 </div>
+</section>
+<section id="presentation-and-interpretation" class="slide level2 smaller">
+<h2>Presentation and interpretation</h2>
+<ul>
+<li><p>Bayesian analyses are often quite complex, and care is needed in presentation and interpretation</p></li>
+<li><p>The prior(s) used should always be explicitly stated and justified</p>
+<ul>
+<li>Sensitivity to different plausible priors should be considered</li>
+</ul></li>
+<li><p>Bayesian analysis produces an estimated parameter <em>distribution</em>, not a single point estimate</p>
+<ul>
+<li>The mean or median can be used as a central estimate</li>
+<li>Quantiles of the distribution can be used to generate credible intervals</li>
+<li>The probability of specific ranges of parameter values (e.g.&nbsp;<span class="math inline">\(\mathrm{Pr}(\theta &gt; 0)\)</span>) might be of interest</li>
+</ul></li>
+<li><p>It is important to note (as in classical analyses) that the distribution captures <em>uncertainty</em> in the parameter estimate, not between-person variability in treatment effects</p></li>
+</ul>
 </section>
 <section id="comparing-classical-and-bayesian-approaches" class="slide level2 smaller">
 <h2>Comparing classical and Bayesian approaches</h2>
@@ -720,7 +711,7 @@ the less the prior matters</li>
 <li>Hypothesis testing
 <ul>
 <li>The classical p-value is <strong><em>not</em></strong> <span class="math inline">\(\mathrm{Pr}(\text{no treatment effect})\)</span></li>
-<li>Bayesian analysis <strong>can</strong> tell us <span class="math inline">\(\mathrm{Pr}(\text{no treatment effect})\)</span> (or any other probability statement about the parameters of interest)</li>
+<li>Bayesian analysis <strong><em>can</em></strong> tell us <span class="math inline">\(\mathrm{Pr}(\text{no treatment effect})\)</span> (or any other probability statement about the parameters of interest)</li>
 </ul></li>
 </ul>
 </div>
@@ -728,29 +719,12 @@ the less the prior matters</li>
 <ul>
 <li>Confidence intervals
 <ul>
-<li>Slightly more subtle differences</li>
+<li>Again, the classical confidence interval is <strong><em>not</em></strong> strictly a probability statement</li>
 <li>In some (many) cases, classical confidence intervals are identical or very similar to Bayesian equivalents assuming no useful prior information</li>
 <li>When prior information is available, Bayesian credible intervals incorporate that information</li>
 </ul></li>
 </ul>
 </div>
-</section>
-<section id="presentation-and-interpretation" class="slide level2 smaller">
-<h2>Presentation and interpretation</h2>
-<ul>
-<li><p>Bayesian analyses are often more complex than classical analyses, and care is needed in presentation and interpretation</p></li>
-<li><p>The prior(s) used should always be explicitly stated and justified</p>
-<ul>
-<li>Sensitivity to different plausible priors should be considered</li>
-</ul></li>
-<li><p>Bayesian analysis produces an estimated parameter <em>distribution</em>, not a single point estimate</p>
-<ul>
-<li>The mean or median can be used as a central estimate</li>
-<li>The 2.5th and 97.5th percentiles of the distribution can be used to generate a 95% credible interval</li>
-<li>The probability of specific ranges of parameter values (e.g.&nbsp;<span class="math inline">\(\mathrm{Pr}(\theta &gt; 0)\)</span>) might be of interest</li>
-</ul></li>
-<li><p>It is important to note (as in classical analyses) that the distribution captures <em>uncertainty</em> in the parameter estimate, not between-person variability in treatment effects</p></li>
-</ul>
 </section></section>
 <section>
 <section id="examples" class="title-slide slide level1 center">
@@ -774,12 +748,14 @@ the less the prior matters</li>
 </section>
 <section id="diagnostic-testing" class="slide level2">
 <h2>Diagnostic testing</h2>
+<div class="fragment">
 <p><br></p>
 <ul>
 <li><p>Suppose have a new HIV test, which has 95% sensitivity and 98% specificity</p></li>
 <li><p>We want to use the test for screening, in a population with HIV prevalence of 1/1000</p></li>
 </ul>
 <p><br></p>
+</div>
 <div class="fragment">
 <ul>
 <li>What is the probability that someone has HIV, given that they have tested positive?</li>
@@ -789,26 +765,9 @@ the less the prior matters</li>
 <section id="diagnostic-testing-1" class="slide level2">
 <h2>Diagnostic testing</h2>
 <ul>
-<li><p>Using Bayes’ theorem: <span class="math display">\[\mathrm{Pr}(\text{HIV}^+\ |\ \text{test}^+) = \frac{\mathrm{Pr}(\text{test}^+\ |\ \text{HIV}^+)\ \mathrm{Pr}(\text{HIV}^+)}{\mathrm{Pr}(\text{test}^+)}\]</span></p>
-<ul>
-<li><p><span class="math inline">\(\mathrm{Pr}(\text{test}^+\ |\ \text{HIV}^+)\)</span> is the sensitivity, <span class="math inline">\(0.95\)</span></p></li>
-<li><p><span class="math inline">\(\mathrm{Pr}(\text{HIV}^+)\)</span> is <span class="math inline">\(1 / 1000 = 0.001\)</span></p></li>
-<li><p><span class="math inline">\(\mathrm{Pr}(\text{test}^+)\)</span> can be calculated as<br>
-<span class="math inline">\(\mathrm{Pr}(\text{test}^+\ |\ \text{HIV}^-)\ \mathrm{Pr}(\text{HIV}^-) + \mathrm{Pr}(\text{test}^+\ |\ \text{HIV}^+)\ \mathrm{Pr}(\text{HIV}^+)\)</span><br>
-<span class="math inline">\(\ \ \ \  = 0.02 \times 0.999 + 0.95 \times 0.001 = 0.02093\)</span></p></li>
-</ul></li>
+<li>Consider the expected status of 100,000 individuals being screened</li>
 </ul>
-<div class="fragment">
-<ul>
-<li>Therefore, <span class="math display">\[\mathrm{Pr}(\text{HIV}^+\ |\ \text{test}^+) = \frac{0.95 \times 0.001}{0.02093} = 0.045\]</span></li>
-</ul>
-</div>
-</section>
-<section id="diagnostic-testing-2" class="slide level2">
-<h2>Diagnostic testing</h2>
-<ul>
-<li>To see how this works, consider the expected status of 100,000 individuals being screened</li>
-</ul>
+<div>
 <table class="table" data-quarto-postprocess="true" style="margin-left: auto; margin-right: auto;">
 <thead>
 <tr class="header">
@@ -839,8 +798,25 @@ the less the prior matters</li>
 </tr>
 </tbody>
 </table>
+</div>
+<div class="fragment">
 <ul>
-<li>As before, the probability of having HIV given a positive test can be calculated: <span class="math display">\[\mathrm{Pr}(\text{HIV}^+\ |\ \text{test}^+) = \frac{95}{2093} = 0.045\]</span></li>
+<li>The probability of having HIV given a positive test can be calculated: <span class="math display">\[\mathrm{Pr}(\text{HIV}^+\ |\ \text{test}^+) = \frac{95}{2093} = 0.045\]</span></li>
+</ul>
+</div>
+</section>
+<section id="diagnostic-testing-2" class="slide level2">
+<h2>Diagnostic testing</h2>
+<ul>
+<li><p>Using Bayes’ theorem: <span class="math display">\[\mathrm{Pr}(\text{HIV}^+\ |\ \text{test}^+) = \frac{\mathrm{Pr}(\text{test}^+\ |\ \text{HIV}^+)\ \mathrm{Pr}(\text{HIV}^+)}{\mathrm{Pr}(\text{test}^+)}\]</span></p>
+<ul>
+<li><p><span class="math inline">\(\mathrm{Pr}(\text{test}^+\ |\ \text{HIV}^+)\)</span> is the sensitivity, <span class="math inline">\(0.95\)</span></p></li>
+<li><p><span class="math inline">\(\mathrm{Pr}(\text{HIV}^+)\)</span> is <span class="math inline">\(1 / 1000 = 0.001\)</span></p></li>
+<li><p><span class="math inline">\(\mathrm{Pr}(\text{test}^+)\)</span> can be calculated as<br>
+<span class="math inline">\(\mathrm{Pr}(\text{test}^+\ |\ \text{HIV}^-)\ \mathrm{Pr}(\text{HIV}^-) + \mathrm{Pr}(\text{test}^+\ |\ \text{HIV}^+)\ \mathrm{Pr}(\text{HIV}^+)\)</span><br>
+<span class="math inline">\(\ \ \ \  = 0.02 \times 0.999 + 0.95 \times 0.001 = 0.02093\)</span></p></li>
+</ul></li>
+<li><p>Therefore, <span class="math display">\[\mathrm{Pr}(\text{HIV}^+\ |\ \text{test}^+) = \frac{0.95 \times 0.001}{0.02093} = 0.045\]</span></p></li>
 </ul>
 </section>
 <section id="diagnostic-testing-3" class="slide level2">
@@ -858,10 +834,12 @@ the less the prior matters</li>
 </section>
 <section id="a-simple-rct-analysis" class="slide level2">
 <h2>A simple RCT analysis</h2>
+<div class="fragment">
 <ul>
 <li><p>The GREAT trial was a study of a new drug for early treatment after myocardial infarction, compared with placebo</p></li>
 <li><p>The primary outcome was 30-day mortality rate, with data:</p></li>
 </ul>
+<div>
 <table class="table" data-quarto-postprocess="true" style="margin-left: auto; margin-right: auto;">
 <thead>
 <tr class="header">
@@ -892,6 +870,8 @@ the less the prior matters</li>
 </tr>
 </tbody>
 </table>
+</div>
+</div>
 </section>
 <section id="a-simple-rct-analysis-1" class="slide level2 smaller">
 <h2>A simple RCT analysis</h2>
@@ -938,6 +918,7 @@ the less the prior matters</li>
 </section>
 <section id="multiplicity-and-hierarchical-models" class="slide level2">
 <h2>Multiplicity and hierarchical models</h2>
+<div class="fragment">
 <ul>
 <li>Problems of multiplicity are well-recognised in traditional statistical analyses
 <ul>
@@ -945,6 +926,7 @@ the less the prior matters</li>
 </ul></li>
 <li>In a Bayesian analysis, these multiple endpoints can often be nested within a larger hierarchical model</li>
 </ul>
+</div>
 </section>
 <section id="educational-coaching-interventions-in-8-schools" class="slide level2 smaller">
 <h2>Educational coaching interventions in 8 schools</h2>
@@ -954,6 +936,7 @@ the less the prior matters</li>
 <li>Estimates of the treatment effect were obtained separately from each school</li>
 </ul></li>
 </ul>
+<div>
 <table class="table" data-quarto-postprocess="true" style="margin-left: auto; margin-right: auto;">
 <thead>
 <tr class="header">
@@ -1005,6 +988,7 @@ the less the prior matters</li>
 </tr>
 </tbody>
 </table>
+</div>
 </section>
 <section id="educational-coaching-interventions-in-8-schools-1" class="slide level2">
 <h2>Educational coaching interventions in 8 schools</h2>
@@ -1020,35 +1004,36 @@ the less the prior matters</li>
 </ul></li>
 </ul>
 </section>
-<section id="educational-coaching-interventions-in-8-schools-2" class="slide level2">
+<section id="educational-coaching-interventions-in-8-schools-2" class="slide level2 smaller">
 <h2>Educational coaching interventions in 8 schools</h2>
 <ul>
 <li><p>What do these different assumptions imply for our results and interpretation?</p>
 <ul>
-<li><p>Identical parameters: We can pool the results from all studies (weighted by the inverse of the sampling variances)</p>
+<li><p><em>Identical parameters</em>: We can pool the results from all studies (weighted by the inverse of the sampling variances)</p>
 <ul>
 <li>We get an estimate of 7.7 points (S.E. 4.1) for the (common) treatment effect in all schools</li>
 </ul></li>
-<li><p>Independent parameters: Take the estimates in the table at face value (or apply an informative prior distribution independently to each study)</p></li>
-<li><p>Exchangeable parameters: Estimate a Bayesian hierarchical model</p>
+<li><p><em>Independent parameters</em>: Take the estimates in the table at face value</p></li>
+<li><p><em>Exchangeable parameters</em>: Estimate a Bayesian hierarchical model</p>
 <ul>
 <li><p>Assume the ‘true’ effects in each school are drawn from a normal (or other) distribution, and estimate the parameters (mean, sd) of that distribution</p></li>
-<li><p>This requires us to specify prior beliefs about the mean and standard deviation of the effect distribution</p>
-<ul>
-<li>For now we assume non-informative prior distributions for both</li>
-</ul></li>
+<li><p>This requires us to specify prior beliefs about the mean and standard deviation of the effect distribution<br>
+(For now, we assume non-informative prior distributions for both)</p></li>
 <li><p>The effects for all schools are pulled towards the sample mean (between 5 and 10 points, instead of between –3 and 28, but with substantial uncertainty)</p></li>
 </ul></li>
 </ul></li>
 </ul>
+<p><img data-src="images/8-schools.png" class="absolute fragment" style="left: 210px; bottom: -60px; width: 900px; height: 900px; "></p>
 </section>
 <section id="meta-analysis" class="slide level2 smaller">
 <h2>Meta-analysis</h2>
+<div class="fragment">
 <ul>
 <li><p>Similar hierarchical models can be used for meta-analysis as well</p></li>
-<li><p>We consider an example of a meta-analysis of beta-blockers for reducing mortality after MI</p></li>
+<li><p>We consider an example of a meta-analysis of beta-blockers for reducing mortality after myocardial infarction</p></li>
 <li><p>The study included 22 clinical trials, with data for the first few as shown</p></li>
 </ul>
+<div>
 <table class="table" data-quarto-postprocess="true" style="margin-left: auto; margin-right: auto;">
 <thead>
 <tr class="header">
@@ -1118,6 +1103,104 @@ the less the prior matters</li>
 </tr>
 </tbody>
 </table>
+</div>
+</div>
+</section>
+<section id="meta-analysis-1" class="slide level2">
+<h2>Meta-analysis</h2>
+<ul>
+<li><p>As before, if we assume exchangeability between the studies, we can estimate a Bayesian hierarchical model for the treatment effects</p></li>
+<li><p>The results, using a non-informative prior, are</p></li>
+</ul>
+<div>
+<table class="table" data-quarto-postprocess="true" style="margin-left: auto; margin-right: auto;">
+<thead>
+<tr class="header">
+<th style="text-align: center;" data-quarto-table-cell-role="th">Estimand</th>
+<th style="text-align: center;" data-quarto-table-cell-role="th">2.5%</th>
+<th style="text-align: center;" data-quarto-table-cell-role="th">25%</th>
+<th style="text-align: center;" data-quarto-table-cell-role="th">Median</th>
+<th style="text-align: center;" data-quarto-table-cell-role="th">75%</th>
+<th style="text-align: center;" data-quarto-table-cell-role="th">97.5%</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">Mean</td>
+<td style="text-align: center;">−0.37</td>
+<td style="text-align: center;">−0.29</td>
+<td style="text-align: center;">−0.25</td>
+<td style="text-align: center;">−0.20</td>
+<td style="text-align: center;">−0.11</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">Standard deviation</td>
+<td style="text-align: center;">0.02</td>
+<td style="text-align: center;">0.08</td>
+<td style="text-align: center;">0.13</td>
+<td style="text-align: center;">0.18</td>
+<td style="text-align: center;">0.31</td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="meta-analysis-2" class="slide level2">
+<h2>Meta-analysis</h2>
+<ul>
+<li><p>There are several estimands that may be of interest:</p>
+<ul>
+<li><p>The mean of the distribution of effect sizes</p></li>
+<li><p>The effect size in any of the observed studies</p></li>
+<li><p>The effect size in a new comparable study</p></li>
+</ul></li>
+</ul>
+<div>
+<table class="table" data-quarto-postprocess="true" style="margin-left: auto; margin-right: auto;">
+<thead>
+<tr class="header">
+<th style="text-align: center;" data-quarto-table-cell-role="th">Estimand</th>
+<th style="text-align: center;" data-quarto-table-cell-role="th">2.5%</th>
+<th style="text-align: center;" data-quarto-table-cell-role="th">25%</th>
+<th style="text-align: center;" data-quarto-table-cell-role="th">Median</th>
+<th style="text-align: center;" data-quarto-table-cell-role="th">75%</th>
+<th style="text-align: center;" data-quarto-table-cell-role="th">97.5%</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">Mean</td>
+<td style="text-align: center;">−0.37</td>
+<td style="text-align: center;">−0.29</td>
+<td style="text-align: center;">−0.25</td>
+<td style="text-align: center;">−0.20</td>
+<td style="text-align: center;">−0.11</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">Standard deviation</td>
+<td style="text-align: center;">0.02</td>
+<td style="text-align: center;">0.08</td>
+<td style="text-align: center;">0.13</td>
+<td style="text-align: center;">0.18</td>
+<td style="text-align: center;">0.31</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">Predicted effect</td>
+<td style="text-align: center;">−0.58</td>
+<td style="text-align: center;">−0.34</td>
+<td style="text-align: center;">−0.25</td>
+<td style="text-align: center;">−0.17</td>
+<td style="text-align: center;">0.11</td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="one-more-example-to-be-added" class="slide level2">
+<h2>One more example to be added</h2>
+<ul>
+<li>Something demonstrating the use of external data (e.g.&nbsp;observational studies as well as trials)</li>
+</ul>
 </section></section>
 <section>
 <section id="bayesian-analysis-in-practice" class="title-slide slide level1 center">
@@ -1138,191 +1221,33 @@ the less the prior matters</li>
 <ul>
 <li>Most general-purpose statistical programs these days have (at least some) Bayesian methods available
 <ul>
-<li>R
+<li>R: e.g.&nbsp;<code>rstanarm</code>, <code>brms</code>
 <ul>
-<li><code>rstanarm</code></li>
-<li><code>brms</code></li>
-<li>direct interface to Bayesian modelling languages with <code>rstan</code>, <code>rjags</code></li>
+<li>Also direct interface to Bayesian modelling languages with <code>rstan</code>, <code>rjags</code></li>
 </ul></li>
 <li>Stata (also StataStan)</li>
-<li>SPSS ?</li>
+<li>SAS, SPSS ?</li>
 </ul></li>
 </ul>
 </div>
 </section>
-<section id="example---linear-regression-model" class="slide level2">
-<h2>Example - linear regression model</h2>
+<section id="model-checking" class="slide level2">
+<h2>Model checking</h2>
 <ul>
-<li>We will use the <code>rstanarm</code> package in R for illustration</li>
-<li>This makes it very easy to run Bayesian analogues of several standard regression models (linear, logistic, etc.)
+<li>We won’t go into this in any detail today, but it is a very important part of any Bayesian analysis</li>
+<li>Posterior predictive checks
 <ul>
-<li>(Just as easy as running the standard classical models)</li>
+<li>The model can be used to predict outcomes both in- and out-of-sample</li>
+<li>Do these predictions make sense (face validity)? Are they consistent with observed data?</li>
 </ul></li>
-</ul>
-<div class="fragment">
+<li>Model convergence
 <ul>
-<li>Well, almost as easy
-<ul>
-<li>There are still a few Bayesian-specific issues to consider (prior distributions, computational options, etc.)</li>
-</ul></li>
-</ul>
-</div>
-</section>
-<section id="not-so-technical-backgroun" class="slide level2">
-<h2>(Not so) technical backgroun</h2>
-<ul>
-<li>Bayesian estimation is based on Markov Chain Monte Carlo (MCMC) simulation</li>
-<li>We won’t go into the details
-<ul>
-<li>Basically, we start with some initial guesses for the parameters, then keep adjusting these until we get to a stable distribution</li>
-<li>Once we get to this stable range, the distribution of parameter ‘guesses’ is our posterior distribution</li>
-<li>Checking how well this convergence has worked is a key part of model diagnostics</li>
+<li>Bayesian models are generally estimated by simulation methods</li>
+<li>Has the simulation converged to a stable distibution of parameter values?</li>
 </ul></li>
 </ul>
 </section>
-<section id="example---linear-regression-model-1" class="slide level2">
-<h2>Example - linear regression model</h2>
-<ul>
-<li>Linear regression models in R (standard <code>lm()</code>, Bayesian analysis with <code>stan</code> and <code>stan_glm()</code>)</li>
-<li>Convergence diagnostics</li>
-<li>More substantive model checks – i.e., does the model make sense?
-<ul>
-<li>Sensitivity to alternative priors
-<ul>
-<li>If the results are highly sensitive to different plausible priors, that should give us less confidence in our conclusions</li>
-</ul></li>
-<li>Predictive accuracy
-<ul>
-<li>How well does the model predict the actual (distribution of) data?</li>
-</ul></li>
-</ul></li>
-<li>Model interpretation/analysis/reporting</li>
-</ul>
-</section>
-<section id="further-examples" class="slide level2">
-<h2>Further examples</h2>
-<ul>
-<li>Other common regression models are easily replicated with <code>rstanarm</code> (or <code>brms</code>)
-<ul>
-<li>Logistic regression (binary outcomes)</li>
-<li>Poisson regression (count outcomes)</li>
-</ul></li>
-<li>These packages can also do some more complicated models
-<ul>
-<li>Multinomial or ordinal outcomes</li>
-<li>Mixed/random effects</li>
-</ul></li>
-<li>For more complex models, you will need to use Stan (or BUGS/JAGS) directly
-<ul>
-<li><code>rstan</code> can run these models from within R</li>
-<li><code>brms</code> can be used to generate starter code, if the model is a variant of a <code>brms</code> model</li>
-</ul></li>
-</ul>
-</section>
-<section id="further-examples-1" class="slide level2">
-<h2>Further examples</h2>
-<ul>
-<li>8 Schools
-<ul>
-<li>Hierarchical Bayesian modelling</li>
-</ul></li>
-</ul>
-<div class="fragment">
-<table class="table" data-quarto-postprocess="true" style="margin-left: auto; margin-right: auto;">
-<thead>
-<tr class="header">
-<th style="text-align: center;" data-quarto-table-cell-role="th"><strong>School</strong></th>
-<th style="text-align: center;" data-quarto-table-cell-role="th"><strong>Mean estimate</strong></th>
-<th style="text-align: center;" data-quarto-table-cell-role="th"><strong>Standard error</strong></th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: center;">A</td>
-<td style="text-align: center;">28</td>
-<td style="text-align: center;">15</td>
-</tr>
-<tr class="even">
-<td style="text-align: center;">B</td>
-<td style="text-align: center;">8</td>
-<td style="text-align: center;">10</td>
-</tr>
-<tr class="odd">
-<td style="text-align: center;">C</td>
-<td style="text-align: center;">-3</td>
-<td style="text-align: center;">16</td>
-</tr>
-<tr class="even">
-<td style="text-align: center;">D</td>
-<td style="text-align: center;">7</td>
-<td style="text-align: center;">11</td>
-</tr>
-<tr class="odd">
-<td style="text-align: center;">E</td>
-<td style="text-align: center;">-1</td>
-<td style="text-align: center;">9</td>
-</tr>
-<tr class="even">
-<td style="text-align: center;">F</td>
-<td style="text-align: center;">1</td>
-<td style="text-align: center;">11</td>
-</tr>
-<tr class="odd">
-<td style="text-align: center;">G</td>
-<td style="text-align: center;">18</td>
-<td style="text-align: center;">10</td>
-</tr>
-<tr class="even">
-<td style="text-align: center;">H</td>
-<td style="text-align: center;">12</td>
-<td style="text-align: center;">18</td>
-</tr>
-</tbody>
-</table>
-</div>
-<div class="fragment">
-<div class="absolute" style="border:1px solid black;padding:10px 20px;top: 30px; right: -50px; ">
-<p>What is our ‘best’<br> estimate of the true<br> effect in School A?</p>
-</div>
-</div>
-</section>
-<section id="further-examples-2" class="slide level2">
-<h2>Further examples</h2>
-<ul>
-<li>Item Response Theory modelling
-<ul>
-<li>Rasch model: <span class="math inline">\(\mathrm{logit}[\mathrm{Pr}(y_{ij} = 1 | \theta_j)] = \theta_j - \beta_i\)</span></li>
-<li>2-parameter model: <span class="math inline">\(\mathrm{logit}[\mathrm{Pr}(y_{ij} = 1 | \theta_j)] = \alpha_i(\theta_j - \beta_i)\)</span></li>
-</ul></li>
-<li>The <code>edstan</code> package provides functions and Stan code to fit IRT models</li>
-</ul>
-</section>
-<section id="frequentist-vs.-bayesian" class="slide level2">
-<h2>Frequentist vs.&nbsp;Bayesian</h2>
-<ul>
-<li>Bayesian analysis:
-<ul>
-<li>Uses prior information (when available)</li>
-<li>Accounts for uncertainty in parameters</li>
-<li>Provides probability values and credible parameters with more intuitive (and meaningful) interpretation</li>
-<li>Can provide more reliable estimates in small samples</li>
-<li>Can estimate more complicated models and conduct more informative post-estimation analyses than traditional approaches</li>
-</ul></li>
-<li>But: can be more difficult to implement in practice
-<ul>
-<li>This is not necessarily a bad thing – it might make us think about some of the underlying assumptions that can be swept under the carpet in traditional statistical analysis</li>
-</ul></li>
-</ul>
-</section>
-<section id="summary" class="slide level2">
-<h2>Summary</h2>
-<ul>
-<li>Conducting Bayesian analysis requires a little more thought, and a little more confidence with statistical methods, than ‘traditional’ frequentist approaches</li>
-<li>Modern software packages make this a lot easier (and are getting better all the time)</li>
-<li>The payoff is more flexible modelling options, ability to incorporate relevant prior information, more robust estimates in small samples, and more meaningful analysis of uncertainty in parameter estimates</li>
-</ul>
-</section>
-<section id="references" class="slide level2">
+<section id="references" class="slide level2 smaller">
 <h2>References</h2>
 <ul>
 <li>Recommended textbooks:
@@ -1330,12 +1255,17 @@ the less the prior matters</li>
 <li>Introductory: <em>Doing Bayesian Data Analysis: A tutorial with R, JAGS, and Stan</em>, 2<sup>nd</sup> Edition. John K. Kruschke (2015)
 <ul>
 <li>Mostly non-technical presentation of applied Bayesian analysis</li>
-<li>e-Book available for download via the library</li>
+<li>eBook available for download via the library</li>
 </ul></li>
 <li>Intermediate: <em>Statistical Rethinking: A Bayesian Course with Examples in R and Stan</em>, 2<sup>nd</sup> Edition. Richard McElreath (2020)
 <ul>
 <li>How to think about statistics in terms of data generating models</li>
-<li>I couldn’t find an e-Book version, but there are video lectures by the author on YouTube: <a href="https://www.youtube.com/playlist?list=PLDcUM9US4XdPz-KxHM4XHt7uUVGWWVSus" class="uri">https://www.youtube.com/playlist?list=PLDcUM9US4XdPz-KxHM4XHt7uUVGWWVSus</a></li>
+<li>I couldn’t find an eBook version, but there are video lectures by the author on YouTube: <a href="https://www.youtube.com/playlist?list=PLDcUM9US4XdPz-KxHM4XHt7uUVGWWVSus" class="uri">https://www.youtube.com/playlist?list=PLDcUM9US4XdPz-KxHM4XHt7uUVGWWVSus</a></li>
+</ul></li>
+<li>Intermediate: <em>Bayesian Approaches to Clinical Trials and Health-Care Evaluation</em>. David J. Spiegelhalter, Keith R. Abrams, Jonathan P. Myles (2004)
+<ul>
+<li>Focus on RCTs and some other clinical research designs, presenting several interesting examples of different uses of Bayesian methods</li>
+<li>eBook available for download via the library</li>
 </ul></li>
 <li>Advanced: <em>Bayesian Data Analysis</em>, 3<sup>rd</sup> Edition. Andrew Gelman, John B. Carlin, Hal S. Stearn, David B. Dunson, Aki Vehtari, and Donald B. Rubin (2013)
 <ul>
@@ -1344,20 +1274,11 @@ the less the prior matters</li>
 </ul></li>
 </ul></li>
 </ul>
-</section>
-<section id="references-1" class="slide level2">
-<h2>References</h2>
-<ul>
-<li>Other useful resources:
-<ul>
-<li>Much of the background theory here follows <em>Bayesian Basics</em>, Michael Clark (2018): <a href="https://m-clark.github.io/bayesian-basics/" class="uri">https://m-clark.github.io/bayesian-basics/</a></li>
-<li>Stan and <code>rstan</code> both have extensive documentation, examples, etc. – See <a href="https://mc-stan.org" class="uri">https://mc-stan.org</a></li>
-<li>Other R packages (<code>rstanarm</code>, <code>brms</code>, <code>edstan</code>, etc.) have their own documentation and usually good vignettes, tutorials, and/or examples</li>
-</ul></li>
-</ul>
 
+<div class="quarto-auto-generated-content">
 <div class="footer footer-default">
 <p><a href="../index.html">Return to CMOR Lunch’n’Learn presentations</a></p>
+</div>
 </div>
 </section></section>
     </div>
@@ -1386,7 +1307,6 @@ the less the prior matters</li>
       Reveal.initialize({
 'controlsAuto': true,
 'previewLinksAuto': false,
-'smaller': false,
 'pdfSeparateFragments': false,
 'autoAnimateEasing': "ease",
 'autoAnimateDuration': 1,
@@ -1572,42 +1492,80 @@ the less the prior matters</li>
       });
     </script>
     
+
     <script>
+
       // htmlwidgets need to know to resize themselves when slides are shown/hidden.
+
       // Fire the "slideenter" event (handled by htmlwidgets.js) when the current
+
       // slide changes (different for each slide format).
+
       (function () {
+
         // dispatch for htmlwidgets
+
         function fireSlideEnter() {
+
           const event = window.document.createEvent("Event");
+
           event.initEvent("slideenter", true, true);
+
           window.document.dispatchEvent(event);
+
         }
+
+    
 
         function fireSlideChanged(previousSlide, currentSlide) {
+
           fireSlideEnter();
 
+    
+
           // dispatch for shiny
+
           if (window.jQuery) {
+
             if (previousSlide) {
+
               window.jQuery(previousSlide).trigger("hidden");
+
             }
+
             if (currentSlide) {
+
               window.jQuery(currentSlide).trigger("shown");
+
             }
+
           }
+
         }
+
+    
 
         // hookup for slidy
+
         if (window.w3c_slidy) {
+
           window.w3c_slidy.add_observer(function (slide_num) {
+
             // slide_num starts at position 1
+
             fireSlideChanged(null, w3c_slidy.slides[slide_num - 1]);
+
           });
+
         }
 
+    
+
       })();
+
     </script>
+
+    
 
     <script id="quarto-html-after-body" type="application/javascript">
     window.document.addEventListener("DOMContentLoaded", function (event) {
@@ -1685,10 +1643,27 @@ the less the prior matters</li>
         // clear code selection
         e.clearSelection();
       });
-      function tippyHover(el, contentFn) {
+        var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+        var mailtoRegex = new RegExp(/^mailto:/);
+          var filterRegex = new RegExp('/' + window.location.host + '/');
+        var isInternal = (href) => {
+            return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+        }
+        // Inspect non-navigation links and adorn them if external
+     	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool)');
+        for (var i=0; i<links.length; i++) {
+          const link = links[i];
+          if (!isInternal(link.href)) {
+            // undo the damage that might have been done by quarto-nav.js in the case of
+            // links that we want to consider external
+            if (link.dataset.originalHref !== undefined) {
+              link.href = link.dataset.originalHref;
+            }
+          }
+        }
+      function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
         const config = {
           allowHTML: true,
-          content: contentFn,
           maxWidth: 500,
           delay: 100,
           arrow: false,
@@ -1698,8 +1673,17 @@ the less the prior matters</li>
           interactive: true,
           interactiveBorder: 10,
           theme: 'light-border',
-          placement: 'bottom-start'
+          placement: 'bottom-start',
         };
+        if (contentFn) {
+          config.content = contentFn;
+        }
+        if (onTriggerFn) {
+          config.onTrigger = onTriggerFn;
+        }
+        if (onUntriggerFn) {
+          config.onUntrigger = onUntriggerFn;
+        }
           config['offset'] = [0,0];
           config['maxWidth'] = 700;
         window.tippy(el, config); 
@@ -1713,7 +1697,11 @@ the less the prior matters</li>
           try { href = new URL(href).hash; } catch {}
           const id = href.replace(/^#\/?/, "");
           const note = window.document.getElementById(id);
-          return note.innerHTML;
+          if (note) {
+            return note.innerHTML;
+          } else {
+            return "";
+          }
         });
       }
       const findCites = (el) => {
