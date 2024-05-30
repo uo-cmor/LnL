@@ -1040,14 +1040,14 @@
     "href": "presentations/bayesian-analysis.html#summary",
     "title": "Introduction to Bayesian Analysis",
     "section": "Summary",
-    "text": "Summary\n\nConducting Bayesian analysis requires a little more thought, and a little more confidence with statistical methods, than ‘traditional’ frequentist approaches\nModern software packages make this a lot easier (and are getting better all the time)\nThe payoff is more flexible modelling options, ability to incorporate relevant prior information, more robust estimates in small samples, and more meaningful analysis of uncertainty in parameter estimates"
+    "text": "Summary\n\nBayesian analysis helps us answer the fundamental question: What should we believe about a treatment effect (or other parameter), taking account of all available evidence?\n\nRequires us to explicitly consider and specify what evidence and judgements should be included in this determination\n\nBayesian methods are particularly well-suited to (partial) pooling of evidence from different sources\n\nFlexibility to design bespoke analyses tailored to specific evidence/context—requires both statistical and content-area expertise\n\nAllows direct probability statements about quantities of interest, and (probabilistic) predictive statements about unobserved quantities\n\n\n\nLimitations:\n\nMathematical (and computational) complexity\nThe use of perceived subjective priors is sometimes controversial\nFlexibility perhaps raises issues of ‘data mining’ or selection of specifications to give desired results\n\nTransparency and sensitivity analyses are crucial"
   },
   {
     "objectID": "presentations/bayesian-analysis.html#specifying-priors",
     "href": "presentations/bayesian-analysis.html#specifying-priors",
     "title": "Introduction to Bayesian Analysis",
     "section": "Specifying priors",
-    "text": "Specifying priors\n\nThe role of prior beliefs has been the most controversial aspect of Bayesian analysis\n\n\n\nWhere do our ‘priors’ come from?\n\nPrevious research\nCommon sense/intuition?\n‘Weakly informative’ priors\n\n\n\n\n\nIn most cases there is no ‘correct’ prior, and sensitivity to various plausible priors should be considered\n\n\n\n\nThe more data we have,\nthe less the prior matters"
+    "text": "Specifying priors\n\nThe role of prior beliefs has been the most controversial aspect of Bayesian analysis\n\n\n\nWhere do our ‘priors’ come from?\n\nPrevious research\nCommon sense/intuition?\n‘Weakly informative’ or ‘non-informative’ priors\n\n\n\n\n\nIn most cases there is no ‘correct’ prior, and sensitivity to various plausible priors should be considered\n\n\n\n\nThe more data we have,\nthe less the prior matters"
   },
   {
     "objectID": "presentations/bayesian-analysis.html#examples-1",
@@ -1230,5 +1230,33 @@
     "title": "Introduction to Bayesian Analysis",
     "section": "Model checking",
     "text": "Model checking\n\nWe won’t go into this in any detail today, but it is a very important part of any Bayesian analysis\nPosterior predictive checks\n\nThe model can be used to predict outcomes both in- and out-of-sample\nDo these predictions make sense (face validity)? Are they consistent with observed data?\n\nModel convergence\n\nBayesian models are generally estimated by simulation methods\nHas the simulation converged to a stable distibution of parameter values?"
+  },
+  {
+    "objectID": "presentations/bayesian-analysis.html#generalised-evidence-synthesis",
+    "href": "presentations/bayesian-analysis.html#generalised-evidence-synthesis",
+    "title": "Introduction to Bayesian Analysis",
+    "section": "Generalised evidence synthesis",
+    "text": "Generalised evidence synthesis\n\nObservational data can often complement RCT evidence\n\n(Well-conducted) RCTs have good internal validity, but possibly limited external validity\nObservational studies are more prone to bias, but better capture real-world practice\n\nThere may be value in incorporating both types of evidence to better answer real-world effectiveness questions"
+  },
+  {
+    "objectID": "presentations/bayesian-analysis.html#generalised-evidence-synthesis-1",
+    "href": "presentations/bayesian-analysis.html#generalised-evidence-synthesis-1",
+    "title": "Introduction to Bayesian Analysis",
+    "section": "Generalised evidence synthesis",
+    "text": "Generalised evidence synthesis\n\nFrom a hierarchical Bayesian perspective, there are several ways we might conceptualise the relationships between observational and experimental evidence:\n\nIrrelevance: Observational studies are subject to bias and we shouldn’t include them\nExchangeable: Studies are exchangeable within types (e.g. observational, RCT), and mean study-type effects are exchangeable\nDiscounted: Put less weight on the observational studies to reflect their higher risk of bias\nFunctional dependence: Model the effect as a function of e.g. participant characteristics, which might differ between observational and RCT studies\nEqual: Use all evidence from both study types without adjustment\n\nThere is obviously a lot of scope to specify different models here - careful sensitivity analyses are crucial"
+  },
+  {
+    "objectID": "presentations/bayesian-analysis.html#synthesis-of-breast-cancer-screening-studies",
+    "href": "presentations/bayesian-analysis.html#synthesis-of-breast-cancer-screening-studies",
+    "title": "Introduction to Bayesian Analysis",
+    "section": "Synthesis of breast cancer screening studies",
+    "text": "Synthesis of breast cancer screening studies\n\nFive RCTs and five observational studies\nWe consider a three-level hierarchical exchangeable model:\n\nAs in the educational coaching example, the ‘true’ effects in each study are assumed to be different (due to e.g. different screening protocols, populations, etc.), but drawn from a common distribution\nWe observe for each study a random outcome around the true effect due to sampling variation\nUnlike the educational coaching example, the common distribution from which each study’s true effect is drawn is not universal, but study type-specific—these study-type mean effects are themselves drawn from a higher-level distribution\n\nWe need to specify prior distributions for the overall population effect, the between-type variance, and the between-study variance for each type\n\nAs before, for now we will assume weakly informative distributions"
+  },
+  {
+    "objectID": "presentations/bayesian-analysis.html#synthesis-of-breast-cancer-screening-studies-1",
+    "href": "presentations/bayesian-analysis.html#synthesis-of-breast-cancer-screening-studies-1",
+    "title": "Introduction to Bayesian Analysis",
+    "section": "Synthesis of breast cancer screening studies",
+    "text": "Synthesis of breast cancer screening studies"
   }
 ]

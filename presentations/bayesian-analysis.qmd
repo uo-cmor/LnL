@@ -243,7 +243,7 @@ ggsave("images/density-3.png", p3, width = 6, height = 4)
   
   * Common sense/intuition?
   
-  * 'Weakly informative' priors
+  * 'Weakly informative' or 'non-informative' priors
 
 :::
 ::: {.fragment fragment-index=2}
@@ -361,7 +361,7 @@ ggsave("images/more-data-3.png", p6, width = 6, height = 10)
 
 * We will focus on the 'What' and the 'Why', not on the 'How'
 
-## Diagnostic testing
+## Diagnostic testing {visibility="hidden"}
 
 . . .
 
@@ -377,7 +377,7 @@ ggsave("images/more-data-3.png", p6, width = 6, height = 10)
 
 * What is the probability that someone has HIV, given that they have tested positive?
 
-## Diagnostic testing
+## Diagnostic testing {visibility="hidden"}
 
 * Consider the expected status of 100,000 individuals being screened
 
@@ -419,7 +419,7 @@ ggsave("images/more-data-3.png", p6, width = 6, height = 10)
 * The probability of having HIV given a positive test can be calculated:
 $$\mathrm{Pr}(\text{HIV}^+\ |\ \text{test}^+) = \frac{95}{2093} = 0.045$$
 
-## Diagnostic testing
+## Diagnostic testing {visibility="hidden"}
 
 * Using Bayes' theorem:
 $$\mathrm{Pr}(\text{HIV}^+\ |\ \text{test}^+) = \frac{\mathrm{Pr}(\text{test}^+\ |\ \text{HIV}^+)\ \mathrm{Pr}(\text{HIV}^+)}{\mathrm{Pr}(\text{test}^+)}$$
@@ -435,7 +435,7 @@ $$\mathrm{Pr}(\text{HIV}^+\ |\ \text{test}^+) = \frac{\mathrm{Pr}(\text{test}^+\
 * Therefore,
 $$\mathrm{Pr}(\text{HIV}^+\ |\ \text{test}^+) = \frac{0.95 \times 0.001}{0.02093} = 0.045$$
 
-## Diagnostic testing
+## Diagnostic testing {visibility="hidden"}
 
 * More than 95% of those testing positive will not actually have HIV!
 
@@ -824,9 +824,75 @@ ggsave("images/8-schools.png", p_8schools, width = 6, height = 6)
 </table>
 ```
 
-## One more example to be added
+## Generalised evidence synthesis
 
-* Something demonstrating the use of external data (e.g. observational studies as well as trials)
+* Observational data can often complement RCT evidence
+
+  * (Well-conducted) RCTs have good internal validity, but possibly limited external validity
+  
+  * Observational studies are more prone to bias, but better capture real-world practice
+
+* There may be value in incorporating both types of evidence to better answer real-world effectiveness questions
+
+## Generalised evidence synthesis
+
+* From a hierarchical Bayesian perspective, there are several ways we might conceptualise the relationships between observational and experimental evidence:
+
+  * *Irrelevance*: Observational studies are subject to bias and we shouldn't include them
+  
+  * *Exchangeable*: Studies are exchangeable within types (e.g. observational, RCT), and mean study-type effects are exchangeable
+  
+  * *Discounted*: Put less weight on the observational studies to reflect their higher risk of bias
+  
+  * *Functional dependence*: Model the effect as a function of e.g. participant characteristics, which might differ between observational and RCT studies
+  
+  * *Equal*: Use all evidence from both study types without adjustment
+  
+* There is obviously a lot of scope to specify different models here - careful sensitivity analyses are crucial
+
+## Synthesis of breast cancer screening studies {.smaller}
+
+* Five RCTs and five observational studies
+  
+* We consider a three-level hierarchical exchangeable model:
+  
+  * As in the educational coaching example, the 'true' effects in each study are assumed to be different (due to e.g. different screening protocols, populations, etc.), but drawn from a common distribution
+  
+  * We observe for each study a random outcome around the true effect due to sampling variation
+  
+  * Unlike the educational coaching example, the common distribution from which each study's true effect is drawn is not universal, but study type-specific---these study-type mean effects are themselves drawn from a higher-level distribution
+
+* We need to specify prior distributions for the overall population effect, the between-type variance, and the between-study variance for each type
+
+  * As before, for now we will assume weakly informative distributions
+
+## Synthesis of breast cancer screening studies
+
+![](images/breast-cancer-screening.png){.absolute bottom=-60 left=210 width=600 height=900}
+
+## Summary {.smaller}
+
+* Bayesian analysis helps us answer the fundamental question: What should we believe about a treatment effect (or other parameter), taking account of all available evidence?
+
+  * Requires us to explicitly consider and specify what evidence and judgements should be included in this determination
+
+* Bayesian methods are particularly well-suited to (partial) pooling of evidence from different sources
+
+  * Flexibility to design bespoke analyses tailored to specific evidence/context---requires both statistical and content-area expertise
+
+* Allows direct probability statements about quantities of interest, and (probabilistic) predictive statements about unobserved quantities
+
+. . .
+
+* Limitations:
+
+  * Mathematical (and computational) complexity
+  
+  * The use of perceived subjective priors is sometimes controversial
+  
+  * Flexibility perhaps raises issues of 'data mining' or selection of specifications to give desired results
+  
+    * Transparency and sensitivity analyses are crucial
 
 # Bayesian analysis in practice
 

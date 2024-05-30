@@ -8,11 +8,11 @@
 <link href="../site_libs/quarto-html/light-border.css" rel="stylesheet">
 <link href="../site_libs/quarto-html/quarto-html.min.css" rel="stylesheet" data-mode="light">
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
-  <meta name="generator" content="quarto-1.4.553">
+  <meta name="generator" content="quarto-99.9.9">
 
   <meta name="author" content="Ross Wilson">
   <meta name="dcterms.date" content="2024-04-11">
-  <title>CMOR Lunch’n’Learn - Introduction to Bayesian Analysis</title>
+  <title>CMOR Lunch'n'Learn – Introduction to Bayesian Analysis</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
@@ -633,7 +633,7 @@
 <ul>
 <li><p>Previous research</p></li>
 <li><p>Common sense/intuition?</p></li>
-<li><p>‘Weakly informative’ priors</p></li>
+<li><p>‘Weakly informative’ or ‘non-informative’ priors</p></li>
 </ul></li>
 </ul>
 </div>
@@ -746,92 +746,10 @@ the less the prior matters</li>
 <li>We will focus on the ‘What’ and the ‘Why’, not on the ‘How’</li>
 </ul>
 </section>
-<section id="diagnostic-testing" class="slide level2">
-<h2>Diagnostic testing</h2>
-<div class="fragment">
-<p><br></p>
-<ul>
-<li><p>Suppose have a new HIV test, which has 95% sensitivity and 98% specificity</p></li>
-<li><p>We want to use the test for screening, in a population with HIV prevalence of 1/1000</p></li>
-</ul>
-<p><br></p>
-</div>
-<div class="fragment">
-<ul>
-<li>What is the probability that someone has HIV, given that they have tested positive?</li>
-</ul>
-</div>
-</section>
-<section id="diagnostic-testing-1" class="slide level2">
-<h2>Diagnostic testing</h2>
-<ul>
-<li>Consider the expected status of 100,000 individuals being screened</li>
-</ul>
-<div>
-<table class="table" data-quarto-postprocess="true" style="margin-left: auto; margin-right: auto;">
-<thead>
-<tr class="header">
-<th style="text-align: center;" data-quarto-table-cell-role="th"></th>
-<th style="text-align: center;" data-quarto-table-cell-role="th"><strong>HIV<sup>−</sup></strong></th>
-<th style="text-align: center;" data-quarto-table-cell-role="th"><strong>HIV<sup>+</sup></strong></th>
-<th style="text-align: center;" data-quarto-table-cell-role="th"></th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: center;"><strong>Test<sup>−</sup></strong></td>
-<td style="text-align: center;">97 902</td>
-<td style="text-align: center;">5</td>
-<td style="text-align: center;">97 903</td>
-</tr>
-<tr class="even">
-<td style="text-align: center;"><strong>Test<sup>+</sup></strong></td>
-<td style="text-align: center;">1 998</td>
-<td style="text-align: center;">95</td>
-<td style="text-align: center;">2 093</td>
-</tr>
-<tr class="odd">
-<td style="text-align: center;"></td>
-<td style="text-align: center;">99 900</td>
-<td style="text-align: center;">100</td>
-<td style="text-align: center;">100 000</td>
-</tr>
-</tbody>
-</table>
-</div>
-<div class="fragment">
-<ul>
-<li>The probability of having HIV given a positive test can be calculated: <span class="math display">\[\mathrm{Pr}(\text{HIV}^+\ |\ \text{test}^+) = \frac{95}{2093} = 0.045\]</span></li>
-</ul>
-</div>
-</section>
-<section id="diagnostic-testing-2" class="slide level2">
-<h2>Diagnostic testing</h2>
-<ul>
-<li><p>Using Bayes’ theorem: <span class="math display">\[\mathrm{Pr}(\text{HIV}^+\ |\ \text{test}^+) = \frac{\mathrm{Pr}(\text{test}^+\ |\ \text{HIV}^+)\ \mathrm{Pr}(\text{HIV}^+)}{\mathrm{Pr}(\text{test}^+)}\]</span></p>
-<ul>
-<li><p><span class="math inline">\(\mathrm{Pr}(\text{test}^+\ |\ \text{HIV}^+)\)</span> is the sensitivity, <span class="math inline">\(0.95\)</span></p></li>
-<li><p><span class="math inline">\(\mathrm{Pr}(\text{HIV}^+)\)</span> is <span class="math inline">\(1 / 1000 = 0.001\)</span></p></li>
-<li><p><span class="math inline">\(\mathrm{Pr}(\text{test}^+)\)</span> can be calculated as<br>
-<span class="math inline">\(\mathrm{Pr}(\text{test}^+\ |\ \text{HIV}^-)\ \mathrm{Pr}(\text{HIV}^-) + \mathrm{Pr}(\text{test}^+\ |\ \text{HIV}^+)\ \mathrm{Pr}(\text{HIV}^+)\)</span><br>
-<span class="math inline">\(\ \ \ \  = 0.02 \times 0.999 + 0.95 \times 0.001 = 0.02093\)</span></p></li>
-</ul></li>
-<li><p>Therefore, <span class="math display">\[\mathrm{Pr}(\text{HIV}^+\ |\ \text{test}^+) = \frac{0.95 \times 0.001}{0.02093} = 0.045\]</span></p></li>
-</ul>
-</section>
-<section id="diagnostic-testing-3" class="slide level2">
-<h2>Diagnostic testing</h2>
-<ul>
-<li>More than 95% of those testing positive will not actually have HIV!</li>
-</ul>
-<p><br></p>
-<div class="fragment">
-<ul>
-<li><p>Note that this is very sensitive to the base rate (the proportion who have HIV in the population being tested)</p></li>
-<li><p>If the test was used for diagnosis in people suspected of having HIV, such that, say <span class="math inline">\(\mathrm{Pr}(\text{HIV}^+) = 0.2\)</span>, then <span class="math display">\[\mathrm{Pr}(\text{HIV}^+\ |\ \text{test}^+) = \frac{0.95 \times 0.2}{0.206} = 0.922\]</span></p></li>
-</ul>
-</div>
-</section>
+
+
+
+
 <section id="a-simple-rct-analysis" class="slide level2">
 <h2>A simple RCT analysis</h2>
 <div class="fragment">
@@ -1196,11 +1114,77 @@ the less the prior matters</li>
 </table>
 </div>
 </section>
-<section id="one-more-example-to-be-added" class="slide level2">
-<h2>One more example to be added</h2>
+<section id="generalised-evidence-synthesis" class="slide level2">
+<h2>Generalised evidence synthesis</h2>
 <ul>
-<li>Something demonstrating the use of external data (e.g.&nbsp;observational studies as well as trials)</li>
+<li><p>Observational data can often complement RCT evidence</p>
+<ul>
+<li><p>(Well-conducted) RCTs have good internal validity, but possibly limited external validity</p></li>
+<li><p>Observational studies are more prone to bias, but better capture real-world practice</p></li>
+</ul></li>
+<li><p>There may be value in incorporating both types of evidence to better answer real-world effectiveness questions</p></li>
 </ul>
+</section>
+<section id="generalised-evidence-synthesis-1" class="slide level2">
+<h2>Generalised evidence synthesis</h2>
+<ul>
+<li><p>From a hierarchical Bayesian perspective, there are several ways we might conceptualise the relationships between observational and experimental evidence:</p>
+<ul>
+<li><p><em>Irrelevance</em>: Observational studies are subject to bias and we shouldn’t include them</p></li>
+<li><p><em>Exchangeable</em>: Studies are exchangeable within types (e.g.&nbsp;observational, RCT), and mean study-type effects are exchangeable</p></li>
+<li><p><em>Discounted</em>: Put less weight on the observational studies to reflect their higher risk of bias</p></li>
+<li><p><em>Functional dependence</em>: Model the effect as a function of e.g.&nbsp;participant characteristics, which might differ between observational and RCT studies</p></li>
+<li><p><em>Equal</em>: Use all evidence from both study types without adjustment</p></li>
+</ul></li>
+<li><p>There is obviously a lot of scope to specify different models here - careful sensitivity analyses are crucial</p></li>
+</ul>
+</section>
+<section id="synthesis-of-breast-cancer-screening-studies" class="slide level2 smaller">
+<h2>Synthesis of breast cancer screening studies</h2>
+<ul>
+<li><p>Five RCTs and five observational studies</p></li>
+<li><p>We consider a three-level hierarchical exchangeable model:</p>
+<ul>
+<li><p>As in the educational coaching example, the ‘true’ effects in each study are assumed to be different (due to e.g.&nbsp;different screening protocols, populations, etc.), but drawn from a common distribution</p></li>
+<li><p>We observe for each study a random outcome around the true effect due to sampling variation</p></li>
+<li><p>Unlike the educational coaching example, the common distribution from which each study’s true effect is drawn is not universal, but study type-specific—these study-type mean effects are themselves drawn from a higher-level distribution</p></li>
+</ul></li>
+<li><p>We need to specify prior distributions for the overall population effect, the between-type variance, and the between-study variance for each type</p>
+<ul>
+<li>As before, for now we will assume weakly informative distributions</li>
+</ul></li>
+</ul>
+</section>
+<section id="synthesis-of-breast-cancer-screening-studies-1" class="slide level2">
+<h2>Synthesis of breast cancer screening studies</h2>
+<p><img data-src="images/breast-cancer-screening.png" class="absolute" style="left: 210px; bottom: -60px; width: 600px; height: 900px; "></p>
+</section>
+<section id="summary" class="slide level2 smaller">
+<h2>Summary</h2>
+<ul>
+<li><p>Bayesian analysis helps us answer the fundamental question: What should we believe about a treatment effect (or other parameter), taking account of all available evidence?</p>
+<ul>
+<li>Requires us to explicitly consider and specify what evidence and judgements should be included in this determination</li>
+</ul></li>
+<li><p>Bayesian methods are particularly well-suited to (partial) pooling of evidence from different sources</p>
+<ul>
+<li>Flexibility to design bespoke analyses tailored to specific evidence/context—requires both statistical and content-area expertise</li>
+</ul></li>
+<li><p>Allows direct probability statements about quantities of interest, and (probabilistic) predictive statements about unobserved quantities</p></li>
+</ul>
+<div class="fragment">
+<ul>
+<li><p>Limitations:</p>
+<ul>
+<li><p>Mathematical (and computational) complexity</p></li>
+<li><p>The use of perceived subjective priors is sometimes controversial</p></li>
+<li><p>Flexibility perhaps raises issues of ‘data mining’ or selection of specifications to give desired results</p>
+<ul>
+<li>Transparency and sensitivity analyses are crucial</li>
+</ul></li>
+</ul></li>
+</ul>
+</div>
 </section></section>
 <section>
 <section id="bayesian-analysis-in-practice" class="title-slide slide level1 center">
@@ -1599,18 +1583,7 @@ the less the prior matters</li>
         }
         return false;
       }
-      const clipboard = new window.ClipboardJS('.code-copy-button', {
-        text: function(trigger) {
-          const codeEl = trigger.previousElementSibling.cloneNode(true);
-          for (const childEl of codeEl.children) {
-            if (isCodeAnnotation(childEl)) {
-              childEl.remove();
-            }
-          }
-          return codeEl.innerText;
-        }
-      });
-      clipboard.on('success', function(e) {
+      const onCopySuccess = function(e) {
         // button target
         const button = e.trigger;
         // don't keep focus
@@ -1642,7 +1615,29 @@ the less the prior matters</li>
         }, 1000);
         // clear code selection
         e.clearSelection();
+      }
+      const getTextToCopy = function(trigger) {
+          const codeEl = trigger.previousElementSibling.cloneNode(true);
+          for (const childEl of codeEl.children) {
+            if (isCodeAnnotation(childEl)) {
+              childEl.remove();
+            }
+          }
+          return codeEl.innerText;
+      }
+      const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+        text: getTextToCopy
       });
+      clipboard.on('success', onCopySuccess);
+      if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+        // For code content inside modals, clipBoardJS needs to be initialized with a container option
+        // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
+        const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+          text: getTextToCopy,
+          container: window.document.getElementById('quarto-embedded-source-code-modal')
+        });
+        clipboardModal.on('success', onCopySuccess);
+      }
         var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
         var mailtoRegex = new RegExp(/^mailto:/);
           var filterRegex = new RegExp('/' + window.location.host + '/');
@@ -1650,7 +1645,7 @@ the less the prior matters</li>
             return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
         }
         // Inspect non-navigation links and adorn them if external
-     	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool)');
+     	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
         for (var i=0; i<links.length; i++) {
           const link = links[i];
           if (!isInternal(link.href)) {
