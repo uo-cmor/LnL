@@ -834,7 +834,7 @@ ggsave("images/8-schools.png", p_8schools, width = 6, height = 6)
 
 * There may be value in incorporating both types of evidence to better answer real-world effectiveness questions
 
-## Generalised evidence synthesis
+## Generalised evidence synthesis {.smaller}
 
 * From a hierarchical Bayesian perspective, there are several ways we might conceptualise the relationships between observational and experimental evidence:
 
@@ -848,7 +848,7 @@ ggsave("images/8-schools.png", p_8schools, width = 6, height = 6)
   
   * *Equal*: Use all evidence from both study types without adjustment
   
-* There is obviously a lot of scope to specify different models here - careful sensitivity analyses are crucial
+* There is obviously a lot of scope to specify different models here---careful sensitivity analyses are crucial
 
 ## Synthesis of breast cancer screening studies {.smaller}
 

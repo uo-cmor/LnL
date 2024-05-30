@@ -1125,7 +1125,7 @@ the less the prior matters</li>
 <li><p>There may be value in incorporating both types of evidence to better answer real-world effectiveness questions</p></li>
 </ul>
 </section>
-<section id="generalised-evidence-synthesis-1" class="slide level2">
+<section id="generalised-evidence-synthesis-1" class="slide level2 smaller">
 <h2>Generalised evidence synthesis</h2>
 <ul>
 <li><p>From a hierarchical Bayesian perspective, there are several ways we might conceptualise the relationships between observational and experimental evidence:</p>
@@ -1136,7 +1136,7 @@ the less the prior matters</li>
 <li><p><em>Functional dependence</em>: Model the effect as a function of e.g.&nbsp;participant characteristics, which might differ between observational and RCT studies</p></li>
 <li><p><em>Equal</em>: Use all evidence from both study types without adjustment</p></li>
 </ul></li>
-<li><p>There is obviously a lot of scope to specify different models here - careful sensitivity analyses are crucial</p></li>
+<li><p>There is obviously a lot of scope to specify different models here—careful sensitivity analyses are crucial</p></li>
 </ul>
 </section>
 <section id="synthesis-of-breast-cancer-screening-studies" class="slide level2 smaller">
@@ -1476,80 +1476,42 @@ the less the prior matters</li>
       });
     </script>
     
-
     <script>
-
       // htmlwidgets need to know to resize themselves when slides are shown/hidden.
-
       // Fire the "slideenter" event (handled by htmlwidgets.js) when the current
-
       // slide changes (different for each slide format).
-
       (function () {
-
         // dispatch for htmlwidgets
-
         function fireSlideEnter() {
-
           const event = window.document.createEvent("Event");
-
           event.initEvent("slideenter", true, true);
-
           window.document.dispatchEvent(event);
-
         }
-
-    
 
         function fireSlideChanged(previousSlide, currentSlide) {
-
           fireSlideEnter();
 
-    
-
           // dispatch for shiny
-
           if (window.jQuery) {
-
             if (previousSlide) {
-
               window.jQuery(previousSlide).trigger("hidden");
-
             }
-
             if (currentSlide) {
-
               window.jQuery(currentSlide).trigger("shown");
-
             }
-
           }
-
         }
-
-    
 
         // hookup for slidy
-
         if (window.w3c_slidy) {
-
           window.w3c_slidy.add_observer(function (slide_num) {
-
             // slide_num starts at position 1
-
             fireSlideChanged(null, w3c_slidy.slides[slide_num - 1]);
-
           });
-
         }
 
-    
-
       })();
-
     </script>
-
-    
 
     <script id="quarto-html-after-body" type="application/javascript">
     window.document.addEventListener("DOMContentLoaded", function (event) {
