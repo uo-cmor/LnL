@@ -284,14 +284,20 @@
     "href": "index.html",
     "title": "CMOR Lunch’n’Learn",
     "section": "",
-    "text": "We run a series of workshops and seminars in research methods, career development, etc. for graduate students and early career researchers at CMOR. A selection of presentations from these workshops is available below."
+    "text": "We run a series of workshops and seminars in research methods, career development, etc. for graduate students and early career researchers at CMOR. A selection of presentations from these workshops is available below.",
+    "crumbs": [
+      "Home"
+    ]
   },
   {
     "objectID": "index.html#slide-decks",
     "href": "index.html#slide-decks",
     "title": "CMOR Lunch’n’Learn",
     "section": "Slide decks",
-    "text": "Slide decks\n\nIntroduction to R\nOpen science (and the Open Science Framework)\nIntroduction to meta-analysis\nProject workflows"
+    "text": "Slide decks\n\nIntroduction to R\nOpen science (and the Open Science Framework)\nIntroduction to meta-analysis\nProject workflows\nIntroduction to Bayesian analysis",
+    "crumbs": [
+      "Home"
+    ]
   },
   {
     "objectID": "presentations/Intro-to-R.html#what-is-r-what-is-rstudio",

@@ -13,3 +13,5 @@ We run a series of workshops and seminars in research methods, career developmen
 * [Introduction to meta-analysis](presentations/meta-analysis.qmd)
 
 * [Project workflows](presentations/workflows.qmd)
+
+* [Introduction to Bayesian analysis](presentations/bayesian-analysis.qmd)
