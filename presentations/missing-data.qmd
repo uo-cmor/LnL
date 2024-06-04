@@ -216,6 +216,9 @@ library(kableExtra, exclude = "group_rows")
   
   5. Pool the results from each repeated analysis to get combined estimates
 
+![](images/multiple-imputation.png){.absolute bottom=60 left=500 width=695 height=624 .fragment}
+
+
 ## Bayesian approaches
 
 <br>
