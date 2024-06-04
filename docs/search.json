@@ -1264,5 +1264,117 @@
     "title": "Introduction to Bayesian Analysis",
     "section": "Synthesis of breast cancer screening studies",
     "text": "Synthesis of breast cancer screening studies"
+  },
+  {
+    "objectID": "presentations/missing-data.html#what-are-the-reasons-for-missing-data",
+    "href": "presentations/missing-data.html#what-are-the-reasons-for-missing-data",
+    "title": "Handling missing data",
+    "section": "What are the reasons for missing data?",
+    "text": "What are the reasons for missing data?\n\n\nFor concreteness, let’s consider the example of a clinical trial\n\nBaseline/follow-up data\nPatient-reported outcomes\nClinical/laboratory/performance tests\nLinked health data"
+  },
+  {
+    "objectID": "presentations/missing-data.html#two-questions",
+    "href": "presentations/missing-data.html#two-questions",
+    "title": "Handling missing data",
+    "section": "Two questions:",
+    "text": "Two questions:\n\n\nShould we care about missing data?\n\n\n\nIf yes, what should we do about it?"
+  },
+  {
+    "objectID": "presentations/missing-data.html#in-general-yes",
+    "href": "presentations/missing-data.html#in-general-yes",
+    "title": "Handling missing data",
+    "section": "In general, yes",
+    "text": "In general, yes\n\n\n\nReturn to CMOR Lunch’n’Learn presentations"
+  },
+  {
+    "objectID": "presentations/missing-data.html#or-more-specifically",
+    "href": "presentations/missing-data.html#or-more-specifically",
+    "title": "Handling missing data",
+    "section": "Or, more specifically;",
+    "text": "Or, more specifically;\n\n\nWhen should we care?\n\n\n\nAnd when is it likely to be less important?"
+  },
+  {
+    "objectID": "presentations/missing-data.html#amount-of-missing-data",
+    "href": "presentations/missing-data.html#amount-of-missing-data",
+    "title": "Handling missing data",
+    "section": "Amount of missing data",
+    "text": "Amount of missing data\n\n\nMore missing data =&gt; more of a problem\n\n\n\n\nBut there is probably no general ‘rule of thumb’ as to how much is too much"
+  },
+  {
+    "objectID": "presentations/missing-data.html#missing-data-mechanism",
+    "href": "presentations/missing-data.html#missing-data-mechanism",
+    "title": "Handling missing data",
+    "section": "Missing data ‘mechanism’",
+    "text": "Missing data ‘mechanism’\n\n\nDescribes the probability that each data point will be missing\n\n\n\n\nFollowing Rubin (1976), we recognise three categories of missing data mechanism:\n\nMCAR – probability of being missing is the same for all data\nMAR – probability of being missing depends only on observed data\nMNAR – everything else"
+  },
+  {
+    "objectID": "presentations/missing-data.html#practical",
+    "href": "presentations/missing-data.html#practical",
+    "title": "Handling missing data",
+    "section": "Practical",
+    "text": "Practical\n\n\nTry to minimise the amount of missing data\n\n\n\n\nCan we:\n\nMinimise participant burden (long questionnaires, invasive tests, etc.)\nUse incentives to encourage participant engagement and response\nAdapt the mode of data collection to the study population\nFollow up non-responders promptly"
+  },
+  {
+    "objectID": "presentations/missing-data.html#statistical",
+    "href": "presentations/missing-data.html#statistical",
+    "title": "Handling missing data",
+    "section": "Statistical",
+    "text": "Statistical\n\n\n\nComplete case analysis\nInclude a ‘missing data’ indicator variable\nLikelihood-based approaches\nImpute missing data\nBayesian approaches"
+  },
+  {
+    "objectID": "presentations/missing-data.html#complete-case-analysis",
+    "href": "presentations/missing-data.html#complete-case-analysis",
+    "title": "Handling missing data",
+    "section": "Complete case analysis",
+    "text": "Complete case analysis\n\n\nSimply drop any observations with missing data\n\n\n\n\nUnbiased (but usually inefficient) if missing data are MCAR\nUsually biased (possibly severely) otherwise\n\n\n\n\n\nBut very common – check the sample sizes for different analyses (if reported) in published studies"
+  },
+  {
+    "objectID": "presentations/missing-data.html#indicator-approach",
+    "href": "presentations/missing-data.html#indicator-approach",
+    "title": "Handling missing data",
+    "section": "Indicator approach",
+    "text": "Indicator approach\n\n\nSet missing values in a variable to zero (or some other relevant value)\nAdd a ‘missingness’ indicator variable to the (regression) analysis\n\n\n\n\nUnbiased under some (restrictive) conditions, but biased in general"
+  },
+  {
+    "objectID": "presentations/missing-data.html#likelihood-based-approaches",
+    "href": "presentations/missing-data.html#likelihood-based-approaches",
+    "title": "Handling missing data",
+    "section": "Likelihood-based approaches",
+    "text": "Likelihood-based approaches\n\n\nDefine and estimate a statistical model for the observed data (including probability of being observed)\n\n\n\n\nUnbiased and efficient, but complicated and relies on untestable assumptions about the underlying ‘true’ model\nRelated to multiple imputation and Bayesian methods"
+  },
+  {
+    "objectID": "presentations/missing-data.html#impute-missing-data",
+    "href": "presentations/missing-data.html#impute-missing-data",
+    "title": "Handling missing data",
+    "section": "Impute missing data",
+    "text": "Impute missing data\n\n\nReplace each missing data point with a replacement value\n\n\n\n\nThere are lots of ways of doing this:\n\nMean imputation\nLast observation carried forward (LOCF)\nRegression imputation\nStochastic regression imputation\nMultiple imputation"
+  },
+  {
+    "objectID": "presentations/missing-data.html#multiple-imputation",
+    "href": "presentations/missing-data.html#multiple-imputation",
+    "title": "Handling missing data",
+    "section": "Multiple imputation",
+    "text": "Multiple imputation\n\nThis is generally considered the optimal approach for dealing with missing data\nIn a nutshell:\n\nPredict the expected values of missing data based on observed data\nRandomly draw imputed values for the missing data from these predictions\nConduct the intended analysis with this ‘filled-in’ dataset\nRepeat 2 & 3 multiple times\nPool the results from each repeated analysis to get combined estimates"
+  },
+  {
+    "objectID": "presentations/missing-data.html#bayesian-approaches",
+    "href": "presentations/missing-data.html#bayesian-approaches",
+    "title": "Handling missing data",
+    "section": "Bayesian approaches",
+    "text": "Bayesian approaches\n\n\nFrom a Bayesian perspective, missing data can be viewed as unknown parameters of the underlying model\n\nJust as e.g. treatment effects are unknown parameters of the model\n\n\n\n\n\nIn principle, this is very similar to the multiple imputation approach, except that the ‘predict missing values’ and ‘estimate the model’ steps are combined instead of separated\n\nThe imputation step of multiple imputation is essentially sampling from the posterior distribution of the missing data"
+  },
+  {
+    "objectID": "presentations/missing-data.html#back-to-our-two-questions",
+    "href": "presentations/missing-data.html#back-to-our-two-questions",
+    "title": "Handling missing data",
+    "section": "Back to our two questions:",
+    "text": "Back to our two questions:\n\n\nShould we care about missing data?\n\nYes (usually)\n\n\n\n\nIf yes, what should we do about it?\n\nMultiple imputation (usually)\nOr Bayesian models"
+  },
+  {
+    "objectID": "presentations/missing-data.html#resources",
+    "href": "presentations/missing-data.html#resources",
+    "title": "Handling missing data",
+    "section": "Resources",
+    "text": "Resources\n\nFlexible Imputation of Missing Data, 2nd edition. Stef van Buuren. Chapman and Hall/CRC (2018). Freely available online: https://stefvanbuuren.name/fimd\nApplied Missing Data Analysis. Craig K. Enders. New York, NY: The Guilford Press (2010)\nStatistical Analysis with Missing Data, 3rd edition. Roderick J. A. Little and Donald B. Rubin. Hoboken, NJ: John Wiley & Sons (2019). The 2nd edition (2002) is freely available from the publisher: https://doi.org/10.1002/9781119013563\n\n\n\n\nReturn to CMOR Lunch’n’Learn presentations"
   }
 ]

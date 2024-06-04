@@ -1,0 +1,259 @@
+---
+title: "Handling missing data"
+subtitle: "CMOR Lunch'n'Learn"
+author: "Ross Wilson"
+date: "2024-06-06"
+date-format: "D MMMM YYYY"
+format:
+  revealjs:
+    theme: [default, cmor.scss]
+    navigation-mode: vertical
+    title-slide-attributes: 
+      data-background-image: "images/otago-pennant.png, images/cmor-banner.png, images/title-background.png"
+      data-background-size: "7%, 25%, 100%"
+      data-background-position: "3% 1%, bottom 1% left 50px,0 0"
+      data-background-repeat: "no-repeat"
+    template-partials:
+      - styles.html
+      - title-slide.html
+    margin: 0.2
+    footer: "[Return to CMOR Lunch'n'Learn presentations](../index.html)"
+---
+```{r setup}
+library(tidyverse)
+library(kableExtra, exclude = "group_rows")
+```
+
+# Missing data are ubiquitous in health research
+
+## What are the reasons for missing data?
+
+<br>
+
+* For concreteness, let's consider the example of a clinical trial
+
+  * Baseline/follow-up data
+  
+  * Patient-reported outcomes
+  
+  * Clinical/laboratory/performance tests
+  
+  * Linked health data
+
+## Two questions:
+
+<br>
+
+* Should we care about missing data?
+
+<br>
+
+* If yes, what should we do about it?
+
+# Should we care?
+
+## Or, more specifically;
+
+<br>
+
+* When should we care?
+
+<br>
+
+* And when is it likely to be less important?
+
+## Amount of missing data
+
+<br>
+
+* More missing data => more of a problem
+
+. . .
+
+<br>
+
+* But there is probably no general 'rule of thumb' as to how much is too much
+
+## Missing data 'mechanism'
+
+<br>
+
+* Describes the *probability* that each data point will be missing
+
+. . .
+
+<br>
+
+* Following Rubin (1976), we recognise three categories of missing data mechanism:
+
+  * MCAR -- probability of being missing is the same for all data
+
+  * MAR -- probability of being missing depends only on *observed* data
+
+  * MNAR -- everything else
+
+# What should we do?
+
+## Practical
+
+<br>
+
+* Try to minimise the amount of missing data
+
+. . .
+
+<br>
+
+* Can we:
+
+  * Minimise participant burden (long questionnaires, invasive tests, etc.)
+  
+  * Use incentives to encourage participant engagement and response
+  
+  * Adapt the mode of data collection to the study population
+  
+  * Follow up non-responders promptly
+
+## Statistical
+
+. . .
+
+<br>
+
+* Complete case analysis
+
+* Include a 'missing data' indicator variable
+
+* Likelihood-based approaches
+
+* Impute missing data
+
+* Bayesian approaches
+
+## Complete case analysis
+
+<br>
+
+* Simply drop any observations with missing data
+
+. . .
+
+<br>
+
+* Unbiased (but usually inefficient) if missing data are MCAR
+
+* Usually biased (possibly severely) otherwise
+
+. . .
+
+<br>
+
+* But very common -- check the sample sizes for different analyses (if reported) in published studies
+
+## Indicator approach
+
+<br>
+
+* Set missing values in a variable to zero (or some other relevant value)
+
+* Add a 'missingness' indicator variable to the (regression) analysis
+
+. . .
+
+<br>
+
+* Unbiased under some (restrictive) conditions, but biased in general
+
+## Likelihood-based approaches
+
+<br>
+
+* Define and estimate a statistical model for the observed data (including probability of being observed)
+
+. . .
+
+<br>
+
+* Unbiased and efficient, but complicated and relies on untestable assumptions about the underlying 'true' model
+
+* Related to multiple imputation and Bayesian methods
+
+## Impute missing data
+
+<br>
+
+* Replace each missing data point with a replacement value
+
+. . .
+
+<br>
+
+* There are lots of ways of doing this:
+
+  * Mean imputation
+  
+  * Last observation carried forward (LOCF)
+  
+  * Regression imputation
+  
+  * Stochastic regression imputation
+  
+  * Multiple imputation
+
+## Multiple imputation
+
+* This is generally considered the optimal approach for dealing with missing data
+
+* In a nutshell:
+
+  1. Predict the expected values of missing data based on observed data
+  
+  2. Randomly draw imputed values for the missing data from these predictions
+  
+  3. Conduct the intended analysis with this 'filled-in' dataset
+  
+  4. Repeat 2 & 3 multiple times
+  
+  5. Pool the results from each repeated analysis to get combined estimates
+
+## Bayesian approaches
+
+<br>
+
+* From a Bayesian perspective, missing data can be viewed as unknown parameters of the underlying model
+
+  * Just as e.g. treatment effects are unknown parameters of the model
+
+. . .
+
+<br>
+
+* In principle, this is very similar to the multiple imputation approach, except that the 'predict missing values' and 'estimate the model' steps are combined instead of separated
+
+  * The imputation step of multiple imputation is essentially sampling from the posterior distribution of the missing data
+
+# Summary
+
+## Back to our two questions:
+
+<br>
+
+* Should we care about missing data?
+
+  * Yes (usually)
+
+<br>
+
+* If yes, what should we do about it?
+
+  * Multiple imputation (usually)
+  
+  * Or Bayesian models
+
+## Resources
+
+* *Flexible Imputation of Missing Data, 2^nd^ edition*. Stef van Buuren. Chapman and Hall/CRC (2018). Freely available online: <https://stefvanbuuren.name/fimd>
+
+* *Applied Missing Data Analysis*. Craig K. Enders. New York, NY: The Guilford Press (2010)
+
+* *Statistical Analysis with Missing Data, 3^rd^ edition*. Roderick J. A. Little and Donald B. Rubin. Hoboken, NJ: John Wiley & Sons (2019). The 2^nd^ edition (2002) is freely available from the publisher: <https://doi.org/10.1002/9781119013563>
