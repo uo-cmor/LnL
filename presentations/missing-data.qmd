@@ -104,7 +104,7 @@ library(kableExtra, exclude = "group_rows")
 
 <br>
 
-* Can we:
+* Strategies:
 
   * Minimise participant burden (long questionnaires, invasive tests, etc.)
   

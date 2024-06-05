@@ -15,3 +15,5 @@ We run a series of workshops and seminars in research methods, career developmen
 * [Project workflows](presentations/workflows.qmd)
 
 * [Introduction to Bayesian analysis](presentations/bayesian-analysis.qmd)
+
+* [Handling missing data](presentations/missing-data.qmd)

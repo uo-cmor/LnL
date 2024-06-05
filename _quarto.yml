@@ -28,6 +28,12 @@ website:
             href: presentations/osf.qmd
           - text: Meta-analysis
             href: presentations/meta-analysis.qmd
+          - text: Project workflows
+            href: presentations/workflows.qmd
+          - text: Bayesian analysis
+            href: presentations/bayesian-analysis.qmd
+          - text: Missing data
+            href: presentations/missing-data.qmd
 
 format:
   html:
