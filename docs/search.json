@@ -1711,5 +1711,152 @@
       "Presentations",
       "Introduction to R"
     ]
+  },
+  {
+    "objectID": "presentations/on-writing-well.html#references",
+    "href": "presentations/on-writing-well.html#references",
+    "title": "On Writing Well",
+    "section": "References",
+    "text": "References\nPicture of the reference books I have used in putting this together"
+  },
+  {
+    "objectID": "presentations/on-writing-well.html#before-doing-a-meta-analysis",
+    "href": "presentations/on-writing-well.html#before-doing-a-meta-analysis",
+    "title": "On Writing Well",
+    "section": "Before doing a meta-analysis",
+    "text": "Before doing a meta-analysis\n\n\nDo your systematic review well:\n\nDefine the review aims & scope (PICO)\nEnsure your search strategy, screening, etc. is effective\nIdentify & summarise study characteristics\nDecide whether studies are ‘similar enough’ to be grouped & synthesized"
+  },
+  {
+    "objectID": "presentations/on-writing-well.html#general-approach-to-meta-analysis",
+    "href": "presentations/on-writing-well.html#general-approach-to-meta-analysis",
+    "title": "On Writing Well",
+    "section": "General approach to meta-analysis",
+    "text": "General approach to meta-analysis\n\n\nExtract (or calculate) a summary statistic for each study\nCalculate (weighted) average effect across all studies\nCalculate the standard error of the summary effect (to derive confidence intervals and/or p-values)\nEstimate heterogeneity between studies\nSummarise findings graphically (usually with a forest plot)"
+  },
+  {
+    "objectID": "presentations/on-writing-well.html#extractcalculate-statistics-for-each-study",
+    "href": "presentations/on-writing-well.html#extractcalculate-statistics-for-each-study",
+    "title": "On Writing Well",
+    "section": "1. Extract/calculate statistics for each study",
+    "text": "1. Extract/calculate statistics for each study\n\n\nFor dichotomous outcomes:\n\nOdds ratio\nRisk ratio\nRisk difference\n\nFor continuous outcomes:\n\nMean difference\n\n(post-intervention, change from baseline, adjusted post-intervention)\n\nStandardised mean difference"
+  },
+  {
+    "objectID": "presentations/on-writing-well.html#extractcalculate-statistics-for-each-study-1",
+    "href": "presentations/on-writing-well.html#extractcalculate-statistics-for-each-study-1",
+    "title": "On Writing Well",
+    "section": "1. Extract/calculate statistics for each study",
+    "text": "1. Extract/calculate statistics for each study\n\n\nFor ordinal outcomes:\n\nUsually either treated as dichotomous or continuous\nAlso possible to estimate a proportional odds ratio\n\nFor count outcomes:\n\nAgain, usually treated as dichotomous or continuous\nRate ratio or rate difference\n\nFor time-to-event outcomes:\n\nHazard ratio"
+  },
+  {
+    "objectID": "presentations/on-writing-well.html#calculate-weighted-effect",
+    "href": "presentations/on-writing-well.html#calculate-weighted-effect",
+    "title": "On Writing Well",
+    "section": "2. Calculate weighted effect",
+    "text": "2. Calculate weighted effect\n\nGenerally, meta-analyses use an inverse-variance weighted method\n\n\\[\\text{Weighted average} = \\frac{\\sum{Y_i W_i}}{\\sum{W_i}}\\]\n   where \\(W_i = (1 / SE_i)^2\\)\n\nFor ratio measures, both the effects and standard errors are on the log scale\n\nThese can be transformed back to the original scale for reporting\n\nThere are slight variants to this general approach for some methods (particularly for dichotomous outcomes)"
+  },
+  {
+    "objectID": "presentations/on-writing-well.html#calculate-standard-errors",
+    "href": "presentations/on-writing-well.html#calculate-standard-errors",
+    "title": "On Writing Well",
+    "section": "3. Calculate standard errors",
+    "text": "3. Calculate standard errors\n\n\nIn the general inverse-variance method, the standard error of the weighted summary statistic is\n\n\\[\\text{Standard error} = \\frac{1}{\\sqrt{\\sum{W_i}}}\\]\n\nAgain, different formulae for some specific methods"
+  },
+  {
+    "objectID": "presentations/on-writing-well.html#estimate-heterogeneity",
+    "href": "presentations/on-writing-well.html#estimate-heterogeneity",
+    "title": "On Writing Well",
+    "section": "4. Estimate heterogeneity",
+    "text": "4. Estimate heterogeneity\n\nHeterogeneity is measured by\n\n\\(Q = \\sum{W_i (Y_i - \\overline{Y})^2}\\)\n\nand\n\n\\(I^2 = \\text{max}\\left\\{\\frac{Q - (k - 1)}{Q}, 0\\right\\}\\)\n\nQ is a test statistic following a chi-squared distribution, and I2 is interpreted as the proportion of total variance in study estimates due to heterogeneity rather than sampling error\n\nNOTE: I2 can be very uncertain (imprecise) when the number of studies is small"
+  },
+  {
+    "objectID": "presentations/on-writing-well.html#summarise-findings-graphically",
+    "href": "presentations/on-writing-well.html#summarise-findings-graphically",
+    "title": "On Writing Well",
+    "section": "5. Summarise findings graphically",
+    "text": "5. Summarise findings graphically\n\n\n\nMeta-analyses are usually illustrated using a forest plot\nA forest plot displays effect estimates for both individual studies and the overall meta-analysis result\nEach study is represented by a square (usually) at the point estimate, and horizontal lines extending to bounds of the confidence interval\n\nThe size of the block indicates the weight assigned to that study in the meta-analysis (roughly proportional to sample size)\n\nThe summary result is presented as a diamond at the bottom, centred on the meta-analysis point estimate and with width showing the confidence interval"
+  },
+  {
+    "objectID": "presentations/on-writing-well.html#assessing-small-study-bias-and-publication-bias",
+    "href": "presentations/on-writing-well.html#assessing-small-study-bias-and-publication-bias",
+    "title": "On Writing Well",
+    "section": "Assessing small-study bias and publication bias",
+    "text": "Assessing small-study bias and publication bias\n\n\n\nSmall sample bias: small studies may show larger intervention effects than larger studies\n\nNon-reporting/non-publication bias\nPoor methodological quality\nMechanistic vs. pragmatic designs\n\nA ‘funnel plot’ can help detect this"
+  },
+  {
+    "objectID": "presentations/on-writing-well.html#software",
+    "href": "presentations/on-writing-well.html#software",
+    "title": "On Writing Well",
+    "section": "Software",
+    "text": "Software\n\nCochrane RevMan\n\nManages all stages of the systematic review process, from design to data extraction, analysis, and visualiation\nFree for those doing Cochrane reviews, subscription for everyone else\n\nR: there are several packages for meta-analysis\n\nSee the Meta-Analysis Task View:\nhttps://cran.r-project.org/view=MetaAnalysis\nmetafor is a comprehensive package with functions for converting published results to common summary statistics, fitting inverse-variance weighted and related models, forest and funnel plots, heterogeneity measures, and diagnostic statistics (among others)"
+  },
+  {
+    "objectID": "presentations/on-writing-well.html#references-1",
+    "href": "presentations/on-writing-well.html#references-1",
+    "title": "On Writing Well",
+    "section": "References",
+    "text": "References\n\nCochrane Handbook for Systematic Reviews of Interventions\nhttps://training.cochrane.org/handbook/current\n\nDetails of the statistical methods: https://documentation.cochrane.org/revman-kb/files/210600101/210600103/1/1654774257333/Statistical_methods_in_revman.pdf\n\nEgger M, Smith GD, Altman DG. Systematic Reviews in Health Care: Meta-Analysis in Context, 2nd Ed. London, UK: BMJ Publishing Group. 2001.\nhttps://doi.org/10.1002/9780470693926\nJin Z-C, Zhou X-H, He J. Statistical methods for dealing with publication bias in meta-analysis. Statistics in Medicine 2015;34(2):343-360\nhttps://doi.org/10.1002/sim.6342\nmetafor R package https://wviechtb.github.io/metafor/\n\n\n\n\nReturn to CMOR Lunch’n’Learn presentations"
+  },
+  {
+    "objectID": "presentations/on-writing-well.html#section",
+    "href": "presentations/on-writing-well.html#section",
+    "title": "On Writing Well",
+    "section": "",
+    "text": "EDIT\nEDIT\nEDIT"
+  },
+  {
+    "objectID": "presentations/on-writing-well.html#omit-needless-words",
+    "href": "presentations/on-writing-well.html#omit-needless-words",
+    "title": "On Writing Well",
+    "section": "Omit Needless Words",
+    "text": "Omit Needless Words\n\nMuch of the rest of this section\nwill be variations on this theme"
+  },
+  {
+    "objectID": "presentations/on-writing-well.html#simplify",
+    "href": "presentations/on-writing-well.html#simplify",
+    "title": "On Writing Well",
+    "section": "Simplify",
+    "text": "Simplify\nA sentence should contain no unnecessary words,\na paragraph no unnecessary sentences,\na section (or chapter) no unnecessary paragraphs\n\n\n\nThat doesn’t mean make every sentence as short as possible:\n\n\n\nMacbeth was very ambitious. This led him to wish to become king of Scotland. The witches told him that this wish of his would come true. The king of Scotland at this time was Duncan. Encouraged by his wife, Macbeth murdered Duncan. He was thus enabled to succeed Duncan as king.\n\nEncouraged by his wife, Macbeth achieved his ambition and realized the prediction of the witches by murdering Duncan and becoming king of Scotland in his place.\n\n\n\n(51 words, 6 sentences, no sentence more than 12 words)\n\n(26 words, 1 sentence)"
+  },
+  {
+    "objectID": "presentations/on-writing-well.html#simplify-1",
+    "href": "presentations/on-writing-well.html#simplify-1",
+    "title": "On Writing Well",
+    "section": "Simplify",
+    "text": "Simplify\n\nIf an adjective carries the same meaning as its noun, or an adverb as its verb, remove it\nIf a shorter or simpler word could do the same job, use it\nDon’t use five words when one will suffice:\n\n\n\n\n\ndue to the fact that\nfor the purpose of\nthe question as to whether\n\nbecause\nfor\nwhether"
+  },
+  {
+    "objectID": "presentations/on-writing-well.html#next-slide",
+    "href": "presentations/on-writing-well.html#next-slide",
+    "title": "On Writing Well",
+    "section": "Next slide",
+    "text": "Next slide\n\n\n\nReturn to CMOR Lunch’n’Learn presentations"
+  },
+  {
+    "objectID": "presentations/on-writing-well.html#edit-edit-edit",
+    "href": "presentations/on-writing-well.html#edit-edit-edit",
+    "title": "On Writing Well",
+    "section": "EDIT, EDIT, EDIT",
+    "text": "EDIT, EDIT, EDIT\nScreenshot from On Writing Well pp.10–11, or from my own revising"
+  },
+  {
+    "objectID": "presentations/on-writing-well.html#clear-writing-requires-clear-thinking",
+    "href": "presentations/on-writing-well.html#clear-writing-requires-clear-thinking",
+    "title": "On Writing Well",
+    "section": "Clear writing requires clear thinking",
+    "text": "Clear writing requires clear thinking\n\nWhat am I trying to say?\n\nThen: have I said it?\n\nWhat is the point you are trying to make?\n\nIdentifying this will shape structure, narrative flow, style, etc."
+  },
+  {
+    "objectID": "presentations/on-writing-well.html#edit-edit-edit-1",
+    "href": "presentations/on-writing-well.html#edit-edit-edit-1",
+    "title": "On Writing Well",
+    "section": "EDIT, EDIT, EDIT",
+    "text": "EDIT, EDIT, EDIT\n\nRewriting is the essence of writing well\nYour first draft is probably not very good\nRead it out loud (or at least out loud inside your head)\n\nDoes it sound right?\n\nAlways ask yourself:\n\nWhere have I lost the reader?\nWhere can I remove clutter?\nDoes each sentence follow logically from the last?\n\n\n\n\n\nReturn to CMOR Lunch’n’Learn presentations"
+  },
+  {
+    "objectID": "presentations/on-writing-well.html#simplify-2",
+    "href": "presentations/on-writing-well.html#simplify-2",
+    "title": "On Writing Well",
+    "section": "Simplify",
+    "text": "Simplify\n\nIf an adjective carries the same meaning as its noun, or an adverb as its verb, remove it\nIf a shorter or simpler word could do the same job, use it\nDon’t use five words when one will suffice:\n\n\n\n\n\ndue to the fact that\nfor the purpose of\nthe question as to whether\n\nbecause\nfor\nwhether"
   }
 ]

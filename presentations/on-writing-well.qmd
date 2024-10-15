@@ -1,0 +1,145 @@
+---
+title: "On Writing Well"
+subtitle: "CMOR Lunch'n'Learn"
+author: "Ross Wilson"
+date: "2024-10-24"
+date-format: "D MMMM YYYY"
+format:
+  revealjs:
+    theme: [default, cmor.scss]
+    title-slide-attributes: 
+      data-background-image: "images/otago-pennant.png, images/cmor-banner.png, images/title-background.png"
+      data-background-size: "7%, 25%, 100%"
+      data-background-position: "3% 1%, bottom 1% left 50px,0 0"
+      data-background-repeat: "no-repeat"
+    template-partials:
+      - styles.html
+      - title-slide.html
+    margin: 0.2
+    footer: "[Return to CMOR Lunch'n'Learn presentations](../index.html)"
+---
+
+## References
+
+***Picture of the reference books I have used in putting this together***
+
+## Clear writing requires clear thinking
+
+* What am I trying to say?
+
+  * Then: have I said it?
+
+* What is the point you are trying to make?
+
+  * Identifying this will shape structure, narrative flow, style, etc.
+
+# Process
+
+---
+
+:::{style="text-align: center; font-weight: semibold; font-size: 5em;"}
+OMIT
+
+NEEDLESS
+
+WORDS
+:::
+
+## Simplify
+
+A sentence should contain no unnecessary words,
+
+a paragraph no unnecessary sentences,
+
+a section (or chapter) no unnecessary paragraphs
+
+. . .
+
+::::: {style="font-size: 0.7em;"}
+
+* That doesn't mean make every sentence as short as possible:
+
+:::: {.columns}
+
+::: {.column}
+Macbeth was very ambitious. This led him to wish to become king of Scotland. The witches told him that this wish of his would come true. The king of Scotland at this time was Duncan. Encouraged by his wife, Macbeth murdered Duncan. He was thus enabled to succeed Duncan as king.
+:::
+
+::: {.column}
+Encouraged by his wife, Macbeth achieved his ambition and realized the prediction of the witches by murdering Duncan and becoming king of Scotland in his place.
+:::
+
+::::
+
+:::: {.columns}
+
+::: {.column}
+(51 words, 6 sentences, no sentence more than 12 words)
+:::
+
+::: {.column}
+(26 words, 1 sentence)
+:::
+
+::::
+
+:::::
+
+## Simplify
+
+* If an adjective carries the same meaning as its noun, or an adverb as its verb, remove it
+
+* If a shorter or simpler word could do the same job, use it
+
+* Don't use five words when one will suffice:
+
+:::: {.columns style="font-size:0.7em;"}
+::: {.column width="15%"}
+:::
+::: {.column width="40%"}
+due to the fact that
+
+for the purpose of
+
+the question as to whether
+:::
+::: {.column width="45%"}
+because
+
+for
+
+whether
+:::
+::::
+
+## EDIT, EDIT, EDIT
+
+***Screenshot from On Writing Well pp.10--11, or from my own revising***
+
+## EDIT, EDIT, EDIT
+
+* Rewriting is the essence of writing well
+
+* Your first draft is probably not very good
+
+* Read it out loud (or at least out loud inside your head)
+
+  * Does it sound right?
+
+* Always ask yourself:
+
+  * Where have I lost the reader?
+  
+  * Where can I remove clutter?
+  
+  * Does each sentence follow logically from the last?
+
+# Style
+
+## Assorted style tips
+
+# Usage
+
+## More detailed usage guide
+
+* Without being *too* prescriptive...
